@@ -63,10 +63,10 @@ public class EntandoAppPluginLinkController extends AbstractDbAwareController&lt
     private EntandoLinkedPluginIngressing prepareEntandoPluginIngressing(EntandoAppPluginLink newEntandoAppPluginLink) {
 <span class="fc" id="L64">        EntandoAppPluginLinkSpec spec = newEntandoAppPluginLink.getSpec();</span>
 <span class="fc" id="L65">        EntandoApp entandoApp = k8sClient.entandoResources()</span>
-<span class="fc" id="L66">                .loadEntandoApp(spec.getEntandoAppNamespace().orElse(newEntandoAppPluginLink.getMetadata().getNamespace()),</span>
+<span class="fc" id="L66">                .load(EntandoApp.class, spec.getEntandoAppNamespace().orElse(newEntandoAppPluginLink.getMetadata().getNamespace()),</span>
 <span class="fc" id="L67">                        spec.getEntandoAppName());</span>
 <span class="fc" id="L68">        EntandoPlugin entandoPlugin = k8sClient.entandoResources()</span>
-<span class="fc" id="L69">                .loadEntandoPlugin(spec.getEntandoPluginNamespace().orElse(newEntandoAppPluginLink.getMetadata().getNamespace()),</span>
+<span class="fc" id="L69">                .load(EntandoPlugin.class, spec.getEntandoPluginNamespace().orElse(newEntandoAppPluginLink.getMetadata().getNamespace()),</span>
 <span class="fc" id="L70">                        spec.getEntandoPluginName());</span>
 <span class="fc" id="L71">        k8sClient.pods().waitForPod(entandoPlugin.getMetadata().getNamespace(), KubeUtils.DEPLOYMENT_LABEL_NAME,</span>
 <span class="fc" id="L72">                entandoPlugin.getMetadata().getName() + &quot;-&quot; + NameUtils.DEFAULT_SERVER_QUALIFIER);</span>
