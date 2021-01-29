@@ -1,0 +1,15 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-xstv6-24[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-9gzvk[0m
+Unable to retrieve container logs for docker://550101952e6c258f9365c84f6cca64936b8f57e906825064c84b290183b96327
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-xstv6-24[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-kcdcn[0m
+Unable to retrieve container logs for docker://4b478eb55946597cf156f0136c4c75406487df3c5bfe376213d9c29b6bb79941
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-xstv6-24[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-xstv6-24[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-keycloa-p4kd7[0m
+{"level":"warn","ts":1611954396.089131,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"error","ts":1611954396.1105952,"logger":"fallback-logger","caller":"git/git.go:40","msg":"Error running git [remote add origin https://github.com/entando-k8s/entando-k8s-keycloak-controller.git]: exit status 128\nfatal: remote origin already exists.\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:40\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:88\nmain.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:39\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libe**c/src/runtime/proc.go:200"}
+{"level":"fatal","ts":1611954396.1107721,"logger":"fallback-logger","caller":"git-init/main.go:40","msg":"Error fetching git repository: exit status 128","stacktrace":"main.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:40\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libe**c/src/runtime/proc.go:200"}
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-git-source-entando-k8s-entando-k8s-keycloa-p4kd7'. The execution of the pipeline has stopped.[0m
