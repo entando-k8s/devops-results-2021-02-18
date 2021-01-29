@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoOperatorMatcher,10,191,1,19,1,32,1,22,0,13
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoControllerCoordinator,17,157,2,4,3,38,2,8,0,7
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoResourceObserver,90,276,11,27,13,57,13,24,5,13
