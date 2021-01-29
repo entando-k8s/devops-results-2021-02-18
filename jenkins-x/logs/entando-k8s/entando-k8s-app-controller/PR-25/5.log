@@ -1,0 +1,17 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-app-con-hxhfp-5[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-vc68g[0m
+{"level":"warn","ts":1611951286.210785,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611951286.2119143,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-app-con-hxhfp-5[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-9sdxs[0m
+{"level":"warn","ts":1611951301.6743283,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1611951301.7012167,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-app-con-hxhfp-5[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-app-con-hxhfp-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-app-con-rqxjz[0m
+{"level":"warn","ts":1611951333.5725763,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"error","ts":1611951333.7118568,"logger":"fallback-logger","caller":"git/git.go:40","msg":"Error running git [remote add origin https://github.com/entando-k8s/entando-k8s-app-controller.git]: exit status 128\nfatal: remote origin already exists.\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:40\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:88\nmain.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:39\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libe**c/src/runtime/proc.go:200"}
+{"level":"fatal","ts":1611951333.7123442,"logger":"fallback-logger","caller":"git-init/main.go:40","msg":"Error fetching git repository: exit status 128","stacktrace":"main.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:40\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libe**c/src/runtime/proc.go:200"}
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-git-source-entando-k8s-entando-k8s-app-con-rqxjz'. The execution of the pipeline has stopped.[0m
