@@ -34,13 +34,15 @@ import org.entando.kubernetes.controller.spi.container.PersistentVolumeAware;
 import org.entando.kubernetes.controller.spi.container.SpringBootDeployableContainer;
 import org.entando.kubernetes.controller.spi.result.DatabaseServiceResult;
 import org.entando.kubernetes.controller.support.common.KubeUtils;
-import org.entando.kubernetes.model.EntandoIngressingDeploymentSpec;
+import org.entando.kubernetes.controller.support.spibase.KeycloakAwareContainerBase;
+import org.entando.kubernetes.model.DbmsVendor;
+import org.entando.kubernetes.model.EntandoResourceRequirements;
 import org.entando.kubernetes.model.KeycloakAwareSpec;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.PluginSecurityLevel;
 
 public class EntandoPluginDeployableContainer implements PersistentVolumeAware, SpringBootDeployableContainer, ParameterizableContainer,
-        ConfigurableResourceContainer {
+        ConfigurableResourceContainer, KeycloakAwareContainerBase {
 
     public static final String PLUGINDB = &quot;plugindb&quot;;
     private final EntandoPlugin entandoPlugin;
@@ -48,107 +50,117 @@ public class EntandoPluginDeployableContainer implements PersistentVolumeAware, 
     private final List&lt;DatabaseSchemaConnectionInfo&gt; databaseSchemaConnectionInfo;
 
     public EntandoPluginDeployableContainer(EntandoPlugin entandoPlugin, KeycloakConnectionConfig keycloakConnectionConfig,
-<span class="fc" id="L51">            DatabaseServiceResult databaseServiceResult) {</span>
-<span class="fc" id="L52">        this.entandoPlugin = entandoPlugin;</span>
-<span class="fc" id="L53">        this.keycloakConnectionConfig = keycloakConnectionConfig;</span>
-<span class="fc" id="L54">        this.databaseSchemaConnectionInfo = Optional.ofNullable(databaseServiceResult)</span>
-<span class="fc" id="L55">                .map(databaseServiceResult1 -&gt; DbAware</span>
-<span class="fc" id="L56">                        .buildDatabaseSchemaConnectionInfo(entandoPlugin, databaseServiceResult, Collections.singletonList(PLUGINDB)))</span>
-<span class="fc" id="L57">                .orElse(Collections.emptyList());</span>
+<span class="fc" id="L53">            DatabaseServiceResult databaseServiceResult) {</span>
+<span class="fc" id="L54">        this.entandoPlugin = entandoPlugin;</span>
+<span class="fc" id="L55">        this.keycloakConnectionConfig = keycloakConnectionConfig;</span>
+<span class="fc" id="L56">        this.databaseSchemaConnectionInfo = Optional.ofNullable(databaseServiceResult)</span>
+<span class="fc" id="L57">                .map(databaseServiceResult1 -&gt; DbAware</span>
+<span class="fc" id="L58">                        .buildDatabaseSchemaConnectionInfo(entandoPlugin, databaseServiceResult, Collections.singletonList(PLUGINDB)))</span>
+<span class="fc" id="L59">                .orElse(Collections.emptyList());</span>
 
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L61">    }</span>
 
     @Override
     public Optional&lt;DatabaseSchemaConnectionInfo&gt; getDatabaseSchema() {
-<span class="fc" id="L63">        return databaseSchemaConnectionInfo.stream().findFirst();</span>
+<span class="fc" id="L65">        return databaseSchemaConnectionInfo.stream().findFirst();</span>
     }
 
     @Override
     public int getCpuLimitMillicores() {
-<span class="fc" id="L68">        return 1000;</span>
+<span class="fc" id="L70">        return 1000;</span>
     }
 
     @Override
     public int getMemoryLimitMebibytes() {
-<span class="fc" id="L73">        return 1024;</span>
+<span class="fc" id="L75">        return 1024;</span>
+    }
+
+    @Override
+    public Optional&lt;DbmsVendor&gt; getDbms() {
+<span class="fc" id="L80">        return Optional.empty();</span>
     }
 
     @Override
     public List&lt;String&gt; getNamesOfSecretsToMount() {
-<span class="fc" id="L78">        return entandoPlugin.getSpec().getConnectionConfigNames();</span>
+<span class="fc" id="L85">        return entandoPlugin.getSpec().getConnectionConfigNames();</span>
     }
 
     @Override
     public DockerImageInfo getDockerImageInfo() {
-<span class="fc" id="L83">        return new DockerImageInfo(entandoPlugin.getSpec().getImage());</span>
+<span class="fc" id="L90">        return new DockerImageInfo(entandoPlugin.getSpec().getImage());</span>
     }
 
     @Override
     public String getNameQualifier() {
-<span class="fc" id="L88">        return NameUtils.DEFAULT_SERVER_QUALIFIER;</span>
+<span class="fc" id="L95">        return NameUtils.DEFAULT_SERVER_QUALIFIER;</span>
     }
 
     @Override
     public int getPrimaryPort() {
-<span class="fc" id="L93">        return 8081;</span>
+<span class="fc" id="L100">        return 8081;</span>
     }
 
     @Override
     public String getVolumeMountPath() {
-<span class="fc" id="L98">        return &quot;/entando-data&quot;;</span>
+<span class="fc" id="L105">        return &quot;/entando-data&quot;;</span>
     }
 
     @Override
     public List&lt;EnvVar&gt; getEnvironmentVariables() {
-<span class="fc" id="L103">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L104">        vars.add(new EnvVar(&quot;PORT&quot;, &quot;8081&quot;, null));</span>
-<span class="fc" id="L105">        vars.add(new EnvVar(&quot;SPRING_PROFILES_ACTIVE&quot;, &quot;default,prod&quot;, null));</span>
-<span class="fc" id="L106">        vars.add(new EnvVar(&quot;ENTANDO_WIDGETS_FOLDER&quot;, &quot;/app/resources/widgets&quot;, null));</span>
-<span class="fc" id="L107">        vars.add(new EnvVar(&quot;ENTANDO_CONNECTIONS_ROOT&quot;, DeployableContainer.ENTANDO_SECRET_MOUNTS_ROOT, null));</span>
-<span class="fc" id="L108">        vars.add(new EnvVar(&quot;ENTANDO_PLUGIN_SECURITY_LEVEL&quot;,</span>
-<span class="fc" id="L109">                entandoPlugin.getSpec().getSecurityLevel().orElse(PluginSecurityLevel.STRICT).name(), null));</span>
-<span class="fc" id="L110">        vars.add(new EnvVar(&quot;PLUGIN_SIDECAR_PORT&quot;, &quot;8084&quot;, null));</span>
-<span class="fc" id="L111">        return vars;</span>
+<span class="fc" id="L110">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L111">        vars.add(new EnvVar(&quot;PORT&quot;, &quot;8081&quot;, null));</span>
+<span class="fc" id="L112">        vars.add(new EnvVar(&quot;SPRING_PROFILES_ACTIVE&quot;, &quot;default,prod&quot;, null));</span>
+<span class="fc" id="L113">        vars.add(new EnvVar(&quot;ENTANDO_WIDGETS_FOLDER&quot;, &quot;/app/resources/widgets&quot;, null));</span>
+<span class="fc" id="L114">        vars.add(new EnvVar(&quot;ENTANDO_CONNECTIONS_ROOT&quot;, DeployableContainer.ENTANDO_SECRET_MOUNTS_ROOT, null));</span>
+<span class="fc" id="L115">        vars.add(new EnvVar(&quot;ENTANDO_PLUGIN_SECURITY_LEVEL&quot;,</span>
+<span class="fc" id="L116">                entandoPlugin.getSpec().getSecurityLevel().orElse(PluginSecurityLevel.STRICT).name(), null));</span>
+<span class="fc" id="L117">        vars.add(new EnvVar(&quot;PLUGIN_SIDECAR_PORT&quot;, &quot;8084&quot;, null));</span>
+<span class="fc" id="L118">        return vars;</span>
     }
 
     public KeycloakConnectionConfig getKeycloakConnectionConfig() {
-<span class="fc" id="L115">        return keycloakConnectionConfig;</span>
+<span class="fc" id="L122">        return keycloakConnectionConfig;</span>
     }
 
     @Override
     public KeycloakClientConfig getKeycloakClientConfig() {
-<span class="fc" id="L120">        return new KeycloakClientConfig(determineRealm(),</span>
-<span class="fc" id="L121">                entandoPlugin.getMetadata().getName() + &quot;-&quot; + getNameQualifier(),</span>
-<span class="fc" id="L122">                entandoPlugin.getMetadata().getName(), entandoPlugin.getSpec().getRoles(),</span>
-<span class="fc" id="L123">                entandoPlugin.getSpec().getPermissions())</span>
-<span class="fc" id="L124">                .withRole(KubeUtils.ENTANDO_APP_ROLE)</span>
-<span class="fc" id="L125">                .withPermission(EntandoPluginSidecarDeployableContainer.keycloakClientIdOf(entandoPlugin),</span>
+<span class="fc" id="L127">        return new KeycloakClientConfig(getKeycloakRealmToUse(),</span>
+<span class="fc" id="L128">                entandoPlugin.getMetadata().getName() + &quot;-&quot; + getNameQualifier(),</span>
+<span class="fc" id="L129">                entandoPlugin.getMetadata().getName(), entandoPlugin.getSpec().getRoles(),</span>
+<span class="fc" id="L130">                entandoPlugin.getSpec().getPermissions())</span>
+<span class="fc" id="L131">                .withRole(KubeUtils.ENTANDO_APP_ROLE)</span>
+<span class="fc" id="L132">                .withPermission(EntandoPluginSidecarDeployableContainer.keycloakClientIdOf(entandoPlugin),</span>
                         EntandoPluginSidecarDeployableContainer.REQUIRED_ROLE);
     }
 
     @Override
-    public KeycloakAwareSpec getKeycloakAwareSpec() {
-<span class="fc" id="L131">        return entandoPlugin.getSpec();</span>
-    }
-
-    @Override
     public Optional&lt;String&gt; getHealthCheckPath() {
-<span class="fc" id="L136">        return Optional.of(getWebContextPath() + entandoPlugin.getSpec().getHealthCheckPath());</span>
+<span class="fc" id="L138">        return Optional.of(getWebContextPath() + entandoPlugin.getSpec().getHealthCheckPath());</span>
     }
 
     @Override
     public String getWebContextPath() {
-<span class="fc" id="L141">        return entandoPlugin.getSpec().getIngressPath();</span>
-    }
-
-    @Override
-    public EntandoIngressingDeploymentSpec getCustomResourceSpec() {
-<span class="fc" id="L146">        return getKeycloakAwareSpec();</span>
+<span class="fc" id="L143">        return entandoPlugin.getSpec().getIngressPath();</span>
     }
 
     @Override
     public List&lt;DatabaseSchemaConnectionInfo&gt; getSchemaConnectionInfo() {
-<span class="fc" id="L151">        return this.databaseSchemaConnectionInfo;</span>
+<span class="fc" id="L148">        return this.databaseSchemaConnectionInfo;</span>
+    }
+
+    @Override
+    public Optional&lt;EntandoResourceRequirements&gt; getResourceRequirementsOverride() {
+<span class="fc" id="L153">        return getKeycloakAwareSpec().getResourceRequirements();</span>
+    }
+
+    @Override
+    public List&lt;EnvVar&gt; getEnvironmentVariableOverrides() {
+<span class="fc" id="L158">        return getKeycloakAwareSpec().getEnvironmentVariables();</span>
+    }
+
+    @Override
+    public KeycloakAwareSpec getKeycloakAwareSpec() {
+<span class="fc" id="L163">        return entandoPlugin.getSpec();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
