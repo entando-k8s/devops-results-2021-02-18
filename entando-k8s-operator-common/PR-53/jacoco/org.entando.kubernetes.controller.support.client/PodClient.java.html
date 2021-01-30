@@ -25,7 +25,7 @@ import io.fabric8.kubernetes.client.dsl.PodResource;
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.BlockingQueue;
 import org.entando.kubernetes.client.EntandoExecListener;
 
 public interface PodClient extends PodWaitingClient {
@@ -62,32 +62,34 @@ public interface PodClient extends PodWaitingClient {
 <span class="fc" id="L62">            Object mutex = new Object();</span>
 <span class="fc" id="L63">            synchronized (mutex) {</span>
 <span class="fc" id="L64">                EntandoExecListener listener = new EntandoExecListener(mutex, timeoutSeconds);</span>
-<span class="fc" id="L65">                getExecListenerHolder().set(listener);</span>
-<span class="fc" id="L66">                ExecWatch exec = podResource.inContainer(containerName)</span>
-<span class="fc" id="L67">                        .readingInput(in)</span>
-<span class="fc" id="L68">                        .writingOutput(System.out)</span>
-<span class="fc" id="L69">                        .writingError(System.err)</span>
-<span class="fc" id="L70">                        .withTTY()</span>
-<span class="fc" id="L71">                        .usingListener(listener)</span>
-<span class="fc" id="L72">                        .exec();</span>
-<span class="fc bfc" id="L73" title="All 2 branches covered.">                while (listener.shouldStillWait()) {</span>
-<span class="fc" id="L74">                    mutex.wait(1000);</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">                if (ENQUEUE_POD_WATCH_HOLDERS.get()) {</span>
+<span class="nc" id="L66">                    getExecListenerHolder().add(listener);//because it should never be full during tests. fail early.</span>
                 }
-<span class="pc bpc" id="L76" title="1 of 2 branches missed.">                if (listener.hasFailed()) {</span>
-<span class="nc" id="L77">                    throw new IllegalStateException(format(&quot;Command did not meet the wait condition within 20 seconds: %s&quot;, sb.toString()));</span>
+<span class="fc" id="L68">                ExecWatch exec = podResource.inContainer(containerName)</span>
+<span class="fc" id="L69">                        .readingInput(in)</span>
+<span class="fc" id="L70">                        .writingOutput(System.out)</span>
+<span class="fc" id="L71">                        .writingError(System.err)</span>
+<span class="fc" id="L72">                        .withTTY()</span>
+<span class="fc" id="L73">                        .usingListener(listener)</span>
+<span class="fc" id="L74">                        .exec();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">                while (listener.shouldStillWait()) {</span>
+<span class="fc" id="L76">                    mutex.wait(1000);</span>
                 }
-<span class="fc" id="L79">                return exec;</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">                if (listener.hasFailed()) {</span>
+<span class="nc" id="L79">                    throw new IllegalStateException(format(&quot;Command did not meet the wait condition within 20 seconds: %s&quot;, sb.toString()));</span>
+                }
+<span class="fc" id="L81">                return exec;</span>
             }
-<span class="nc" id="L81">        } catch (InterruptedException e) {</span>
-<span class="nc" id="L82">            Thread.currentThread().interrupt();</span>
-<span class="nc" id="L83">            throw new IllegalStateException(e);</span>
+<span class="nc" id="L83">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L84">            Thread.currentThread().interrupt();</span>
+<span class="nc" id="L85">            throw new IllegalStateException(e);</span>
         }
     }
 
     /**
      * A getter for the an AtomicReference to the most recently constructed ExecListener for testing purposes.
      */
-    AtomicReference&lt;EntandoExecListener&gt; getExecListenerHolder();
+    BlockingQueue&lt;EntandoExecListener&gt; getExecListenerHolder();
 
     void removeAndWait(String namespace, Map&lt;String, String&gt; labels);
 }
