@@ -49,45 +49,44 @@ import org.entando.kubernetes.model.plugin.EntandoPlugin;
 public class EntandoControllerCoordinator {
 
     private final KubernetesClient client;
-<span class="fc" id="L52">    private final Map&lt;Class&lt;? extends EntandoBaseCustomResource&lt;?&gt;&gt;, List&lt;?&gt;&gt; observers =</span>
-            new ConcurrentHashMap&lt;&gt;();
+<span class="fc" id="L52">    private final Map&lt;Class&lt;? extends EntandoBaseCustomResource&lt;?&gt;&gt;, List&lt;?&gt;&gt; observers = new ConcurrentHashMap&lt;&gt;();</span>
     private final EntandoResourceOperationsRegistry entandoResourceOperationsRegistry;
 
     @Inject
-<span class="fc" id="L57">    public EntandoControllerCoordinator(KubernetesClient client) {</span>
-<span class="fc" id="L58">        this.entandoResourceOperationsRegistry = new EntandoResourceOperationsRegistry(client);</span>
-<span class="fc" id="L59">        this.client = client;</span>
-<span class="fc" id="L60">    }</span>
+<span class="fc" id="L56">    public EntandoControllerCoordinator(KubernetesClient client) {</span>
+<span class="fc" id="L57">        this.entandoResourceOperationsRegistry = new EntandoResourceOperationsRegistry(client);</span>
+<span class="fc" id="L58">        this.client = client;</span>
+<span class="fc" id="L59">    }</span>
 
     public void onStartup(@Observes StartupEvent event) {
         //TODO extract TLS and CA certs and write them to the standard secret names
 
-<span class="fc" id="L65">        addObservers(EntandoKeycloakServer.class, this::startImage);</span>
-<span class="fc" id="L66">        addObservers(EntandoClusterInfrastructure.class, this::startImage);</span>
-<span class="fc" id="L67">        addObservers(EntandoPlugin.class, this::startImage);</span>
-<span class="fc" id="L68">        addObservers(EntandoCompositeApp.class, this::startImage);</span>
-<span class="fc" id="L69">        addObservers(EntandoDatabaseService.class, this::startImage);</span>
-<span class="fc" id="L70">        addObservers(EntandoApp.class, this::startImage);</span>
-<span class="fc" id="L71">        addObservers(EntandoAppPluginLink.class, this::startImage);</span>
-<span class="fc" id="L72">        addObservers(EntandoDeBundle.class, (action, entandoDeBundle) -&gt; updateEntandoDeBundleStatus(entandoDeBundle));</span>
-<span class="fc" id="L73">        KubeUtils.ready(EntandoControllerCoordinator.class.getSimpleName());</span>
-<span class="fc" id="L74">    }</span>
+<span class="fc" id="L64">        addObservers(EntandoKeycloakServer.class, this::startImage);</span>
+<span class="fc" id="L65">        addObservers(EntandoClusterInfrastructure.class, this::startImage);</span>
+<span class="fc" id="L66">        addObservers(EntandoPlugin.class, this::startImage);</span>
+<span class="fc" id="L67">        addObservers(EntandoCompositeApp.class, this::startImage);</span>
+<span class="fc" id="L68">        addObservers(EntandoDatabaseService.class, this::startImage);</span>
+<span class="fc" id="L69">        addObservers(EntandoApp.class, this::startImage);</span>
+<span class="fc" id="L70">        addObservers(EntandoAppPluginLink.class, this::startImage);</span>
+<span class="fc" id="L71">        addObservers(EntandoDeBundle.class, (action, entandoDeBundle) -&gt; updateEntandoDeBundleStatus(entandoDeBundle));</span>
+<span class="fc" id="L72">        KubeUtils.ready(EntandoControllerCoordinator.class.getSimpleName());</span>
+<span class="fc" id="L73">    }</span>
 
     private void updateEntandoDeBundleStatus(EntandoDeBundle entandoDeBundle) {
-<span class="fc" id="L77">        entandoDeBundle.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.SUCCESSFUL, entandoDeBundle.getMetadata().getGeneration());</span>
-<span class="fc" id="L78">        EntandoDeBundleOperationFactory.produceAllEntandoDeBundles(client)</span>
-<span class="fc" id="L79">                .inNamespace(entandoDeBundle.getMetadata().getNamespace())</span>
-<span class="fc" id="L80">                .withName(entandoDeBundle.getMetadata().getName())</span>
-<span class="fc" id="L81">                .updateStatus(entandoDeBundle);</span>
+<span class="fc" id="L76">        entandoDeBundle.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.SUCCESSFUL, entandoDeBundle.getMetadata().getGeneration());</span>
+<span class="fc" id="L77">        EntandoDeBundleOperationFactory.produceAllEntandoDeBundles(client)</span>
+<span class="fc" id="L78">                .inNamespace(entandoDeBundle.getMetadata().getNamespace())</span>
+<span class="fc" id="L79">                .withName(entandoDeBundle.getMetadata().getName())</span>
+<span class="fc" id="L80">                .updateStatus(entandoDeBundle);</span>
 
-<span class="fc" id="L83">    }</span>
+<span class="fc" id="L82">    }</span>
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public &lt;S extends Serializable,
             R extends EntandoBaseCustomResource&lt;S&gt;,
             L extends CustomResourceList&lt;R&gt;,
             D extends DoneableEntandoCustomResource&lt;R, D&gt;&gt; List&lt;EntandoResourceObserver&lt;S, R, L, D&gt;&gt; getObserver(Class&lt;R&gt; clss) {
-<span class="fc" id="L90">        return (List&lt;EntandoResourceObserver&lt;S, R, L, D&gt;&gt;) observers.get(clss);</span>
+<span class="fc" id="L89">        return (List&lt;EntandoResourceObserver&lt;S, R, L, D&gt;&gt;) observers.get(clss);</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
@@ -95,31 +94,31 @@ public class EntandoControllerCoordinator {
             R extends EntandoBaseCustomResource&lt;S&gt;,
             L extends CustomResourceList&lt;R&gt;,
             D extends DoneableEntandoCustomResource&lt;R, D&gt;&gt; void addObservers(Class&lt;R&gt; type, BiConsumer&lt;Action, R&gt; consumer) {
-<span class="fc" id="L98">        CustomResourceOperationsImpl&lt;R, L, D&gt; operations = (CustomResourceOperationsImpl&lt;R, L, D&gt;) this.entandoResourceOperationsRegistry</span>
-<span class="fc" id="L99">                .getOperations(type);</span>
-<span class="fc" id="L100">        List&lt;EntandoResourceObserver&lt;S, R, L, D&gt;&gt; observersForType = new ArrayList&lt;&gt;();</span>
-<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (EntandoOperatorConfig.isClusterScopedDeployment()) {</span>
+<span class="fc" id="L97">        CustomResourceOperationsImpl&lt;R, L, D&gt; operations = (CustomResourceOperationsImpl&lt;R, L, D&gt;) this.entandoResourceOperationsRegistry</span>
+<span class="fc" id="L98">                .getOperations(type);</span>
+<span class="fc" id="L99">        List&lt;EntandoResourceObserver&lt;S, R, L, D&gt;&gt; observersForType = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if (EntandoOperatorConfig.isClusterScopedDeployment()) {</span>
             //This code is essentially impossible to test in a shared cluster
-<span class="nc" id="L103">            observersForType.add(new EntandoResourceObserver&lt;&gt;(</span>
-<span class="nc" id="L104">                    (CustomResourceOperationsImpl&lt;R, L, D&gt;) operations.inAnyNamespace(), consumer));</span>
+<span class="nc" id="L102">            observersForType.add(new EntandoResourceObserver&lt;&gt;(</span>
+<span class="nc" id="L103">                    (CustomResourceOperationsImpl&lt;R, L, D&gt;) operations.inAnyNamespace(), consumer));</span>
         } else {
-<span class="fc" id="L106">            List&lt;String&gt; namespaces = EntandoOperatorConfig.getNamespacesToObserve();</span>
-<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (namespaces.isEmpty()) {</span>
-<span class="nc" id="L108">                namespaces.add(client.getNamespace());</span>
+<span class="fc" id="L105">            List&lt;String&gt; namespaces = EntandoOperatorConfig.getNamespacesToObserve();</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">            if (namespaces.isEmpty()) {</span>
+<span class="nc" id="L107">                namespaces.add(client.getNamespace());</span>
             }
-<span class="fc bfc" id="L110" title="All 2 branches covered.">            for (String namespace : namespaces) {</span>
-<span class="fc" id="L111">                CustomResourceOperationsImpl&lt;R, L, D&gt; namespacedOperations = (CustomResourceOperationsImpl&lt;R, L, D&gt;) operations</span>
-<span class="fc" id="L112">                        .inNamespace(namespace);</span>
-<span class="fc" id="L113">                observersForType.add(new EntandoResourceObserver&lt;&gt;(namespacedOperations, consumer));</span>
-<span class="fc" id="L114">            }</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">            for (String namespace : namespaces) {</span>
+<span class="fc" id="L110">                CustomResourceOperationsImpl&lt;R, L, D&gt; namespacedOperations = (CustomResourceOperationsImpl&lt;R, L, D&gt;) operations</span>
+<span class="fc" id="L111">                        .inNamespace(namespace);</span>
+<span class="fc" id="L112">                observersForType.add(new EntandoResourceObserver&lt;&gt;(namespacedOperations, consumer));</span>
+<span class="fc" id="L113">            }</span>
         }
-<span class="fc" id="L116">        observers.put(type, observersForType);</span>
-<span class="fc" id="L117">    }</span>
+<span class="fc" id="L115">        observers.put(type, observersForType);</span>
+<span class="fc" id="L116">    }</span>
 
     private &lt;S extends Serializable, T extends EntandoBaseCustomResource&lt;S&gt;&gt; void startImage(Action action, T resource) {
-<span class="fc" id="L120">        ControllerExecutor executor = new ControllerExecutor(client.getNamespace(), client);</span>
-<span class="fc" id="L121">        executor.startControllerFor(action, resource, null);</span>
-<span class="fc" id="L122">    }</span>
+<span class="fc" id="L119">        ControllerExecutor executor = new ControllerExecutor(client.getNamespace(), client);</span>
+<span class="fc" id="L120">        executor.startControllerFor(action, resource, null);</span>
+<span class="fc" id="L121">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
