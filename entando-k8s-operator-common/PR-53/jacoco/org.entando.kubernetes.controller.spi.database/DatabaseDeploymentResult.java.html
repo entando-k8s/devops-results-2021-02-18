@@ -48,12 +48,12 @@ public class DatabaseDeploymentResult extends AbstractServiceResult implements D
 
     @Override
     public Optional&lt;String&gt; getTablespace() {
-<span class="fc" id="L51">        return Optional.empty();</span>
+<span class="nc" id="L51">        return Optional.empty();</span>
     }
 
     @Override
     public Map&lt;String, String&gt; getJdbcParameters() {
-<span class="fc" id="L56">        return Collections.emptyMap();</span>
+<span class="nc" id="L56">        return Collections.emptyMap();</span>
     }
 
     @Override
@@ -68,11 +68,11 @@ public class DatabaseDeploymentResult extends AbstractServiceResult implements D
 
     @Override
     public DbmsDockerVendorStrategy getVendor() {
-<span class="fc" id="L71">        return vendor;</span>
+<span class="nc" id="L71">        return vendor;</span>
     }
 
     public boolean hasFailed() {
-<span class="fc" id="L75">        return Optional.ofNullable(pod).map(existingPod -&gt; PodResult.of(existingPod).hasFailed()).orElse(false);</span>
+<span class="nc" id="L75">        return Optional.ofNullable(pod).map(existingPod -&gt; PodResult.of(existingPod).hasFailed()).orElse(false);</span>
     }
 
     @Override

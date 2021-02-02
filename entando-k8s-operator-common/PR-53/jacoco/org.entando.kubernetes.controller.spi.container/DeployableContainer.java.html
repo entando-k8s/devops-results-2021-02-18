@@ -26,7 +26,7 @@ public interface DeployableContainer {
     String ENTANDO_SECRET_MOUNTS_ROOT = &quot;/etc/entando/connectionconfigs&quot;;
 
     default DockerImageInfo getDockerImageInfo() {
-<span class="fc" id="L29">        return new DockerImageInfo(determineImageToUse());</span>
+<span class="nc" id="L29">        return new DockerImageInfo(determineImageToUse());</span>
     }
 
     default String determineImageToUse() {
@@ -44,7 +44,7 @@ public interface DeployableContainer {
     List&lt;EnvVar&gt; getEnvironmentVariables();
 
     default int getMemoryLimitMebibytes() {
-<span class="fc" id="L47">        return 256;</span>
+<span class="nc" id="L47">        return 256;</span>
     }
 
     default int getCpuLimitMillicores() {

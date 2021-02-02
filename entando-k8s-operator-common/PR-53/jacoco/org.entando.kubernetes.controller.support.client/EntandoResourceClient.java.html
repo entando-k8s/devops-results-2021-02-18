@@ -64,27 +64,27 @@ public interface EntandoResourceClient {
 
     default Optional&lt;ResourceReference&gt; determineKeycloakToUse(EntandoCustomResource resource,
             KeycloakPreference keycloakPreference) {
-<span class="fc" id="L67">        ResourceReference resourceReference = null;</span>
-<span class="fc" id="L68">        Optional&lt;KeycloakToUse&gt; keycloakToUse = keycloakPreference.getPreferredKeycloakToUse();</span>
-<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (keycloakToUse.isPresent()) {</span>
+<span class="nc" id="L67">        ResourceReference resourceReference = null;</span>
+<span class="nc" id="L68">        Optional&lt;KeycloakToUse&gt; keycloakToUse = keycloakPreference.getPreferredKeycloakToUse();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (keycloakToUse.isPresent()) {</span>
 <span class="nc" id="L70">            resourceReference = new ResourceReference(</span>
 <span class="nc" id="L71">                    keycloakToUse.get().getNamespace().orElse(null),</span>
 <span class="nc" id="L72">                    keycloakToUse.get().getName());</span>
         } else {
-<span class="fc" id="L74">            Optional&lt;EntandoKeycloakServer&gt; keycloak = findKeycloakInNamespace(resource);</span>
-<span class="pc bpc" id="L75" title="1 of 2 branches missed.">            if (keycloak.isPresent()) {</span>
+<span class="nc" id="L74">            Optional&lt;EntandoKeycloakServer&gt; keycloak = findKeycloakInNamespace(resource);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">            if (keycloak.isPresent()) {</span>
 <span class="nc" id="L76">                resourceReference = new ResourceReference(</span>
 <span class="nc" id="L77">                        keycloak.get().getMetadata().getNamespace(),</span>
 <span class="nc" id="L78">                        keycloak.get().getMetadata().getName());</span>
             } else {
-<span class="fc" id="L80">                DoneableConfigMap configMapResource = loadDefaultConfigMap();</span>
-<span class="fc" id="L81">                resourceReference = new ResourceReference(</span>
-<span class="fc" id="L82">                        configMapResource.getData().get(KeycloakName.DEFAULT_KEYCLOAK_NAMESPACE_KEY),</span>
-<span class="fc" id="L83">                        configMapResource.getData().get(KeycloakName.DEFAULT_KEYCLOAK_NAME_KEY));</span>
+<span class="nc" id="L80">                DoneableConfigMap configMapResource = loadDefaultConfigMap();</span>
+<span class="nc" id="L81">                resourceReference = new ResourceReference(</span>
+<span class="nc" id="L82">                        configMapResource.getData().get(KeycloakName.DEFAULT_KEYCLOAK_NAMESPACE_KEY),</span>
+<span class="nc" id="L83">                        configMapResource.getData().get(KeycloakName.DEFAULT_KEYCLOAK_NAME_KEY));</span>
 
             }
         }
-<span class="fc" id="L87">        return refineResourceReference(resourceReference, resource.getMetadata());</span>
+<span class="nc" id="L87">        return refineResourceReference(resourceReference, resource.getMetadata());</span>
     }
 
     default &lt;T extends ClusterInfrastructureAwareSpec&gt; Optional&lt;ResourceReference&gt; determineClusterInfrastructureToUse(
@@ -116,9 +116,9 @@ public interface EntandoResourceClient {
     Optional&lt;EntandoClusterInfrastructure&gt; findClusterInfrastructureInNamespace(EntandoCustomResource resource);
 
     default Optional&lt;ResourceReference&gt; refineResourceReference(ResourceReference resourceReference, ObjectMeta metadata) {
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        if (resourceReference.getName() == null) {</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        if (resourceReference.getName() == null) {</span>
             //no valid resource reference in any config anywhere. Return empty
-<span class="fc" id="L121">            return Optional.empty();</span>
+<span class="nc" id="L121">            return Optional.empty();</span>
         } else {
             //Default an empty namespace to the resource's own namespace
 <span class="nc" id="L124">            return Optional.of(new ResourceReference(</span>

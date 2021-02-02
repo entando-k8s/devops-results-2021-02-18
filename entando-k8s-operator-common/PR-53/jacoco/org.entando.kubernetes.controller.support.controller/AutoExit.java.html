@@ -21,15 +21,15 @@ public class AutoExit implements Runnable {
     private final boolean exit;
     private int code;
 
-<span class="fc" id="L24">    public AutoExit(boolean exit) {</span>
-<span class="fc" id="L25">        this.exit = exit;</span>
-<span class="fc" id="L26">    }</span>
+<span class="nc" id="L24">    public AutoExit(boolean exit) {</span>
+<span class="nc" id="L25">        this.exit = exit;</span>
+<span class="nc" id="L26">    }</span>
 
     public void run() {
-<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (exit) {</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (exit) {</span>
 <span class="nc" id="L30">            System.exit(code);</span>
         }
-<span class="fc" id="L32">    }</span>
+<span class="nc" id="L32">    }</span>
 
     public void withCode(int code) {
 <span class="nc" id="L35">        this.code = code;</span>

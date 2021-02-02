@@ -33,13 +33,13 @@ public class IngressPathCreator {
 
     private final EntandoCustomResource entandoCustomResource;
 
-<span class="fc" id="L36">    public IngressPathCreator(EntandoCustomResource entandoCustomResource) {</span>
-<span class="fc" id="L37">        this.entandoCustomResource = entandoCustomResource;</span>
-<span class="fc" id="L38">    }</span>
+<span class="nc" id="L36">    public IngressPathCreator(EntandoCustomResource entandoCustomResource) {</span>
+<span class="nc" id="L37">        this.entandoCustomResource = entandoCustomResource;</span>
+<span class="nc" id="L38">    }</span>
 
     public List&lt;HTTPIngressPath&gt; buildPaths(IngressingDeployable&lt;?&gt; ingressingDeployable, Service service) {
-<span class="fc" id="L41">        return ingressingDeployable.getIngressingContainers().stream().map(o -&gt; newHttpPath(o, service)).collect(Collectors</span>
-<span class="fc" id="L42">                .toList());</span>
+<span class="nc" id="L41">        return ingressingDeployable.getIngressingContainers().stream().map(o -&gt; newHttpPath(o, service)).collect(Collectors</span>
+<span class="nc" id="L42">                .toList());</span>
     }
 
     public Ingress addMissingHttpPaths(IngressClient ingressClient, Ingressing&lt;?&gt; ingressingDeployable, Ingress ingress, Service service) {
@@ -55,13 +55,13 @@ public class IngressPathCreator {
     }
 
     private HTTPIngressPath newHttpPath(IngressingPathOnPort ingressingPathOnPort, Service service) {
-<span class="fc" id="L58">        return new HTTPIngressPathBuilder()</span>
-<span class="fc" id="L59">                .withPath(ingressingPathOnPort.getWebContextPath())</span>
-<span class="fc" id="L60">                .withNewBackend()</span>
-<span class="fc" id="L61">                .withServiceName(service.getMetadata().getName())</span>
-<span class="fc" id="L62">                .withNewServicePort(ingressingPathOnPort.getPortForIngressPath())</span>
-<span class="fc" id="L63">                .endBackend()</span>
-<span class="fc" id="L64">                .build();</span>
+<span class="nc" id="L58">        return new HTTPIngressPathBuilder()</span>
+<span class="nc" id="L59">                .withPath(ingressingPathOnPort.getWebContextPath())</span>
+<span class="nc" id="L60">                .withNewBackend()</span>
+<span class="nc" id="L61">                .withServiceName(service.getMetadata().getName())</span>
+<span class="nc" id="L62">                .withNewServicePort(ingressingPathOnPort.getPortForIngressPath())</span>
+<span class="nc" id="L63">                .endBackend()</span>
+<span class="nc" id="L64">                .build();</span>
     }
 
     private boolean httpPathIsAbsent(Ingress ingress, IngressingPathOnPort ingressingContainer) {
