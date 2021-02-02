@@ -1,0 +1,293 @@
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-pqfx4[0m
+{"level":"warn","ts":1612280610.7887433,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612280610.8024914,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-hghmp[0m
+{"level":"warn","ts":1612280615.20113,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612280615.2327094,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-entando-plugin-jpseo-pr-2fxxt[0m
+{"level":"warn","ts":1612280723.5878243,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612280725.2585523,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando/entando-plugin-jpseo.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:3602b80cd45755fab86fd17650d94419dc67783e,29:fac4fbae055b0e29babd11e50fd4cf154a1be68c
+DEBUG: ran git fetch --unshallow origin fac4fbae055b0e29babd11e50fd4cf154a1be68c: 3602b80cd45755fab86fd17650d94419dc67783e: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 3602b80cd45755fab86fd17650d94419dc67783e in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge fac4fbae055b0e29babd11e50fd4cf154a1be68c in 
+Merged SHA fac4fbae055b0e29babd11e50fd4cf154a1be68c with commit message 'ENG-1745: Fix code smell' into base branch master
+Merged SHA 6794f0b388a0fa16bf4947a4489035ddfff43b5f with commit message 'ENG-1745: Override of configuration in parent pom' into base branch master
+Merged SHA d81cd6455929108a117fdb6bbf9681b9a8be1170 with commit message 'ENG-1745: junit5 integration' into base branch master
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 6.3.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-plugin-jpseo ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando.entando.plugins:entando-plugin-jpseo:6.3.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-29-1
+[INFO] Processing org.entando.entando.plugins:entando-plugin-jpseo
+[INFO]     Updating project org.entando.entando.plugins:entando-plugin-jpseo
+[INFO]         from version 6.3.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-29-1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.943 s
+[INFO] Finished at: 2021-02-02T15:45:40Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+M	pom.xml
+Switched to a new branch 'PR-29'
+Deleted branch master (was fac4fba).
+From https://github.com/entando/entando-plugin-jpseo
+ * [new branch]      master            -> master
+ * [new tag]         pia-crs4          -> pia-crs4
+ * [new tag]         v6.2.0-sprint1-rc -> v6.2.0-sprint1-rc
+ * [new tag]         v6.2.0-sprint2-rc -> v6.2.0-sprint2-rc
+ * [new tag]         v6.2.0-sprint3-rc -> v6.2.0-sprint3-rc
+ * [new tag]         v6.2.0-sprint4-rc -> v6.2.0-sprint4-rc
+ * [new tag]         v6.2.0-sprint5-rc -> v6.2.0-sprint5-rc
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-v77cw-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1843    0     0  100   212      0    321 --:--:-- --:--:-- --:--:--   321100  1843  100  1631  100   212   2474    321 --:--:-- --:--:-- --:--:--  2474
+{
+  "url": "https://api.github.com/repos/entando/entando-plugin-jpseo/statuses/fac4fbae055b0e29babd11e50fd4cf154a1be68c",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12043483345,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA0MzQ4MzM0NQ==",
+  "state": "pending",
+  "description": "Pre-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-plugin-jpseo/PR-29/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-02T15:45:43Z",
+  "updated_at": "2021-02-02T15:45:43Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/entando-**",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 0.0.0-SNAPSHOT-PR-29-1
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-plugin-jpseo ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-plugin-jpseo ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-plugin-jpseo ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 12 resources
+[INFO] Copying 1 resource
+[INFO] Copying 5 resources
+[INFO] Copying 11 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-plugin-jpseo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 50 source files to /workspace/source/target/classes
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[92,73] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[100,65] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[122,66] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[186,70] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[203,70] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageService.java:[270,62] unchecked conversion
+  required: java.util.Map<java.lang.String,java.util.Map<java.lang.String,org.entando.entando.plugins.jpseo.aps.******.services.page.PageMetatag>>
+  found:    java.util.HashMap
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[119,61] unchecked cast
+  required: java.util.List<java.lang.String>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[129,56] unchecked cast
+  required: java.util.List<java.lang.String>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[167,46] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[174,46] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/tags/SiteMapTag.java:[90,44] unchecked call to FieldSearchFilter(java.lang.String,T,boolean) as a member of the raw type com.agiletec.aps.******.common.FieldSearchFilter
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[73,38] unchecked method invocation: method createURL in class com.agiletec.aps.******.services.url.URLManager is applied to given types
+  required: com.agiletec.aps.******.services.page.IPage,com.agiletec.aps.******.services.lang.Lang,java.util.Map<java.lang.String,java.lang.String>,boolean,javax.servlet.http.HttpServletRequest
+  found: com.agiletec.aps.******.services.page.IPage,com.agiletec.aps.******.services.lang.Lang,java.util.Map,boolean,javax.servlet.http.HttpServletRequest
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[73,72] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[75,45] unchecked method invocation: method createFriendlyUrl in class org.entando.entando.plugins.jpseo.aps.******.services.url.URLManager is applied to given types
+  required: java.lang.String,com.agiletec.aps.******.services.lang.Lang,java.util.Map<java.lang.String,java.lang.String>,boolean,javax.servlet.http.HttpServletRequest
+  found: java.lang.String,com.agiletec.aps.******.services.lang.Lang,java.util.Map,boolean,javax.servlet.http.HttpServletRequest
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[75,83] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/metatag/MetatagDOM.java:[44,83] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/sitemap/SitemapAction.java:[109,44] unchecked call to FieldSearchFilter(java.lang.String,T,boolean) as a member of the raw type com.agiletec.aps.******.common.FieldSearchFilter
+[INFO] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/controller/control/RequestValidator.java: /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/controller/control/RequestValidator.java uses or overrides a deprecated API.
+[INFO] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/controller/control/RequestValidator.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:copy-resources (copy-resources-test) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:copy-resources (copy-resources-file-test-) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-plugin-jpseo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /workspace/source/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps/******/services/metatag/MetatagCatalogueIntegrationTest.java:[36,1] cannot access junit.framework.TestCase
+  class file for junit.framework.TestCase not found
+[ERROR] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageServiceTest.java:[15,13] cannot access junit.framework.TestCase
+  class file for junit.framework.TestCase not found
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping Entando Plugin: SEO
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.641 s
+[INFO] Finished at: 2021-02-02T15:46:13Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to e**cute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project entando-plugin-jpseo: Compilation failure: Compilation failure: 
+[ERROR] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps/******/services/metatag/MetatagCatalogueIntegrationTest.java:[36,1] cannot access junit.framework.TestCase
+[ERROR]   class file for junit.framework.TestCase not found
+[ERROR] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageServiceTest.java:[15,13] cannot access junit.framework.TestCase
+[ERROR]   class file for junit.framework.TestCase not found
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 0.0.0-SNAPSHOT-PR-29-1
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-plugin-jpseo ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: http://www.entando.com/
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.459 s
+[INFO] Finished at: 2021-02-02T15:46:26Z
+[INFO] ------------------------------------------------------------------------
+error: etcdserver: request is too large
+No pre-deployment test results found for entando-plugin-jpseo-PR-29.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando/entando-plugin-jpseo/statuses/fac4fbae055b0e29babd11e50fd4cf154a1be68c",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12043497206,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA0MzQ5NzIwNg==",
+  "state": "pending",
+  "description": "No pre-deployment test results produced by build!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-plugin-jpseo/PR-29/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-02T15:46:43Z",
+  "updated_at": "2021-02-02T15:46:43Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 12  1883    0     0  100   232      0    269 --:--:-- --:--:-- --:--:--   269100  1883  100  1651  100   232   1914    268 --:--:-- --:--:-- --:--:--  1913
+The following checks failed for entando-plugin-jpseo-PR-29:
+No pre-deployment test results produced by build
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-mvn-verify-pr'. The execution of the pipeline has stopped.[0m
