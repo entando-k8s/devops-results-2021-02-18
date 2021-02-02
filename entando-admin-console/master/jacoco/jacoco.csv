@@ -67,7 +67,7 @@ Entando Core: Administration Console,com.agiletec.apsadmin.admin,BaseAdminAction
 Entando Core: Administration Console,com.agiletec.apsadmin.user.role,RoleFinderAction,0,24,0,0,0,8,0,4,0,4
 Entando Core: Administration Console,com.agiletec.apsadmin.user.role,RoleAction,129,236,14,20,38,72,16,30,4,25
 Entando Core: Administration Console,com.agiletec.apsadmin.portal.helper,PageActionReferencesHelper,25,18,5,1,7,6,4,4,1,4
-Entando Core: Administration Console,com.agiletec.apsadmin.portal.helper,AbstractPageActionHelper,213,449,51,47,44,113,41,31,3,20
+Entando Core: Administration Console,com.agiletec.apsadmin.portal.helper,AbstractPageActionHelper,212,450,50,48,43,114,40,32,3,20
 Entando Core: Administration Console,com.agiletec.apsadmin.system.plugin,PluginSubMenuContainer,17,0,0,0,7,0,5,0,5,0
 Entando Core: Administration Console,com.agiletec.apsadmin.system.plugin,HookPointElementContainer,24,0,0,0,10,0,7,0,7,0
 Entando Core: Administration Console,org.entando.entando.aps.internalservlet.system.dispatcher.mapper,ExtendedDefaultActionMapper,96,0,12,0,20,0,9,0,3,0
@@ -155,7 +155,7 @@ Entando Core: Administration Console,org.entando.entando.apsadmin.system.service
 Entando Core: Administration Console,org.entando.entando.apsadmin.system.services.shortcut.model,UserConfigBean,0,23,0,0,0,10,0,5,0,5
 Entando Core: Administration Console,org.entando.entando.apsadmin.system.services.shortcut.model,MenuSection,0,28,0,0,0,8,0,2,0,2
 Entando Core: Administration Console,org.entando.entando.apsadmin.common.currentuser,CurrentAvatarAction,21,0,4,0,6,0,4,0,2,0
-Entando Core: Administration Console,org.entando.entando.apsadmin.common.currentuser,CurrentUserProfileAction,175,117,15,9,49,33,18,12,8,10
+Entando Core: Administration Console,org.entando.entando.apsadmin.common.currentuser,CurrentUserProfileAction,169,123,13,11,49,33,17,13,8,10
 Entando Core: Administration Console,org.entando.entando.aps.internalservlet.system,I18nFrontEndInterceptor,29,3,2,0,7,1,2,1,1,1
 Entando Core: Administration Console,org.entando.entando.apsadmin.admin,DatabaseAction,460,0,36,0,136,0,48,0,30,0
 Entando Core: Administration Console,org.entando.entando.apsadmin.api.model,ApiSelectItem,31,0,2,0,12,0,7,0,6,0
@@ -199,7 +199,7 @@ Entando Core: Administration Console,com.agiletec.apsadmin.category,CategorySett
 Entando Core: Administration Console,com.agiletec.apsadmin.category,CategoryAction,642,414,77,37,172,122,61,43,15,32
 Entando Core: Administration Console,org.entando.entando.apsadmin.portal.helper,PageActionHelperDraft,0,18,0,0,0,5,0,5,0,5
 Entando Core: Administration Console,org.entando.entando.apsadmin.portal.helper,PageActionHelperOnline,26,7,6,0,4,2,7,2,4,2
-Entando Core: Administration Console,org.entando.entando.apsadmin.api,ConsumerAction,49,337,4,24,18,98,7,40,3,30
+Entando Core: Administration Console,org.entando.entando.apsadmin.api,ConsumerAction,54,332,4,24,20,96,8,39,4,29
 Entando Core: Administration Console,org.entando.entando.apsadmin.api,ApiResourceFinderAction,5,0,0,0,2,0,2,0,2,0
 Entando Core: Administration Console,org.entando.entando.apsadmin.api,ApiServiceFinderAction,323,7,42,0,72,2,29,2,8,2
 Entando Core: Administration Console,org.entando.entando.apsadmin.api,AbstractApiAction,352,0,16,0,74,0,25,0,17,0
@@ -208,5 +208,5 @@ Entando Core: Administration Console,org.entando.entando.apsadmin.api,ApiResourc
 Entando Core: Administration Console,org.entando.entando.apsadmin.api,ApiServiceAction,1228,0,120,0,309,0,130,0,70,0
 Entando Core: Administration Console,org.entando.entando.apsadmin.api,AbstractApiFinderAction,155,11,14,0,41,4,11,3,4,3
 Entando Core: Administration Console,org.apache.struts2.views.jsp,PropertyTag,79,0,0,0,29,0,10,0,10,0
-Entando Core: Administration Console,com.agiletec.apsadmin.admin.lang,LangAction,14,74,1,5,6,20,1,8,0,6
+Entando Core: Administration Console,com.agiletec.apsadmin.admin.lang,LangAction,88,0,6,0,26,0,9,0,6,0
 Entando Core: Administration Console,com.agiletec.apsadmin.admin.lang,LangFinderAction,22,25,0,0,6,10,0,4,0,4

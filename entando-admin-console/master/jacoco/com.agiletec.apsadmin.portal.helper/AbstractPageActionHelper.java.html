@@ -162,8 +162,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 <span class="fc" id="L162">        String[] children = currentNode.getChildrenCodes();</span>
 <span class="fc bfc" id="L163" title="All 2 branches covered.">        for (int i = 0; i &lt; children.length; i++) {</span>
 <span class="pc bpc" id="L164" title="1 of 2 branches missed.">            IPage newCurrentNode = PageUtils.getPage(this.getPageManager(), !this.isDraftPageHepler(), children[i]);</span>
-<span class="pc bpc" id="L165" title="1 of 2 branches missed.">            if (null == newCurrentNode) {</span>
-<span class="nc" id="L166">                return;</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">            if (null == newCurrentNode) {</span>
+<span class="fc" id="L166">                return;</span>
             }
 <span class="fc bfc" id="L168" title="All 2 branches covered.">            if (this.isPageAllowed(newCurrentNode, userGroupCodes, alsoFreeViewPages)) {</span>
 <span class="fc" id="L169">                PageTreeNodeWrapper newNode = new PageTreeNodeWrapper(newCurrentNode, currentWrapper);</span>
