@@ -29,11 +29,11 @@ public interface TlsAware {
     String ETC_ENTANDO_CA = &quot;/etc/entando/ca&quot;;
 
     default List&lt;EnvVar&gt; getTlsVariables() {
-<span class="nc" id="L32">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L33">        vars.add(new EnvVar(&quot;JAVA_TOOL_OPTIONS&quot;,</span>
+<span class="fc" id="L32">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L33">        vars.add(new EnvVar(&quot;JAVA_TOOL_OPTIONS&quot;,</span>
                 null,
-<span class="nc" id="L35">                SecretUtils.secretKeyRef(DEFAULT_CERTIFICATE_AUTHORITY_SECRET_NAME, TRUSTSTORE_SETTINGS_KEY)));</span>
-<span class="nc" id="L36">        return vars;</span>
+<span class="fc" id="L35">                SecretUtils.secretKeyRef(DEFAULT_CERTIFICATE_AUTHORITY_SECRET_NAME, TRUSTSTORE_SETTINGS_KEY)));</span>
+<span class="fc" id="L36">        return vars;</span>
 
     }
 }

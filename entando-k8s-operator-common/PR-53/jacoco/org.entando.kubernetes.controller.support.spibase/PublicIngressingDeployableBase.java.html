@@ -28,8 +28,8 @@ public interface PublicIngressingDeployableBase&lt;T extends ExposedDeploymentRe
 
     @Override
     default Optional&lt;KeycloakToUse&gt; getPreferredKeycloakToUse() {
-<span class="nc" id="L31">        EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt; ka = (EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt;) getCustomResource();</span>
-<span class="nc" id="L32">        return ka.getSpec().getKeycloakToUse();</span>
+<span class="fc" id="L31">        EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt; ka = (EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt;) getCustomResource();</span>
+<span class="fc" id="L32">        return ka.getSpec().getKeycloakToUse();</span>
     }
 
 }

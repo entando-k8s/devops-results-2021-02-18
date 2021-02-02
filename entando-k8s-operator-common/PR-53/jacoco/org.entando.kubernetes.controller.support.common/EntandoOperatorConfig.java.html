@@ -51,7 +51,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static Optional&lt;String&gt; getOperatorServiceAccount() {
-<span class="nc" id="L54">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_SERVICEACCOUNT);</span>
+<span class="fc" id="L54">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_SERVICEACCOUNT);</span>
     }
 
     public static OperatorDeploymentType getOperatorDeploymentType() {
@@ -69,13 +69,13 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static List&lt;String&gt; getNamespacesToObserve() {
-<span class="pc" id="L72">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_NAMESPACES_TO_OBSERVE).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
+<span class="fc" id="L72">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_NAMESPACES_TO_OBSERVE).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
 <span class="fc" id="L73">                .map(Arrays::asList)</span>
 <span class="fc" id="L74">                .orElse(new ArrayList&lt;&gt;());</span>
     }
 
     public static List&lt;String&gt; getImagePullSecrets() {
-<span class="pc" id="L78">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_IMAGE_PULL_SECRETS).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
+<span class="fc" id="L78">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_IMAGE_PULL_SECRETS).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
 <span class="fc" id="L79">                .map(Arrays::asList)</span>
 <span class="fc" id="L80">                .orElse(new ArrayList&lt;&gt;());</span>
     }
@@ -89,35 +89,35 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     TLS Config
      */
     public static boolean disableKeycloakSslRequirement() {
-<span class="nc" id="L92">        return Boolean.parseBoolean(lookupProperty(EntandoOperatorConfigProperty.ENTANDO_DISABLE_KEYCLOAK_SSL_REQUIREMENT).orElse(&quot;false&quot;));</span>
+<span class="fc" id="L92">        return Boolean.parseBoolean(lookupProperty(EntandoOperatorConfigProperty.ENTANDO_DISABLE_KEYCLOAK_SSL_REQUIREMENT).orElse(&quot;false&quot;));</span>
     }
 
     public static boolean useAutoCertGeneration() {
-<span class="nc" id="L96">        return Boolean.parseBoolean(lookupProperty(EntandoOperatorConfigProperty.ENTANDO_USE_AUTO_CERT_GENERATION).orElse(&quot;false&quot;));</span>
+<span class="fc" id="L96">        return Boolean.parseBoolean(lookupProperty(EntandoOperatorConfigProperty.ENTANDO_USE_AUTO_CERT_GENERATION).orElse(&quot;false&quot;));</span>
     }
 
     public static List&lt;Path&gt; getCertificateAuthorityCertPaths() {
         //TODO get rid of this. We can always assume a CA cert rootFolder.
-<span class="nc" id="L101">        String[] paths = getProperty(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_PATHS,</span>
-<span class="nc" id="L102">                &quot;/var/run/secrets/kubernetes.io/serviceaccount/ca.crt&quot;).split(SEPERATOR_PATTERN);</span>
-<span class="nc" id="L103">        List&lt;Path&gt; result = Arrays.stream(paths)</span>
-<span class="nc" id="L104">                .map(Paths::get)</span>
-<span class="nc" id="L105">                .filter(path -&gt; path.toFile().exists())</span>
-<span class="nc" id="L106">                .collect(Collectors.toList());</span>
-<span class="nc" id="L107">        File caCertRoot = Paths.get(getProperty(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_ROOT_FOLDER, TlsAware.ETC_ENTANDO_CA))</span>
-<span class="nc" id="L108">                .toFile();</span>
-<span class="nc bnc" id="L109" title="All 4 branches missed.">        if (caCertRoot.exists() &amp;&amp; caCertRoot.isDirectory()) {</span>
+<span class="fc" id="L101">        String[] paths = getProperty(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_PATHS,</span>
+<span class="fc" id="L102">                &quot;/var/run/secrets/kubernetes.io/serviceaccount/ca.crt&quot;).split(SEPERATOR_PATTERN);</span>
+<span class="fc" id="L103">        List&lt;Path&gt; result = Arrays.stream(paths)</span>
+<span class="fc" id="L104">                .map(Paths::get)</span>
+<span class="fc" id="L105">                .filter(path -&gt; path.toFile().exists())</span>
+<span class="fc" id="L106">                .collect(Collectors.toList());</span>
+<span class="fc" id="L107">        File caCertRoot = Paths.get(getProperty(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_ROOT_FOLDER, TlsAware.ETC_ENTANDO_CA))</span>
+<span class="fc" id="L108">                .toFile();</span>
+<span class="pc bpc" id="L109" title="3 of 4 branches missed.">        if (caCertRoot.exists() &amp;&amp; caCertRoot.isDirectory()) {</span>
 <span class="nc" id="L110">            result.addAll(Arrays.stream(Objects.requireNonNull(caCertRoot.listFiles()))</span>
 <span class="nc" id="L111">                    .filter(File::isFile)</span>
 <span class="nc" id="L112">                    .map(file -&gt; Paths.get(file.getAbsolutePath()))</span>
 <span class="nc" id="L113">                    .collect(Collectors.toList()));</span>
         }
-<span class="nc" id="L115">        return result;</span>
+<span class="fc" id="L115">        return result;</span>
     }
 
     public static Optional&lt;Path&gt; getPathToDefaultTlsKeyPair() {
-<span class="nc" id="L119">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_PATH_TO_TLS_KEYPAIR).filter(s -&gt; Paths.get(s).toFile().exists())</span>
-<span class="nc" id="L120">                .map(Paths::get);</span>
+<span class="fc" id="L119">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_PATH_TO_TLS_KEYPAIR).filter(s -&gt; Paths.get(s).toFile().exists())</span>
+<span class="fc" id="L120">                .map(Paths::get);</span>
     }
 
     public static Optional&lt;String&gt; getPullPolicyOverride() {
@@ -132,15 +132,15 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static Optional&lt;String&gt; getIngressClass() {
-<span class="nc" id="L135">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_INGRESS_CLASS);</span>
+<span class="fc" id="L135">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_INGRESS_CLASS);</span>
     }
 
     public static Optional&lt;String&gt; getDefaultRoutingSuffix() {
-<span class="nc" id="L139">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_DEFAULT_ROUTING_SUFFIX);</span>
+<span class="fc" id="L139">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_DEFAULT_ROUTING_SUFFIX);</span>
     }
 
     public static long getPodCompletionTimeoutSeconds() {
-<span class="nc" id="L143">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_POD_COMPLETION_TIMEOUT_SECONDS).map(Long::valueOf).orElse(600L);</span>
+<span class="fc" id="L143">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_POD_COMPLETION_TIMEOUT_SECONDS).map(Long::valueOf).orElse(600L);</span>
     }
 
     public static long getPodReadinessTimeoutSeconds() {
@@ -148,7 +148,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static long getPodShutdownTimeoutSeconds() {
-<span class="nc" id="L151">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_POD_SHUTDOWN_TIMEOUT_SECONDS).map(Long::valueOf).orElse(120L);</span>
+<span class="fc" id="L151">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_POD_SHUTDOWN_TIMEOUT_SECONDS).map(Long::valueOf).orElse(120L);</span>
     }
 
     public static boolean imposeResourceLimits() {

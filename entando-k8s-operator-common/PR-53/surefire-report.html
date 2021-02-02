@@ -24,7 +24,7 @@
     <div id="breadcrumbs">
       <div class="xleft">
         <span id="publishDate">Last Published: 2021-02-02</span>
-          &#xA0;| <span id="projectVersion">Version: 0.0.0-SNAPSHOT-PR-53-67</span>
+          &#xA0;| <span id="projectVersion">Version: 0.0.0-SNAPSHOT-PR-53-68</span>
       </div>
       <div class="xright">      </div>
       <div class="clear">
@@ -72,12 +72,12 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
+<td>108</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>100%</td>
-<td>8.812</td></tr></table><br />
+<td>99.074%</td>
+<td>600.394</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></section><section>
 <h2><a name="Package_List"></a>Package List</h2><a name="Package_List"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
@@ -91,14 +91,283 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
-<td><a href="#org.entando.kubernetes.controller.serialization">org.entando.kubernetes.controller.serialization</a></td>
+<td><a href="#org.entando.kubernetes.controller.integrationtest">org.entando.kubernetes.controller.integrationtest</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>515.57</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.unittest.k8sclient">org.entando.kubernetes.controller.unittest.k8sclient</a></td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>8.812</td></tr></table><br />
+<td>0.517</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.client">org.entando.kubernetes.client</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>7.371</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.spi.common">org.entando.kubernetes.controller.spi.common</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest">org.entando.kubernetes.controller.inprocesstest</a></td>
+<td>14</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>63.478</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.serialization">org.entando.kubernetes.controller.serialization</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>1.054</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy">org.entando.kubernetes.controller.inprocesstest.legacy</a></td>
+<td>13</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>10.517</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.unittest.database">org.entando.kubernetes.controller.unittest.database</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.003</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.support.creators">org.entando.kubernetes.controller.support.creators</a></td>
+<td>23</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.06</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.integrationtest.podwaiters">org.entando.kubernetes.controller.integrationtest.podwaiters</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.761</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.unittest">org.entando.kubernetes.controller.unittest</a></td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.unittest.common">org.entando.kubernetes.controller.unittest.common</a></td>
+<td>18</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.061</td></tr></table><br />
 <p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p><section>
+<h3><a name="org.entando.kubernetes.controller.integrationtest"></a>org.entando.kubernetes.controller.integrationtest</h3><a name="org.entando.kubernetes.controller.integrationtest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest">AddExampleWithContainerizedDatabaseTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>501.242</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.integrationtest.KeycloakClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.integrationtest.KeycloakClientTest">KeycloakClientTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>14.328</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.unittest.k8sclient"></a>org.entando.kubernetes.controller.unittest.k8sclient</h3><a name="org.entando.kubernetes.controller.unittest.k8sclient"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.unittest.k8sclient.PodClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.k8sclient.PodClientTest">PodClientTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.517</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.client"></a>org.entando.kubernetes.client</h3><a name="org.entando.kubernetes.client"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.client.DefaultEntandoResourceClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.client.DefaultEntandoResourceClientTest">DefaultEntandoResourceClientTest</a></td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>6.954</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.client.DefaultClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.client.DefaultClientTest">DefaultClientTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.417</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.spi.common"></a>org.entando.kubernetes.controller.spi.common</h3><a name="org.entando.kubernetes.controller.spi.common"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.spi.common.NameUtilsTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.spi.common.NameUtilsTest">NameUtilsTest</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.inprocesstest"></a>org.entando.kubernetes.controller.inprocesstest</h3><a name="org.entando.kubernetes.controller.inprocesstest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockClientTest">ControllerExecutorMockClientTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.799</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.ContainerUsingExternalDatabaseMockClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.ContainerUsingExternalDatabaseMockClientTest">ContainerUsingExternalDatabaseMockClientTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.599</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockServerTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockServerTest">BareBonesDeployableMockServerTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>11.161</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.SpringBootContainerMockClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.SpringBootContainerMockClientTest">SpringBootContainerMockClientTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.675</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockClientTest">BareBonesDeployableMockClientTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.736</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockServerTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockServerTest">PublicIngressingMockServerTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>37.803</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockServerTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockServerTest">ControllerExecutorMockServerTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>8.488</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockClientTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockClientTest">PublicIngressingMockClientTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>2.217</td></tr></table></section><section>
 <h3><a name="org.entando.kubernetes.controller.serialization"></a>org.entando.kubernetes.controller.serialization</h3><a name="org.entando.kubernetes.controller.serialization"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -111,22 +380,779 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
-<td><a href="#org.entando.kubernetes.controller.serialization.DeployableSerializationTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.serialization.DeployableSerializationTest"><figure><img src="images/icon_error_sml.gif" alt="" /></figure></a></td>
 <td><a href="#org.entando.kubernetes.controller.serialization.DeployableSerializationTest">DeployableSerializationTest</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>1.054</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.inprocesstest.legacy"></a>org.entando.kubernetes.controller.inprocesstest.legacy</h3><a name="org.entando.kubernetes.controller.inprocesstest.legacy"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceOnExternalDatabaseTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceOnExternalDatabaseTest">DeployExampleServiceOnExternalDatabaseTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.106</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest">DeployExampleServiceTest</a></td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>6.876</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest">DeployDatabaseTest</a></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>2.535</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.unittest.database"></a>org.entando.kubernetes.controller.unittest.database</h3><a name="org.entando.kubernetes.controller.unittest.database"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.unittest.database.DbmsDockerVendorStrategyTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.database.DbmsDockerVendorStrategyTest">DbmsDockerVendorStrategyTest</a></td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>8.812</td></tr></table></section><br /></section><section>
+<td>0.001</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.unittest.database.DbmsVendorConfigTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.database.DbmsVendorConfigTest">DbmsVendorConfigTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.support.creators"></a>org.entando.kubernetes.controller.support.creators</h3><a name="org.entando.kubernetes.controller.support.creators"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.support.creators.ResourceCalculatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.ResourceCalculatorTest">ResourceCalculatorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.support.creators.IngressCreatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.IngressCreatorTest">IngressCreatorTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.02</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest">ConfigurableResourceCalculatorTest</a></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.01</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest">ConfigurableStorageCalculatorTest</a></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.support.creators.PersistentVolumeClaimCreatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.PersistentVolumeClaimCreatorTest">PersistentVolumeClaimCreatorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.support.creators.SecretCreatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.SecretCreatorTest">SecretCreatorTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.support.creators.ServiceAcountCreatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.ServiceAcountCreatorTest">ServiceAcountCreatorTest</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.014</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.support.creators.DeploymentCreatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.DeploymentCreatorTest">DeploymentCreatorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.013</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.support.creators.StorageCalculatorTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.support.creators.StorageCalculatorTest">StorageCalculatorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.integrationtest.podwaiters"></a>org.entando.kubernetes.controller.integrationtest.podwaiters</h3><a name="org.entando.kubernetes.controller.integrationtest.podwaiters"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest">PodWaiterTest</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.761</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.unittest"></a>org.entando.kubernetes.controller.unittest</h3><a name="org.entando.kubernetes.controller.unittest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.unittest.EntandoOperatorConfigTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.EntandoOperatorConfigTest">EntandoOperatorConfigTest</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td></tr>
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.unittest.KubeUtilsTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.KubeUtilsTest">KubeUtilsTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.unittest.ExposedServiceTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.ExposedServiceTest">ExposedServiceTest</a></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="org.entando.kubernetes.controller.unittest.common"></a>org.entando.kubernetes.controller.unittest.common</h3><a name="org.entando.kubernetes.controller.unittest.common"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors</th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#org.entando.kubernetes.controller.unittest.common.ImageResolverTest"><figure><img src="images/icon_success_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.unittest.common.ImageResolverTest">ImageResolverTest</a></td>
+<td>18</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.061</td></tr></table></section><br /></section><section>
 <h2><a name="Test_Cases"></a>Test Cases</h2><a name="Test_Cases"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><section>
-<h3><a name="DeployableSerializationTest"></a>DeployableSerializationTest</h3><a name="org.entando.kubernetes.controller.serialization.DeployableSerializationTest"></a>
+<h3><a name="ResourceCalculatorTest"></a>ResourceCalculatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.ResourceCalculatorTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
 <td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
-<td><a name="TC_org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization"></a>testDatabaseDeployableSerialization</td>
-<td>8.788</td></tr></table></section><br /></section>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ResourceCalculatorTest.calculateRequestsWithProvidedRatio"></a>calculateRequestsWithProvidedRatio</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ResourceCalculatorTest.calculateRequestsWithDefaultRatio"></a>calculateRequestsWithDefaultRatio</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="DefaultEntandoResourceClientTest"></a>DefaultEntandoResourceClientTest</h3><a name="org.entando.kubernetes.client.DefaultEntandoResourceClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testDefaultInfrastructureConfigResolution"></a>testDefaultInfrastructureConfigResolution</td>
+<td>1.279</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testSameNamespaceDatabaseServiceResolution"></a>testSameNamespaceDatabaseServiceResolution</td>
+<td>0.873</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testSameNamespaceinfrastructureConfigResolution"></a>testSameNamespaceinfrastructureConfigResolution</td>
+<td>0.792</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testDefaultKeycloakConfigResolution"></a>testDefaultKeycloakConfigResolution</td>
+<td>1.334</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testSameNamespaceKeycloakConfigResolution"></a>testSameNamespaceKeycloakConfigResolution</td>
+<td>1.02</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testExplicitlySpecifiedInfrastructureConfigResolution"></a>testExplicitlySpecifiedInfrastructureConfigResolution</td>
+<td>0.688</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultEntandoResourceClientTest.testExplicitlySpecifiedKeycloakConfigResolution"></a>testExplicitlySpecifiedKeycloakConfigResolution</td>
+<td>0.964</td></tr></table></section><section>
+<h3><a name="DeployableSerializationTest"></a>DeployableSerializationTest</h3><a name="org.entando.kubernetes.controller.serialization.DeployableSerializationTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><a href="#org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization"><figure><img src="images/icon_error_sml.gif" alt="" /></figure></a></td>
+<td><a name="TC_org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization"></a><a href="#org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization">testDatabaseDeployableSerialization</a>
+<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization');"><span style="display:inline;" id="org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization-off"> + </span><span style="display:none;" id="org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization-on"> - </span>[ Detail ]</a></div></td>
+<td>1.054</td></tr>
+<tr class="b">
+<td></td>
+<td>Could not find CRD for EntandoApp</td>
+<td></td></tr>
+<tr class="a">
+<td></td>
+<td>
+<div id="org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization-error" style="display:none;">
+<div>
+<pre>java.lang.IllegalStateException: Could not find CRD for EntandoApp
+	at org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization(DeployableSerializationTest.java:124)</pre></div></div></td>
+<td></td></tr></table></section><section>
+<h3><a name="ControllerExecutorMockClientTest"></a>ControllerExecutorMockClientTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockClientTest.testRun"></a>testRun</td>
+<td>0.16</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockClientTest.testStart"></a>testStart</td>
+<td>0.164</td></tr></table></section><section>
+<h3><a name="ContainerUsingExternalDatabaseMockClientTest"></a>ContainerUsingExternalDatabaseMockClientTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.ContainerUsingExternalDatabaseMockClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.ContainerUsingExternalDatabaseMockClientTest.testSelectingOneOfTwoExternalDatabase"></a>testSelectingOneOfTwoExternalDatabase</td>
+<td>0.596</td></tr></table></section><section>
+<h3><a name="AddExampleWithContainerizedDatabaseTest"></a>AddExampleWithContainerizedDatabaseTest</h3><a name="org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest.createDbmsVendor_EntandoOperatorComplianceMode1"></a>create{DbmsVendor, EntandoOperatorComplianceMode}[1]</td>
+<td>139.891</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest.createDbmsVendor_EntandoOperatorComplianceMode2"></a>create{DbmsVendor, EntandoOperatorComplianceMode}[2]</td>
+<td>119.465</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest.createDbmsVendor_EntandoOperatorComplianceMode3"></a>create{DbmsVendor, EntandoOperatorComplianceMode}[3]</td>
+<td>117.135</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.AddExampleWithContainerizedDatabaseTest.createDbmsVendor_EntandoOperatorComplianceMode4"></a>create{DbmsVendor, EntandoOperatorComplianceMode}[4]</td>
+<td>120.599</td></tr></table></section><section>
+<h3><a name="BareBonesDeployableMockServerTest"></a>BareBonesDeployableMockServerTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockServerTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockServerTest.testBasicDeploymentWithAdditionalPorts"></a>testBasicDeploymentWithAdditionalPorts</td>
+<td>5.538</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockServerTest.testBasicDeploymentWithClusterScopedRoles"></a>testBasicDeploymentWithClusterScopedRoles</td>
+<td>5.621</td></tr></table></section><section>
+<h3><a name="DeployExampleServiceOnExternalDatabaseTest"></a>DeployExampleServiceOnExternalDatabaseTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceOnExternalDatabaseTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceOnExternalDatabaseTest.testDeployment"></a>testDeployment</td>
+<td>0.623</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceOnExternalDatabaseTest.testSecrets"></a>testSecrets</td>
+<td>0.475</td></tr></table></section><section>
+<h3><a name="IngressCreatorTest"></a>IngressCreatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.IngressCreatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.IngressCreatorTest.testEdit"></a>testEdit</td>
+<td>0.01</td></tr></table></section><section>
+<h3><a name="NameUtilsTest"></a>NameUtilsTest</h3><a name="org.entando.kubernetes.controller.spi.common.NameUtilsTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.spi.common.NameUtilsTest.testControllerNameOf"></a>testControllerNameOf</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.spi.common.NameUtilsTest.testShortenTo63Chars"></a>testShortenTo63Chars</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.spi.common.NameUtilsTest.testCamelCaseToDashDelimited"></a>testCamelCaseToDashDelimited</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="ConfigurableResourceCalculatorTest"></a>ConfigurableResourceCalculatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest.calculateRequestsWithDefaultRatioButWithALimitOverride"></a>calculateRequestsWithDefaultRatioButWithALimitOverride</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest.calculateRequestsWithDefaultRatioButWithRequestAndLimitOverrides"></a>calculateRequestsWithDefaultRatioButWithRequestAndLimitOverrides</td>
+<td>0.002</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest.calculateRequestsWithDefaultRatioAndNoOverride"></a>calculateRequestsWithDefaultRatioAndNoOverride</td>
+<td>0.002</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest.calculateRequestsWithProvidedRatioNoOverride"></a>calculateRequestsWithProvidedRatioNoOverride</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableResourceCalculatorTest.calculateRequestsWithProvidedRatioButWithALimitOverride"></a>calculateRequestsWithProvidedRatioButWithALimitOverride</td>
+<td>0.002</td></tr></table></section><section>
+<h3><a name="DefaultClientTest"></a>DefaultClientTest</h3><a name="org.entando.kubernetes.client.DefaultClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.client.DefaultClientTest.shouldRemovePathFromIngress"></a>shouldRemovePathFromIngress</td>
+<td>0.416</td></tr></table></section><section>
+<h3><a name="ConfigurableStorageCalculatorTest"></a>ConfigurableStorageCalculatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest.calculateRequestsWithDefaultRatioButWithALimitOverride"></a>calculateRequestsWithDefaultRatioButWithALimitOverride</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest.calculateRequestsWithDefaultRatioButWithRequestAndLimitOverrides"></a>calculateRequestsWithDefaultRatioButWithRequestAndLimitOverrides</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest.calculateRequestsWithDefaultRatioAndNoOverride"></a>calculateRequestsWithDefaultRatioAndNoOverride</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest.calculateRequestsWithProvidedRatioNoOverride"></a>calculateRequestsWithProvidedRatioNoOverride</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ConfigurableStorageCalculatorTest.calculateRequestsWithProvidedRatioButWithALimitOverride"></a>calculateRequestsWithProvidedRatioButWithALimitOverride</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="DeployExampleServiceTest"></a>DeployExampleServiceTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest.testPersistentVolumeClaims"></a>testPersistentVolumeClaims</td>
+<td>0.935</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest.testSchemaPreparation"></a>testSchemaPreparation</td>
+<td>1.082</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest.testDeployment"></a>testDeployment</td>
+<td>1.395</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest.testIngress"></a>testIngress</td>
+<td>0.999</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest.testSecrets"></a>testSecrets</td>
+<td>1.549</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployExampleServiceTest.testService"></a>testService</td>
+<td>0.905</td></tr></table></section><section>
+<h3><a name="PodWaiterTest"></a>PodWaiterTest</h3><a name="org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.happyFlowToCompletion"></a>happyFlowToCompletion</td>
+<td>0.255</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.readyTimeout"></a>readyTimeout</td>
+<td>0.425</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.someContainersNotRun"></a>someContainersNotRun</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.failedRunning"></a>failedRunning</td>
+<td>0.109</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.happyFlowToReady"></a>happyFlowToReady</td>
+<td>0.115</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.ready"></a>ready</td>
+<td>0.112</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.completionTimeout"></a>completionTimeout</td>
+<td>0.434</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.podwaiters.PodWaiterTest.initialStateNull"></a>initialStateNull</td>
+<td>0.31</td></tr></table></section><section>
+<h3><a name="SpringBootContainerMockClientTest"></a>SpringBootContainerMockClientTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.SpringBootContainerMockClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.SpringBootContainerMockClientTest.testBasicDeployment"></a>testBasicDeployment</td>
+<td>0.675</td></tr></table></section><section>
+<h3><a name="BareBonesDeployableMockClientTest"></a>BareBonesDeployableMockClientTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockClientTest.testBasicDeploymentWithAdditionalPorts"></a>testBasicDeploymentWithAdditionalPorts</td>
+<td>0.405</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.BareBonesDeployableMockClientTest.testBasicDeploymentWithClusterScopedRoles"></a>testBasicDeploymentWithClusterScopedRoles</td>
+<td>0.324</td></tr></table></section><section>
+<h3><a name="DbmsDockerVendorStrategyTest"></a>DbmsDockerVendorStrategyTest</h3><a name="org.entando.kubernetes.controller.unittest.database.DbmsDockerVendorStrategyTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.database.DbmsDockerVendorStrategyTest.testResolve"></a>testResolve</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="PodClientTest"></a>PodClientTest</h3><a name="org.entando.kubernetes.controller.unittest.k8sclient.PodClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.k8sclient.PodClientTest.testExec"></a>testExec</td>
+<td>0.515</td></tr></table></section><section>
+<h3><a name="EntandoOperatorConfigTest"></a>EntandoOperatorConfigTest</h3><a name="org.entando.kubernetes.controller.unittest.EntandoOperatorConfigTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.EntandoOperatorConfigTest.testComplianceMode"></a>testComplianceMode</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.EntandoOperatorConfigTest.testDeploymentType"></a>testDeploymentType</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.EntandoOperatorConfigTest.testSecurityMode"></a>testSecurityMode</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="PersistentVolumeClaimCreatorTest"></a>PersistentVolumeClaimCreatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.PersistentVolumeClaimCreatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.PersistentVolumeClaimCreatorTest.createPersistentVolumeClaimWithoutGarbageCollection"></a>createPersistentVolumeClaimWithoutGarbageCollection</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.PersistentVolumeClaimCreatorTest.createPersistentVolumeClaimWithGarbageCollection"></a>createPersistentVolumeClaimWithGarbageCollection</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="SecretCreatorTest"></a>SecretCreatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.SecretCreatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.SecretCreatorTest.testImagePullSecretPropagation"></a>testImagePullSecretPropagation</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="KubeUtilsTest"></a>KubeUtilsTest</h3><a name="org.entando.kubernetes.controller.unittest.KubeUtilsTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.KubeUtilsTest.testResolveInstruction"></a>testResolveInstruction</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="DeployDatabaseTest"></a>DeployDatabaseTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest.testPersistentVolumeClaims"></a>testPersistentVolumeClaims</td>
+<td>0.5</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest.testPostgresqlDeployment"></a>testPostgresqlDeployment</td>
+<td>0.504</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest.testMysqlDeployment"></a>testMysqlDeployment</td>
+<td>0.517</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest.testSecrets"></a>testSecrets</td>
+<td>0.501</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.legacy.DeployDatabaseTest.testService"></a>testService</td>
+<td>0.506</td></tr></table></section><section>
+<h3><a name="ServiceAcountCreatorTest"></a>ServiceAcountCreatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.ServiceAcountCreatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ServiceAcountCreatorTest.testImagePullSecrets"></a>testImagePullSecrets</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ServiceAcountCreatorTest.testStandardClusterRoles"></a>testStandardClusterRoles</td>
+<td>0.004</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.ServiceAcountCreatorTest.testCustomPermissions"></a>testCustomPermissions</td>
+<td>0.008</td></tr></table></section><section>
+<h3><a name="KeycloakClientTest"></a>KeycloakClientTest</h3><a name="org.entando.kubernetes.controller.integrationtest.KeycloakClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.KeycloakClientTest.testPrepareClientWithPermissions"></a>testPrepareClientWithPermissions</td>
+<td>3.605</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.KeycloakClientTest.testAssignRoleToServiceAccount"></a>testAssignRoleToServiceAccount</td>
+<td>2.783</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.KeycloakClientTest.testCreatePublicClient"></a>testCreatePublicClient</td>
+<td>2.151</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.integrationtest.KeycloakClientTest.testCreatePublicClientTwice"></a>testCreatePublicClientTwice</td>
+<td>2.389</td></tr></table></section><section>
+<h3><a name="PublicIngressingMockServerTest"></a>PublicIngressingMockServerTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockServerTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockServerTest.testBasicDeployment"></a>testBasicDeployment</td>
+<td>14.034</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockServerTest.testTwoDeploymentsSharingAnIngress"></a>testTwoDeploymentsSharingAnIngress</td>
+<td>23.767</td></tr></table></section><section>
+<h3><a name="ImageResolverTest"></a>ImageResolverTest</h3><a name="org.entando.kubernetes.controller.unittest.common.ImageResolverTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionIgnoredForNonEntandoImages"></a>testResolutionIgnoredForNonEntandoImages</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromDefaultPropertiesWhenThereIsAConfigMap"></a>testResolutionFromDefaultPropertiesWhenThereIsAConfigMap</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromOverridingPropertiesWhenThereAreFallbackProperties"></a>testResolutionFromOverridingPropertiesWhenThereAreFallbackProperties</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testBug"></a>testBug</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromCofigmapWithMultilevelOrganization"></a>testResolutionFromCofigmapWithMultilevelOrganization</td>
+<td>0.005</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromFallbackProperties"></a>testResolutionFromFallbackProperties</td>
+<td>0.003</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromCofigmapWithOrganizationAwareRepositoryKeyAndPort"></a>testResolutionFromCofigmapWithOrganizationAwareRepositoryKeyAndPort</td>
+<td>0.005</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testVersionResolutionWithProvidedValue"></a>testVersionResolutionWithProvidedValue</td>
+<td>0.004</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromOverridingPropertiesWhenThereIsAConfigMap"></a>testResolutionFromOverridingPropertiesWhenThereIsAConfigMap</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromCofigmapWithOrganizationAwareRepositoryKey"></a>testResolutionFromCofigmapWithOrganizationAwareRepositoryKey</td>
+<td>0.005</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromRelatedImagePropertyString1"></a>testResolutionFromRelatedImageProperty{String}[1]</td>
+<td>0.008</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromRelatedImagePropertyString2"></a>testResolutionFromRelatedImageProperty{String}[2]</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromRelatedImagePropertyString3"></a>testResolutionFromRelatedImageProperty{String}[3]</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromRelatedImagePropertyString4"></a>testResolutionFromRelatedImageProperty{String}[4]</td>
+<td>0.004</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testResolutionFromCofigmapWithRepositoryKey"></a>testResolutionFromCofigmapWithRepositoryKey</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testInvalidImageUrisString1"></a>testInvalidImageUris{String}[1]</td>
+<td>0.002</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testInvalidImageUrisString2"></a>testInvalidImageUris{String}[2]</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.common.ImageResolverTest.testInvalidImageUrisString3"></a>testInvalidImageUris{String}[3]</td>
+<td>0.001</td></tr></table></section><section>
+<h3><a name="ExposedServiceTest"></a>ExposedServiceTest</h3><a name="org.entando.kubernetes.controller.unittest.ExposedServiceTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.ExposedServiceTest.testExternalHttpsProvider"></a>testExternalHttpsProvider</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.ExposedServiceTest.testUrlsOnSinglePorts"></a>testUrlsOnSinglePorts</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.ExposedServiceTest.testHttpsUrls"></a>testHttpsUrls</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.ExposedServiceTest.testUrlsOnMultiplePorts"></a>testUrlsOnMultiplePorts</td>
+<td>0</td></tr>
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.ExposedServiceTest.testUrlsOnDelegatingService"></a>testUrlsOnDelegatingService</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="ControllerExecutorMockServerTest"></a>ControllerExecutorMockServerTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockServerTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockServerTest.testRun"></a>testRun</td>
+<td>5.489</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.ControllerExecutorMockServerTest.testStart"></a>testStart</td>
+<td>2.922</td></tr></table></section><section>
+<h3><a name="DeploymentCreatorTest"></a>DeploymentCreatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.DeploymentCreatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.DeploymentCreatorTest.createDeploymentWithTrueImposeResourceLimitsWillSetResourceLimitsOnCreatedDeployment"></a>createDeploymentWithTrueImposeResourceLimitsWillSetResourceLimitsOnCreatedDeployment</td>
+<td>0.005</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.DeploymentCreatorTest.createDeploymentWithFalseImposeResourceLimitsWillNotSetResourceLimitsOnCreatedDeployment"></a>createDeploymentWithFalseImposeResourceLimitsWillNotSetResourceLimitsOnCreatedDeployment</td>
+<td>0.007</td></tr></table></section><section>
+<h3><a name="DbmsVendorConfigTest"></a>DbmsVendorConfigTest</h3><a name="org.entando.kubernetes.controller.unittest.database.DbmsVendorConfigTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.unittest.database.DbmsVendorConfigTest.testResolve"></a>testResolve</td>
+<td>0.001</td></tr></table></section><section>
+<h3><a name="StorageCalculatorTest"></a>StorageCalculatorTest</h3><a name="org.entando.kubernetes.controller.support.creators.StorageCalculatorTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.StorageCalculatorTest.calculateRequestsWithProvidedRatio"></a>calculateRequestsWithProvidedRatio</td>
+<td>0</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.support.creators.StorageCalculatorTest.calculateRequestsWithDefaultRatio"></a>calculateRequestsWithDefaultRatio</td>
+<td>0</td></tr></table></section><section>
+<h3><a name="PublicIngressingMockClientTest"></a>PublicIngressingMockClientTest</h3><a name="org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockClientTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockClientTest.testBasicDeployment"></a>testBasicDeployment</td>
+<td>0.883</td></tr>
+<tr class="b">
+<td><figure><img src="images/icon_success_sml.gif" alt="" /></figure></td>
+<td><a name="TC_org.entando.kubernetes.controller.inprocesstest.PublicIngressingMockClientTest.testTwoDeploymentsSharingAnIngress"></a>testTwoDeploymentsSharingAnIngress</td>
+<td>1.298</td></tr></table></section><br /></section><section>
+<h2><a name="Failure_Details"></a>Failure Details</h2><a name="Failure_Details"></a>
+<p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><figure><img src="images/icon_error_sml.gif" alt="" /></figure></td>
+<td><a name="org.entando.kubernetes.controller.serialization.DeployableSerializationTest.testDatabaseDeployableSerialization"></a>testDatabaseDeployableSerialization</td></tr>
+<tr class="b">
+<td></td>
+<td>java.lang.IllegalStateException: Could not find CRD for EntandoApp</td></tr>
+<tr class="a">
+<td></td>
+<td>
+<div id="testDatabaseDeployableSerialization-error">org.entando.kubernetes.controller.serialization.DeployableSerializationTest:124</div></td></tr></table><br /></section>
       </div>
     </div>
     <div class="clear">

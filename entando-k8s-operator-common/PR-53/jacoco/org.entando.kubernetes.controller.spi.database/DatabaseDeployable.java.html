@@ -53,7 +53,7 @@ public class DatabaseDeployable implements Deployable&lt;DatabaseDeploymentResul
     }
 
     private DatabaseVariableInitializer buildVariableInitializer(DbmsDockerVendorStrategy vendorStrategy) {
-<span class="pc bpc" id="L56" title="2 of 3 branches missed.">        switch (vendorStrategy) {</span>
+<span class="pc bpc" id="L56" title="1 of 3 branches missed.">        switch (vendorStrategy) {</span>
             case CENTOS_MYSQL:
             case RHEL_MYSQL:
 <span class="fc" id="L59">                return vars -&gt;</span>
@@ -62,17 +62,17 @@ public class DatabaseDeployable implements Deployable&lt;DatabaseDeploymentResul
 <span class="fc" id="L62">                                SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
             case CENTOS_POSTGRESQL:
             case RHEL_POSTGRESQL:
-<span class="nc" id="L65">                return vars -&gt; {</span>
-<span class="nc" id="L66">                    vars.add(new EnvVar(&quot;POSTGRESQL_DATABASE&quot;, getDatabaseName(), null));</span>
+<span class="fc" id="L65">                return vars -&gt; {</span>
+<span class="fc" id="L66">                    vars.add(new EnvVar(&quot;POSTGRESQL_DATABASE&quot;, getDatabaseName(), null));</span>
                     // This username will not be used, as we will be creating schema/user pairs,
                     // but without it the DB isn't created.
-<span class="nc" id="L69">                    vars.add(new EnvVar(&quot;POSTGRESQL_USER&quot;, getDatabaseName() + &quot;_user&quot;, null));</span>
-<span class="nc" id="L70">                    vars.add(new EnvVar(&quot;POSTGRESQL_PASSWORD&quot;, null,</span>
-<span class="nc" id="L71">                            SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
-<span class="nc" id="L72">                    vars.add(new EnvVar(&quot;POSTGRESQL_ADMIN_PASSWORD&quot;, null,</span>
-<span class="nc" id="L73">                            SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
+<span class="fc" id="L69">                    vars.add(new EnvVar(&quot;POSTGRESQL_USER&quot;, getDatabaseName() + &quot;_user&quot;, null));</span>
+<span class="fc" id="L70">                    vars.add(new EnvVar(&quot;POSTGRESQL_PASSWORD&quot;, null,</span>
+<span class="fc" id="L71">                            SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
+<span class="fc" id="L72">                    vars.add(new EnvVar(&quot;POSTGRESQL_ADMIN_PASSWORD&quot;, null,</span>
+<span class="fc" id="L73">                            SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
 
-<span class="nc" id="L75">                };</span>
+<span class="fc" id="L75">                };</span>
             default:
 <span class="nc" id="L77">                throw new IllegalStateException(</span>
 <span class="nc" id="L78">                        format(&quot;The DBMS %s not supported for containerized deployments&quot;, vendorStrategy.getName()));</span>

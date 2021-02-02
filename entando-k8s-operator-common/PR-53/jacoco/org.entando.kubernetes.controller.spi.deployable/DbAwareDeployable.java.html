@@ -25,13 +25,13 @@ import org.entando.kubernetes.controller.spi.result.ServiceDeploymentResult;
 public interface DbAwareDeployable&lt;T extends ServiceDeploymentResult&lt;T&gt;&gt; extends Deployable&lt;T&gt; {
 
     default boolean isExpectingDatabaseSchemas() {
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        return getDbAwareContainers().stream().anyMatch(dbAware -&gt; !dbAware.getSchemaConnectionInfo().isEmpty());</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        return getDbAwareContainers().stream().anyMatch(dbAware -&gt; !dbAware.getSchemaConnectionInfo().isEmpty());</span>
     }
 
     @JsonIgnore
     default List&lt;DbAware&gt; getDbAwareContainers() {
-<span class="nc" id="L33">        return getContainers().stream().filter(DbAware.class::isInstance)</span>
-<span class="nc" id="L34">                .map(DbAware.class::cast).collect(Collectors.toList());</span>
+<span class="fc" id="L33">        return getContainers().stream().filter(DbAware.class::isInstance)</span>
+<span class="fc" id="L34">                .map(DbAware.class::cast).collect(Collectors.toList());</span>
 
     }
 

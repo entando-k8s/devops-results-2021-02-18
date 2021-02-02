@@ -91,15 +91,15 @@ public class PropertyResolution {
     }
 
     private Optional&lt;String&gt; resolveDockerImageInfoFromConfigmapData(String imageKey) {
-<span class="pc" id="L94">        return ofNullable(imageVersionsConfigMap).map(ConfigMap::getData).map(data -&gt; data.get(imageKey));</span>
+<span class="fc" id="L94">        return ofNullable(imageVersionsConfigMap).map(ConfigMap::getData).map(data -&gt; data.get(imageKey));</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     private Optional&lt;String&gt; extractValueFromContent(String content) {
         try {
-<span class="nc" id="L100">            ObjectMapper mapper = new ObjectMapper();</span>
-<span class="nc" id="L101">            Map&lt;String, String&gt; imageConfig = mapper.readValue(content, Map.class);</span>
-<span class="nc" id="L102">            return ofNullable(imageConfig.get(configMapKey));</span>
+<span class="fc" id="L100">            ObjectMapper mapper = new ObjectMapper();</span>
+<span class="fc" id="L101">            Map&lt;String, String&gt; imageConfig = mapper.readValue(content, Map.class);</span>
+<span class="fc" id="L102">            return ofNullable(imageConfig.get(configMapKey));</span>
 <span class="nc" id="L103">        } catch (JsonProcessingException e) {</span>
 <span class="nc" id="L104">            throw new IllegalStateException(e);</span>
         }

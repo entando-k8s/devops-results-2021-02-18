@@ -80,7 +80,7 @@ public class DefaultSimpleK8SClient implements SimpleK8SClient&lt;EntandoResourc
 
     @Override
     public ServiceAccountClient serviceAccounts() {
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (this.serviceAccountClient == null) {</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (this.serviceAccountClient == null) {</span>
 <span class="fc" id="L84">            this.serviceAccountClient = new DefaultServiceAccountClient(kubernetesClient);</span>
         }
 <span class="fc" id="L86">        return this.serviceAccountClient;</span>
@@ -96,10 +96,10 @@ public class DefaultSimpleK8SClient implements SimpleK8SClient&lt;EntandoResourc
 
     @Override
     public IngressClient ingresses() {
-<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (this.ingressClient == null) {</span>
-<span class="nc" id="L100">            this.ingressClient = new DefaultIngressClient(kubernetesClient);</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        if (this.ingressClient == null) {</span>
+<span class="fc" id="L100">            this.ingressClient = new DefaultIngressClient(kubernetesClient);</span>
         }
-<span class="nc" id="L102">        return this.ingressClient;</span>
+<span class="fc" id="L102">        return this.ingressClient;</span>
     }
 
     @Override

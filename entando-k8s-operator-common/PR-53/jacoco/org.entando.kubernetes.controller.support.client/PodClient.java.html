@@ -35,11 +35,11 @@ public interface PodClient extends PodWaitingClient {
     Pod waitForPod(String namespace, String labelName, String labelValue);
 
     default Pod loadPod(String namespace, String... labelNamesAndValues) {
-<span class="nc" id="L38">        Map&lt;String, String&gt; labels = new HashMap&lt;&gt;();</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (int i = 0; i &lt; labelNamesAndValues.length; i += 2) {</span>
-<span class="nc" id="L40">            labels.put(labelNamesAndValues[i], labelNamesAndValues[i + 1]);</span>
+<span class="fc" id="L38">        Map&lt;String, String&gt; labels = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        for (int i = 0; i &lt; labelNamesAndValues.length; i += 2) {</span>
+<span class="fc" id="L40">            labels.put(labelNamesAndValues[i], labelNamesAndValues[i + 1]);</span>
         }
-<span class="nc" id="L42">        return loadPod(namespace, labels);</span>
+<span class="fc" id="L42">        return loadPod(namespace, labels);</span>
     }
 
     Pod loadPod(String namespace, Map&lt;String, String&gt; labels);
@@ -51,34 +51,34 @@ public interface PodClient extends PodWaitingClient {
     @SuppressWarnings({&quot;java:S106&quot;})
     default ExecWatch executeAndWait(PodResource&lt;Pod, DoneablePod&gt; podResource, String containerName, int timeoutSeconds,
             String... script) {
-<span class="nc" id="L54">        StringBuilder sb = new StringBuilder();</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (String s : script) {</span>
-<span class="nc" id="L56">            sb.append(s);</span>
-<span class="nc" id="L57">            sb.append('\n');</span>
+<span class="fc" id="L54">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (String s : script) {</span>
+<span class="fc" id="L56">            sb.append(s);</span>
+<span class="fc" id="L57">            sb.append('\n');</span>
         }
-<span class="nc" id="L59">        sb.append(&quot;exit 0\n&quot;);</span>
-<span class="nc" id="L60">        ByteArrayInputStream in = new ByteArrayInputStream(sb.toString().getBytes());</span>
+<span class="fc" id="L59">        sb.append(&quot;exit 0\n&quot;);</span>
+<span class="fc" id="L60">        ByteArrayInputStream in = new ByteArrayInputStream(sb.toString().getBytes());</span>
         try {
-<span class="nc" id="L62">            Object mutex = new Object();</span>
-<span class="nc" id="L63">            synchronized (mutex) {</span>
-<span class="nc" id="L64">                EntandoExecListener listener = new EntandoExecListener(mutex, timeoutSeconds);</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">                if (ENQUEUE_POD_WATCH_HOLDERS.get()) {</span>
+<span class="fc" id="L62">            Object mutex = new Object();</span>
+<span class="fc" id="L63">            synchronized (mutex) {</span>
+<span class="fc" id="L64">                EntandoExecListener listener = new EntandoExecListener(mutex, timeoutSeconds);</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">                if (ENQUEUE_POD_WATCH_HOLDERS.get()) {</span>
 <span class="nc" id="L66">                    getExecListenerHolder().add(listener);//because it should never be full during tests. fail early.</span>
                 }
-<span class="nc" id="L68">                ExecWatch exec = podResource.inContainer(containerName)</span>
-<span class="nc" id="L69">                        .readingInput(in)</span>
-<span class="nc" id="L70">                        .writingOutput(System.out)</span>
-<span class="nc" id="L71">                        .writingError(System.err)</span>
-<span class="nc" id="L72">                        .withTTY()</span>
-<span class="nc" id="L73">                        .usingListener(listener)</span>
-<span class="nc" id="L74">                        .exec();</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">                while (listener.shouldStillWait()) {</span>
-<span class="nc" id="L76">                    mutex.wait(1000);</span>
+<span class="fc" id="L68">                ExecWatch exec = podResource.inContainer(containerName)</span>
+<span class="fc" id="L69">                        .readingInput(in)</span>
+<span class="fc" id="L70">                        .writingOutput(System.out)</span>
+<span class="fc" id="L71">                        .writingError(System.err)</span>
+<span class="fc" id="L72">                        .withTTY()</span>
+<span class="fc" id="L73">                        .usingListener(listener)</span>
+<span class="fc" id="L74">                        .exec();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">                while (listener.shouldStillWait()) {</span>
+<span class="fc" id="L76">                    mutex.wait(1000);</span>
                 }
-<span class="nc bnc" id="L78" title="All 2 branches missed.">                if (listener.hasFailed()) {</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">                if (listener.hasFailed()) {</span>
 <span class="nc" id="L79">                    throw new IllegalStateException(format(&quot;Command did not meet the wait condition within 20 seconds: %s&quot;, sb.toString()));</span>
                 }
-<span class="nc" id="L81">                return exec;</span>
+<span class="fc" id="L81">                return exec;</span>
             }
 <span class="nc" id="L83">        } catch (InterruptedException e) {</span>
 <span class="nc" id="L84">            Thread.currentThread().interrupt();</span>

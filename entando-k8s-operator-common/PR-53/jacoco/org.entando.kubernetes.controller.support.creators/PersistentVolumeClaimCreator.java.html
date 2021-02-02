@@ -67,7 +67,7 @@ public class PersistentVolumeClaimCreator extends AbstractK8SResourceCreator {
     private PersistentVolumeClaim newPersistentVolumeClaim(Deployable&lt;?&gt; deployable, PersistentVolumeAware container) {
 <span class="fc" id="L68">        StorageCalculator resourceCalculator = buildStorageCalculator(container);</span>
 <span class="fc" id="L69">        return new PersistentVolumeClaimBuilder()</span>
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">                .withMetadata(fromCustomResource(!EntandoOperatorConfig.disablePvcGarbageCollection(),</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                .withMetadata(fromCustomResource(!EntandoOperatorConfig.disablePvcGarbageCollection(),</span>
 <span class="fc" id="L71">                        resolveName(container.getNameQualifier(), &quot;-pvc&quot;),</span>
 <span class="fc" id="L72">                        deployable.getNameQualifier()))</span>
 <span class="fc" id="L73">                .withNewSpec().withAccessModes(&quot;ReadWriteOnce&quot;)</span>
@@ -79,8 +79,8 @@ public class PersistentVolumeClaimCreator extends AbstractK8SResourceCreator {
     }
 
     private StorageCalculator buildStorageCalculator(PersistentVolumeAware deployableContainer) {
-<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        return deployableContainer instanceof ConfigurableResourceContainer</span>
-<span class="nc" id="L83">                ? new ConfigurableStorageCalculator((ConfigurableResourceContainer) deployableContainer)</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        return deployableContainer instanceof ConfigurableResourceContainer</span>
+<span class="fc" id="L83">                ? new ConfigurableStorageCalculator((ConfigurableResourceContainer) deployableContainer)</span>
 <span class="fc" id="L84">                : new StorageCalculator(deployableContainer);</span>
 
     }

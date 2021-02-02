@@ -54,13 +54,13 @@ public class DefaultPodClient implements PodClient {
 
     @Override
     public void removeAndWait(String namespace, Map&lt;String, String&gt; labels) {
-<span class="nc" id="L57">        FilterWatchListDeletable&lt;Pod, PodList, Boolean, Watch, Watcher&lt;Pod&gt;&gt; podResource = client</span>
-<span class="nc" id="L58">                .pods().inNamespace(namespace).withLabels(labels);</span>
-<span class="nc" id="L59">        podResource.delete();</span>
-<span class="nc" id="L60">        watchPod(</span>
-<span class="nc" id="L61">                pod -&gt; podResource.list().getItems().isEmpty(),</span>
-<span class="nc" id="L62">                EntandoOperatorConfig.getPodShutdownTimeoutSeconds(), podResource);</span>
-<span class="nc" id="L63">    }</span>
+<span class="fc" id="L57">        FilterWatchListDeletable&lt;Pod, PodList, Boolean, Watch, Watcher&lt;Pod&gt;&gt; podResource = client</span>
+<span class="fc" id="L58">                .pods().inNamespace(namespace).withLabels(labels);</span>
+<span class="fc" id="L59">        podResource.delete();</span>
+<span class="fc" id="L60">        watchPod(</span>
+<span class="fc" id="L61">                pod -&gt; podResource.list().getItems().isEmpty(),</span>
+<span class="fc" id="L62">                EntandoOperatorConfig.getPodShutdownTimeoutSeconds(), podResource);</span>
+<span class="fc" id="L63">    }</span>
 
     @Override
     public BlockingQueue&lt;PodWatcher&gt; getPodWatcherQueue() {
@@ -69,9 +69,9 @@ public class DefaultPodClient implements PodClient {
 
     @Override
     public Pod runToCompletion(Pod pod) {
-<span class="nc" id="L72">        Pod running = this.client.pods().inNamespace(pod.getMetadata().getNamespace()).create(pod);</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">        return waitFor(running, got -&gt; PodResult.of(got).getState() == State.COMPLETED,</span>
-<span class="nc" id="L74">                EntandoOperatorConfig.getPodCompletionTimeoutSeconds());</span>
+<span class="fc" id="L72">        Pod running = this.client.pods().inNamespace(pod.getMetadata().getNamespace()).create(pod);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        return waitFor(running, got -&gt; PodResult.of(got).getState() == State.COMPLETED,</span>
+<span class="fc" id="L74">                EntandoOperatorConfig.getPodCompletionTimeoutSeconds());</span>
     }
 
     @Override
@@ -83,20 +83,20 @@ public class DefaultPodClient implements PodClient {
 
     @Override
     public Pod start(Pod pod) {
-<span class="nc" id="L86">        return this.client.pods().inNamespace(pod.getMetadata().getNamespace()).create(pod);</span>
+<span class="fc" id="L86">        return this.client.pods().inNamespace(pod.getMetadata().getNamespace()).create(pod);</span>
     }
 
     @Override
     public Pod waitForPod(String namespace, String labelName, String labelValue) {
 <span class="fc" id="L91">        Watchable&lt;Watch, Watcher&lt;Pod&gt;&gt; watchable = client.pods().inNamespace(namespace).withLabel(labelName, labelValue);</span>
-<span class="pc bpc" id="L92" title="2 of 4 branches missed.">        return watchPod(got -&gt; PodResult.of(got).getState() == State.READY || PodResult.of(got).getState() == State.COMPLETED,</span>
+<span class="fc bfc" id="L92" title="All 4 branches covered.">        return watchPod(got -&gt; PodResult.of(got).getState() == State.READY || PodResult.of(got).getState() == State.COMPLETED,</span>
 <span class="fc" id="L93">                EntandoOperatorConfig.getPodReadinessTimeoutSeconds(),</span>
                 watchable);
     }
 
     @Override
     public Pod loadPod(String namespace, Map&lt;String, String&gt; labels) {
-<span class="nc" id="L99">        return client.pods().inNamespace(namespace).withLabels(labels).list().getItems().stream().findFirst().orElse(null);</span>
+<span class="fc" id="L99">        return client.pods().inNamespace(namespace).withLabels(labels).list().getItems().stream().findFirst().orElse(null);</span>
     }
 
     /**
@@ -104,9 +104,9 @@ public class DefaultPodClient implements PodClient {
      * logic. waituntilCondition also polls which is nasty.
      */
     private Pod waitFor(Pod pod, Predicate&lt;Pod&gt; podPredicate, long timeoutSeconds) {
-<span class="nc" id="L107">        Watchable&lt;Watch, Watcher&lt;Pod&gt;&gt; watchable = client.pods().inNamespace(pod.getMetadata().getNamespace())</span>
-<span class="nc" id="L108">                .withName(pod.getMetadata().getName());</span>
-<span class="nc" id="L109">        return watchPod(podPredicate, timeoutSeconds, watchable);</span>
+<span class="fc" id="L107">        Watchable&lt;Watch, Watcher&lt;Pod&gt;&gt; watchable = client.pods().inNamespace(pod.getMetadata().getNamespace())</span>
+<span class="fc" id="L108">                .withName(pod.getMetadata().getName());</span>
+<span class="fc" id="L109">        return watchPod(podPredicate, timeoutSeconds, watchable);</span>
 
     }
 
