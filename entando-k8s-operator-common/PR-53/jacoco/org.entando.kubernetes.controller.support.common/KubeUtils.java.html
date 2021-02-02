@@ -47,13 +47,13 @@ public final class KubeUtils {
     public static final String JOB_KIND_DB_PREPARATION = &quot;db-preparation-job&quot;;
     public static final String DEPLOYMENT_LABEL_NAME = &quot;deployment&quot;;
 
-<span class="fc" id="L50">    private static final Logger LOGGER = Logger.getLogger(KubeUtils.class.getName());</span>
+<span class="nc" id="L50">    private static final Logger LOGGER = Logger.getLogger(KubeUtils.class.getName());</span>
 
     private KubeUtils() {
     }
 
     public static String getKindOf(Class&lt;? extends EntandoCustomResource&gt; c) {
-<span class="fc" id="L56">        return c.getSimpleName();</span>
+<span class="nc" id="L56">        return c.getSimpleName();</span>
     }
 
     public static void ready(String name) {
@@ -65,19 +65,19 @@ public final class KubeUtils {
 <span class="nc" id="L65">    }</span>
 
     public static boolean customResourceOwns(EntandoCustomResource customResource, HasMetadata resource) {
-<span class="fc" id="L68">        return resource.getMetadata().getOwnerReferences().stream()</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">                .anyMatch(ownerReference -&gt; customResource.getMetadata().getName().equals(ownerReference.getName())</span>
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">                        &amp;&amp; customResource.getKind().equals(ownerReference.getKind()));</span>
+<span class="nc" id="L68">        return resource.getMetadata().getOwnerReferences().stream()</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                .anyMatch(ownerReference -&gt; customResource.getMetadata().getName().equals(ownerReference.getName())</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">                        &amp;&amp; customResource.getKind().equals(ownerReference.getKind()));</span>
     }
 
     public static OperatorProcessingInstruction resolveProcessingInstruction(EntandoCustomResource resource) {
-<span class="fc" id="L74">        return resolveAnnotation(resource, PROCESSING_INSTRUCTION_ANNOTATION_NAME)</span>
-<span class="fc" id="L75">                .map(value -&gt; OperatorProcessingInstruction.valueOf(value.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;)))</span>
-<span class="fc" id="L76">                .orElse(OperatorProcessingInstruction.NONE);</span>
+<span class="nc" id="L74">        return resolveAnnotation(resource, PROCESSING_INSTRUCTION_ANNOTATION_NAME)</span>
+<span class="nc" id="L75">                .map(value -&gt; OperatorProcessingInstruction.valueOf(value.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;)))</span>
+<span class="nc" id="L76">                .orElse(OperatorProcessingInstruction.NONE);</span>
     }
 
     public static Optional&lt;String&gt; resolveAnnotation(EntandoCustomResource resource, String name) {
-<span class="fc" id="L80">        return ofNullable(resource.getMetadata().getAnnotations()).map(map -&gt; map.get(name));</span>
+<span class="nc" id="L80">        return ofNullable(resource.getMetadata().getAnnotations()).map(map -&gt; map.get(name));</span>
     }
 
 }

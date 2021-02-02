@@ -56,7 +56,7 @@ public interface DeployableContainer {
     }
 
     default List&lt;SecretToMount&gt; getSecretsToMount() {
-<span class="fc" id="L59">        return getNamesOfSecretsToMount().stream().map(s -&gt; new SecretToMount(s, ENTANDO_SECRET_MOUNTS_ROOT + &quot;/&quot; + s))</span>
+<span class="pc" id="L59">        return getNamesOfSecretsToMount().stream().map(s -&gt; new SecretToMount(s, ENTANDO_SECRET_MOUNTS_ROOT + &quot;/&quot; + s))</span>
 <span class="fc" id="L60">                .collect(Collectors.toList());</span>
     }
 

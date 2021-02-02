@@ -102,20 +102,20 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public static DbmsDockerVendorStrategy forVendor(DbmsVendor vendor, EntandoOperatorComplianceMode complianceMode) {
-<span class="fc bfc" id="L105" title="All 2 branches covered.">        if (complianceMode == EntandoOperatorComplianceMode.COMMUNITY) {</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if (complianceMode == EntandoOperatorComplianceMode.COMMUNITY) {</span>
 <span class="fc bfc" id="L106" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
 <span class="fc" id="L107">                return CENTOS_POSTGRESQL;</span>
-<span class="fc bfc" id="L108" title="All 2 branches covered.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
 <span class="fc" id="L109">                return CENTOS_MYSQL;</span>
             }
-<span class="pc bpc" id="L111" title="1 of 2 branches missed.">        } else if (complianceMode == EntandoOperatorComplianceMode.REDHAT) {</span>
-<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
-<span class="fc" id="L113">                return RHEL_POSTGRESQL;</span>
-<span class="pc bpc" id="L114" title="1 of 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
-<span class="fc" id="L115">                return RHEL_MYSQL;</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        } else if (complianceMode == EntandoOperatorComplianceMode.REDHAT) {</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
+<span class="nc" id="L113">                return RHEL_POSTGRESQL;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
+<span class="nc" id="L115">                return RHEL_MYSQL;</span>
             }
         }
-<span class="fc" id="L118">        return valueOf(vendor.name());</span>
+<span class="nc" id="L118">        return valueOf(vendor.name());</span>
     }
 
 <span class="fc" id="L121">    public enum DockerRegistry {</span>

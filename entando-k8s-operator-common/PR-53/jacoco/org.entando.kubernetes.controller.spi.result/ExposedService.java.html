@@ -35,86 +35,86 @@ public class ExposedService extends AbstractServiceResult {
 <span class="fc" id="L35">    }</span>
 
     public String getExternalBaseUrlForPort(String portName) {
-<span class="fc" id="L38">        return getExternalHostUrl() + getHttpIngressPathForPort(portName).getPath();</span>
+<span class="nc" id="L38">        return getExternalHostUrl() + getHttpIngressPathForPort(portName).getPath();</span>
     }
 
     public String getInternalBaseUrlForPort(String portName) {
-<span class="fc" id="L42">        HTTPIngressPath pathForPort = getHttpIngressPathForPort(portName);</span>
-<span class="fc" id="L43">        return &quot;http://&quot; + getInternalServiceHostname() + &quot;:&quot; + pathForPort.getBackend().getServicePort().getIntVal() + pathForPort</span>
-<span class="fc" id="L44">                .getPath();</span>
+<span class="nc" id="L42">        HTTPIngressPath pathForPort = getHttpIngressPathForPort(portName);</span>
+<span class="nc" id="L43">        return &quot;http://&quot; + getInternalServiceHostname() + &quot;:&quot; + pathForPort.getBackend().getServicePort().getIntVal() + pathForPort</span>
+<span class="nc" id="L44">                .getPath();</span>
     }
 
     public String getExternalHostUrl() {
-<span class="fc bfc" id="L48" title="All 4 branches covered.">        String protocol = isTlsEnabled() || EntandoOperatorSpiConfig.assumeExternalHttpsProvider() ? &quot;https&quot; : &quot;http&quot;;</span>
-<span class="fc" id="L49">        return protocol + &quot;://&quot; + ingress.getSpec().getRules().get(0).getHost();</span>
+<span class="nc bnc" id="L48" title="All 4 branches missed.">        String protocol = isTlsEnabled() || EntandoOperatorSpiConfig.assumeExternalHttpsProvider() ? &quot;https&quot; : &quot;http&quot;;</span>
+<span class="nc" id="L49">        return protocol + &quot;://&quot; + ingress.getSpec().getRules().get(0).getHost();</span>
     }
 
     public String getExternalBaseUrl() {
-<span class="fc" id="L53">        return getExternalHostUrl() + getHttpIngressPath().getPath();</span>
+<span class="nc" id="L53">        return getExternalHostUrl() + getHttpIngressPath().getPath();</span>
     }
 
     public String getInternalBaseUrl() {
-<span class="fc" id="L57">        return &quot;http://&quot; + getInternalServiceHostname() + &quot;:&quot; + getPort() + getHttpIngressPath().getPath();</span>
+<span class="nc" id="L57">        return &quot;http://&quot; + getInternalServiceHostname() + &quot;:&quot; + getPort() + getHttpIngressPath().getPath();</span>
     }
 
     protected boolean isTlsEnabled() {
-<span class="fc" id="L61">        return ofNullable(ingress.getSpec().getTls())</span>
-<span class="fc bfc" id="L62" title="All 2 branches covered.">                .map(list -&gt; !list.isEmpty())</span>
-<span class="fc" id="L63">                .orElse(false);</span>
+<span class="nc" id="L61">        return ofNullable(ingress.getSpec().getTls())</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                .map(list -&gt; !list.isEmpty())</span>
+<span class="nc" id="L63">                .orElse(false);</span>
     }
 
     private HTTPIngressPath getHttpIngressPath() {
-<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (hasMultiplePorts()) {</span>
-<span class="fc" id="L68">            throw new IllegalStateException(&quot;Cannot make assumption to use a port as there are multiple ports&quot;);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (hasMultiplePorts()) {</span>
+<span class="nc" id="L68">            throw new IllegalStateException(&quot;Cannot make assumption to use a port as there are multiple ports&quot;);</span>
         }
-<span class="fc" id="L70">        return ingress.getSpec().getRules().get(0).getHttp().getPaths().stream().filter(this::matchesService)</span>
-<span class="fc" id="L71">                .findFirst().orElseThrow(IllegalStateException::new);</span>
+<span class="nc" id="L70">        return ingress.getSpec().getRules().get(0).getHttp().getPaths().stream().filter(this::matchesService)</span>
+<span class="nc" id="L71">                .findFirst().orElseThrow(IllegalStateException::new);</span>
     }
 
     private boolean hasMultiplePorts() {
-<span class="fc bfc" id="L75" title="All 2 branches covered.">        return service.getSpec().getPorts().size() &gt; 1;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        return service.getSpec().getPorts().size() &gt; 1;</span>
     }
 
     private HTTPIngressPath getHttpIngressPathForPort(String portName) {
-<span class="fc" id="L79">        return ingress.getSpec().getRules().get(0).getHttp().getPaths().stream()</span>
-<span class="fc" id="L80">                .filter(path -&gt; this.matchesServiceAndPortName(path, portName))</span>
-<span class="fc" id="L81">                .findFirst().orElseThrow(IllegalStateException::new);</span>
+<span class="nc" id="L79">        return ingress.getSpec().getRules().get(0).getHttp().getPaths().stream()</span>
+<span class="nc" id="L80">                .filter(path -&gt; this.matchesServiceAndPortName(path, portName))</span>
+<span class="nc" id="L81">                .findFirst().orElseThrow(IllegalStateException::new);</span>
     }
 
     private boolean matchesServiceAndPortName(HTTPIngressPath httpIngressPath, String portName) {
-<span class="fc" id="L85">        IngressBackend backend = httpIngressPath.getBackend();</span>
-<span class="pc bpc" id="L86" title="3 of 6 branches missed.">        return (matchesThisService(backend) || matchesDelegatingService(backend)) &amp;&amp; hasMatchingServicePortNamed(backend, portName);</span>
+<span class="nc" id="L85">        IngressBackend backend = httpIngressPath.getBackend();</span>
+<span class="nc bnc" id="L86" title="All 6 branches missed.">        return (matchesThisService(backend) || matchesDelegatingService(backend)) &amp;&amp; hasMatchingServicePortNamed(backend, portName);</span>
     }
 
     private boolean hasMatchingServicePortNamed(IngressBackend backend, String portName) {
-<span class="fc" id="L90">        return service.getSpec().getPorts().stream()</span>
-<span class="fc bfc" id="L91" title="All 2 branches covered.">                .anyMatch(servicePort -&gt; portName.equals(servicePort.getName()) &amp;&amp; backend.getServicePort().getIntVal()</span>
-<span class="fc bfc" id="L92" title="All 2 branches covered.">                        .equals(servicePort.getPort()));</span>
+<span class="nc" id="L90">        return service.getSpec().getPorts().stream()</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">                .anyMatch(servicePort -&gt; portName.equals(servicePort.getName()) &amp;&amp; backend.getServicePort().getIntVal()</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">                        .equals(servicePort.getPort()));</span>
     }
 
     private boolean matchesService(HTTPIngressPath httpIngressPath) {
-<span class="fc" id="L96">        IngressBackend backend = httpIngressPath.getBackend();</span>
-<span class="pc bpc" id="L97" title="2 of 6 branches missed.">        return (matchesThisService(backend) || matchesDelegatingService(backend)) &amp;&amp; hasMatchingServicePort(backend);</span>
+<span class="nc" id="L96">        IngressBackend backend = httpIngressPath.getBackend();</span>
+<span class="nc bnc" id="L97" title="All 6 branches missed.">        return (matchesThisService(backend) || matchesDelegatingService(backend)) &amp;&amp; hasMatchingServicePort(backend);</span>
     }
 
     private boolean hasMatchingServicePort(IngressBackend backend) {
-<span class="fc" id="L101">        return service.getSpec().getPorts().stream()</span>
-<span class="fc" id="L102">                .anyMatch(servicePort -&gt;</span>
-<span class="fc" id="L103">                        backend.getServicePort().getIntVal().equals(</span>
-<span class="fc" id="L104">                                servicePort.getPort()));</span>
+<span class="nc" id="L101">        return service.getSpec().getPorts().stream()</span>
+<span class="nc" id="L102">                .anyMatch(servicePort -&gt;</span>
+<span class="nc" id="L103">                        backend.getServicePort().getIntVal().equals(</span>
+<span class="nc" id="L104">                                servicePort.getPort()));</span>
     }
 
     private boolean matchesThisService(IngressBackend backend) {
-<span class="fc" id="L108">        return backend.getServiceName().equals(service.getMetadata().getName());</span>
+<span class="nc" id="L108">        return backend.getServiceName().equals(service.getMetadata().getName());</span>
     }
 
     private boolean matchesDelegatingService(IngressBackend backend) {
-<span class="fc" id="L112">        return backend.getServiceName().endsWith(&quot;-to-&quot; + service.getMetadata().getName());</span>
+<span class="nc" id="L112">        return backend.getServiceName().endsWith(&quot;-to-&quot; + service.getMetadata().getName());</span>
     }
 
     @SerializeByReference
     public Ingress getIngress() {
-<span class="nc" id="L117">        return ingress;</span>
+<span class="fc" id="L117">        return ingress;</span>
     }
 
 }

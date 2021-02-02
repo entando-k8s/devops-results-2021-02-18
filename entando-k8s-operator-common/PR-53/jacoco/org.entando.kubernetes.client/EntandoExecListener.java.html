@@ -23,14 +23,14 @@ public class EntandoExecListener implements ExecListener {
 
     private final Object mutex;
     private final int timeoutSeconds;
-<span class="fc" id="L26">    private final long start = System.currentTimeMillis();</span>
-<span class="fc" id="L27">    private boolean failed = false;</span>
-<span class="fc" id="L28">    boolean shouldStillWait = true;</span>
+<span class="nc" id="L26">    private final long start = System.currentTimeMillis();</span>
+<span class="nc" id="L27">    private boolean failed = false;</span>
+<span class="nc" id="L28">    boolean shouldStillWait = true;</span>
 
-<span class="fc" id="L30">    public EntandoExecListener(Object mutex, int timeoutSeconds) {</span>
-<span class="fc" id="L31">        this.mutex = mutex;</span>
-<span class="fc" id="L32">        this.timeoutSeconds = timeoutSeconds;</span>
-<span class="fc" id="L33">    }</span>
+<span class="nc" id="L30">    public EntandoExecListener(Object mutex, int timeoutSeconds) {</span>
+<span class="nc" id="L31">        this.mutex = mutex;</span>
+<span class="nc" id="L32">        this.timeoutSeconds = timeoutSeconds;</span>
+<span class="nc" id="L33">    }</span>
 
     @Override
     public void onOpen(Response response) {
@@ -48,23 +48,23 @@ public class EntandoExecListener implements ExecListener {
 
     @Override
     public void onClose(int code, String reason) {
-<span class="fc" id="L51">        shouldStillWait = false;</span>
-<span class="fc" id="L52">        synchronized (mutex) {</span>
-<span class="fc" id="L53">            mutex.notifyAll();</span>
-<span class="fc" id="L54">        }</span>
-<span class="fc" id="L55">    }</span>
+<span class="nc" id="L51">        shouldStillWait = false;</span>
+<span class="nc" id="L52">        synchronized (mutex) {</span>
+<span class="nc" id="L53">            mutex.notifyAll();</span>
+<span class="nc" id="L54">        }</span>
+<span class="nc" id="L55">    }</span>
 
     public boolean shouldStillWait() {
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000L) {</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000L) {</span>
 <span class="nc" id="L59">            failed = true;</span>
 <span class="nc" id="L60">            shouldStillWait = false;</span>
 <span class="nc" id="L61">            return false;</span>
         }
-<span class="fc" id="L63">        return shouldStillWait;</span>
+<span class="nc" id="L63">        return shouldStillWait;</span>
     }
 
     public boolean hasFailed() {
-<span class="fc" id="L67">        return failed;</span>
+<span class="nc" id="L67">        return failed;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

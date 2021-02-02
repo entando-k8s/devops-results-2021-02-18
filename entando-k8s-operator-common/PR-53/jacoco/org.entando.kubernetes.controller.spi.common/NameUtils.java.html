@@ -40,8 +40,8 @@ public class NameUtils {
      * Useful for labelvalues and container names.
      */
     public static String shortenTo63Chars(String s) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (s.length() &gt; 63) {</span>
-<span class="fc" id="L44">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (s.length() &gt; 63) {</span>
+<span class="nc" id="L44">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
         }
 <span class="fc" id="L46">        return s;</span>
     }
@@ -73,7 +73,7 @@ public class NameUtils {
     }
 
     public static String upperSnakeCaseOf(String camelCase) {
-<span class="nc" id="L76">        return camelCaseToDelimited(camelCase, &quot;_&quot;).toUpperCase(Locale.ROOT);</span>
+<span class="fc" id="L76">        return camelCaseToDelimited(camelCase, &quot;_&quot;).toUpperCase(Locale.ROOT);</span>
     }
 
     public static String databaseCompliantName(EntandoCustomResource resource, String nameQualifier, DbmsVendorConfig dbmsVendorConfig) {

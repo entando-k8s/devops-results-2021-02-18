@@ -86,7 +86,7 @@ public class DeployCommand&lt;T extends ServiceDeploymentResult&lt;T&gt;&gt; {
 <span class="pc bpc" id="L86" title="1 of 4 branches missed.">        if (deployable instanceof DbAwareDeployable &amp;&amp; ((DbAwareDeployable&lt;?&gt;) deployable).isExpectingDatabaseSchemas()) {</span>
 <span class="fc" id="L87">            prepareDbSchemas(k8sClient, entandoImageResolver, (DbAwareDeployable&lt;?&gt;) deployable);</span>
         }
-<span class="fc bfc" id="L89" title="All 2 branches covered.">        if (persistentVolumeClaimCreator.needsPersistentVolumeClaaims(deployable)) {</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        if (persistentVolumeClaimCreator.needsPersistentVolumeClaaims(deployable)) {</span>
             //NB!!! it seems there is some confusion in K8S when a patch is done without any changes.
             //K8Sseems to increment either the resourceVersion or generation or both and then
             //subsequent updates fail
@@ -94,7 +94,7 @@ public class DeployCommand&lt;T extends ServiceDeploymentResult&lt;T&gt;&gt; {
         }
 <span class="fc" id="L95">        secretCreator.createSecrets(k8sClient.secrets(), deployable);</span>
 <span class="fc" id="L96">        serviceAccountCreator.prepareServiceAccountAccess(k8sClient.serviceAccounts(), deployable);</span>
-<span class="fc bfc" id="L97" title="All 2 branches covered.">        if (shouldCreateService(deployable)) {</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (shouldCreateService(deployable)) {</span>
 <span class="fc" id="L98">            createService(k8sClient);</span>
         }
 <span class="fc" id="L100">        Ingress ingress = maybeCreateIngress(k8sClient);</span>

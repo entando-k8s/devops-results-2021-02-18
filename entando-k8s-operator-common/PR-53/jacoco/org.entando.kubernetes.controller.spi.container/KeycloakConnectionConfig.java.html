@@ -56,7 +56,7 @@ public class KeycloakConnectionConfig {
     public String decodeSecretValue(String key) {
 <span class="fc" id="L57">        Optional&lt;String&gt; value = ofNullable(adminSecret.getData())</span>
 <span class="fc" id="L58">                .map(data -&gt;</span>
-<span class="fc" id="L59">                        ofNullable(data.get(key)).map(s -&gt; new String(Base64.getDecoder().decode(s), StandardCharsets.UTF_8))</span>
+<span class="nc" id="L59">                        ofNullable(data.get(key)).map(s -&gt; new String(Base64.getDecoder().decode(s), StandardCharsets.UTF_8))</span>
                 )
 <span class="fc" id="L61">                .orElse(ofNullable(adminSecret.getStringData()).map(data -&gt; data.get(key)));</span>
 <span class="fc" id="L62">        return value.orElse(null);</span>

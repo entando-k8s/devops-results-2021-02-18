@@ -41,10 +41,10 @@ public class DatabaseSchemaConnectionInfo extends AbstractServiceResult {
     }
 
     public String getJdbcUrl() {
-<span class="fc" id="L44">        return getVendor().getVendorConfig().getConnectionStringBuilder().toHost(getInternalServiceHostname()).onPort(getPort())</span>
-<span class="fc" id="L45">                .usingDatabase(</span>
-<span class="fc" id="L46">                        getDatabase()).usingSchema(schemaName).usingParameters(this.databaseServiceResult.getJdbcParameters())</span>
-<span class="fc" id="L47">                .buildJdbcConnectionString();</span>
+<span class="nc" id="L44">        return getVendor().getVendorConfig().getConnectionStringBuilder().toHost(getInternalServiceHostname()).onPort(getPort())</span>
+<span class="nc" id="L45">                .usingDatabase(</span>
+<span class="nc" id="L46">                        getDatabase()).usingSchema(schemaName).usingParameters(this.databaseServiceResult.getJdbcParameters())</span>
+<span class="nc" id="L47">                .buildJdbcConnectionString();</span>
     }
 
     public DbmsDockerVendorStrategy getVendor() {

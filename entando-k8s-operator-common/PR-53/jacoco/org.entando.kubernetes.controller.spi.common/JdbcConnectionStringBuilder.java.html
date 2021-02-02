@@ -28,68 +28,68 @@ public abstract class JdbcConnectionStringBuilder {
     private String dataFolder;
     private Map&lt;String, String&gt; parameters;
 
-<span class="fc" id="L31">    protected JdbcConnectionStringBuilder() {</span>
-<span class="fc" id="L32">    }</span>
+<span class="nc" id="L31">    protected JdbcConnectionStringBuilder() {</span>
+<span class="nc" id="L32">    }</span>
 
     public JdbcConnectionStringBuilder toHost(String host) {
-<span class="fc" id="L35">        this.host = host;</span>
-<span class="fc" id="L36">        return this;</span>
+<span class="nc" id="L35">        this.host = host;</span>
+<span class="nc" id="L36">        return this;</span>
     }
 
     public JdbcConnectionStringBuilder onPort(String port) {
-<span class="fc" id="L40">        this.port = port;</span>
-<span class="fc" id="L41">        return this;</span>
+<span class="nc" id="L40">        this.port = port;</span>
+<span class="nc" id="L41">        return this;</span>
     }
 
     public JdbcConnectionStringBuilder usingDatabase(String database) {
-<span class="fc" id="L45">        this.database = database;</span>
-<span class="fc" id="L46">        return this;</span>
+<span class="nc" id="L45">        this.database = database;</span>
+<span class="nc" id="L46">        return this;</span>
     }
 
     public JdbcConnectionStringBuilder inFolder(String folder) {
-<span class="fc" id="L50">        this.dataFolder = folder;</span>
-<span class="fc" id="L51">        return this;</span>
+<span class="nc" id="L50">        this.dataFolder = folder;</span>
+<span class="nc" id="L51">        return this;</span>
     }
 
     public JdbcConnectionStringBuilder usingSchema(String schema) {
-<span class="fc" id="L55">        this.schema = schema;</span>
-<span class="fc" id="L56">        return this;</span>
+<span class="nc" id="L55">        this.schema = schema;</span>
+<span class="nc" id="L56">        return this;</span>
     }
 
     public JdbcConnectionStringBuilder usingParameters(Map&lt;String, String&gt; parameters) {
-<span class="fc" id="L60">        this.parameters = parameters;</span>
-<span class="fc" id="L61">        return this;</span>
+<span class="nc" id="L60">        this.parameters = parameters;</span>
+<span class="nc" id="L61">        return this;</span>
     }
 
     public String getHost() {
-<span class="fc" id="L65">        return this.host;</span>
+<span class="nc" id="L65">        return this.host;</span>
     }
 
     public String getPort() {
-<span class="fc" id="L69">        return this.port;</span>
+<span class="nc" id="L69">        return this.port;</span>
     }
 
     public String getDatabase() {
-<span class="fc" id="L73">        return this.database;</span>
+<span class="nc" id="L73">        return this.database;</span>
     }
 
     public String getDataFolder() {
-<span class="fc" id="L77">        return dataFolder;</span>
+<span class="nc" id="L77">        return dataFolder;</span>
     }
 
     public String getSchema() {
-<span class="fc" id="L81">        return this.schema;</span>
+<span class="nc" id="L81">        return this.schema;</span>
     }
 
     public abstract String buildConnectionString();
 
     public String buildJdbcConnectionString() {
-<span class="fc" id="L87">        return buildConnectionString() + parameterSuffix();</span>
+<span class="nc" id="L87">        return buildConnectionString() + parameterSuffix();</span>
     }
 
     public String parameterSuffix() {
-<span class="pc bpc" id="L91" title="2 of 4 branches missed.">        if (parameters == null || parameters.isEmpty()) {</span>
-<span class="fc" id="L92">            return &quot;&quot;;</span>
+<span class="nc bnc" id="L91" title="All 4 branches missed.">        if (parameters == null || parameters.isEmpty()) {</span>
+<span class="nc" id="L92">            return &quot;&quot;;</span>
         } else {
 <span class="nc" id="L94">            return &quot;?&quot; + parameters.entrySet().stream().map(entry -&gt; entry.getKey() + &quot;=&quot; + entry.getValue())</span>
 <span class="nc" id="L95">                    .collect(Collectors.joining(&quot;&amp;&quot;));</span>

@@ -43,30 +43,30 @@ public class KubernetesPermission {
     private final List&lt;String&gt; verbs;
 
     public KubernetesPermission(String apiGroup, String resourceName, String... verbs) {
-<span class="fc" id="L46">        this(apiGroup, resourceName, Arrays.asList(verbs));</span>
-<span class="fc" id="L47">    }</span>
+<span class="nc" id="L46">        this(apiGroup, resourceName, Arrays.asList(verbs));</span>
+<span class="nc" id="L47">    }</span>
 
     @JsonCreator
     public KubernetesPermission(
             @JsonProperty(&quot;apiGroup&quot;) String apiGroup,
             @JsonProperty(&quot;resourceName&quot;) String resourceName,
-<span class="fc" id="L53">            @JsonProperty(&quot;verbs&quot;) List&lt;String&gt; verbs) {</span>
-<span class="fc" id="L54">        this.apiGroup = apiGroup;</span>
-<span class="fc" id="L55">        this.resourceName = resourceName;</span>
-<span class="fc" id="L56">        this.verbs = verbs;</span>
+<span class="nc" id="L53">            @JsonProperty(&quot;verbs&quot;) List&lt;String&gt; verbs) {</span>
+<span class="nc" id="L54">        this.apiGroup = apiGroup;</span>
+<span class="nc" id="L55">        this.resourceName = resourceName;</span>
+<span class="nc" id="L56">        this.verbs = verbs;</span>
 
-<span class="fc" id="L58">    }</span>
+<span class="nc" id="L58">    }</span>
 
     public String getApiGroup() {
-<span class="fc" id="L61">        return apiGroup;</span>
+<span class="nc" id="L61">        return apiGroup;</span>
     }
 
     public String getResourceName() {
-<span class="fc" id="L65">        return resourceName;</span>
+<span class="nc" id="L65">        return resourceName;</span>
     }
 
     public List&lt;String&gt; getVerbs() {
-<span class="fc" id="L69">        return verbs;</span>
+<span class="nc" id="L69">        return verbs;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
