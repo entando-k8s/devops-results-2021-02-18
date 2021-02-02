@@ -44,7 +44,7 @@ public abstract class KeycloakAwareSpecFluent&lt;N extends KeycloakAwareSpecFlue
     public class KeycloakToUseNested extends
             KeycloakToUseFluent&lt;KeycloakToUseNested&gt; {
 
-        private N parentBuilder;
+        private final N parentBuilder;
 
 <span class="fc" id="L49">        public KeycloakToUseNested(N parentBuilder, KeycloakToUse keycloakToUse) {</span>
 <span class="fc" id="L50">            super(keycloakToUse);</span>
@@ -55,9 +55,8 @@ public abstract class KeycloakAwareSpecFluent&lt;N extends KeycloakAwareSpecFlue
 <span class="fc" id="L55">            this.parentBuilder = parentBuilder;</span>
 <span class="fc" id="L56">        }</span>
 
-        @SuppressWarnings(&quot;unchecked&quot;)
         public N endKeycloakToUse() {
-<span class="fc" id="L60">            return (N) parentBuilder.withKeycloakToUse(super.build());</span>
+<span class="fc" id="L59">            return parentBuilder.withKeycloakToUse(super.build());</span>
         }
     }
 

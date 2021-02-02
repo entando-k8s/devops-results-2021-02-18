@@ -74,13 +74,12 @@ public abstract class EntandoCustomResourceReferenceFluent&lt;N extends EntandoC
 <span class="fc" id="L74">        }</span>
 
         @Override
-        @SuppressWarnings(&quot;unchecked&quot;)
         public P and() {
-<span class="fc" id="L79">            return (P) parentBuilder.withSpec(this.build());</span>
+<span class="fc" id="L78">            return parentBuilder.withSpec(this.build());</span>
         }
 
         public P endSpec() {
-<span class="fc" id="L83">            return this.and();</span>
+<span class="fc" id="L82">            return this.and();</span>
         }
     }
 }

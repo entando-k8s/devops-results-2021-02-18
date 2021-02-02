@@ -39,47 +39,41 @@ public class EntandoCompositeAppFluent&lt;A extends EntandoCompositeAppFluent&lt
 <span class="fc" id="L39">    }</span>
 
     public NestedEntandoCompositeAppFluent&lt;A&gt; editSpec() {
-<span class="fc" id="L42">        return new NestedEntandoCompositeAppFluent&lt;&gt;(thisAsA(), this.spec.build());</span>
+<span class="fc" id="L42">        return new NestedEntandoCompositeAppFluent&lt;&gt;(thisAsF(), this.spec.build());</span>
     }
 
     public NestedEntandoCompositeAppFluent&lt;A&gt; withNewSpec() {
-<span class="fc" id="L46">        return new NestedEntandoCompositeAppFluent&lt;&gt;(thisAsA());</span>
+<span class="fc" id="L46">        return new NestedEntandoCompositeAppFluent&lt;&gt;(thisAsF());</span>
     }
 
     public A withSpec(EntandoCompositeAppSpec spec) {
 <span class="fc" id="L50">        this.spec = new EntandoCompositeAppSpecBuilder(spec);</span>
-<span class="fc" id="L51">        return thisAsA();</span>
+<span class="fc" id="L51">        return thisAsF();</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    protected A thisAsA() {
-<span class="fc" id="L56">        return (A) this;</span>
-    }
-
-    public static class NestedEntandoCompositeAppFluent&lt;N extends EntandoCompositeAppFluent&gt; extends
+    public static class NestedEntandoCompositeAppFluent&lt;N extends EntandoCompositeAppFluent&lt;N&gt;&gt; extends
             EntandoCompositeAppSpecFluent&lt;NestedEntandoCompositeAppFluent&lt;N&gt;&gt; implements
             Nested&lt;N&gt; {
 
         private final N parentBuilder;
 
         NestedEntandoCompositeAppFluent(N parentBuilder, EntandoCompositeAppSpec spec) {
-<span class="fc" id="L66">            super(spec);</span>
+<span class="fc" id="L61">            super(spec);</span>
+<span class="fc" id="L62">            this.parentBuilder = parentBuilder;</span>
+<span class="fc" id="L63">        }</span>
+
+        public NestedEntandoCompositeAppFluent(N parentBuilder) {
+<span class="fc" id="L66">            super();</span>
 <span class="fc" id="L67">            this.parentBuilder = parentBuilder;</span>
 <span class="fc" id="L68">        }</span>
 
-        public NestedEntandoCompositeAppFluent(N parentBuilder) {
-<span class="fc" id="L71">            super();</span>
-<span class="fc" id="L72">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L73">        }</span>
-
         @Override
-        @SuppressWarnings(&quot;unchecked&quot;)
         public N and() {
-<span class="fc" id="L78">            return (N) parentBuilder.withSpec(this.build());</span>
+<span class="fc" id="L72">            return parentBuilder.withSpec(this.build());</span>
         }
 
         public N endSpec() {
-<span class="fc" id="L82">            return this.and();</span>
+<span class="fc" id="L76">            return this.and();</span>
         }
     }
 

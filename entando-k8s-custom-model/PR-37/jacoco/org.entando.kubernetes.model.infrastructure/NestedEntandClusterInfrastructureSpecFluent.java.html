@@ -34,14 +34,13 @@ public class NestedEntandClusterInfrastructureSpecFluent&lt;F extends EntandoClu
 <span class="fc" id="L34">        this.parentBuilder = parentBuilder;</span>
 <span class="fc" id="L35">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public F and() {
-<span class="fc" id="L40">        return (F) parentBuilder.withSpec(this.build());</span>
+<span class="fc" id="L39">        return parentBuilder.withSpec(this.build());</span>
     }
 
     public F endSpec() {
-<span class="fc" id="L44">        return this.and();</span>
+<span class="fc" id="L43">        return this.and();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

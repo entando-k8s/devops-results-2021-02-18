@@ -27,7 +27,7 @@ import java.util.Locale;
 
     @JsonValue
     public String toValue() {
-<span class="fc" id="L30">        return name().toLowerCase().replaceAll(&quot;_&quot;, &quot;-&quot;);</span>
+<span class="fc" id="L30">        return name().toLowerCase().replace(&quot;_&quot;, &quot;-&quot;);</span>
     }
 
     @JsonCreator
@@ -35,7 +35,7 @@ import java.util.Locale;
 <span class="nc bnc" id="L35" title="All 2 branches missed.">        if (Strings.isNullOrEmpty(value)) {</span>
 <span class="nc" id="L36">            return null;</span>
         }
-<span class="nc" id="L38">        return valueOf(value.toUpperCase(Locale.getDefault()).replaceAll(&quot;-&quot;, &quot;_&quot;));</span>
+<span class="nc" id="L38">        return valueOf(value.toUpperCase(Locale.getDefault()).replace(&quot;-&quot;, &quot;_&quot;));</span>
     }
 
 }

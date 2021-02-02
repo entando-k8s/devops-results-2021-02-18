@@ -40,20 +40,17 @@ public class EntandoPluginFluent&lt;F extends EntandoPluginFluent&lt;F&gt;&gt;
 <span class="fc" id="L40">        this.spec = spec;</span>
 <span class="fc" id="L41">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     public NestedEntandoPluginSpecFluent&lt;F&gt; editSpec() {
-<span class="fc" id="L45">        return new NestedEntandoPluginSpecFluent&lt;&gt;((F) this, this.spec.build());</span>
+<span class="fc" id="L44">        return new NestedEntandoPluginSpecFluent&lt;&gt;(thisAsF(), this.spec.build());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     public NestedEntandoPluginSpecFluent&lt;F&gt; withNewSpec() {
-<span class="fc" id="L50">        return new NestedEntandoPluginSpecFluent&lt;&gt;((F) this);</span>
+<span class="fc" id="L48">        return new NestedEntandoPluginSpecFluent&lt;&gt;(thisAsF());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     public F withSpec(EntandoPluginSpec spec) {
-<span class="fc" id="L55">        this.spec = new EntandoPluginSpecBuilder(spec);</span>
-<span class="fc" id="L56">        return (F) this;</span>
+<span class="fc" id="L52">        this.spec = new EntandoPluginSpecBuilder(spec);</span>
+<span class="fc" id="L53">        return thisAsF();</span>
     }
 
 }

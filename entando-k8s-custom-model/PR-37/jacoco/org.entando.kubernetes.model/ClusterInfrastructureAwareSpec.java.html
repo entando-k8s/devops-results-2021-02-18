@@ -22,25 +22,27 @@ import io.fabric8.kubernetes.api.model.EnvVar;
 import java.util.List;
 import java.util.Optional;
 
-public class ClusterInfrastructureAwareSpec extends KeycloakAwareSpec {
+public abstract class ClusterInfrastructureAwareSpec extends KeycloakAwareSpec {
 
     private ResourceReference clusterInfrastructureToUse;
 
-<span class="nc" id="L29">    public ClusterInfrastructureAwareSpec() {</span>
+<span class="nc" id="L29">    protected ClusterInfrastructureAwareSpec() {</span>
 <span class="nc" id="L30">    }</span>
 
-    public ClusterInfrastructureAwareSpec(String ingressHostName, String tlsSecretName, Integer replicas,
+    //Acceptable because it is only used from JsonCreator constructors
+    @SuppressWarnings(&quot;java:S107&quot;)
+    protected ClusterInfrastructureAwareSpec(String ingressHostName, String tlsSecretName, Integer replicas,
             DbmsVendor dbms, String serviceAccountToUse,
             List&lt;EnvVar&gt; environmentVariables,
             EntandoResourceRequirements resourceRequirements, KeycloakToUse keycloakToUse, ResourceReference clusterInfrastructureToUse) {
-<span class="fc" id="L36">        super(ingressHostName, tlsSecretName, replicas, dbms, serviceAccountToUse, environmentVariables, resourceRequirements,</span>
+<span class="fc" id="L38">        super(ingressHostName, tlsSecretName, replicas, dbms, serviceAccountToUse, environmentVariables, resourceRequirements,</span>
                 keycloakToUse);
 
-<span class="fc" id="L39">        this.clusterInfrastructureToUse = clusterInfrastructureToUse;</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L41">        this.clusterInfrastructureToUse = clusterInfrastructureToUse;</span>
+<span class="fc" id="L42">    }</span>
 
     public Optional&lt;ResourceReference&gt; getClusterInfrastructureToUse() {
-<span class="fc" id="L43">        return ofNullable(clusterInfrastructureToUse);</span>
+<span class="fc" id="L45">        return ofNullable(clusterInfrastructureToUse);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

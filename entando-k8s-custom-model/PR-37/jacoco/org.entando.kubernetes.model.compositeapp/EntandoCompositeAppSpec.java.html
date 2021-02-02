@@ -40,6 +40,8 @@ import org.entando.kubernetes.model.EntandoBaseCustomResource;
         setterVisibility = Visibility.NONE)
 @RegisterForReflection
 @JsonIgnoreProperties(ignoreUnknown = true)
+//Sonar gets confused with generics within generics in return types
+@SuppressWarnings(&quot;java:S1452&quot;)
 public class EntandoCompositeAppSpec implements Serializable {
 
     private List&lt;EntandoBaseCustomResource&lt;? extends Serializable&gt;&gt; components;
@@ -48,35 +50,35 @@ public class EntandoCompositeAppSpec implements Serializable {
     private String tlsSecretNameOverride;
 
     public EntandoCompositeAppSpec() {
-<span class="nc" id="L51">        super();</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L53">        super();</span>
+<span class="nc" id="L54">    }</span>
 
     @JsonCreator
     public EntandoCompositeAppSpec(
             @JsonProperty(&quot;components&quot;) List&lt;EntandoBaseCustomResource&lt;? extends Serializable&gt;&gt; components,
             @JsonProperty(&quot;ingressHostNameOverride&quot;) String ingressHostNameOverride,
             @JsonProperty(&quot;dbmsOverride&quot;) DbmsVendor dbmsOverride,
-<span class="fc" id="L59">            @JsonProperty(&quot;tlsSecretNameOverride&quot;) String tlsSecretNameOverride) {</span>
-<span class="fc" id="L60">        this.components = components;</span>
-<span class="fc" id="L61">        this.ingressHostNameOverride = ingressHostNameOverride;</span>
-<span class="fc" id="L62">        this.dbmsOverride = dbmsOverride;</span>
-<span class="fc" id="L63">        this.tlsSecretNameOverride = tlsSecretNameOverride;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L61">            @JsonProperty(&quot;tlsSecretNameOverride&quot;) String tlsSecretNameOverride) {</span>
+<span class="fc" id="L62">        this.components = components;</span>
+<span class="fc" id="L63">        this.ingressHostNameOverride = ingressHostNameOverride;</span>
+<span class="fc" id="L64">        this.dbmsOverride = dbmsOverride;</span>
+<span class="fc" id="L65">        this.tlsSecretNameOverride = tlsSecretNameOverride;</span>
+<span class="fc" id="L66">    }</span>
 
     public List&lt;EntandoBaseCustomResource&lt;? extends Serializable&gt;&gt; getComponents() {
-<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        return this.components == null ? Collections.emptyList() : this.components;</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        return this.components == null ? Collections.emptyList() : this.components;</span>
     }
 
     public Optional&lt;DbmsVendor&gt; getDbmsOverride() {
-<span class="fc" id="L71">        return Optional.ofNullable(dbmsOverride);</span>
+<span class="fc" id="L73">        return Optional.ofNullable(dbmsOverride);</span>
     }
 
     public Optional&lt;String&gt; getIngressHostNameOverride() {
-<span class="fc" id="L75">        return Optional.ofNullable(ingressHostNameOverride);</span>
+<span class="fc" id="L77">        return Optional.ofNullable(ingressHostNameOverride);</span>
     }
 
     public Optional&lt;String&gt; getTlsSecretNameOverride() {
-<span class="fc" id="L79">        return Optional.ofNullable(tlsSecretNameOverride);</span>
+<span class="fc" id="L81">        return Optional.ofNullable(tlsSecretNameOverride);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

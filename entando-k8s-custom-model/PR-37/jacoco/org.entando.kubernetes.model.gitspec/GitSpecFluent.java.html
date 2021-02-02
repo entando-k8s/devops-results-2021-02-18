@@ -23,10 +23,10 @@ public abstract class GitSpecFluent&lt;N extends GitSpecFluent&gt; {
     private String targetRef;
     private GitResponsibility responsibility;
 
-<span class="fc" id="L26">    public GitSpecFluent() {</span>
+<span class="fc" id="L26">    protected GitSpecFluent() {</span>
 <span class="fc" id="L27">    }</span>
 
-<span class="fc" id="L29">    public GitSpecFluent(GitSpec gitSpec) {</span>
+<span class="fc" id="L29">    protected GitSpecFluent(GitSpec gitSpec) {</span>
 <span class="fc" id="L30">        this.repository = gitSpec.getRepository();</span>
 <span class="fc" id="L31">        this.secretName = gitSpec.getSecretName().orElse(null);</span>
 <span class="fc" id="L32">        this.targetRef = gitSpec.getTargetRef().orElse(null);</span>

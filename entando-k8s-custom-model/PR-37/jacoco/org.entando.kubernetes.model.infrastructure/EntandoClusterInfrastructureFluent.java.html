@@ -40,21 +40,18 @@ public class EntandoClusterInfrastructureFluent&lt;F extends EntandoClusterInfra
 <span class="fc" id="L40">        this.spec = spec;</span>
 <span class="fc" id="L41">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public NestedEntandClusterInfrastructureSpecFluent&lt;F&gt; editSpec() {
-<span class="fc" id="L46">        return new NestedEntandClusterInfrastructureSpecFluent&lt;&gt;((F) this, this.spec.build());</span>
+<span class="fc" id="L45">        return new NestedEntandClusterInfrastructureSpecFluent&lt;&gt;(thisAsF(), this.spec.build());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     public NestedEntandClusterInfrastructureSpecFluent&lt;F&gt; withNewSpec() {
-<span class="fc" id="L51">        return new NestedEntandClusterInfrastructureSpecFluent&lt;&gt;((F) this);</span>
+<span class="fc" id="L49">        return new NestedEntandClusterInfrastructureSpecFluent&lt;&gt;(thisAsF());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     public F withSpec(EntandoClusterInfrastructureSpec spec) {
-<span class="fc" id="L56">        this.spec = new EntandoClusterInfrastructureSpecBuilder(spec);</span>
-<span class="fc" id="L57">        return (F) this;</span>
+<span class="fc" id="L53">        this.spec = new EntandoClusterInfrastructureSpecBuilder(spec);</span>
+<span class="fc" id="L54">        return thisAsF();</span>
     }
 
 }

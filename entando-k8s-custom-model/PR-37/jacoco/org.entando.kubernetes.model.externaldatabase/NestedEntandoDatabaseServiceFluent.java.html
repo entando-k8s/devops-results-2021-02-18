@@ -36,7 +36,7 @@ public class NestedEntandoDatabaseServiceFluent&lt;F extends EntandoDatabaseServ
 
     @Override
     public F and() {
-<span class="fc" id="L39">        return (F) parentBuilder.withSpec(this.build());</span>
+<span class="fc" id="L39">        return parentBuilder.withSpec(this.build());</span>
     }
 
     public F endSpec() {
