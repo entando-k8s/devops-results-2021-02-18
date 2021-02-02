@@ -35,23 +35,27 @@ import org.entando.kubernetes.model.EntandoResourceRequirements;
 
 @JsonInclude(Include.NON_NULL)
 @JsonSerialize
-@JsonDeserialize
+@JsonDeserialize()
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, isGetterVisibility = Visibility.NONE, getterVisibility = Visibility.NONE,
         setterVisibility = Visibility.NONE)
 @RegisterForReflection
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EntandoKeycloakServerSpec extends EntandoIngressingDeploymentSpec {
 
-    private String imageName;
+    private String customImage;
+    private StandardKeycloakImage standardImage;
     private boolean isDefault;
+    private String frontEndUrl;
 
     public EntandoKeycloakServerSpec() {
-<span class="nc" id="L49">        super();</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L51">        super();</span>
+<span class="nc" id="L52">    }</span>
 
     @JsonCreator
     public EntandoKeycloakServerSpec(
-            @JsonProperty(&quot;imageName&quot;) String imageName,
+            @JsonProperty(&quot;customName&quot;) String customImage,
+            @JsonProperty(&quot;standardImage&quot;) StandardKeycloakImage standardImage,
+            @JsonProperty(&quot;frontEndUrl&quot;) String frontEndUrl,
             @JsonProperty(&quot;dbms&quot;) DbmsVendor dbms,
             @JsonProperty(&quot;ingressHostName&quot;) String ingressHostName,
             @JsonProperty(&quot;tlsSecretName&quot;) String tlsSecretName,
@@ -60,17 +64,27 @@ public class EntandoKeycloakServerSpec extends EntandoIngressingDeploymentSpec {
             @JsonProperty(&quot;serviceAccountToUse&quot;) String serviceAccountToUse,
             @JsonProperty(&quot;environmentVariables&quot;) List&lt;EnvVar&gt; environmentVariables,
             @JsonProperty(&quot;resourceRequirements&quot;) EntandoResourceRequirements resourceRequirements) {
-<span class="fc" id="L63">        super(ingressHostName, tlsSecretName, replicas, dbms, serviceAccountToUse, environmentVariables, resourceRequirements);</span>
-<span class="fc" id="L64">        this.imageName = imageName;</span>
-<span class="fc" id="L65">        this.isDefault = Boolean.TRUE.equals(isDefault);</span>
-<span class="fc" id="L66">    }</span>
+<span class="fc" id="L67">        super(ingressHostName, tlsSecretName, replicas, dbms, serviceAccountToUse, environmentVariables, resourceRequirements);</span>
+<span class="fc" id="L68">        this.customImage = customImage;</span>
+<span class="fc" id="L69">        this.standardImage = standardImage;</span>
+<span class="fc" id="L70">        this.frontEndUrl = frontEndUrl;</span>
+<span class="fc" id="L71">        this.isDefault = Boolean.TRUE.equals(isDefault);</span>
+<span class="fc" id="L72">    }</span>
 
-    public Optional&lt;String&gt; getImageName() {
-<span class="fc" id="L69">        return Optional.ofNullable(imageName);</span>
+    public Optional&lt;String&gt; getCustomImage() {
+<span class="fc" id="L75">        return Optional.ofNullable(customImage);</span>
+    }
+
+    public Optional&lt;String&gt; getFrontEndUrl() {
+<span class="fc" id="L79">        return Optional.ofNullable(frontEndUrl);</span>
+    }
+
+    public Optional&lt;StandardKeycloakImage&gt; getStandardImage() {
+<span class="fc" id="L83">        return Optional.ofNullable(standardImage);</span>
     }
 
     public boolean isDefault() {
-<span class="fc" id="L73">        return isDefault;</span>
+<span class="fc" id="L87">        return isDefault;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

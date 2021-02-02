@@ -19,41 +19,42 @@ package org.entando.kubernetes.model.compositeapp;
 import io.fabric8.kubernetes.api.builder.Nested;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import org.entando.kubernetes.model.EntandoBaseFluent;
+import org.entando.kubernetes.model.EntandoFluent;
 
-public abstract class EntandoCustomResourceReferenceFluent&lt;N extends EntandoCustomResourceReferenceFluent&lt;N&gt;&gt; extends EntandoBaseFluent&lt;N&gt; {
+public abstract class EntandoCustomResourceReferenceFluent&lt;N extends EntandoCustomResourceReferenceFluent&lt;N&gt;&gt; extends
+        EntandoFluent&lt;N&gt; {
 
     protected EntandoCustomResourceReferenceSpecBuilder spec;
 
     protected EntandoCustomResourceReferenceFluent() {
-<span class="fc" id="L29">        this(new ObjectMetaBuilder(), new EntandoCustomResourceReferenceSpecBuilder());</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L30">        this(new ObjectMetaBuilder(), new EntandoCustomResourceReferenceSpecBuilder());</span>
+<span class="fc" id="L31">    }</span>
 
     protected EntandoCustomResourceReferenceFluent(EntandoCustomResourceReferenceSpec spec, ObjectMeta objectMeta) {
-<span class="fc" id="L33">        this(new ObjectMetaBuilder(objectMeta), new EntandoCustomResourceReferenceSpecBuilder(spec));</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L34">        this(new ObjectMetaBuilder(objectMeta), new EntandoCustomResourceReferenceSpecBuilder(spec));</span>
+<span class="fc" id="L35">    }</span>
 
     private EntandoCustomResourceReferenceFluent(ObjectMetaBuilder metadata, EntandoCustomResourceReferenceSpecBuilder spec) {
-<span class="fc" id="L37">        super(metadata);</span>
-<span class="fc" id="L38">        this.spec = spec;</span>
-<span class="fc" id="L39">    }</span>
+<span class="fc" id="L38">        super(metadata);</span>
+<span class="fc" id="L39">        this.spec = spec;</span>
+<span class="fc" id="L40">    }</span>
 
     public NestedEntandoCustomResourceReferenceSpecFluent&lt;N&gt; editSpec() {
-<span class="fc" id="L42">        return new NestedEntandoCustomResourceReferenceSpecFluent&lt;&gt;(thisAsA(), this.spec.build());</span>
+<span class="fc" id="L43">        return new NestedEntandoCustomResourceReferenceSpecFluent&lt;&gt;(thisAsA(), this.spec.build());</span>
     }
 
     public NestedEntandoCustomResourceReferenceSpecFluent&lt;N&gt; withNewSpec() {
-<span class="fc" id="L46">        return new NestedEntandoCustomResourceReferenceSpecFluent&lt;&gt;(thisAsA());</span>
+<span class="fc" id="L47">        return new NestedEntandoCustomResourceReferenceSpecFluent&lt;&gt;(thisAsA());</span>
     }
 
     public N withSpec(EntandoCustomResourceReferenceSpec spec) {
-<span class="fc" id="L50">        this.spec = new EntandoCustomResourceReferenceSpecBuilder(spec);</span>
-<span class="fc" id="L51">        return thisAsA();</span>
+<span class="fc" id="L51">        this.spec = new EntandoCustomResourceReferenceSpecBuilder(spec);</span>
+<span class="fc" id="L52">        return thisAsA();</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     protected N thisAsA() {
-<span class="fc" id="L56">        return (N) this;</span>
+<span class="fc" id="L57">        return (N) this;</span>
     }
 
     public static class NestedEntandoCustomResourceReferenceSpecFluent&lt;P extends EntandoCustomResourceReferenceFluent&lt;P&gt;&gt; extends
@@ -63,19 +64,18 @@ public abstract class EntandoCustomResourceReferenceFluent&lt;N extends EntandoC
         private final P parentBuilder;
 
         NestedEntandoCustomResourceReferenceSpecFluent(P parentBuilder, EntandoCustomResourceReferenceSpec spec) {
-<span class="fc" id="L66">            super(spec);</span>
-<span class="fc" id="L67">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L68">        }</span>
+<span class="fc" id="L67">            super(spec);</span>
+<span class="fc" id="L68">            this.parentBuilder = parentBuilder;</span>
+<span class="fc" id="L69">        }</span>
 
         NestedEntandoCustomResourceReferenceSpecFluent(P parentBuilder) {
-<span class="fc" id="L71">            super();</span>
-<span class="fc" id="L72">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L73">        }</span>
+<span class="fc" id="L72">            super();</span>
+<span class="fc" id="L73">            this.parentBuilder = parentBuilder;</span>
+<span class="fc" id="L74">        }</span>
 
         @Override
-        @SuppressWarnings(&quot;unchecked&quot;)
         public P and() {
-<span class="fc" id="L78">            return (P) parentBuilder.withSpec(this.build());</span>
+<span class="fc" id="L78">            return parentBuilder.withSpec(this.build());</span>
         }
 
         public P endSpec() {

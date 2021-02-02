@@ -16,14 +16,14 @@
 
 package org.entando.kubernetes.model.infrastructure;
 
-import io.fabric8.kubernetes.api.builder.Fluent;
-import io.fabric8.kubernetes.api.builder.Nested;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import org.entando.kubernetes.model.EntandoBaseFluent;
+import org.entando.kubernetes.model.EntandoFluent;
+import org.entando.kubernetes.model.EntandoIngressingDeploymentBaseFluent;
 
-public class EntandoClusterInfrastructureFluent&lt;A extends EntandoClusterInfrastructureFluent&lt;A&gt;&gt; extends EntandoBaseFluent&lt;A&gt; implements
-        Fluent&lt;A&gt; {
+public class EntandoClusterInfrastructureFluent&lt;F extends EntandoClusterInfrastructureFluent&lt;F&gt;&gt;
+        extends EntandoFluent&lt;F&gt;
+        implements EntandoIngressingDeploymentBaseFluent&lt;F, NestedEntandClusterInfrastructureSpecFluent&lt;F&gt;&gt; {
 
     protected EntandoClusterInfrastructureSpecBuilder spec;
 
@@ -40,47 +40,18 @@ public class EntandoClusterInfrastructureFluent&lt;A extends EntandoClusterInfra
 <span class="fc" id="L40">        this.spec = spec;</span>
 <span class="fc" id="L41">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public SpecNestedImplCluster&lt;A&gt; editSpec() {
-<span class="fc" id="L45">        return new SpecNestedImplCluster&lt;&gt;((A) this, this.spec.build());</span>
+    @Override
+    public NestedEntandClusterInfrastructureSpecFluent&lt;F&gt; editSpec() {
+<span class="fc" id="L45">        return new NestedEntandClusterInfrastructureSpecFluent&lt;&gt;(thisAsF(), this.spec.build());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public SpecNestedImplCluster&lt;A&gt; withNewSpec() {
-<span class="fc" id="L50">        return new SpecNestedImplCluster&lt;&gt;((A) this);</span>
+    public NestedEntandClusterInfrastructureSpecFluent&lt;F&gt; withNewSpec() {
+<span class="fc" id="L49">        return new NestedEntandClusterInfrastructureSpecFluent&lt;&gt;(thisAsF());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public A withSpec(EntandoClusterInfrastructureSpec spec) {
-<span class="fc" id="L55">        this.spec = new EntandoClusterInfrastructureSpecBuilder(spec);</span>
-<span class="fc" id="L56">        return (A) this;</span>
-    }
-
-    public static class SpecNestedImplCluster&lt;N extends EntandoClusterInfrastructureFluent&gt; extends
-            EntandoClusterInfrastructureSpecFluent&lt;SpecNestedImplCluster&lt;N&gt;&gt; implements
-            Nested&lt;N&gt; {
-
-        private final N parentBuilder;
-
-        SpecNestedImplCluster(N parentBuilder, EntandoClusterInfrastructureSpec item) {
-<span class="fc" id="L66">            super(item);</span>
-<span class="fc" id="L67">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L68">        }</span>
-
-        public SpecNestedImplCluster(N parentBuilder) {
-<span class="fc" id="L71">            super();</span>
-<span class="fc" id="L72">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L73">        }</span>
-
-        @SuppressWarnings(&quot;unchecked&quot;)
-        @Override
-        public N and() {
-<span class="fc" id="L78">            return (N) parentBuilder.withSpec(this.build());</span>
-        }
-
-        public N endSpec() {
-<span class="fc" id="L82">            return this.and();</span>
-        }
+    public F withSpec(EntandoClusterInfrastructureSpec spec) {
+<span class="fc" id="L53">        this.spec = new EntandoClusterInfrastructureSpecBuilder(spec);</span>
+<span class="fc" id="L54">        return thisAsF();</span>
     }
 
 }

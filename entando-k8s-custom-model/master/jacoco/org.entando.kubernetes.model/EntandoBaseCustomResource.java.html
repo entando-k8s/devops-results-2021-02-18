@@ -66,17 +66,17 @@ import org.entando.kubernetes.model.plugin.EntandoPlugin;
 public abstract class EntandoBaseCustomResource&lt;S extends Serializable&gt; extends CustomResource implements EntandoCustomResource {
 
     private S spec;
-    private EntandoCustomResourceStatus entandoStatus;
+    private EntandoCustomResourceStatus status;
 
     protected EntandoBaseCustomResource() {
 <span class="nc" id="L72">        super();</span>
 <span class="nc" id="L73">    }</span>
 
-    protected EntandoBaseCustomResource(ObjectMeta objectMeta, S spec, EntandoCustomResourceStatus entandoStatus) {
+    protected EntandoBaseCustomResource(ObjectMeta objectMeta, S spec, EntandoCustomResourceStatus status) {
 <span class="fc" id="L76">        super();</span>
 <span class="fc" id="L77">        super.setMetadata(objectMeta);</span>
 <span class="fc" id="L78">        this.spec = spec;</span>
-<span class="fc" id="L79">        this.entandoStatus = entandoStatus;</span>
+<span class="fc" id="L79">        this.status = status;</span>
 <span class="fc" id="L80">    }</span>
 
     public S getSpec() {
@@ -89,15 +89,15 @@ public abstract class EntandoBaseCustomResource&lt;S extends Serializable&gt; ex
 
     @Override
     public EntandoCustomResourceStatus getStatus() {
-<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (entandoStatus == null) {</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (status == null) {</span>
 <span class="fc" id="L93">            setStatus(new EntandoCustomResourceStatus());</span>
         }
-<span class="fc" id="L95">        return this.entandoStatus;</span>
+<span class="fc" id="L95">        return this.status;</span>
     }
 
     @Override
     public void setStatus(EntandoCustomResourceStatus status) {
-<span class="fc" id="L100">        this.entandoStatus = status;</span>
+<span class="fc" id="L100">        this.status = status;</span>
 <span class="fc" id="L101">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

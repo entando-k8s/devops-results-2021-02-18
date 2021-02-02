@@ -16,70 +16,41 @@
 
 package org.entando.kubernetes.model.plugin;
 
-import io.fabric8.kubernetes.api.builder.Fluent;
-import io.fabric8.kubernetes.api.builder.Nested;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import org.entando.kubernetes.model.EntandoBaseFluent;
+import org.entando.kubernetes.model.EntandoFluent;
+import org.entando.kubernetes.model.EntandoIngressingDeploymentBaseFluent;
 
-public class EntandoPluginFluent&lt;A extends EntandoPluginFluent&lt;A&gt;&gt; extends EntandoBaseFluent&lt;A&gt; implements Fluent&lt;A&gt; {
+public class EntandoPluginFluent&lt;F extends EntandoPluginFluent&lt;F&gt;&gt;
+        extends EntandoFluent&lt;F&gt;
+        implements EntandoIngressingDeploymentBaseFluent&lt;F, NestedEntandoPluginSpecFluent&lt;F&gt;&gt; {
 
     protected EntandoPluginSpecBuilder spec;
 
     protected EntandoPluginFluent() {
-<span class="fc" id="L30">        this(new ObjectMetaBuilder(), new EntandoPluginSpecBuilder());</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L31">        this(new ObjectMetaBuilder(), new EntandoPluginSpecBuilder());</span>
+<span class="fc" id="L32">    }</span>
 
     protected EntandoPluginFluent(EntandoPluginSpec spec, ObjectMeta objectMeta) {
-<span class="fc" id="L34">        this(new ObjectMetaBuilder(objectMeta), new EntandoPluginSpecBuilder(spec));</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L35">        this(new ObjectMetaBuilder(objectMeta), new EntandoPluginSpecBuilder(spec));</span>
+<span class="fc" id="L36">    }</span>
 
     private EntandoPluginFluent(ObjectMetaBuilder metadata, EntandoPluginSpecBuilder spec) {
-<span class="fc" id="L38">        super(metadata);</span>
-<span class="fc" id="L39">        this.spec = spec;</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L39">        super(metadata);</span>
+<span class="fc" id="L40">        this.spec = spec;</span>
+<span class="fc" id="L41">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public NestedEntandoPluginSpecFluent&lt;A&gt; editSpec() {
-<span class="fc" id="L44">        return new NestedEntandoPluginSpecFluent&lt;&gt;((A) this, this.spec.build());</span>
+    public NestedEntandoPluginSpecFluent&lt;F&gt; editSpec() {
+<span class="fc" id="L44">        return new NestedEntandoPluginSpecFluent&lt;&gt;(thisAsF(), this.spec.build());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public NestedEntandoPluginSpecFluent&lt;A&gt; withNewSpec() {
-<span class="fc" id="L49">        return new NestedEntandoPluginSpecFluent&lt;&gt;((A) this);</span>
+    public NestedEntandoPluginSpecFluent&lt;F&gt; withNewSpec() {
+<span class="fc" id="L48">        return new NestedEntandoPluginSpecFluent&lt;&gt;(thisAsF());</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public A withSpec(EntandoPluginSpec spec) {
-<span class="fc" id="L54">        this.spec = new EntandoPluginSpecBuilder(spec);</span>
-<span class="fc" id="L55">        return (A) this;</span>
-    }
-
-    public static class NestedEntandoPluginSpecFluent&lt;N extends EntandoPluginFluent&gt; extends
-            EntandoPluginSpecFluent&lt;NestedEntandoPluginSpecFluent&lt;N&gt;&gt; implements
-            Nested&lt;N&gt; {
-
-        private final N parentBuilder;
-
-        NestedEntandoPluginSpecFluent(N parentBuilder, EntandoPluginSpec item) {
-<span class="fc" id="L65">            super(item);</span>
-<span class="fc" id="L66">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L67">        }</span>
-
-        public NestedEntandoPluginSpecFluent(N parentBuilder) {
-<span class="fc" id="L70">            super();</span>
-<span class="fc" id="L71">            this.parentBuilder = parentBuilder;</span>
-<span class="fc" id="L72">        }</span>
-
-        @SuppressWarnings(&quot;unchecked&quot;)
-        @Override
-        public N and() {
-<span class="fc" id="L77">            return (N) parentBuilder.withSpec(this.build());</span>
-        }
-
-        public N endSpec() {
-<span class="fc" id="L81">            return this.and();</span>
-        }
+    public F withSpec(EntandoPluginSpec spec) {
+<span class="fc" id="L52">        this.spec = new EntandoPluginSpecBuilder(spec);</span>
+<span class="fc" id="L53">        return thisAsF();</span>
     }
 
 }

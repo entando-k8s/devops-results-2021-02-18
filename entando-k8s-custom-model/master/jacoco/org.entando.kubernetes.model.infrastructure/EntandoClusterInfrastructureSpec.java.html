@@ -28,7 +28,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import java.util.List;
-import java.util.Map;
 import org.entando.kubernetes.model.DbmsVendor;
 import org.entando.kubernetes.model.EntandoResourceRequirements;
 import org.entando.kubernetes.model.KeycloakAwareSpec;
@@ -46,8 +45,8 @@ public class EntandoClusterInfrastructureSpec extends KeycloakAwareSpec {
     private boolean isDefault;
 
     public EntandoClusterInfrastructureSpec() {
-<span class="nc" id="L49">        super();</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L48">        super();</span>
+<span class="nc" id="L49">    }</span>
 
     @JsonCreator
     public EntandoClusterInfrastructureSpec(
@@ -60,13 +59,13 @@ public class EntandoClusterInfrastructureSpec extends KeycloakAwareSpec {
             @JsonProperty(&quot;serviceAccountToUse&quot;) String serviceAccountToUse,
             @JsonProperty(&quot;environmentVariables&quot;) List&lt;EnvVar&gt; environmentVariables,
             @JsonProperty(&quot;resourceRequirements&quot;) EntandoResourceRequirements resourceRequirements) {
-<span class="fc" id="L63">        super(ingressHostName, tlsSecretName, replicas, dbms, serviceAccountToUse, environmentVariables, resourceRequirements,</span>
+<span class="fc" id="L62">        super(ingressHostName, tlsSecretName, replicas, dbms, serviceAccountToUse, environmentVariables, resourceRequirements,</span>
                 keycloakToUse);
-<span class="fc" id="L65">        this.isDefault = Boolean.TRUE.equals(isDefault);</span>
-<span class="fc" id="L66">    }</span>
+<span class="fc" id="L64">        this.isDefault = Boolean.TRUE.equals(isDefault);</span>
+<span class="fc" id="L65">    }</span>
 
     public boolean isDefault() {
-<span class="fc" id="L69">        return isDefault;</span>
+<span class="fc" id="L68">        return isDefault;</span>
     }
 
 }

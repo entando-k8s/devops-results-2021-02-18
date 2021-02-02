@@ -39,36 +39,37 @@ import org.entando.kubernetes.model.link.EntandoAppPluginLinkOperationFactory;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPluginOperationFactory;
 
+//suppress raw types because we end of with too many type arguments
+@SuppressWarnings({&quot;rawtypes&quot;})
 public class EntandoResourceOperationsRegistry {
 
-<span class="fc" id="L44">    private static final Map&lt;Class&lt;? extends EntandoBaseCustomResource&gt;, OperationsSupplier&gt; OPERATION_SUPPLIERS = getOperationSuppliers();</span>
+<span class="fc" id="L46">    private static final Map&lt;Class&lt;? extends EntandoBaseCustomResource&gt;, OperationsSupplier&gt; OPERATION_SUPPLIERS = getOperationSuppliers();</span>
     private final KubernetesClient client;
-<span class="fc" id="L46">    @SuppressWarnings(&quot;unchecked&quot;)</span>
-    private final Map&lt;Class, CustomResourceOperationsImpl&gt; customResourceOperations =
+<span class="fc" id="L48">    private final Map&lt;Class, CustomResourceOperationsImpl&gt; customResourceOperations =</span>
             new ConcurrentHashMap&lt;&gt;();
 
-<span class="fc" id="L50">    public EntandoResourceOperationsRegistry(KubernetesClient client) {</span>
-<span class="fc" id="L51">        this.client = client;</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L51">    public EntandoResourceOperationsRegistry(KubernetesClient client) {</span>
+<span class="fc" id="L52">        this.client = client;</span>
+<span class="fc" id="L53">    }</span>
 
     private static Map&lt;Class&lt;? extends EntandoBaseCustomResource&gt;, OperationsSupplier&gt; getOperationSuppliers() {
-<span class="fc" id="L55">        Map&lt;Class&lt;? extends EntandoBaseCustomResource&gt;, OperationsSupplier&gt; operationSuppliers = new ConcurrentHashMap&lt;&gt;();</span>
-<span class="fc" id="L56">        operationSuppliers.put(EntandoKeycloakServer.class, EntandoKeycloakServerOperationFactory::produceAllEntandoKeycloakServers);</span>
-<span class="fc" id="L57">        operationSuppliers.put(EntandoClusterInfrastructure.class,</span>
+<span class="fc" id="L56">        Map&lt;Class&lt;? extends EntandoBaseCustomResource&gt;, OperationsSupplier&gt; operationSuppliers = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L57">        operationSuppliers.put(EntandoKeycloakServer.class, EntandoKeycloakServerOperationFactory::produceAllEntandoKeycloakServers);</span>
+<span class="fc" id="L58">        operationSuppliers.put(EntandoClusterInfrastructure.class,</span>
                 EntandoClusterInfrastructureOperationFactory::produceAllEntandoClusterInfrastructures);
-<span class="fc" id="L59">        operationSuppliers.put(EntandoApp.class, EntandoAppOperationFactory::produceAllEntandoApps);</span>
-<span class="fc" id="L60">        operationSuppliers.put(EntandoPlugin.class, EntandoPluginOperationFactory::produceAllEntandoPlugins);</span>
-<span class="fc" id="L61">        operationSuppliers.put(EntandoAppPluginLink.class, EntandoAppPluginLinkOperationFactory::produceAllEntandoAppPluginLinks);</span>
-<span class="fc" id="L62">        operationSuppliers.put(EntandoDatabaseService.class, EntandoDatabaseServiceOperationFactory::produceAllEntandoDatabaseServices);</span>
-<span class="fc" id="L63">        operationSuppliers.put(EntandoCompositeApp.class, EntandoCompositeAppOperationFactory::produceAllEntandoCompositeApps);</span>
-<span class="fc" id="L64">        operationSuppliers.put(EntandoDeBundle.class, EntandoDeBundleOperationFactory::produceAllEntandoDeBundles);</span>
-<span class="fc" id="L65">        return Collections.unmodifiableMap(operationSuppliers);</span>
+<span class="fc" id="L60">        operationSuppliers.put(EntandoApp.class, EntandoAppOperationFactory::produceAllEntandoApps);</span>
+<span class="fc" id="L61">        operationSuppliers.put(EntandoPlugin.class, EntandoPluginOperationFactory::produceAllEntandoPlugins);</span>
+<span class="fc" id="L62">        operationSuppliers.put(EntandoAppPluginLink.class, EntandoAppPluginLinkOperationFactory::produceAllEntandoAppPluginLinks);</span>
+<span class="fc" id="L63">        operationSuppliers.put(EntandoDatabaseService.class, EntandoDatabaseServiceOperationFactory::produceAllEntandoDatabaseServices);</span>
+<span class="fc" id="L64">        operationSuppliers.put(EntandoCompositeApp.class, EntandoCompositeAppOperationFactory::produceAllEntandoCompositeApps);</span>
+<span class="fc" id="L65">        operationSuppliers.put(EntandoDeBundle.class, EntandoDeBundleOperationFactory::produceAllEntandoDeBundles);</span>
+<span class="fc" id="L66">        return Collections.unmodifiableMap(operationSuppliers);</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
-    public &lt;T extends EntandoCustomResource, D extends DoneableEntandoCustomResource&lt;D, T&gt;&gt; CustomResourceOperationsImpl&lt;T,
+    public &lt;T extends EntandoCustomResource, D extends DoneableEntandoCustomResource&lt;T, D&gt;&gt; CustomResourceOperationsImpl&lt;T,
             CustomResourceList&lt;T&gt;, D&gt; getOperations(Class&lt;T&gt; c) {
-<span class="fc" id="L71">        return this.customResourceOperations.computeIfAbsent(c, aClass -&gt; OPERATION_SUPPLIERS.get(aClass).get(client));</span>
+<span class="fc" id="L72">        return this.customResourceOperations.computeIfAbsent(c, aClass -&gt; OPERATION_SUPPLIERS.get(aClass).get(client));</span>
     }
 
     private interface OperationsSupplier {

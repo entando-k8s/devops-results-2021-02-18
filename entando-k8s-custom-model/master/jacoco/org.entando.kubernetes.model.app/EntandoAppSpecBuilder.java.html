@@ -16,17 +16,19 @@
 
 package org.entando.kubernetes.model.app;
 
+//This will be compliant again once we remove EntandoClusterInfrastructure
+@SuppressWarnings(&quot;java:S110&quot;)
 public class EntandoAppSpecBuilder extends EntandoAppSpecFluent&lt;EntandoAppSpecBuilder&gt; {
 
     public EntandoAppSpecBuilder() {
-<span class="fc" id="L22">        super();</span>
+<span class="fc" id="L24">        super();</span>
         //Needed for JSON Deserialization
 
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L27">    }</span>
 
     public EntandoAppSpecBuilder(EntandoAppSpec spec) {
-<span class="fc" id="L28">        super(spec);</span>
-<span class="fc" id="L29">    }</span>
+<span class="fc" id="L30">        super(spec);</span>
+<span class="fc" id="L31">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

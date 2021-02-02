@@ -26,12 +26,12 @@ public abstract class EntandoDeBundleSpecFluent&lt;A extends EntandoDeBundleSpec
     protected EntandoDeBundleDetailsBuilder details;
     protected List&lt;EntandoDeBundleTagBuilder&gt; tags;
 
-<span class="fc" id="L29">    public EntandoDeBundleSpecFluent(EntandoDeBundleSpec spec) {</span>
+<span class="fc" id="L29">    protected EntandoDeBundleSpecFluent(EntandoDeBundleSpec spec) {</span>
 <span class="fc" id="L30">        this.details = new EntandoDeBundleDetailsBuilder(spec.getDetails());</span>
 <span class="fc" id="L31">        this.tags = createTagBuilders(spec.getTags());</span>
 <span class="fc" id="L32">    }</span>
 
-<span class="fc" id="L34">    public EntandoDeBundleSpecFluent() {</span>
+<span class="fc" id="L34">    protected EntandoDeBundleSpecFluent() {</span>
 <span class="fc" id="L35">        this.details = new EntandoDeBundleDetailsBuilder();</span>
 <span class="fc" id="L36">        this.tags = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L37">    }</span>

@@ -18,47 +18,33 @@ package org.entando.kubernetes.model.infrastructure;
 
 import io.fabric8.kubernetes.api.builder.Function;
 import java.util.Optional;
-import org.entando.kubernetes.model.AbstractServerStatus;
 import org.entando.kubernetes.model.DoneableEntandoCustomResource;
 import org.entando.kubernetes.model.EntandoCustomResourceStatus;
-import org.entando.kubernetes.model.EntandoDeploymentPhase;
 
 public class DoneableEntandoClusterInfrastructure extends
         EntandoClusterInfrastructureFluent&lt;DoneableEntandoClusterInfrastructure&gt; implements
-        DoneableEntandoCustomResource&lt;DoneableEntandoClusterInfrastructure, EntandoClusterInfrastructure&gt; {
+        DoneableEntandoCustomResource&lt;EntandoClusterInfrastructure, DoneableEntandoClusterInfrastructure&gt; {
 
     private final Function&lt;EntandoClusterInfrastructure, EntandoClusterInfrastructure&gt; function;
     private final EntandoCustomResourceStatus status;
 
-<span class="fc" id="L33">    public DoneableEntandoClusterInfrastructure(Function&lt;EntandoClusterInfrastructure, EntandoClusterInfrastructure&gt; function) {</span>
-<span class="fc" id="L34">        this.status = new EntandoCustomResourceStatus();</span>
-<span class="fc" id="L35">        this.function = function;</span>
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L31">    public DoneableEntandoClusterInfrastructure(Function&lt;EntandoClusterInfrastructure, EntandoClusterInfrastructure&gt; function) {</span>
+<span class="fc" id="L32">        this.status = new EntandoCustomResourceStatus();</span>
+<span class="fc" id="L33">        this.function = function;</span>
+<span class="fc" id="L34">    }</span>
 
     public DoneableEntandoClusterInfrastructure(EntandoClusterInfrastructure resource,
             Function&lt;EntandoClusterInfrastructure, EntandoClusterInfrastructure&gt; function) {
-<span class="fc" id="L40">        super(resource.getSpec(), resource.getMetadata());</span>
-<span class="fc" id="L41">        this.status = Optional.ofNullable(resource.getStatus()).orElse(new EntandoCustomResourceStatus());</span>
-<span class="fc" id="L42">        this.function = function;</span>
-<span class="fc" id="L43">    }</span>
-
-    @Override
-    public DoneableEntandoClusterInfrastructure withStatus(AbstractServerStatus status) {
-<span class="fc" id="L47">        this.status.putServerStatus(status);</span>
-<span class="fc" id="L48">        return this;</span>
-    }
-
-    @Override
-    public DoneableEntandoClusterInfrastructure withPhase(EntandoDeploymentPhase phase) {
-<span class="fc" id="L53">        status.setEntandoDeploymentPhase(phase);</span>
-<span class="fc" id="L54">        return this;</span>
-    }
+<span class="fc" id="L38">        super(resource.getSpec(), resource.getMetadata());</span>
+<span class="fc" id="L39">        this.status = Optional.ofNullable(resource.getStatus()).orElse(new EntandoCustomResourceStatus());</span>
+<span class="fc" id="L40">        this.function = function;</span>
+<span class="fc" id="L41">    }</span>
 
     @Override
     public EntandoClusterInfrastructure done() {
-<span class="fc" id="L59">        EntandoClusterInfrastructure entandoClusterInfrastructure = new EntandoClusterInfrastructure(metadata.build(), spec.build(),</span>
+<span class="fc" id="L45">        EntandoClusterInfrastructure entandoClusterInfrastructure = new EntandoClusterInfrastructure(metadata.build(), spec.build(),</span>
                 status);
-<span class="fc" id="L61">        return function.apply(entandoClusterInfrastructure);</span>
+<span class="fc" id="L47">        return function.apply(entandoClusterInfrastructure);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

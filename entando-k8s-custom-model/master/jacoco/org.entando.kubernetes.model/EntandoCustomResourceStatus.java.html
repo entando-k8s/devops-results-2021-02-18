@@ -40,48 +40,55 @@ public class EntandoCustomResourceStatus implements Serializable {
 
 <span class="fc" id="L41">    private Map&lt;String, AbstractServerStatus&gt; serverStatuses = new ConcurrentHashMap&lt;&gt;();</span>
 
+    private Long observedGeneration;
+
     private EntandoDeploymentPhase entandoDeploymentPhase;
 
-<span class="fc" id="L45">    public EntandoCustomResourceStatus() {</span>
-<span class="fc" id="L46">        entandoDeploymentPhase = EntandoDeploymentPhase.REQUESTED;</span>
-<span class="fc" id="L47">    }</span>
+<span class="fc" id="L47">    public EntandoCustomResourceStatus() {</span>
+<span class="fc" id="L48">        entandoDeploymentPhase = EntandoDeploymentPhase.REQUESTED;</span>
+<span class="fc" id="L49">    }</span>
 
     public EntandoDeploymentPhase getEntandoDeploymentPhase() {
-<span class="nc" id="L50">        return entandoDeploymentPhase;</span>
+<span class="fc" id="L52">        return entandoDeploymentPhase;</span>
     }
 
-    public void setEntandoDeploymentPhase(EntandoDeploymentPhase entandoDeploymentPhase) {
-<span class="fc" id="L54">        this.entandoDeploymentPhase = entandoDeploymentPhase;</span>
-<span class="fc" id="L55">    }</span>
+    public void updateDeploymentPhase(EntandoDeploymentPhase entandoDeploymentPhase, Long observedGeneration) {
+<span class="fc" id="L56">        this.entandoDeploymentPhase = entandoDeploymentPhase;</span>
+<span class="fc" id="L57">        this.observedGeneration = observedGeneration;</span>
+<span class="fc" id="L58">    }</span>
 
     public boolean hasFailed() {
-<span class="fc" id="L58">        return serverStatuses.values().stream().anyMatch(AbstractServerStatus::hasFailed);</span>
+<span class="fc" id="L61">        return serverStatuses.values().stream().anyMatch(AbstractServerStatus::hasFailed);</span>
     }
 
     public void putServerStatus(AbstractServerStatus status) {
-<span class="fc" id="L62">        serverStatuses.put(status.getQualifier(), status);</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L65">        serverStatuses.put(status.getQualifier(), status);</span>
+<span class="fc" id="L66">    }</span>
 
     public Optional&lt;DbServerStatus&gt; forDbQualifiedBy(String qualifier) {
-<span class="fc" id="L66">        return Optional.ofNullable((DbServerStatus) serverStatuses.get(qualifier));</span>
+<span class="fc" id="L69">        return Optional.ofNullable((DbServerStatus) serverStatuses.get(qualifier));</span>
     }
 
     public Optional&lt;WebServerStatus&gt; forServerQualifiedBy(String qualifier) {
-<span class="fc" id="L70">        return Optional.ofNullable((WebServerStatus) serverStatuses.get(qualifier));</span>
+<span class="fc" id="L73">        return Optional.ofNullable((WebServerStatus) serverStatuses.get(qualifier));</span>
     }
 
     public Optional&lt;AbstractServerStatus&gt; findCurrentServerStatus() {
-<span class="fc" id="L74">        return this.serverStatuses.values().stream().reduce((abstractServerStatus, abstractServerStatus2) -&gt; {</span>
-<span class="pc bpc" id="L75" title="1 of 2 branches missed.">            if (abstractServerStatus.getStarted().before(abstractServerStatus2.getStarted())) {</span>
-<span class="nc" id="L76">                return abstractServerStatus2;</span>
+<span class="fc" id="L77">        return this.serverStatuses.values().stream().reduce((abstractServerStatus, abstractServerStatus2) -&gt; {</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">            if (abstractServerStatus.getStarted().before(abstractServerStatus2.getStarted())) {</span>
+<span class="nc" id="L79">                return abstractServerStatus2;</span>
             } else {
-<span class="fc" id="L78">                return abstractServerStatus;</span>
+<span class="fc" id="L81">                return abstractServerStatus;</span>
             }
         });
     }
 
     public EntandoDeploymentPhase calculateFinalPhase() {
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        return hasFailed() ? EntandoDeploymentPhase.FAILED : EntandoDeploymentPhase.SUCCESSFUL;</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        return hasFailed() ? EntandoDeploymentPhase.FAILED : EntandoDeploymentPhase.SUCCESSFUL;</span>
+    }
+
+    public Long getObservedGeneration() {
+<span class="fc" id="L91">        return observedGeneration;</span>
     }
 
 }

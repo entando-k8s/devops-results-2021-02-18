@@ -16,37 +16,51 @@
 
 package org.entando.kubernetes.model.keycloakserver;
 
-import org.entando.kubernetes.model.EntandoIngressingDeploymentSpecBuilder;
+import org.entando.kubernetes.model.EntandoIngressingDeploymentSpecFluent;
 
-public class EntandoKeycloakServerSpecFluent&lt;N extends EntandoKeycloakServerSpecFluent&gt; extends EntandoIngressingDeploymentSpecBuilder&lt;N&gt; {
+public class EntandoKeycloakServerSpecFluent&lt;N extends EntandoKeycloakServerSpecFluent&lt;N&gt;&gt;
+        extends EntandoIngressingDeploymentSpecFluent&lt;N&gt; {
 
-    protected String imageName;
+    protected String customImage;
     protected boolean isDefault;
+    private StandardKeycloakImage standardImage;
+    private String frontEndUrl;
 
     public EntandoKeycloakServerSpecFluent(EntandoKeycloakServerSpec spec) {
-<span class="fc" id="L27">        super(spec);</span>
-<span class="fc" id="L28">        this.isDefault = spec.isDefault();</span>
-<span class="fc" id="L29">        this.imageName = spec.getImageName().orElse(null);</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L30">        super(spec);</span>
+<span class="fc" id="L31">        this.isDefault = spec.isDefault();</span>
+<span class="fc" id="L32">        this.customImage = spec.getCustomImage().orElse(null);</span>
+<span class="fc" id="L33">        this.standardImage = spec.getStandardImage().orElse(null);</span>
+<span class="fc" id="L34">        this.frontEndUrl = spec.getFrontEndUrl().orElse(null);</span>
+<span class="fc" id="L35">    }</span>
 
-<span class="fc" id="L32">    public EntandoKeycloakServerSpecFluent() {</span>
+<span class="fc" id="L37">    public EntandoKeycloakServerSpecFluent() {</span>
 
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L39">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
     public N withDefault(boolean isDefault) {
-<span class="fc" id="L38">        this.isDefault = isDefault;</span>
-<span class="fc" id="L39">        return (N) this;</span>
+<span class="fc" id="L42">        this.isDefault = isDefault;</span>
+<span class="fc" id="L43">        return thisAsF();</span>
     }
 
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public N withImageName(String imageName) {
-<span class="fc" id="L44">        this.imageName = imageName;</span>
-<span class="fc" id="L45">        return (N) this;</span>
+    public N withCustomImage(String customImage) {
+<span class="fc" id="L47">        this.customImage = customImage;</span>
+<span class="fc" id="L48">        return thisAsF();</span>
+    }
+
+    public N withFrontEndUrl(String frontEndUrl) {
+<span class="fc" id="L52">        this.frontEndUrl = frontEndUrl;</span>
+<span class="fc" id="L53">        return thisAsF();</span>
+    }
+
+    public N withStandardImage(StandardKeycloakImage standardImage) {
+<span class="fc" id="L57">        this.standardImage = standardImage;</span>
+<span class="fc" id="L58">        return thisAsF();</span>
     }
 
     public EntandoKeycloakServerSpec build() {
-<span class="fc" id="L49">        return new EntandoKeycloakServerSpec(imageName, dbms, ingressHostName, tlsSecretName, replicas, isDefault,</span>
+<span class="fc" id="L62">        return new EntandoKeycloakServerSpec(customImage, standardImage, frontEndUrl, dbms, ingressHostName, tlsSecretName, replicas,</span>
+<span class="fc" id="L63">                isDefault,</span>
                 serviceAccountToUse, environmentVariables, resourceRequirements);
     }
 }

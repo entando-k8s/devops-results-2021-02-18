@@ -42,7 +42,8 @@ public abstract class EntandoIngressingDeploymentSpec extends EntandoDeploymentS
 <span class="nc" id="L42">    protected EntandoIngressingDeploymentSpec() {</span>
 <span class="nc" id="L43">    }</span>
 
-    @SuppressWarnings(&quot;unchecked&quot;)
+    //Acceptable because it is only used from JsonCreator constructors
+    @SuppressWarnings(&quot;java:S107&quot;)
     protected EntandoIngressingDeploymentSpec(String ingressHostName,
             String tlsSecretName,
             Integer replicas,
@@ -50,24 +51,24 @@ public abstract class EntandoIngressingDeploymentSpec extends EntandoDeploymentS
             String serviceAccountToUse,
             List&lt;EnvVar&gt; environmentVariables,
             EntandoResourceRequirements resourceRequirements) {
-<span class="fc" id="L53">        super(replicas, serviceAccountToUse, environmentVariables, resourceRequirements);</span>
-<span class="fc" id="L54">        this.ingressHostName = ingressHostName;</span>
-<span class="fc" id="L55">        this.tlsSecretName = tlsSecretName;</span>
-<span class="fc" id="L56">        this.dbms = dbms;</span>
-<span class="fc" id="L57">    }</span>
+<span class="fc" id="L54">        super(replicas, serviceAccountToUse, environmentVariables, resourceRequirements);</span>
+<span class="fc" id="L55">        this.ingressHostName = ingressHostName;</span>
+<span class="fc" id="L56">        this.tlsSecretName = tlsSecretName;</span>
+<span class="fc" id="L57">        this.dbms = dbms;</span>
+<span class="fc" id="L58">    }</span>
 
     public Optional&lt;DbmsVendor&gt; getDbms() {
-<span class="fc" id="L60">        return ofNullable(dbms);</span>
+<span class="fc" id="L61">        return ofNullable(dbms);</span>
     }
 
     @Override
     public Optional&lt;String&gt; getIngressHostName() {
-<span class="fc" id="L65">        return Optional.ofNullable(ingressHostName);</span>
+<span class="fc" id="L66">        return Optional.ofNullable(ingressHostName);</span>
     }
 
     @Override
     public Optional&lt;String&gt; getTlsSecretName() {
-<span class="fc" id="L70">        return Optional.ofNullable(tlsSecretName);</span>
+<span class="fc" id="L71">        return Optional.ofNullable(tlsSecretName);</span>
     }
 
 }
