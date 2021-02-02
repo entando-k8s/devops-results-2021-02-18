@@ -286,12 +286,12 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L286">                .endInvolvedObject();</span>
 <span class="fc" id="L287">        eventPopulator.apply(doneableEvent).done();</span>
         final CustomResourceOperationsImpl&lt;T, CustomResourceList&lt;T&gt;, ?&gt; operations;
-<span class="pc bpc" id="L289" title="1 of 2 branches missed.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
+<span class="fc bfc" id="L289" title="All 2 branches covered.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
 <span class="fc" id="L290">            operations = getOperations((Class&lt;T&gt;) customResource.getClass());</span>
         } else {
-<span class="nc" id="L292">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
-<span class="nc" id="L293">            operations = (CustomResourceOperationsImpl) client</span>
-<span class="nc" id="L294">                    .customResources(ser.getDefinition(), SerializedEntandoResource.class, CustomResourceList.class,</span>
+<span class="fc" id="L292">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
+<span class="fc" id="L293">            operations = (CustomResourceOperationsImpl) client</span>
+<span class="fc" id="L294">                    .customResources(ser.getDefinition(), SerializedEntandoResource.class, CustomResourceList.class,</span>
                             DoneableCustomResource.class);
         }
 
