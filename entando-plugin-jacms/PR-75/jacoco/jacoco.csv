@@ -231,7 +231,7 @@ Entando Plugin: CMS,org.entando.entando.plugins.jacms.aps.system.services.api,Ap
 Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.contentmodel.dictionary,ContentModelDictionary,0,16,0,0,0,4,0,2,0,2
 Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.contentmodel.dictionary,ContentModelDictionaryProvider,15,44,0,0,5,14,5,8,5,8
 Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.content,ContentDAO,576,1332,13,35,121,354,17,59,6,46
-Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.content,ContentManager,304,594,8,42,76,153,17,64,10,46
+Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.content,ContentManager,298,600,8,42,74,155,17,64,10,46
 Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.content,PublicContentSearcherDAO,22,331,2,30,6,74,2,25,0,11
 Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.content,IContentManager,0,60,0,0,0,1,0,1,0,1
 Entando Plugin: CMS,com.agiletec.plugins.jacms.aps.system.services.content,ContentsStatus,62,0,0,0,15,0,11,0,11,0

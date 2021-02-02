@@ -368,8 +368,8 @@ import org.springframework.cache.annotation.CacheEvict;
 <span class="fc" id="L368">                this.getContentDAO().reloadWorkContentReferences(workcontent);</span>
             }
 <span class="fc" id="L370">            logger.debug(&quot;Reloaded content references for content {}&quot;, entityId);</span>
-<span class="nc" id="L371">        } catch (Throwable t) {</span>
-<span class="nc" id="L372">            logger.error(&quot;Error while reloading content references for content {}&quot;, entityId, t);</span>
+<span class="fc" id="L371">        } catch (Throwable t) {</span>
+<span class="fc" id="L372">            logger.error(&quot;Error while reloading content references for content {}&quot;, entityId, t);</span>
 <span class="fc" id="L373">        }</span>
 <span class="fc" id="L374">    }</span>
 
