@@ -1,0 +1,1622 @@
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-dxmbv[0m
+{"level":"warn","ts":1612268842.0128064,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612268842.0256252,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-zgc9w[0m
+{"level":"warn","ts":1612268843.55081,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612268843.5720582,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-entando-portal-ui-pr-15-ds9cc[0m
+{"level":"warn","ts":1612268884.6859932,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612268886.174629,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando/entando-portal-ui.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:267075e6ace30588c3f4d77043ac3e5a41fb31e2,15:1e94209863b4d9ea75b25feed6460be480ce4c65
+DEBUG: ran git fetch --unshallow origin 1e94209863b4d9ea75b25feed6460be480ce4c65: 267075e6ace30588c3f4d77043ac3e5a41fb31e2: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 267075e6ace30588c3f4d77043ac3e5a41fb31e2 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 1e94209863b4d9ea75b25feed6460be480ce4c65 in 
+Merged SHA 1e94209863b4d9ea75b25feed6460be480ce4c65 with commit message 'ENG-1745: Upgrade bom version' into base branch master
+Merged SHA fbdba0b50c5e09c0b254a4d03beaf9c1e3cc6394 with commit message 'ENG-1745: Fix some more code smell' into base branch master
+Merged SHA 3c6c2a1b65393a7f6262a4735a7557aa2b9555ff with commit message 'ENG-1745: Fix code smell' into base branch master
+Merged SHA c3d0cbafce87d0b59d399dd3e3c2d419153b8bae with commit message 'ENG-1745: Fix version of junit5 dependencies' into base branch master
+Merged SHA 75dc1d7af10038bde3ac90e9cd34d232ba83b9b8 with commit message 'ENG-1745: Override of configuration in parent pom' into base branch master
+Merged SHA cdf6298352ff2473ca20bd52388e8bde7a465bb2 with commit message 'ENG-1745: junit5 integration' into base branch master
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[WARNING] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[WARNING] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: Could not find artifact org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 in nexus (http://nexus/repository/maven-group/)
+[INFO] 
+[INFO] ---------------< org.entando.entando:entando-portal-ui >----------------
+[INFO] Building Entando Core: Portal UI 6.3.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[WARNING] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: Failure to find org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 in http://nexus/repository/maven-group/ was cached in the local repository, resolution will not be reattempted until the update interval of nexus has elapsed or updates are forced
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-portal-ui ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando.entando:entando-portal-ui:6.3.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-15-3
+[INFO] Processing org.entando.entando:entando-portal-ui
+[INFO]     Updating project org.entando.entando:entando-portal-ui
+[INFO]         from version 6.3.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-15-3
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.957 s
+[INFO] Finished at: 2021-02-02T12:28:20Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+M	pom.xml
+Switched to a new branch 'PR-15'
+Deleted branch master (was 1e94209).
+From https://github.com/entando/entando-portal-ui
+ * [new branch]      master            -> master
+ * [new tag]         pia-crs4          -> pia-crs4
+ * [new tag]         v4.2.0            -> v4.2.0
+ * [new tag]         v4.3.2-RC1        -> v4.3.2-RC1
+ * [new tag]         v5.0.0-pre        -> v5.0.0-pre
+ * [new tag]         v6.2.0-sprint1-rc -> v6.2.0-sprint1-rc
+ * [new tag]         v6.2.0-sprint2-rc -> v6.2.0-sprint2-rc
+ * [new tag]         v6.2.0-sprint3-rc -> v6.2.0-sprint3-rc
+ * [new tag]         v6.2.0-sprint4-rc -> v6.2.0-sprint4-rc
+ * [new tag]         v6.2.0-sprint5-rc -> v6.2.0-sprint5-rc
+
+Showing logs for build [32mentando-entando-portal-ui-pr-15-zfs8c-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando/entando-portal-ui/statuses/1e94209863b4d9ea75b25feed6460be480ce4c65",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12041059956,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA0MTA1OTk1Ng==",
+  "state": "pending",
+  "description": "Pre-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-portal-ui/PR-15/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-02T12:28:23Z",
+  "updated_at": "2021-02-02T12:28:23Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1834    0     0  100   209      0    313 --:--:-- --:--:-- --:--:--   314100  1834  100  1625  100   209   2432    312 --:--:-- --:--:-- --:--:--  2443
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[WARNING] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[WARNING] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: Failure to find org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 in http://nexus/repository/maven-group/ was cached in the local repository, resolution will not be reattempted until the update interval of nexus has elapsed or updates are forced
+[INFO] 
+[INFO] ---------------< org.entando.entando:entando-portal-ui >----------------
+[INFO] Building Entando Core: Portal UI 0.0.0-SNAPSHOT-PR-15-3
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-portal-ui ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-portal-ui ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-portal-ui ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ entando-portal-ui ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 8 resources
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-portal-ui ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /workspace/source/target/classes
+[WARNING] /workspace/source/src/main/java/org/entando/entando/aps/******/services/controller/e**cutor/AbstractWidgetE**cutorService.java:[141,41] unchecked method invocation: method sort in class java.util.Collections is applied to given types
+  required: java.util.List<T>,java.util.Comparator<? super T>
+  found: java.util.List<com.agiletec.aps.tags.util.IFrameDecoratorContainer>,org.apache.commons.beanutils.BeanComparator
+[WARNING] /workspace/source/src/main/java/org/entando/entando/aps/******/services/controller/e**cutor/AbstractWidgetE**cutorService.java:[141,55] unchecked conversion
+  required: java.util.Comparator<? super T>
+  found:    org.apache.commons.beanutils.BeanComparator
+[WARNING] /workspace/source/src/main/java/org/entando/entando/aps/servlet/ControllerServlet.java:[141,123] unchecked cast
+  required: java.util.List<org.entando.entando.aps.******.services.controller.e**cutor.E**cutorServiceInterface>
+  found:    java.lang.Object
+[WARNING] /workspace/source/src/main/java/org/entando/entando/aps/servlet/PreviewControllerServlet.java:[77,120] unchecked cast
+  required: java.util.List<com.agiletec.aps.******.services.controller.control.ControlServiceInterface>
+  found:    java.lang.Object
+[INFO] /workspace/source/src/main/java/org/entando/entando/aps/******/services/controller/e**cutor/ContentNegotiationE**cutorService.java: Some input files use or override a deprecated API.
+[INFO] /workspace/source/src/main/java/org/entando/entando/aps/******/services/controller/e**cutor/ContentNegotiationE**cutorService.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:copy-resources (copy-resources-test) @ entando-portal-ui ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:copy-resources (copy-resources-file-test-) @ entando-portal-ui ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ entando-portal-ui ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-portal-ui ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /workspace/source/target/test-classes
+[INFO] /workspace/source/src/test/java/org/entando/entando/aps/******/services/controller/AbstractTestE**cutorService.java: /workspace/source/src/test/java/org/entando/entando/aps/******/services/controller/AbstractTestE**cutorService.java uses or overrides a deprecated API.
+[INFO] /workspace/source/src/test/java/org/entando/entando/aps/******/services/controller/AbstractTestE**cutorService.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-portal-ui ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.entando.aps.******.services.controller.control.TestRequestValidator
+[DEBUG] 2021-02-02 12:28:53.871 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:28:53.893 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:28:53.943 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:28:53.948 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:28:53.949 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:28:53.951 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:28:53.952 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:28:54.028 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:28:54.476 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:28:56.754 [main] InstallationReportDAO - Report not availablejava.sql.SQLSyntaxErrorException: Schema 'AGILE' does not exist
+[INFO ] 2021-02-02 12:28:56.756 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:28:56.905 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.Sysconfig with reflection
+[DEBUG] 2021-02-02 12:28:56.905 [main] ApsTableUtils - creating table 'SYSCONFIG'
+[DEBUG] 2021-02-02 12:28:56.913 [main] JdbcConnectionSource - opened connection to jdbc:derby:/workspace/source/target/test/db/entando-portal-uitestPort;create=****;user=agile;password=agile got #455512662
+[DEBUG] 2021-02-02 12:28:56.964 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  SYSCONFIG  ( VERSION  VARCHAR(10) NOT NULL ,  ITEM  VARCHAR(40) NOT NULL ,  DESCR  VARCHAR(100) NOT NULL ,  CONFIG  CLOB NOT NULL ) 
+[INFO ] 2021-02-02 12:28:56.965 [main] TableFactory - Created table - portDataSource/sysconfig
+[DEBUG] 2021-02-02 12:28:56.965 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE sysconfig ADD CONSTRAINT sysconfig_pkey PRIMARY KEY(version , item )
+[DEBUG] 2021-02-02 12:28:57.034 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.Category with reflection
+[DEBUG] 2021-02-02 12:28:57.035 [main] ApsTableUtils - creating table 'CATEGORIES'
+[DEBUG] 2021-02-02 12:28:57.061 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  CATEGORIES  ( CATCODE  VARCHAR(30) NOT NULL ,  PARENTCODE  VARCHAR(30) NOT NULL ,  TITLES  CLOB NOT NULL , PRIMARY KEY ( CATCODE ) ) 
+[INFO ] 2021-02-02 12:28:57.062 [main] TableFactory - Created table - portDataSource/categories
+[DEBUG] 2021-02-02 12:28:57.064 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.LocalString with reflection
+[DEBUG] 2021-02-02 12:28:57.065 [main] ApsTableUtils - creating table 'LOCALSTRINGS'
+[DEBUG] 2021-02-02 12:28:57.088 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  LOCALSTRINGS  ( KEYCODE  VARCHAR(50) NOT NULL ,  LANGCODE  VARCHAR(2) NOT NULL ,  STRINGVALUE  CLOB NOT NULL ) 
+[INFO ] 2021-02-02 12:28:57.088 [main] TableFactory - Created table - portDataSource/localstrings
+[DEBUG] 2021-02-02 12:28:57.089 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE localstrings ADD CONSTRAINT localstrings_pkey PRIMARY KEY(keycode , langcode )
+[DEBUG] 2021-02-02 12:28:57.114 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.PageModel with reflection
+[DEBUG] 2021-02-02 12:28:57.114 [main] ApsTableUtils - creating table 'PAGEMODELS'
+[DEBUG] 2021-02-02 12:28:57.143 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  PAGEMODELS  ( CODE  VARCHAR(40) NOT NULL ,  DESCR  VARCHAR(50) NOT NULL ,  FRAMES  CLOB ,  PLUGINCODE  VARCHAR(30) ,  TEMPLATEGUI  CLOB , PRIMARY KEY ( CODE ) ) 
+[INFO ] 2021-02-02 12:28:57.144 [main] TableFactory - Created table - portDataSource/pagemodels
+[DEBUG] 2021-02-02 12:28:57.146 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.Page with reflection
+[DEBUG] 2021-02-02 12:28:57.146 [main] ApsTableUtils - creating table 'PAGES'
+[DEBUG] 2021-02-02 12:28:57.184 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  PAGES  ( CODE  VARCHAR(30) NOT NULL ,  PARENTCODE  VARCHAR(30) NOT NULL ,  POS  INTEGER NOT NULL , PRIMARY KEY ( CODE ) ) 
+[INFO ] 2021-02-02 12:28:57.185 [main] TableFactory - Created table - portDataSource/pages
+[DEBUG] 2021-02-02 12:28:57.190 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.PageMetadataOnline with reflection
+[DEBUG] 2021-02-02 12:28:57.191 [main] ApsTableUtils - creating table 'PAGES_METADATA_ONLINE'
+[DEBUG] 2021-02-02 12:28:57.215 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  PAGES_METADATA_ONLINE  ( CODE  VARCHAR(30) NOT NULL ,  GROUPCODE  VARCHAR(30) NOT NULL ,  TITLES  CLOB NOT NULL ,  MODELCODE  VARCHAR(40) NOT NULL ,  SHOWINMENU  SMALLINT NOT NULL ,  EXTRACONFIG  CLOB ,  UPDATEDAT  TIMESTAMP , PRIMARY KEY ( CODE ) ) 
+[INFO ] 2021-02-02 12:28:57.215 [main] TableFactory - Created table - portDataSource/pages_metadata_online
+[DEBUG] 2021-02-02 12:28:57.216 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE pages_metadata_online ADD CONSTRAINT pages_metadata_online_code_fk FOREIGN KEY (code) REFERENCES pages (code) 
+[DEBUG] 2021-02-02 12:28:57.252 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE pages_metadata_online ADD CONSTRAINT pages_metadata_online_modelcode_fk FOREIGN KEY (modelcode) REFERENCES pagemodels (code)
+[DEBUG] 2021-02-02 12:28:57.290 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.PageMetadataDraft with reflection
+[DEBUG] 2021-02-02 12:28:57.291 [main] ApsTableUtils - creating table 'PAGES_METADATA_DRAFT'
+[DEBUG] 2021-02-02 12:28:57.307 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  PAGES_METADATA_DRAFT  ( CODE  VARCHAR(30) NOT NULL ,  GROUPCODE  VARCHAR(30) NOT NULL ,  TITLES  CLOB NOT NULL ,  MODELCODE  VARCHAR(40) NOT NULL ,  SHOWINMENU  SMALLINT NOT NULL ,  EXTRACONFIG  CLOB ,  UPDATEDAT  TIMESTAMP , PRIMARY KEY ( CODE ) ) 
+[INFO ] 2021-02-02 12:28:57.307 [main] TableFactory - Created table - portDataSource/pages_metadata_draft
+[DEBUG] 2021-02-02 12:28:57.308 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE pages_metadata_draft ADD CONSTRAINT pages_metadata_draft_code_fk FOREIGN KEY (code) REFERENCES pages (code) 
+[DEBUG] 2021-02-02 12:28:57.320 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE pages_metadata_draft ADD CONSTRAINT pages_metadata_draft_modelcode_fk FOREIGN KEY (modelcode) REFERENCES pagemodels (code)
+[DEBUG] 2021-02-02 12:28:57.364 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.WidgetCatalog with reflection
+[DEBUG] 2021-02-02 12:28:57.364 [main] ApsTableUtils - creating table 'WIDGETCATALOG'
+[DEBUG] 2021-02-02 12:28:57.394 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  WIDGETCATALOG  ( CODE  VARCHAR(40) NOT NULL ,  TITLES  CLOB NOT NULL ,  PARAMETERS  CLOB ,  PLUGINCODE  VARCHAR(30) ,  PARENTTYPECODE  VARCHAR(40) ,  DEFAULTCONFIG  CLOB ,  LOCKED  SMALLINT NOT NULL ,  MAINGROUP  VARCHAR(20) ,  CONFIGUI  CLOB ,  BUNDLEID  VARCHAR(150) ,  READONLYPAGEWIDGETCONFIG  SMALLINT ,  WIDGETCATEGORY  VARCHAR(80) , PRIMARY KEY ( CODE ) ) 
+[INFO ] 2021-02-02 12:28:57.394 [main] TableFactory - Created table - portDataSource/widgetcatalog
+[DEBUG] 2021-02-02 12:28:57.396 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.GuiFragment with reflection
+[DEBUG] 2021-02-02 12:28:57.397 [main] ApsTableUtils - creating table 'GUIFRAGMENT'
+[DEBUG] 2021-02-02 12:28:57.416 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  GUIFRAGMENT  ( CODE  VARCHAR(50) NOT NULL ,  WIDGETTYPECODE  VARCHAR(40) ,  PLUGINCODE  VARCHAR(30) ,  GUI  CLOB ,  DEFAULTGUI  CLOB ,  LOCKED  SMALLINT NOT NULL , PRIMARY KEY ( CODE ) ) 
+[INFO ] 2021-02-02 12:28:57.417 [main] TableFactory - Created table - portDataSource/guifragment
+[DEBUG] 2021-02-02 12:28:57.417 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE guifragment ADD CONSTRAINT guifragment_wdgtypecode_fkey FOREIGN KEY (widgettypecode) REFERENCES widgetcatalog (code)
+[DEBUG] 2021-02-02 12:28:57.450 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.WidgetConfig with reflection
+[DEBUG] 2021-02-02 12:28:57.450 [main] ApsTableUtils - creating table 'WIDGETCONFIG'
+[DEBUG] 2021-02-02 12:28:57.514 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  WIDGETCONFIG  ( PAGECODE  VARCHAR(30) NOT NULL ,  FRAMEPOS  INTEGER NOT NULL ,  WIDGETCODE  VARCHAR(40) NOT NULL ,  CONFIG  CLOB ) 
+[INFO ] 2021-02-02 12:28:57.515 [main] TableFactory - Created table - portDataSource/widgetconfig
+[DEBUG] 2021-02-02 12:28:57.516 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE widgetconfig ADD CONSTRAINT widgetconfig_pkey PRIMARY KEY(pagecode , framepos)
+[DEBUG] 2021-02-02 12:28:57.560 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE widgetconfig ADD CONSTRAINT widgetconfig_pagecode_fkey FOREIGN KEY (pagecode) REFERENCES pages (code)
+[DEBUG] 2021-02-02 12:28:57.591 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE widgetconfig ADD CONSTRAINT widgetconfig_widgetcode_fkey FOREIGN KEY (widgetcode) REFERENCES widgetcatalog (code)
+[DEBUG] 2021-02-02 12:28:57.632 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.WidgetConfigDraft with reflection
+[DEBUG] 2021-02-02 12:28:57.632 [main] ApsTableUtils - creating table 'WIDGETCONFIG_DRAFT'
+[DEBUG] 2021-02-02 12:28:57.642 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  WIDGETCONFIG_DRAFT  ( PAGECODE  VARCHAR(30) NOT NULL ,  FRAMEPOS  INTEGER NOT NULL ,  WIDGETCODE  VARCHAR(40) NOT NULL ,  CONFIG  CLOB ) 
+[INFO ] 2021-02-02 12:28:57.643 [main] TableFactory - Created table - portDataSource/widgetconfig_draft
+[DEBUG] 2021-02-02 12:28:57.643 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE widgetconfig_draft ADD CONSTRAINT widgetconfig_draft_pkey PRIMARY KEY(pagecode , framepos)
+[DEBUG] 2021-02-02 12:28:57.659 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE widgetconfig_draft ADD CONSTRAINT widgetconfig_draft_pagecode_fkey FOREIGN KEY (pagecode) REFERENCES pages (code)
+[DEBUG] 2021-02-02 12:28:57.681 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE widgetconfig_draft ADD CONSTRAINT widgetconfig_draft_widgetcode_fkey FOREIGN KEY (widgetcode) REFERENCES widgetcatalog (code)
+[DEBUG] 2021-02-02 12:28:57.708 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.Uniquekeys with reflection
+[DEBUG] 2021-02-02 12:28:57.708 [main] ApsTableUtils - creating table 'UNIQUEKEYS'
+[DEBUG] 2021-02-02 12:28:57.736 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  UNIQUEKEYS  ( ID  INTEGER NOT NULL ,  KEYVALUE  INTEGER NOT NULL , PRIMARY KEY ( ID ) ) 
+[INFO ] 2021-02-02 12:28:57.737 [main] TableFactory - Created table - portDataSource/uniquekeys
+[DEBUG] 2021-02-02 12:28:57.738 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.portdb.UserPreferences with reflection
+[DEBUG] 2021-02-02 12:28:57.739 [main] ApsTableUtils - creating table 'USERPREFERENCES'
+[DEBUG] 2021-02-02 12:28:57.756 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  USERPREFERENCES  ( USERNAME  VARCHAR(80) NOT NULL ,  WIZARD  SMALLINT NOT NULL ,  LOADONPAGESELECT  SMALLINT NOT NULL ,  TRANSLATIONWARNING  SMALLINT NOT NULL , PRIMARY KEY ( USERNAME ) ) 
+[INFO ] 2021-02-02 12:28:57.756 [main] TableFactory - Created table - portDataSource/userpreferences
+[DEBUG] 2021-02-02 12:28:57.757 [main] JdbcConnectionSource - closed connection #455512662
+[DEBUG] 2021-02-02 12:28:58.482 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.Group with reflection
+[DEBUG] 2021-02-02 12:28:58.483 [main] ApsTableUtils - creating table 'AUTHGROUPS'
+[DEBUG] 2021-02-02 12:28:58.485 [main] JdbcConnectionSource - opened connection to jdbc:derby:/workspace/source/target/test/db/entando-portal-uitestServ;create=****;user=agile;password=agile got #1739144712
+[DEBUG] 2021-02-02 12:28:58.514 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHGROUPS  ( GROUPNAME  VARCHAR(20) NOT NULL ,  DESCR  VARCHAR(50) NOT NULL , PRIMARY KEY ( GROUPNAME ) ) 
+[INFO ] 2021-02-02 12:28:58.515 [main] TableFactory - Created table - servDataSource/authgroups
+[DEBUG] 2021-02-02 12:28:58.519 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.Permission with reflection
+[DEBUG] 2021-02-02 12:28:58.520 [main] ApsTableUtils - creating table 'AUTHPERMISSIONS'
+[DEBUG] 2021-02-02 12:28:58.537 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHPERMISSIONS  ( PERMISSIONNAME  VARCHAR(30) NOT NULL ,  DESCR  VARCHAR(50) NOT NULL , PRIMARY KEY ( PERMISSIONNAME ) ) 
+[INFO ] 2021-02-02 12:28:58.537 [main] TableFactory - Created table - servDataSource/authpermissions
+[DEBUG] 2021-02-02 12:28:58.539 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.Role with reflection
+[DEBUG] 2021-02-02 12:28:58.539 [main] ApsTableUtils - creating table 'AUTHROLES'
+[DEBUG] 2021-02-02 12:28:58.553 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHROLES  ( ROLENAME  VARCHAR(20) NOT NULL ,  DESCR  VARCHAR(50) NOT NULL , PRIMARY KEY ( ROLENAME ) ) 
+[INFO ] 2021-02-02 12:28:58.553 [main] TableFactory - Created table - servDataSource/authroles
+[DEBUG] 2021-02-02 12:28:58.555 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.RolePermissionReference with reflection
+[DEBUG] 2021-02-02 12:28:58.555 [main] ApsTableUtils - creating table 'AUTHROLEPERMISSIONS'
+[DEBUG] 2021-02-02 12:28:58.573 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHROLEPERMISSIONS  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  ROLENAME  VARCHAR(20) NOT NULL ,  PERMISSIONNAME  VARCHAR(30) NOT NULL , PRIMARY KEY ( ID ) ) 
+[INFO ] 2021-02-02 12:28:58.573 [main] TableFactory - Created table - servDataSource/authrolepermissions
+[DEBUG] 2021-02-02 12:28:58.574 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE authrolepermissions ADD CONSTRAINT authrolepermissions_perm_fkey FOREIGN KEY (permissionname) REFERENCES authpermissions (permissionname)
+[DEBUG] 2021-02-02 12:28:58.592 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE authrolepermissions ADD CONSTRAINT authrolepermissions_role_fkey FOREIGN KEY (rolename) REFERENCES authroles (rolename)
+[DEBUG] 2021-02-02 12:28:58.620 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.User with reflection
+[DEBUG] 2021-02-02 12:28:58.620 [main] ApsTableUtils - creating table 'AUTHUSERS'
+[DEBUG] 2021-02-02 12:28:58.636 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHUSERS  ( USERNAME  VARCHAR(80) NOT NULL ,  PASSWD  VARCHAR(512) ,  REGISTRATIONDATE  TIMESTAMP NOT NULL ,  LASTACCESS  TIMESTAMP ,  LASTPASSWORDCHANGE  TIMESTAMP ,  ACTIVE  SMALLINT , PRIMARY KEY ( USERNAME ) ) 
+[INFO ] 2021-02-02 12:28:58.636 [main] TableFactory - Created table - servDataSource/authusers
+[DEBUG] 2021-02-02 12:28:58.638 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.UserGroupRoleReference with reflection
+[DEBUG] 2021-02-02 12:28:58.639 [main] ApsTableUtils - creating table 'AUTHUSERGROUPROLE'
+[DEBUG] 2021-02-02 12:28:58.654 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHUSERGROUPROLE  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  USERNAME  VARCHAR(80) NOT NULL ,  GROUPNAME  VARCHAR(20) ,  ROLENAME  VARCHAR(20) , PRIMARY KEY ( ID ) ) 
+[INFO ] 2021-02-02 12:28:58.654 [main] TableFactory - Created table - servDataSource/authusergrouprole
+[DEBUG] 2021-02-02 12:28:58.655 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE authusergrouprole ADD CONSTRAINT authusergrouprole_grn_fkey FOREIGN KEY (groupname) REFERENCES authgroups (groupname)
+[DEBUG] 2021-02-02 12:28:58.669 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE authusergrouprole ADD CONSTRAINT authusergrouprole_rln_fkey FOREIGN KEY (rolename) REFERENCES authroles (rolename)
+[DEBUG] 2021-02-02 12:28:58.693 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ApiOAuthConsumer with reflection
+[DEBUG] 2021-02-02 12:28:58.693 [main] ApsTableUtils - creating table 'API_OAUTH_CONSUMERS'
+[DEBUG] 2021-02-02 12:28:58.721 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  API_OAUTH_CONSUMERS  ( CONSUMERKEY  VARCHAR(100) NOT NULL ,  CONSUMERSECRET  VARCHAR(100) NOT NULL ,  NAME  VARCHAR(255) ,  DESCRIPTION  CLOB NOT NULL ,  CALLBACKURL  CLOB ,  SCOPE  VARCHAR(255) ,  AUTHORIZEDGRANTTYPES  VARCHAR(255) ,  EXPIRATIONDATE  TIMESTAMP ,  ISSUEDDATE  TIMESTAMP , PRIMARY KEY ( CONSUMERKEY ) ) 
+[INFO ] 2021-02-02 12:28:58.722 [main] TableFactory - Created table - servDataSource/api_oauth_consumers
+[DEBUG] 2021-02-02 12:28:58.723 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ApiOAuthToken with reflection
+[DEBUG] 2021-02-02 12:28:58.723 [main] ApsTableUtils - creating table 'API_OAUTH_TOKENS'
+[DEBUG] 2021-02-02 12:28:58.736 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  API_OAUTH_TOKENS  ( ACCESSTOKEN  VARCHAR(100) NOT NULL ,  CLIENTID  VARCHAR(100) NOT NULL ,  EXPIRESIN  TIMESTAMP NOT NULL ,  REFRESHTOKEN  VARCHAR(255) NOT NULL ,  GRANTTYPE  VARCHAR(100) NOT NULL ,  LOCALUSER  VARCHAR(100) , PRIMARY KEY ( ACCESSTOKEN ) ) 
+[INFO ] 2021-02-02 12:28:58.737 [main] TableFactory - Created table - servDataSource/api_oauth_tokens
+[DEBUG] 2021-02-02 12:28:58.739 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ApiCatalogMethod with reflection
+[DEBUG] 2021-02-02 12:28:58.739 [main] ApsTableUtils - creating table 'APICATALOG_METHODS'
+[DEBUG] 2021-02-02 12:28:58.746 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  APICATALOG_METHODS  ( RESOURCECODE  VARCHAR(100) NOT NULL ,  HTTPMETHOD  VARCHAR(6) NOT NULL ,  ISACTIVE  SMALLINT NOT NULL ,  ISHIDDEN  SMALLINT NOT NULL ,  AUTHENTICATIONREQUIRED  SMALLINT ,  AUTHORIZATIONREQUIRED  VARCHAR(30) ) 
+[INFO ] 2021-02-02 12:28:58.746 [main] TableFactory - Created table - servDataSource/apicatalog_methods
+[DEBUG] 2021-02-02 12:28:58.746 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE apicatalog_methods ADD CONSTRAINT apicatalog_methods_pkey PRIMARY KEY(resourcecode , httpmethod)
+[DEBUG] 2021-02-02 12:28:58.756 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE apicatalog_methods ADD CONSTRAINT apicatalog_methods_auth_fkey FOREIGN KEY (authorizationrequired) REFERENCES authpermissions (permissionname)
+[DEBUG] 2021-02-02 12:28:58.771 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ApiCatalogService with reflection
+[DEBUG] 2021-02-02 12:28:58.772 [main] ApsTableUtils - creating table 'APICATALOG_SERVICES'
+[DEBUG] 2021-02-02 12:28:58.800 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  APICATALOG_SERVICES  ( SERVICEKEY  VARCHAR(100) NOT NULL ,  RESOURCECODE  VARCHAR(100) NOT NULL ,  DESCRIPTION  CLOB NOT NULL ,  PARAMETERS  CLOB ,  TAG  VARCHAR(100) ,  FREEPARAMETERS  CLOB ,  ISACTIVE  SMALLINT NOT NULL ,  ISHIDDEN  SMALLINT NOT NULL ,  MYENTANDO  SMALLINT NOT NULL ,  AUTHENTICATIONREQUIRED  SMALLINT ,  REQUIREDPERMISSION  VARCHAR(30) ,  REQUIREDGROUP  VARCHAR(20) , PRIMARY KEY ( SERVICEKEY ) ) 
+[INFO ] 2021-02-02 12:28:58.800 [main] TableFactory - Created table - servDataSource/apicatalog_services
+[DEBUG] 2021-02-02 12:28:58.801 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE apicatalog_services ADD CONSTRAINT apicatalog_services_gr_fkey FOREIGN KEY (requiredgroup) REFERENCES authgroups (groupname)
+[DEBUG] 2021-02-02 12:28:58.816 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE apicatalog_services ADD CONSTRAINT apicatalog_services_perm_fkey FOREIGN KEY (requiredpermission) REFERENCES authpermissions (permissionname)
+[DEBUG] 2021-02-02 12:28:58.834 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.UserProfile with reflection
+[DEBUG] 2021-02-02 12:28:58.834 [main] ApsTableUtils - creating table 'AUTHUSERPROFILES'
+[DEBUG] 2021-02-02 12:28:58.834 [main] ApsTableUtils - creating index 'AUTHUSERPROFILES_profiletype_idx' for table 'AUTHUSERPROFILES
+[DEBUG] 2021-02-02 12:28:58.869 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHUSERPROFILES  ( USERNAME  VARCHAR(80) NOT NULL ,  PROFILETYPE  VARCHAR(30) NOT NULL ,  PROFILEXML  CLOB NOT NULL ,  PUBLICPROFILE  SMALLINT NOT NULL , PRIMARY KEY ( USERNAME ) ) 
+[DEBUG] 2021-02-02 12:28:58.886 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  AUTHUSERPROFILES_PROFILETYPE_IDX  ON  AUTHUSERPROFILES  (  PROFILETYPE  )
+[INFO ] 2021-02-02 12:28:58.886 [main] TableFactory - Created table - servDataSource/authuserprofiles
+[DEBUG] 2021-02-02 12:28:58.888 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.UserProfileSearch with reflection
+[DEBUG] 2021-02-02 12:28:58.888 [main] ApsTableUtils - creating table 'AUTHUSERPROFILESEARCH'
+[DEBUG] 2021-02-02 12:28:58.889 [main] ApsTableUtils - creating index 'AUTHUSERPROFILESEARCH_username_idx' for table 'AUTHUSERPROFILESEARCH
+[DEBUG] 2021-02-02 12:28:58.889 [main] ApsTableUtils - creating index 'AUTHUSERPROFILESEARCH_attrname_idx' for table 'AUTHUSERPROFILESEARCH
+[DEBUG] 2021-02-02 12:28:58.906 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHUSERPROFILESEARCH  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  USERNAME  VARCHAR(80) NOT NULL ,  ATTRNAME  VARCHAR(30) NOT NULL ,  TEXTVALUE  VARCHAR(255) ,  DATEVALUE  TIMESTAMP ,  NUMVALUE  INTEGER ,  LANGCODE  VARCHAR(3) , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:58.915 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  AUTHUSERPROFILESEARCH_USERNAME_IDX  ON  AUTHUSERPROFILESEARCH  (  USERNAME  )
+[DEBUG] 2021-02-02 12:28:58.924 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  AUTHUSERPROFILESEARCH_ATTRNAME_IDX  ON  AUTHUSERPROFILESEARCH  (  ATTRNAME  )
+[INFO ] 2021-02-02 12:28:58.924 [main] TableFactory - Created table - servDataSource/authuserprofilesearch
+[DEBUG] 2021-02-02 12:28:58.925 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE authuserprofilesearch ADD CONSTRAINT authuserprofilesearch_fkey FOREIGN KEY (username) REFERENCES authuserprofiles (username)
+[DEBUG] 2021-02-02 12:28:58.932 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.UserProfileAttributeRole with reflection
+[DEBUG] 2021-02-02 12:28:58.933 [main] ApsTableUtils - creating table 'AUTHUSERPROFILEATTRROLES'
+[DEBUG] 2021-02-02 12:28:58.933 [main] ApsTableUtils - creating index 'AUTHUSERPROFILEATTRROLES_username_idx' for table 'AUTHUSERPROFILEATTRROLES
+[DEBUG] 2021-02-02 12:28:58.933 [main] ApsTableUtils - creating index 'AUTHUSERPROFILEATTRROLES_attrname_idx' for table 'AUTHUSERPROFILEATTRROLES
+[DEBUG] 2021-02-02 12:28:58.933 [main] ApsTableUtils - creating index 'AUTHUSERPROFILEATTRROLES_rolename_idx' for table 'AUTHUSERPROFILEATTRROLES
+[DEBUG] 2021-02-02 12:28:58.959 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHUSERPROFILEATTRROLES  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  USERNAME  VARCHAR(80) NOT NULL ,  ATTRNAME  VARCHAR(30) NOT NULL ,  ROLENAME  VARCHAR(50) NOT NULL , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:58.989 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  AUTHUSERPROFILEATTRROLES_USERNAME_IDX  ON  AUTHUSERPROFILEATTRROLES  (  USERNAME  )
+[DEBUG] 2021-02-02 12:28:59.034 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  AUTHUSERPROFILEATTRROLES_ATTRNAME_IDX  ON  AUTHUSERPROFILEATTRROLES  (  ATTRNAME  )
+[DEBUG] 2021-02-02 12:28:59.057 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  AUTHUSERPROFILEATTRROLES_ROLENAME_IDX  ON  AUTHUSERPROFILEATTRROLES  (  ROLENAME  )
+[INFO ] 2021-02-02 12:28:59.057 [main] TableFactory - Created table - servDataSource/authuserprofileattrroles
+[DEBUG] 2021-02-02 12:28:59.058 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE authuserprofileattrroles ADD CONSTRAINT authuserprofileattrroles_fkey FOREIGN KEY (username) REFERENCES authuserprofiles (username)
+[DEBUG] 2021-02-02 12:28:59.070 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ActionLogRecord with reflection
+[DEBUG] 2021-02-02 12:28:59.071 [main] ApsTableUtils - creating table 'ACTIONLOGRECORDS'
+[DEBUG] 2021-02-02 12:28:59.071 [main] ApsTableUtils - creating index 'ACTIONLOGRECORDS_actiondate_idx' for table 'ACTIONLOGRECORDS
+[DEBUG] 2021-02-02 12:28:59.071 [main] ApsTableUtils - creating index 'ACTIONLOGRECORDS_updatedate_idx' for table 'ACTIONLOGRECORDS
+[DEBUG] 2021-02-02 12:28:59.103 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  ACTIONLOGRECORDS  ( ID  INTEGER NOT NULL ,  USERNAME  VARCHAR(40) ,  ACTIONDATE  TIMESTAMP ,  NAMESPACE  CLOB ,  ACTIONNAME  VARCHAR(250) ,  PARAMETERS  CLOB ,  ACTIVITYSTREAMINFO  CLOB ,  UPDATEDATE  TIMESTAMP , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:59.112 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  ACTIONLOGRECORDS_ACTIONDATE_IDX  ON  ACTIONLOGRECORDS  (  ACTIONDATE  )
+[DEBUG] 2021-02-02 12:28:59.120 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  ACTIONLOGRECORDS_UPDATEDATE_IDX  ON  ACTIONLOGRECORDS  (  UPDATEDATE  )
+[INFO ] 2021-02-02 12:28:59.121 [main] TableFactory - Created table - servDataSource/actionlogrecords
+[DEBUG] 2021-02-02 12:28:59.123 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ActionLogRecordRelation with reflection
+[DEBUG] 2021-02-02 12:28:59.123 [main] ApsTableUtils - creating table 'ACTIONLOGRELATIONS'
+[DEBUG] 2021-02-02 12:28:59.124 [main] ApsTableUtils - creating index 'ACTIONLOGRELATIONS_recordid_idx' for table 'ACTIONLOGRELATIONS
+[DEBUG] 2021-02-02 12:28:59.124 [main] ApsTableUtils - creating index 'ACTIONLOGRELATIONS_refgroup_idx' for table 'ACTIONLOGRELATIONS
+[DEBUG] 2021-02-02 12:28:59.143 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  ACTIONLOGRELATIONS  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  RECORDID  INTEGER NOT NULL ,  REFGROUP  VARCHAR(20) , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:59.153 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  ACTIONLOGRELATIONS_RECORDID_IDX  ON  ACTIONLOGRELATIONS  (  RECORDID  )
+[DEBUG] 2021-02-02 12:28:59.167 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  ACTIONLOGRELATIONS_REFGROUP_IDX  ON  ACTIONLOGRELATIONS  (  REFGROUP  )
+[INFO ] 2021-02-02 12:28:59.168 [main] TableFactory - Created table - servDataSource/actionlogrelations
+[DEBUG] 2021-02-02 12:28:59.168 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE actionlogrelations ADD CONSTRAINT actionlogrelations_recid_fkey FOREIGN KEY (recordid) REFERENCES actionlogrecords (id)
+[DEBUG] 2021-02-02 12:28:59.180 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ActionLogLikeRecord with reflection
+[DEBUG] 2021-02-02 12:28:59.180 [main] ApsTableUtils - creating table 'ACTIONLOGLIKERECORDS'
+[DEBUG] 2021-02-02 12:28:59.196 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  ACTIONLOGLIKERECORDS  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  RECORDID  INTEGER NOT NULL ,  USERNAME  VARCHAR(20) NOT NULL ,  LIKEDATE  TIMESTAMP NOT NULL , PRIMARY KEY ( ID ) ) 
+[INFO ] 2021-02-02 12:28:59.196 [main] TableFactory - Created table - servDataSource/actionloglikerecords
+[DEBUG] 2021-02-02 12:28:59.197 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE actionloglikerecords ADD CONSTRAINT actionloglikerec_recid_fkey FOREIGN KEY (recordid) REFERENCES actionlogrecords (id)
+[DEBUG] 2021-02-02 12:28:59.212 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.ActionLogCommentRecord with reflection
+[DEBUG] 2021-02-02 12:28:59.213 [main] ApsTableUtils - creating table 'ACTIONLOGCOMMENTRECORDS'
+[DEBUG] 2021-02-02 12:28:59.227 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  ACTIONLOGCOMMENTRECORDS  ( ID  INTEGER NOT NULL ,  RECORDID  INTEGER NOT NULL ,  USERNAME  VARCHAR(20) NOT NULL ,  COMMENTTEXT  CLOB NOT NULL ,  COMMENTDATE  TIMESTAMP NOT NULL , PRIMARY KEY ( ID ) ) 
+[INFO ] 2021-02-02 12:28:59.228 [main] TableFactory - Created table - servDataSource/actionlogcommentrecords
+[DEBUG] 2021-02-02 12:28:59.228 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE actionlogcommentrecords ADD CONSTRAINT actionlogcommentrec_recid_fkey FOREIGN KEY (recordid) REFERENCES actionlogrecords (id)
+[DEBUG] 2021-02-02 12:28:59.244 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.DataObjectModel with reflection
+[DEBUG] 2021-02-02 12:28:59.244 [main] ApsTableUtils - creating table 'DATAOBJECTMODELS'
+[DEBUG] 2021-02-02 12:28:59.263 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  DATAOBJECTMODELS  ( MODELID  INTEGER NOT NULL ,  DATATYPE  VARCHAR(30) NOT NULL ,  DESCR  VARCHAR(50) NOT NULL ,  MODEL  CLOB ,  STYLESHEET  VARCHAR(50) , PRIMARY KEY ( MODELID ) ) 
+[INFO ] 2021-02-02 12:28:59.263 [main] TableFactory - Created table - servDataSource/dataobjectmodels
+[DEBUG] 2021-02-02 12:28:59.265 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.DataObject with reflection
+[DEBUG] 2021-02-02 12:28:59.266 [main] ApsTableUtils - creating table 'DATAOBJECTS'
+[DEBUG] 2021-02-02 12:28:59.266 [main] ApsTableUtils - creating index 'DATAOBJECTS_status_idx' for table 'DATAOBJECTS
+[DEBUG] 2021-02-02 12:28:59.266 [main] ApsTableUtils - creating index 'DATAOBJECTS_datatype_idx' for table 'DATAOBJECTS
+[DEBUG] 2021-02-02 12:28:59.266 [main] ApsTableUtils - creating index 'DATAOBJECTS_maingroup_idx' for table 'DATAOBJECTS
+[DEBUG] 2021-02-02 12:28:59.267 [main] ApsTableUtils - creating index 'DATAOBJECTS_lastmodified_idx' for table 'DATAOBJECTS
+[DEBUG] 2021-02-02 12:28:59.531 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  DATAOBJECTS  ( DATAID  VARCHAR(16) NOT NULL ,  DATATYPE  VARCHAR(30) NOT NULL ,  DESCR  VARCHAR(255) NOT NULL ,  STATUS  VARCHAR(12) NOT NULL ,  WORKXML  CLOB NOT NULL ,  CREATED  VARCHAR(20) ,  LASTMODIFIED  VARCHAR(20) ,  ONLINEXML  CLOB ,  MAINGROUP  VARCHAR(20) NOT NULL ,  CURRENTVERSION  VARCHAR(7) NOT NULL ,  LASTEDITOR  VARCHAR(40) ,  FIRSTEDITOR  VARCHAR(40) , PRIMARY KEY ( DATAID ) ) 
+[DEBUG] 2021-02-02 12:28:59.541 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTS_STATUS_IDX  ON  DATAOBJECTS  (  STATUS  )
+[DEBUG] 2021-02-02 12:28:59.550 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTS_DATATYPE_IDX  ON  DATAOBJECTS  (  DATATYPE  )
+[DEBUG] 2021-02-02 12:28:59.558 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTS_MAINGROUP_IDX  ON  DATAOBJECTS  (  MAINGROUP  )
+[DEBUG] 2021-02-02 12:28:59.570 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTS_LASTMODIFIED_IDX  ON  DATAOBJECTS  (  LASTMODIFIED  )
+[INFO ] 2021-02-02 12:28:59.570 [main] TableFactory - Created table - servDataSource/dataobjects
+[DEBUG] 2021-02-02 12:28:59.573 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.DataObjectRelation with reflection
+[DEBUG] 2021-02-02 12:28:59.573 [main] ApsTableUtils - creating table 'DATAOBJECTRELATIONS'
+[DEBUG] 2021-02-02 12:28:59.573 [main] ApsTableUtils - creating index 'DATAOBJECTRELATIONS_refcategory_idx' for table 'DATAOBJECTRELATIONS
+[DEBUG] 2021-02-02 12:28:59.574 [main] ApsTableUtils - creating index 'DATAOBJECTRELATIONS_dataid_idx' for table 'DATAOBJECTRELATIONS
+[DEBUG] 2021-02-02 12:28:59.574 [main] ApsTableUtils - creating index 'DATAOBJECTRELATIONS_refgroup_idx' for table 'DATAOBJECTRELATIONS
+[DEBUG] 2021-02-02 12:28:59.602 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  DATAOBJECTRELATIONS  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  DATAID  VARCHAR(16) NOT NULL ,  REFCATEGORY  VARCHAR(30) ,  REFGROUP  VARCHAR(20) , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:59.631 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTRELATIONS_REFCATEGORY_IDX  ON  DATAOBJECTRELATIONS  (  REFCATEGORY  )
+[DEBUG] 2021-02-02 12:28:59.643 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTRELATIONS_DATAID_IDX  ON  DATAOBJECTRELATIONS  (  DATAID  )
+[DEBUG] 2021-02-02 12:28:59.652 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTRELATIONS_REFGROUP_IDX  ON  DATAOBJECTRELATIONS  (  REFGROUP  )
+[INFO ] 2021-02-02 12:28:59.653 [main] TableFactory - Created table - servDataSource/dataobjectrelations
+[DEBUG] 2021-02-02 12:28:59.655 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.DataObjectSearch with reflection
+[DEBUG] 2021-02-02 12:28:59.656 [main] ApsTableUtils - creating table 'DATAOBJECTSEARCH'
+[DEBUG] 2021-02-02 12:28:59.656 [main] ApsTableUtils - creating index 'DATAOBJECTSEARCH_attrname_idx' for table 'DATAOBJECTSEARCH
+[DEBUG] 2021-02-02 12:28:59.656 [main] ApsTableUtils - creating index 'DATAOBJECTSEARCH_dataid_idx' for table 'DATAOBJECTSEARCH
+[DEBUG] 2021-02-02 12:28:59.689 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  DATAOBJECTSEARCH  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  DATAID  VARCHAR(16) NOT NULL ,  ATTRNAME  VARCHAR(30) NOT NULL ,  TEXTVALUE  VARCHAR(255) ,  DATEVALUE  TIMESTAMP ,  NUMVALUE  INTEGER ,  LANGCODE  VARCHAR(3) , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:59.704 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTSEARCH_ATTRNAME_IDX  ON  DATAOBJECTSEARCH  (  ATTRNAME  )
+[DEBUG] 2021-02-02 12:28:59.714 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTSEARCH_DATAID_IDX  ON  DATAOBJECTSEARCH  (  DATAID  )
+[INFO ] 2021-02-02 12:28:59.714 [main] TableFactory - Created table - servDataSource/dataobjectsearch
+[DEBUG] 2021-02-02 12:28:59.715 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE dataobjectsearch ADD CONSTRAINT dataobjectsearch_contid_fkey FOREIGN KEY (dataid) REFERENCES dataobjects (dataid)
+[DEBUG] 2021-02-02 12:28:59.724 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.DataObjectAttributeRole with reflection
+[DEBUG] 2021-02-02 12:28:59.725 [main] ApsTableUtils - creating table 'DATAOBJECTATTRIBUTEROLES'
+[DEBUG] 2021-02-02 12:28:59.725 [main] ApsTableUtils - creating index 'DATAOBJECTATTRIBUTEROLES_attrname_idx' for table 'DATAOBJECTATTRIBUTEROLES
+[DEBUG] 2021-02-02 12:28:59.725 [main] ApsTableUtils - creating index 'DATAOBJECTATTRIBUTEROLES_dataid_idx' for table 'DATAOBJECTATTRIBUTEROLES
+[DEBUG] 2021-02-02 12:28:59.726 [main] ApsTableUtils - creating index 'DATAOBJECTATTRIBUTEROLES_rolename_idx' for table 'DATAOBJECTATTRIBUTEROLES
+[DEBUG] 2021-02-02 12:28:59.741 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  DATAOBJECTATTRIBUTEROLES  ( ID  INTEGER GENERATED BY DEFAULT AS IDENTITY ,  DATAID  VARCHAR(16) NOT NULL ,  ATTRNAME  VARCHAR(30) NOT NULL ,  ROLENAME  VARCHAR(50) NOT NULL , PRIMARY KEY ( ID ) ) 
+[DEBUG] 2021-02-02 12:28:59.750 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTATTRIBUTEROLES_ATTRNAME_IDX  ON  DATAOBJECTATTRIBUTEROLES  (  ATTRNAME  )
+[DEBUG] 2021-02-02 12:28:59.779 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTATTRIBUTEROLES_DATAID_IDX  ON  DATAOBJECTATTRIBUTEROLES  (  DATAID  )
+[DEBUG] 2021-02-02 12:28:59.807 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE INDEX  DATAOBJECTATTRIBUTEROLES_ROLENAME_IDX  ON  DATAOBJECTATTRIBUTEROLES  (  ROLENAME  )
+[INFO ] 2021-02-02 12:28:59.807 [main] TableFactory - Created table - servDataSource/dataobjectattributeroles
+[DEBUG] 2021-02-02 12:28:59.808 [main] StatementE**cutor - running raw e**cute statement: ALTER TABLE dataobjectattributeroles ADD CONSTRAINT contentattrroles_contid_fkey FOREIGN KEY (dataid) REFERENCES dataobjects (dataid)
+[DEBUG] 2021-02-02 12:28:59.816 [main] JdbcConnectionSource - closed connection #1739144712
+[DEBUG] 2021-02-02 12:28:59.817 [main] DatabaseManager - |   _|   Installation complete_|   
+[INFO ] 2021-02-02 12:28:59.817 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:28:59.819 [main] DaoManager - created dao for class class org.entando.entando.aps.******.init.model.servdb.UserShortcut with reflection
+[DEBUG] 2021-02-02 12:28:59.819 [main] ApsTableUtils - creating table 'AUTHUSERSHORTCUTS'
+[DEBUG] 2021-02-02 12:28:59.821 [main] JdbcConnectionSource - opened connection to jdbc:derby:/workspace/source/target/test/db/entando-portal-uitestServ;create=****;user=agile;password=agile got #1196160805
+[DEBUG] 2021-02-02 12:28:59.853 [main] ApsTableUtils - e**cuted create table statement changed 0 rows: CREATE TABLE  AUTHUSERSHORTCUTS  ( USERNAME  VARCHAR(40) NOT NULL ,  CONFIG  CLOB NOT NULL , PRIMARY KEY ( USERNAME ) ) 
+[INFO ] 2021-02-02 12:28:59.854 [main] TableFactory - Created table - servDataSource/authusershortcuts
+[DEBUG] 2021-02-02 12:28:59.855 [main] JdbcConnectionSource - closed connection #1196160805
+[DEBUG] 2021-02-02 12:28:59.855 [main] DatabaseManager - |   _|   Installation complete_|   
+[INFO ] 2021-02-02 12:28:59.855 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:28:59.855 [main] DatabaseManager - |   _|   Installation complete_|   
+[INFO ] 2021-02-02 12:28:59.856 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:01.171 [main] DatabaseManager - |   _|   Installation complete_|   
+[INFO ] 2021-02-02 12:29:01.171 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:01.178 [main] DatabaseManager - |   _|   Installation complete_|   
+[INFO ] 2021-02-02 12:29:01.179 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:01.180 [main] DatabaseManager - |   _|   Installation complete_|   
+[DEBUG] 2021-02-02 12:29:01.256 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:01.740 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:01.831 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:01.894 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:02.324 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:02.380 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:02.708 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:02.768 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:02.789 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:02.880 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:02.991 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:03.067 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:03.095 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:03.126 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:03.126 [pool-2-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:03.142 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:03.163 [pool-2-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:03.165 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:03.172 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:03.179 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:03.183 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:03.205 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:03.249 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[INFO ] 2021-02-02 12:29:03.249 [main] PageTokenManager - Successfully created a random page_preview_hash
+[DEBUG] 2021-02-02 12:29:03.259 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:03.268 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:03.526 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:04.949 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:05.168 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:05.324 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:05.419 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:06.572 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:07.417 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:07.417 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:07.428 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:07.434 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:07.434 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:07.445 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:07.463 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:07.781 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:07.825 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:07.898 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:08.437 [main] DefaultVelocityRenderer - Initializing Velocity, Calling init()...
+[DEBUG] 2021-02-02 12:29:08.437 [main] DefaultVelocityRenderer - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+[DEBUG] 2021-02-02 12:29:08.438 [main] DefaultVelocityRenderer - Default Properties File: org/apache/velocity/runtime/defaults/velocity.properties
+[DEBUG] 2021-02-02 12:29:08.450 [main] DefaultVelocityRenderer - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+[DEBUG] 2021-02-02 12:29:08.452 [main] DefaultVelocityRenderer - Do unicode file recognition:  false
+[DEBUG] 2021-02-02 12:29:08.452 [main] DefaultVelocityRenderer - FileResourceLoader : adding path '.'
+[DEBUG] 2021-02-02 12:29:08.463 [main] DefaultVelocityRenderer - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+[DEBUG] 2021-02-02 12:29:08.465 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+[DEBUG] 2021-02-02 12:29:08.467 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+[DEBUG] 2021-02-02 12:29:08.468 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+[DEBUG] 2021-02-02 12:29:08.470 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+[DEBUG] 2021-02-02 12:29:08.470 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+[DEBUG] 2021-02-02 12:29:08.472 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+[DEBUG] 2021-02-02 12:29:08.475 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+[DEBUG] 2021-02-02 12:29:08.477 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+[DEBUG] 2021-02-02 12:29:08.479 [main] DefaultVelocityRenderer - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+[DEBUG] 2021-02-02 12:29:08.536 [main] DefaultVelocityRenderer - Created '20' parsers.
+[DEBUG] 2021-02-02 12:29:08.541 [main] DefaultVelocityRenderer - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+[DEBUG] 2021-02-02 12:29:08.542 [main] DefaultVelocityRenderer - Velocimacro : Default library not found.
+[DEBUG] 2021-02-02 12:29:08.542 [main] DefaultVelocityRenderer - Velocimacro : allowInline = **** : VMs can be defined inline in templates
+[DEBUG] 2021-02-02 12:29:08.542 [main] DefaultVelocityRenderer - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+[DEBUG] 2021-02-02 12:29:08.542 [main] DefaultVelocityRenderer - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+[DEBUG] 2021-02-02 12:29:08.542 [main] DefaultVelocityRenderer - Velocimacro : autoload off : VM ****** will not automatically reload global library macros
+[DEBUG] 2021-02-02 12:29:08.543 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:08.567 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:08.576 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:08.620 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:08.633 [main] SearchEngineDAOFactory - Index Directory created
+[DEBUG] 2021-02-02 12:29:08.649 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:08.662 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:09.188 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:09.246 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:09.385 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#bf0e435 ready.
+[DEBUG] 2021-02-02 12:29:09.518 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:11.096 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:12.209 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:12.209 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:12.210 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:12.213 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:12.214 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:12.215 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:12.215 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:12.250 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:12.387 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:12.922 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:12.923 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:12.923 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:12.923 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:12.924 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:12.924 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:12.924 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:12.926 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:12.926 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:12.927 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:12.928 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:12.928 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:12.929 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:12.991 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:13.036 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:13.073 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:13.099 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:13.128 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:13.595 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:13.651 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:13.665 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:13.697 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:13.734 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:13.766 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:13.788 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:13.804 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:13.804 [pool-4-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:13.806 [pool-4-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:13.823 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:13.833 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:13.837 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:13.842 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:13.846 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:13.880 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:13.891 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:13.895 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:13.984 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:14.605 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:14.749 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:14.854 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:14.883 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:15.331 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:16.041 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:16.042 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:16.044 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:16.048 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:16.049 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:16.052 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:16.054 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:16.224 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:16.257 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:16.292 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:16.594 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:16.609 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:16.613 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:16.631 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:16.632 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:16.632 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:16.749 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:16.777 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:16.854 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#15b705bd ready.
+[DEBUG] 2021-02-02 12:29:16.963 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:17.420 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:17.477 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:17.498 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextClosedEvent
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.677 s - in org.entando.entando.aps.******.services.controller.control.TestRequestValidator
+[INFO] Running org.entando.entando.aps.******.services.controller.control.TestRequestAuthorizator
+[DEBUG] 2021-02-02 12:29:18.316 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:18.316 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:18.317 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:18.320 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:18.321 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:18.322 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:18.322 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:18.341 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:18.485 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:18.949 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:18.949 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:18.950 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:18.950 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:18.950 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:18.950 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:18.950 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:18.950 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:18.951 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:18.951 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:18.951 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:18.951 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:18.951 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:19.013 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:19.041 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:19.075 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:19.098 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:19.125 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:19.275 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:19.323 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:19.337 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:19.367 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:19.398 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:19.439 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:19.458 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:19.468 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:19.469 [pool-6-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:19.472 [pool-6-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:19.481 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:19.489 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:19.491 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:19.493 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:19.494 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:19.504 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:19.513 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:19.516 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:19.604 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:20.212 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:20.345 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:20.440 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:20.462 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:21.158 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:21.880 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:21.880 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:21.883 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:21.887 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:21.887 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:21.891 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:21.892 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:22.046 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:22.079 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:22.107 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:22.393 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:22.559 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:22.563 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:22.586 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:22.587 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:22.587 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:22.706 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:22.747 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:22.845 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#2bba7934 ready.
+[DEBUG] 2021-02-02 12:29:22.938 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:23.378 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:23.877 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:23.877 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:23.878 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:23.880 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:23.881 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:23.882 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:23.882 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:23.919 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:24.047 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:24.529 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:24.529 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:24.529 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:24.529 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:24.530 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:24.530 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:24.530 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:24.530 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:24.530 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:24.530 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:24.531 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:24.531 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:24.531 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:24.578 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:24.601 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:24.650 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:24.676 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:24.700 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:24.846 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:24.901 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:24.916 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:24.957 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:24.992 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:25.024 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:25.059 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:25.076 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:25.076 [pool-8-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:25.077 [pool-8-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:25.093 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:25.104 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:25.107 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:25.109 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:25.111 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:25.119 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:25.129 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:25.133 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:25.232 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:25.831 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:26.146 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:26.240 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:26.268 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:26.687 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:27.416 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:27.417 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:27.419 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:27.424 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:27.424 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:27.427 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:27.429 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:27.608 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:27.639 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:27.664 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:27.973 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:27.987 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:27.991 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:28.009 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:28.010 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:28.010 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:28.133 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:28.162 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:28.266 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#7f2db1a6 ready.
+[DEBUG] 2021-02-02 12:29:28.346 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:28.788 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:28.791 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:28.792 [main] AbstractControlService - Redirecting to http://www.entando.com/Entando/it/login.page?returnUrl=http%253A%252F%252Fwww.entando.com%252FEntando%252Fit%252Fcustomers_page.page&redirectflag=1
+[DEBUG] 2021-02-02 12:29:28.795 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[ERROR] 2021-02-02 12:29:28.795 [main] RequestAuthorizator - Error while processing the request
+com.agiletec.aps.******.exception.ApsSystemException: no user on session
+	at com.agiletec.aps.******.services.controller.control.RequestAuthorizator.service(RequestAuthorizator.java:73) ~[classes/:?]
+	at org.entando.entando.aps.******.services.controller.control.TestRequestAuthorizator.testServiceFailure_2(TestRequestAuthorizator.java:83) ~[test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688) ~[junit-platform-commons-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.e**cution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.E**cutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(E**cutableInvoker.java:115) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.E**cutableInvoker.lambda$invoke$0(E**cutableInvoker.java:105) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.E**cutableInvoker.invoke(E**cutableInvoker.java:104) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.e**cution.E**cutableInvoker.invoke(E**cutableInvoker.java:98) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:210) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:206) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.e**cute(TestMethodTestDescriptor.java:131) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.e**cute(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.e**cuteRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.e**cute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1540) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestE**cutorService.invokeAll(SameThreadHierarchicalTestE**cutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.e**cuteRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.e**cute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1540) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestE**cutorService.invokeAll(SameThreadHierarchicalTestE**cutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$e**cuteRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.e**cute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.e**cuteRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.e**cute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestE**cutorService.submit(SameThreadHierarchicalTestE**cutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestE**cutor.e**cute(HierarchicalTestE**cutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.e**cute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.e**cute(DefaultLauncher.java:220) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$e**cute$6(DefaultLauncher.java:188) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202) [junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.e**cute(DefaultLauncher.java:181) [junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.e**cute(DefaultLauncher.java:128) [junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142) [surefire-junit-platform-3.0.0-M1.jar:3.0.0-M1]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117) [surefire-junit-platform-3.0.0-M1.jar:3.0.0-M1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-3.0.0-M1.jar:3.0.0-M1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-3.0.0-M1.jar:3.0.0-M1]
+	at org.apache.maven.surefire.booter.ForkedBooter.e**cute(ForkedBooter.java:126) [surefire-booter-3.0.0-M1.jar:3.0.0-M1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-3.0.0-M1.jar:3.0.0-M1]
+[DEBUG] 2021-02-02 12:29:28.817 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:29.091 [main] BooleanConverter - Setting default value: false
+[DEBUG] 2021-02-02 12:29:29.092 [main] BooleanConverter - Converting 'Boolean' value 'false' to type 'Boolean'
+[DEBUG] 2021-02-02 12:29:29.092 [main] BooleanConverter -     No conversion required, value is already a Boolean
+[DEBUG] 2021-02-02 12:29:29.095 [main] ByteConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.095 [main] ByteConverter - Converting 'Integer' value '0' to type 'Byte'
+[DEBUG] 2021-02-02 12:29:29.095 [main] ByteConverter -     Converted to Byte value '0'
+[DEBUG] 2021-02-02 12:29:29.096 [main] CharacterConverter - Setting default value:  
+[DEBUG] 2021-02-02 12:29:29.096 [main] CharacterConverter - Converting 'Character' value ' ' to type 'Character'
+[DEBUG] 2021-02-02 12:29:29.096 [main] CharacterConverter -     No conversion required, value is already a Character
+[DEBUG] 2021-02-02 12:29:29.097 [main] DoubleConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.097 [main] DoubleConverter - Converting 'Integer' value '0' to type 'Double'
+[DEBUG] 2021-02-02 12:29:29.097 [main] DoubleConverter -     Converted to Double value '0.0'
+[DEBUG] 2021-02-02 12:29:29.098 [main] FloatConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.098 [main] FloatConverter - Converting 'Integer' value '0' to type 'Float'
+[DEBUG] 2021-02-02 12:29:29.098 [main] FloatConverter -     Converted to Float value '0.0'
+[DEBUG] 2021-02-02 12:29:29.099 [main] IntegerConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.100 [main] IntegerConverter - Converting 'Integer' value '0' to type 'Integer'
+[DEBUG] 2021-02-02 12:29:29.100 [main] IntegerConverter -     No conversion required, value is already a Integer
+[DEBUG] 2021-02-02 12:29:29.100 [main] LongConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.101 [main] LongConverter - Converting 'Integer' value '0' to type 'Long'
+[DEBUG] 2021-02-02 12:29:29.101 [main] LongConverter -     Converted to Long value '0'
+[DEBUG] 2021-02-02 12:29:29.102 [main] ShortConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.102 [main] ShortConverter - Converting 'Integer' value '0' to type 'Short'
+[DEBUG] 2021-02-02 12:29:29.102 [main] ShortConverter -     Converted to Short value '0'
+[DEBUG] 2021-02-02 12:29:29.103 [main] BigDecimalConverter - Setting default value: 0.0
+[DEBUG] 2021-02-02 12:29:29.103 [main] BigDecimalConverter - Converting 'BigDecimal' value '0.0' to type 'BigDecimal'
+[DEBUG] 2021-02-02 12:29:29.104 [main] BigDecimalConverter -     No conversion required, value is already a BigDecimal
+[DEBUG] 2021-02-02 12:29:29.104 [main] BigIntegerConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.104 [main] BigIntegerConverter - Converting 'BigInteger' value '0' to type 'BigInteger'
+[DEBUG] 2021-02-02 12:29:29.105 [main] BigIntegerConverter -     No conversion required, value is already a BigInteger
+[DEBUG] 2021-02-02 12:29:29.105 [main] BooleanConverter - Setting default value: false
+[DEBUG] 2021-02-02 12:29:29.105 [main] BooleanConverter - Converting 'Boolean' value 'false' to type 'Boolean'
+[DEBUG] 2021-02-02 12:29:29.105 [main] BooleanConverter -     No conversion required, value is already a Boolean
+[DEBUG] 2021-02-02 12:29:29.105 [main] ByteConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.105 [main] ByteConverter - Converting 'Integer' value '0' to type 'Byte'
+[DEBUG] 2021-02-02 12:29:29.106 [main] ByteConverter -     Converted to Byte value '0'
+[DEBUG] 2021-02-02 12:29:29.106 [main] CharacterConverter - Setting default value:  
+[DEBUG] 2021-02-02 12:29:29.106 [main] CharacterConverter - Converting 'Character' value ' ' to type 'Character'
+[DEBUG] 2021-02-02 12:29:29.106 [main] CharacterConverter -     No conversion required, value is already a Character
+[DEBUG] 2021-02-02 12:29:29.106 [main] DoubleConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.106 [main] DoubleConverter - Converting 'Integer' value '0' to type 'Double'
+[DEBUG] 2021-02-02 12:29:29.107 [main] DoubleConverter -     Converted to Double value '0.0'
+[DEBUG] 2021-02-02 12:29:29.107 [main] FloatConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.107 [main] FloatConverter - Converting 'Integer' value '0' to type 'Float'
+[DEBUG] 2021-02-02 12:29:29.107 [main] FloatConverter -     Converted to Float value '0.0'
+[DEBUG] 2021-02-02 12:29:29.107 [main] IntegerConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.107 [main] IntegerConverter - Converting 'Integer' value '0' to type 'Integer'
+[DEBUG] 2021-02-02 12:29:29.107 [main] IntegerConverter -     No conversion required, value is already a Integer
+[DEBUG] 2021-02-02 12:29:29.108 [main] LongConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.108 [main] LongConverter - Converting 'Integer' value '0' to type 'Long'
+[DEBUG] 2021-02-02 12:29:29.108 [main] LongConverter -     Converted to Long value '0'
+[DEBUG] 2021-02-02 12:29:29.108 [main] ShortConverter - Setting default value: 0
+[DEBUG] 2021-02-02 12:29:29.108 [main] ShortConverter - Converting 'Integer' value '0' to type 'Short'
+[DEBUG] 2021-02-02 12:29:29.108 [main] ShortConverter -     Converted to Short value '0'
+[DEBUG] 2021-02-02 12:29:29.109 [main] StringConverter - Setting default value: 
+[DEBUG] 2021-02-02 12:29:29.109 [main] StringConverter - Converting 'String' value '' to type 'String'
+[DEBUG] 2021-02-02 12:29:29.117 [main] ArrayConverter - Setting default value: [Z@51b23e6e
+[DEBUG] 2021-02-02 12:29:29.117 [main] ArrayConverter - Converting 'boolean[]' value '[Z@51b23e6e' to type 'boolean[]'
+[DEBUG] 2021-02-02 12:29:29.117 [main] ArrayConverter -     No conversion required, value is already a boolean[]
+[DEBUG] 2021-02-02 12:29:29.117 [main] ArrayConverter - Setting default value: [B@134e9ae7
+[DEBUG] 2021-02-02 12:29:29.118 [main] ArrayConverter - Converting 'byte[]' value '[B@134e9ae7' to type 'byte[]'
+[DEBUG] 2021-02-02 12:29:29.118 [main] ArrayConverter -     No conversion required, value is already a byte[]
+[DEBUG] 2021-02-02 12:29:29.118 [main] ArrayConverter - Setting default value: [C@507b9288
+[DEBUG] 2021-02-02 12:29:29.118 [main] ArrayConverter - Converting 'char[]' value '[C@507b9288' to type 'char[]'
+[DEBUG] 2021-02-02 12:29:29.118 [main] ArrayConverter -     No conversion required, value is already a char[]
+[DEBUG] 2021-02-02 12:29:29.118 [main] ArrayConverter - Setting default value: [D@58af2e96
+[DEBUG] 2021-02-02 12:29:29.119 [main] ArrayConverter - Converting 'double[]' value '[D@58af2e96' to type 'double[]'
+[DEBUG] 2021-02-02 12:29:29.119 [main] ArrayConverter -     No conversion required, value is already a double[]
+[DEBUG] 2021-02-02 12:29:29.119 [main] ArrayConverter - Setting default value: [F@182e3aa3
+[DEBUG] 2021-02-02 12:29:29.119 [main] ArrayConverter - Converting 'float[]' value '[F@182e3aa3' to type 'float[]'
+[DEBUG] 2021-02-02 12:29:29.119 [main] ArrayConverter -     No conversion required, value is already a float[]
+[DEBUG] 2021-02-02 12:29:29.119 [main] ArrayConverter - Setting default value: [I@7fd002e3
+[DEBUG] 2021-02-02 12:29:29.120 [main] ArrayConverter - Converting 'int[]' value '[I@7fd002e3' to type 'int[]'
+[DEBUG] 2021-02-02 12:29:29.120 [main] ArrayConverter -     No conversion required, value is already a int[]
+[DEBUG] 2021-02-02 12:29:29.120 [main] ArrayConverter - Setting default value: [J@73333043
+[DEBUG] 2021-02-02 12:29:29.120 [main] ArrayConverter - Converting 'long[]' value '[J@73333043' to type 'long[]'
+[DEBUG] 2021-02-02 12:29:29.120 [main] ArrayConverter -     No conversion required, value is already a long[]
+[DEBUG] 2021-02-02 12:29:29.120 [main] ArrayConverter - Setting default value: [S@52497b2d
+[DEBUG] 2021-02-02 12:29:29.121 [main] ArrayConverter - Converting 'short[]' value '[S@52497b2d' to type 'short[]'
+[DEBUG] 2021-02-02 12:29:29.121 [main] ArrayConverter -     No conversion required, value is already a short[]
+[DEBUG] 2021-02-02 12:29:29.121 [main] ArrayConverter - Setting default value: [Ljava.math.BigDecimal;@3bdbb8e5
+[DEBUG] 2021-02-02 12:29:29.121 [main] ArrayConverter - Converting 'BigDecimal[]' value '[Ljava.math.BigDecimal;@3bdbb8e5' to type 'BigDecimal[]'
+[DEBUG] 2021-02-02 12:29:29.121 [main] ArrayConverter -     No conversion required, value is already a BigDecimal[]
+[DEBUG] 2021-02-02 12:29:29.121 [main] ArrayConverter - Setting default value: [Ljava.math.BigInteger;@2eb8e390
+[DEBUG] 2021-02-02 12:29:29.122 [main] ArrayConverter - Converting 'BigInteger[]' value '[Ljava.math.BigInteger;@2eb8e390' to type 'BigInteger[]'
+[DEBUG] 2021-02-02 12:29:29.122 [main] ArrayConverter -     No conversion required, value is already a BigInteger[]
+[DEBUG] 2021-02-02 12:29:29.122 [main] ArrayConverter - Setting default value: [Ljava.lang.Boolean;@51cbfffa
+[DEBUG] 2021-02-02 12:29:29.122 [main] ArrayConverter - Converting 'Boolean[]' value '[Ljava.lang.Boolean;@51cbfffa' to type 'Boolean[]'
+[DEBUG] 2021-02-02 12:29:29.122 [main] ArrayConverter -     No conversion required, value is already a Boolean[]
+[DEBUG] 2021-02-02 12:29:29.122 [main] ArrayConverter - Setting default value: [Ljava.lang.Byte;@672909c1
+[DEBUG] 2021-02-02 12:29:29.123 [main] ArrayConverter - Converting 'Byte[]' value '[Ljava.lang.Byte;@672909c1' to type 'Byte[]'
+[DEBUG] 2021-02-02 12:29:29.123 [main] ArrayConverter -     No conversion required, value is already a Byte[]
+[DEBUG] 2021-02-02 12:29:29.123 [main] ArrayConverter - Setting default value: [Ljava.lang.Character;@55b5a244
+[DEBUG] 2021-02-02 12:29:29.123 [main] ArrayConverter - Converting 'Character[]' value '[Ljava.lang.Character;@55b5a244' to type 'Character[]'
+[DEBUG] 2021-02-02 12:29:29.123 [main] ArrayConverter -     No conversion required, value is already a Character[]
+[DEBUG] 2021-02-02 12:29:29.123 [main] ArrayConverter - Setting default value: [Ljava.lang.Double;@524ee5c3
+[DEBUG] 2021-02-02 12:29:29.124 [main] ArrayConverter - Converting 'Double[]' value '[Ljava.lang.Double;@524ee5c3' to type 'Double[]'
+[DEBUG] 2021-02-02 12:29:29.124 [main] ArrayConverter -     No conversion required, value is already a Double[]
+[DEBUG] 2021-02-02 12:29:29.124 [main] ArrayConverter - Setting default value: [Ljava.lang.Float;@cafee80
+[DEBUG] 2021-02-02 12:29:29.124 [main] ArrayConverter - Converting 'Float[]' value '[Ljava.lang.Float;@cafee80' to type 'Float[]'
+[DEBUG] 2021-02-02 12:29:29.124 [main] ArrayConverter -     No conversion required, value is already a Float[]
+[DEBUG] 2021-02-02 12:29:29.124 [main] ArrayConverter - Setting default value: [Ljava.lang.Integer;@60400dbc
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter - Converting 'Integer[]' value '[Ljava.lang.Integer;@60400dbc' to type 'Integer[]'
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter -     No conversion required, value is already a Integer[]
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter - Setting default value: [Ljava.lang.Long;@6144fdca
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter - Converting 'Long[]' value '[Ljava.lang.Long;@6144fdca' to type 'Long[]'
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter -     No conversion required, value is already a Long[]
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter - Setting default value: [Ljava.lang.Short;@6824fc94
+[DEBUG] 2021-02-02 12:29:29.125 [main] ArrayConverter - Converting 'Short[]' value '[Ljava.lang.Short;@6824fc94' to type 'Short[]'
+[DEBUG] 2021-02-02 12:29:29.126 [main] ArrayConverter -     No conversion required, value is already a Short[]
+[DEBUG] 2021-02-02 12:29:29.126 [main] ArrayConverter - Setting default value: [Ljava.lang.String;@5a87cc81
+[DEBUG] 2021-02-02 12:29:29.126 [main] ArrayConverter - Converting 'String[]' value '[Ljava.lang.String;@5a87cc81' to type 'String[]'
+[DEBUG] 2021-02-02 12:29:29.126 [main] ArrayConverter -     No conversion required, value is already a String[]
+[DEBUG] 2021-02-02 12:29:29.126 [main] ArrayConverter - Setting default value: [Ljava.lang.Class;@1b413d64
+[DEBUG] 2021-02-02 12:29:29.126 [main] ArrayConverter - Converting 'Class[]' value '[Ljava.lang.Class;@1b413d64' to type 'Class[]'
+[DEBUG] 2021-02-02 12:29:29.127 [main] ArrayConverter -     No conversion required, value is already a Class[]
+[DEBUG] 2021-02-02 12:29:29.127 [main] ArrayConverter - Setting default value: [Ljava.util.Date;@54cea2c4
+[DEBUG] 2021-02-02 12:29:29.127 [main] ArrayConverter - Converting 'Date[]' value '[Ljava.util.Date;@54cea2c4' to type 'Date[]'
+[DEBUG] 2021-02-02 12:29:29.127 [main] ArrayConverter -     No conversion required, value is already a Date[]
+[DEBUG] 2021-02-02 12:29:29.127 [main] ArrayConverter - Setting default value: [Ljava.util.Calendar;@72a3b5a7
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter - Converting 'Calendar[]' value '[Ljava.util.Calendar;@72a3b5a7' to type 'Calendar[]'
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter -     No conversion required, value is already a Calendar[]
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter - Setting default value: [Ljava.io.File;@41e25acf
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter - Converting 'java.io.File[]' value '[Ljava.io.File;@41e25acf' to type 'java.io.File[]'
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter -     No conversion required, value is already a java.io.File[]
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter - Setting default value: [Ljava.sql.Date;@1c945a21
+[DEBUG] 2021-02-02 12:29:29.128 [main] ArrayConverter - Converting 'java.sql.Date[]' value '[Ljava.sql.Date;@1c945a21' to type 'java.sql.Date[]'
+[DEBUG] 2021-02-02 12:29:29.129 [main] ArrayConverter -     No conversion required, value is already a java.sql.Date[]
+[DEBUG] 2021-02-02 12:29:29.129 [main] ArrayConverter - Setting default value: [Ljava.sql.Time;@77b4f812
+[DEBUG] 2021-02-02 12:29:29.129 [main] ArrayConverter - Converting 'java.sql.Time[]' value '[Ljava.sql.Time;@77b4f812' to type 'java.sql.Time[]'
+[DEBUG] 2021-02-02 12:29:29.129 [main] ArrayConverter -     No conversion required, value is already a java.sql.Time[]
+[DEBUG] 2021-02-02 12:29:29.129 [main] ArrayConverter - Setting default value: [Ljava.sql.Timestamp;@14dcc559
+[DEBUG] 2021-02-02 12:29:29.129 [main] ArrayConverter - Converting 'java.sql.Timestamp[]' value '[Ljava.sql.Timestamp;@14dcc559' to type 'java.sql.Timestamp[]'
+[DEBUG] 2021-02-02 12:29:29.130 [main] ArrayConverter -     No conversion required, value is already a java.sql.Timestamp[]
+[DEBUG] 2021-02-02 12:29:29.130 [main] ArrayConverter - Setting default value: [Ljava.net.URL;@7fc30c73
+[DEBUG] 2021-02-02 12:29:29.130 [main] ArrayConverter - Converting 'java.net.URL[]' value '[Ljava.net.URL;@7fc30c73' to type 'java.net.URL[]'
+[DEBUG] 2021-02-02 12:29:29.130 [main] ArrayConverter -     No conversion required, value is already a java.net.URL[]
+[DEBUG] 2021-02-02 12:29:29.175 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:29.177 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextClosedEvent
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.647 s - in org.entando.entando.aps.******.services.controller.control.TestRequestAuthorizator
+[INFO] Running org.entando.entando.aps.******.services.controller.TestControllerManager
+[DEBUG] 2021-02-02 12:29:30.090 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:30.091 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:30.093 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:30.097 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:30.098 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:30.100 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:30.101 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:30.127 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:30.290 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:30.877 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:30.877 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:30.877 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:30.877 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:30.877 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:30.878 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:30.878 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:30.878 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:30.878 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:30.878 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:30.878 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:30.878 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:30.879 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:30.943 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:30.967 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:31.000 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:31.020 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:31.048 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:31.209 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:31.260 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:31.275 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:31.319 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:31.352 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:31.380 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:31.399 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:31.410 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:31.411 [pool-10-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:31.426 [pool-10-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:31.434 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:31.442 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:31.445 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:31.448 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:31.450 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:31.461 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:31.472 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:31.475 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:31.582 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:32.245 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:32.435 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:32.542 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:32.576 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:33.067 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:33.734 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:33.735 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:33.737 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:33.741 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:33.742 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:33.745 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:33.747 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:33.878 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:34.247 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:34.270 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:34.606 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:34.620 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:34.625 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:34.642 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:34.643 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:34.643 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:34.764 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:34.811 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:34.899 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#7515173f ready.
+[DEBUG] 2021-02-02 12:29:35.028 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:35.487 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:36.021 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:36.022 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:36.024 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:36.026 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:36.027 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:36.028 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:36.029 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:36.048 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:36.185 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:36.864 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:36.864 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:36.865 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:36.866 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:36.866 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:36.867 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:36.867 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:36.867 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:36.868 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:36.868 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:36.869 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:36.869 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:36.870 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:36.924 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:36.953 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:37.007 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:37.033 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:37.064 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:37.212 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:37.261 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:37.274 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:37.301 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:37.350 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:37.375 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:37.392 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:37.404 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:37.404 [pool-12-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:37.406 [pool-12-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:37.417 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:37.425 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:37.428 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:37.431 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:37.433 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:37.442 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:37.452 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:37.455 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:37.540 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:38.139 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:38.268 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:38.352 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:38.379 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:38.751 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:39.476 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:39.476 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:39.478 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:39.481 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:39.481 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:39.483 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:39.485 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:39.620 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:39.648 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:39.671 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:39.979 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:39.993 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:39.997 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:40.021 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:40.022 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:40.022 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:40.123 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:40.165 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:40.272 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#5830656e ready.
+[DEBUG] 2021-02-02 12:29:40.380 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:40.868 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:40.872 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:40.873 [main] Authenticator - Invoked com.agiletec.aps.******.services.controller.control.Authenticator
+[DEBUG] 2021-02-02 12:29:40.874 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:40.874 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:40.875 [main] Authenticator - Invoked com.agiletec.aps.******.services.controller.control.Authenticator
+[DEBUG] 2021-02-02 12:29:40.875 [main] Authenticator - user ***** - password ******** 
+[DEBUG] 2021-02-02 12:29:41.003 [main] Authenticator - New user: *****
+[DEBUG] 2021-02-02 12:29:41.003 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:41.005 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:41.005 [main] Authenticator - Invoked com.agiletec.aps.******.services.controller.control.Authenticator
+[DEBUG] 2021-02-02 12:29:41.005 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:41.006 [main] AbstractControlService - Redirecting to http://www.entando.com/Entando/it/login.page?returnUrl=http%253A%252F%252Fwww.entando.com&redirectflag=1
+[DEBUG] 2021-02-02 12:29:41.006 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:41.006 [main] Authenticator - Invoked com.agiletec.aps.******.services.controller.control.Authenticator
+[DEBUG] 2021-02-02 12:29:41.006 [main] Authenticator - user ***** - password ******** 
+[DEBUG] 2021-02-02 12:29:41.138 [main] Authenticator - New user: *****
+[DEBUG] 2021-02-02 12:29:41.138 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:41.141 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:41.141 [main] Authenticator - Invoked com.agiletec.aps.******.services.controller.control.Authenticator
+[DEBUG] 2021-02-02 12:29:41.141 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:41.142 [main] AbstractControlService - Redirecting to http://www.entando.com/Entando/it/login.page?returnUrl=http%253A%252F%252Fwww.entando.com%252FEntando%252Fit%252Fcustomers_page.page&redirectflag=1
+[DEBUG] 2021-02-02 12:29:41.142 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator invoked
+[DEBUG] 2021-02-02 12:29:41.142 [main] Authenticator - Invoked com.agiletec.aps.******.services.controller.control.Authenticator
+[DEBUG] 2021-02-02 12:29:41.142 [main] RequestAuthorizator - Invoked: com.agiletec.aps.******.services.controller.control.RequestAuthorizator
+[DEBUG] 2021-02-02 12:29:41.142 [main] ErrorManager - Intervention of the error service
+[DEBUG] 2021-02-02 12:29:41.143 [main] ErrorManager - Redirecting to http://www.entando.com/Entando/it/errorpage.page
+[DEBUG] 2021-02-02 12:29:41.144 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextClosedEvent
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.934 s - in org.entando.entando.aps.******.services.controller.TestControllerManager
+[INFO] Running org.entando.entando.aps.******.services.controller.e**cutor.TestWidgetE**cutorService
+[DEBUG] 2021-02-02 12:29:41.848 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:41.849 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:41.850 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:41.853 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:41.853 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:41.855 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:41.855 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:41.878 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:42.031 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:42.495 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:42.495 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:42.495 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:42.495 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:42.495 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:42.496 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:42.496 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:42.496 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:42.496 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:42.496 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:42.496 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:42.496 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:42.496 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:42.547 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:42.577 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:42.825 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:42.845 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:42.872 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:43.016 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:43.067 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:43.079 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:43.113 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:43.141 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:43.166 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:43.183 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:43.193 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:43.193 [pool-14-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:43.198 [pool-14-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:43.206 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:43.213 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:43.215 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:43.217 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:43.219 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:43.227 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:43.251 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:43.254 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:43.326 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:43.869 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:44.001 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:44.090 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:44.119 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:44.532 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:45.247 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:45.247 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:45.249 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:45.252 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:45.252 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:45.255 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:45.256 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:45.400 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:45.430 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:45.464 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:45.758 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:45.772 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:45.777 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:45.795 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:45.795 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:45.795 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:45.916 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:45.947 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:46.042 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#5bc4f615 ready.
+[DEBUG] 2021-02-02 12:29:46.145 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:46.608 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:47.340 [main] ComponentDefDOM - Valid Component definition : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:47.340 [main] ComponentDefDOM - Loading Component from file : /workspace/source/target/classes/component/core/portal-ui-component.xml
+[DEBUG] 2021-02-02 12:29:47.341 [main] ComponentLoader - Component 'entando-portal-ui' loaded
+[DEBUG] 2021-02-02 12:29:47.345 [main] ComponentDefDOM - Valid Component definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:47.345 [main] ComponentDefDOM - Loading Component from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-*****-console/6.3.5/entando-*****-console-6.3.5-classes.jar!/component/core/*****-console-component.xml
+[DEBUG] 2021-02-02 12:29:47.346 [main] ComponentLoader - Component 'entando-*****-console' loaded
+[DEBUG] 2021-02-02 12:29:47.346 [main] ComponentManager - org.entando.entando.aps.******.init.ComponentManager ready.
+[DEBUG] 2021-02-02 12:29:47.367 [main] LocalStorageManager - org.entando.entando.aps.******.services.storage.LocalStorageManager ready
+[DEBUG] 2021-02-02 12:29:47.533 [main] DatabaseManager - org.entando.entando.aps.******.init.DatabaseManager ready
+[INFO ] 2021-02-02 12:29:48.102 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:48.102 [main] DatabaseManager - |   ( ok )  Already installed
+|   
+[INFO ] 2021-02-02 12:29:48.102 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:48.102 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:48.103 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:48.103 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:48.103 [main] DatabaseManager - + [ Component: Core ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:48.103 [main] DatabaseManager - |   ( ok )  Already installed. OK_|   
+[INFO ] 2021-02-02 12:29:48.103 [main] DatabaseManager - + [ Component: entando-*****-console ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:48.103 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[INFO ] 2021-02-02 12:29:48.103 [main] DatabaseManager - + [ Component: entando-portal-ui ] :: DATA
+|   
+[DEBUG] 2021-02-02 12:29:48.103 [main] DatabaseManager - |   ( ok )  Already installed_|   
+[DEBUG] 2021-02-02 12:29:48.104 [main] InitializerManager - org.entando.entando.aps.******.init.InitializerManager: initializated - Check on startup ****
+[DEBUG] 2021-02-02 12:29:48.165 [main] BaseConfigManager - com.agiletec.aps.******.services.baseconfig.BaseConfigManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:48.191 [main] LangManager - com.agiletec.aps.******.services.lang.LangManager ready: initialized
+[DEBUG] 2021-02-02 12:29:48.225 [main] GuiFragmentManager - org.entando.entando.aps.******.services.guifragment.GuiFragmentManager ready.
+[DEBUG] 2021-02-02 12:29:48.257 [main] WidgetTypeManager - org.entando.entando.aps.******.services.widgettype.WidgetTypeManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:48.283 [main] PageModelManager - com.agiletec.aps.******.services.pagemodel.PageModelManager ready. initialized
+[DEBUG] 2021-02-02 12:29:48.433 [main] PageManager - com.agiletec.aps.******.services.page.PageManager ready. : Initialized
+[DEBUG] 2021-02-02 12:29:48.479 [main] URLManager - com.agiletec.aps.******.services.url.URLManager ready
+[DEBUG] 2021-02-02 12:29:48.491 [main] RequestValidator - com.agiletec.aps.******.services.controller.control.RequestValidator ready
+[DEBUG] 2021-02-02 12:29:48.515 [main] UserManager - com.agiletec.aps.******.services.user.UserManager ready
+[DEBUG] 2021-02-02 12:29:48.554 [main] GroupManager - com.agiletec.aps.******.services.group.GroupManager ready. Initialized
+[DEBUG] 2021-02-02 12:29:48.575 [main] RoleManager - com.agiletec.aps.******.services.role.RoleManager : initialized
+[DEBUG] 2021-02-02 12:29:48.591 [main] AuthorizationManager - com.agiletec.aps.******.services.authorization.AuthorizationManager ready
+[DEBUG] 2021-02-02 12:29:48.601 [main] ApiOAuth2TokenManager - org.entando.entando.aps.******.services.oauth2.ApiOAuth2TokenManager  initialized 
+[DEBUG] 2021-02-02 12:29:48.601 [pool-16-thread-1] ScheduledDeleteExpiredTokenThread - start delete expired access token
+[DEBUG] 2021-02-02 12:29:48.603 [pool-16-thread-1] ScheduledDeleteExpiredTokenThread - end delete expired access token
+[DEBUG] 2021-02-02 12:29:48.612 [main] AuthenticationProviderManager - com.agiletec.aps.******.services.user.AuthenticationProviderManager ready
+[DEBUG] 2021-02-02 12:29:48.619 [main] Authenticator - com.agiletec.aps.******.services.controller.control.Authenticator ready
+[DEBUG] 2021-02-02 12:29:48.621 [main] RequestAuthorizator - com.agiletec.aps.******.services.controller.control.RequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:48.623 [main] ErrorManager - com.agiletec.aps.******.services.controller.control.ErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:48.624 [main] ControllerManager - com.agiletec.aps.******.services.controller.ControllerManager: initialized 4 controller services
+[DEBUG] 2021-02-02 12:29:48.632 [main] PreviewRequestValidator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestValidator ready
+[DEBUG] 2021-02-02 12:29:48.642 [main] PreviewRequestAuthorizator - org.entando.entando.aps.******.services.controller.preview.control.PreviewRequestAuthorizator : initialized
+[DEBUG] 2021-02-02 12:29:48.644 [main] PreviewErrorManager - org.entando.entando.aps.******.services.controller.preview.control.PreviewErrorManager : initialized
+[DEBUG] 2021-02-02 12:29:48.728 [main] OAuthConsumerManager - org.entando.entando.aps.******.services.oauth2.OAuthConsumerManager ready
+[DEBUG] 2021-02-02 12:29:49.287 [main] CategoryManager - com.agiletec.aps.******.services.category.CategoryManager initialized
+[DEBUG] 2021-02-02 12:29:49.436 [main] ApsEntityManager - DataObjectManager : inizializated
+[DEBUG] 2021-02-02 12:29:49.551 [main] ApsEntityManager - UserProfileManager : inizializated
+[DEBUG] 2021-02-02 12:29:49.574 [main] DataObjectModelManager - org.entando.entando.aps.******.services.dataobjectmodel.DataObjectModelManager ready. Initialized 4 dataObject models
+[DEBUG] 2021-02-02 12:29:49.964 [main] I18nManager - com.agiletec.aps.******.services.i18n.I18nManager : initialized 10 labels
+[DEBUG] 2021-02-02 12:29:50.638 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:50.638 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:50.639 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/dataobject/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:50.642 [main] ApiResourcesDefDOM - Valid api methods definition : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:50.642 [main] ApiResourcesDefDOM - Loading Resources from file : file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:50.644 [main] ApiResourceLoader - Loaded Api Resources definition by file file:/home/jenkins/.mvnrepository/org/entando/entando/entando-engine/6.3.20/entando-engine-6.3.20.jar!/api/aps/apiMethods.xml
+[DEBUG] 2021-02-02 12:29:50.646 [main] ApiCatalogManager - org.entando.entando.aps.******.services.api.ApiCatalogManager ready.
+[DEBUG] 2021-02-02 12:29:50.783 [main] KeyGeneratorManager - com.agiletec.aps.******.services.keygenerator.KeyGeneratorManager ready. : last loaded key 200
+[DEBUG] 2021-02-02 12:29:50.825 [main] ActionLogManager - org.entando.entando.aps.******.services.actionlog.ActionLogManager ready
+[DEBUG] 2021-02-02 12:29:50.847 [main] SocialActivityStreamManager - org.entando.entando.aps.******.services.activitystream.SocialActivityStreamManager ready
+[DEBUG] 2021-02-02 12:29:51.126 [main] DefaultVelocityRenderer - BaseDataObjectRenderer ready.
+[DEBUG] 2021-02-02 12:29:51.139 [main] DataObjectPageMapperManager - org.entando.entando.aps.******.services.dataobjectmapper.DataObjectPageMapperManager ready.
+[DEBUG] 2021-02-02 12:29:51.142 [main] BaseDataObjectDispenser - org.entando.entando.aps.******.services.dataobjectdispenser.BaseDataObjectDispenser ready
+[DEBUG] 2021-02-02 12:29:51.159 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:51.159 [main] Inde**rDAO - Inde**r: search engine index ok.
+[DEBUG] 2021-02-02 12:29:51.159 [main] SearchEngineDAOFactory - Index Directory: /workspace/source/target/test/indexdir/dataobjects/index
+[DEBUG] 2021-02-02 12:29:51.284 [main] CacheInfoManager - org.entando.entando.aps.******.services.cache.CacheInfoManager (cache info service initialized) ready
+[DEBUG] 2021-02-02 12:29:51.325 [main] BulkCommandManager - org.entando.entando.aps.******.services.command.BulkCommandManager ready
+[DEBUG] 2021-02-02 12:29:51.599 [main] DefaultVelocityRenderer - com.agiletec.aps.******.common.renderer.DefaultVelocityRenderer#7707170d ready.
+[DEBUG] 2021-02-02 12:29:51.688 [main] ShortcutManager - org.entando.entando.aps*****.******.services.shortcut.ShortcutManager ready
+[DEBUG] 2021-02-02 12:29:52.176 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextRefreshedEvent
+[DEBUG] 2021-02-02 12:29:52.445 [main] NotifyManager - Unhandled generic event detected: org.springframework.context.event.ContextClosedEvent
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.264 s - in org.entando.entando.aps.******.services.controller.e**cutor.TestWidgetE**cutorService
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ entando-portal-ui ---
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.thoughtworks.xstream.core.util.Fields (file:/home/jenkins/.mvnrepository/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar) to field java.util.Properties.defaults
+WARNING: Please consider reporting this to the maintainers of com.thoughtworks.xstream.core.util.Fields
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Packaging webapp
+[INFO] Assembling webapp [entando-portal-ui] in [/workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/workspace/source/src/main/webapp]
+[INFO] Building jar: /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3/WEB-INF/lib/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3.jar
+[INFO] Webapp assembled in [596 msecs]
+[INFO] Building war: /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3.war
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-portal-ui ---
+[INFO] Building jar: /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3-tests.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2.1:single (package-classes) @ entando-portal-ui ---
+[INFO] Reading assembly descriptor: /workspace/source/src/main/assembly/classes.xml
+[INFO] Building jar: /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3-classes.jar
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-portal-ui ---
+[INFO] 
+[INFO] --- dependency-check-maven:5.3.2:aggregate (default) @ entando-portal-ui ---
+[INFO] Skipping National Vulnerability Database Report
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-portal-ui ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando Core: Portal UI' with 18 classes
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-portal-ui ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-portal-ui ---
+[INFO] Installing /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3.war to /home/jenkins/.mvnrepository/org/entando/entando/entando-portal-ui/0.0.0-SNAPSHOT-PR-15-3/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3.war
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando/entando-portal-ui/0.0.0-SNAPSHOT-PR-15-3/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3.pom
+[INFO] Installing /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando/entando-portal-ui/0.0.0-SNAPSHOT-PR-15-3/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3-tests.jar
+[INFO] Installing /workspace/source/target/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3-classes.jar to /home/jenkins/.mvnrepository/org/entando/entando/entando-portal-ui/0.0.0-SNAPSHOT-PR-15-3/entando-portal-ui-0.0.0-SNAPSHOT-PR-15-3-classes.jar
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-portal-ui ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] ---------------< org.entando.entando:entando-portal-ui >----------------
+[INFO] Building Entando Core: Portal UI 0.0.0-SNAPSHOT-PR-15-3
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[WARNING] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: Failure to find org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 in http://nexus/repository/maven-group/ was cached in the local repository, resolution will not be reattempted until the update interval of nexus has elapsed or updates are forced
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-portal-ui ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en_US", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=235ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=82ms
+[INFO] Load/download plugins (done) | time=23176ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando_entando-portal-ui'
+[INFO] Load project settings for component key: 'entando_entando-portal-ui' (done) | time=34ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=2ms
+[INFO] Project key: entando_entando-portal-ui
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=32ms
+[INFO] Check ALM binding of project 'entando_entando-portal-ui'
+[INFO] Detected project binding: NOT_BOUND
+[INFO] Check ALM binding of project 'entando_entando-portal-ui' (done) | time=36ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=43ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=5ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=92ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1330ms
+[INFO] Organization key: entando
+[INFO] Pull request 15 for merge into master from PR-15
+[INFO] SCM collecting changed files in the branch
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] SCM collecting changed files in the branch (done) | time=300ms
+[INFO] Indexing files...
+[INFO] Project configuration:
+[INFO] 66 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for jsp: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando Core: Portal UI
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=50ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=15ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=2ms
+Feb 02, 2021 12:30:35 PM org.apache.jasper.servlet.TldScanner scanJars
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[WARNING] Some JSP pages failed to transpile. Enable debug log for details.
+[INFO] Java Main Files AST scan
+[INFO] 20 source files to be analyzed
+[INFO] Java Main Files AST scan (done) | time=7779ms
+[INFO] Java Test Files AST scan
+[INFO] 7 source files to be analyzed
+[INFO] 20/20 source files have been analyzed
+[INFO] Java Test Files AST scan (done) | time=640ms
+[INFO] Java Generated Files AST scan
+[INFO] 27 source files to be analyzed
+[INFO] 7/7 source files have been analyzed
+[INFO] Java Generated Files AST scan (done) | time=6433ms
+[INFO] Sensor JavaSquidSensor [java] (done) | time=17859ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=2ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=1ms
+[INFO] Sensor Import of Checkstyle issues [java]
+[WARNING] Checkstyle report not found: /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=2ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] 27/27 source files have been analyzed
+[INFO] Sensor SurefireSensor [java] (done) | time=58ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 2 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=125ms
+[INFO] 2/2 source files have been analyzed
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=410ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 2 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=182ms
+[INFO] 2/2 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=1ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=63ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=4ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 255 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 12:30:53.592927 Building Runtime Type propagation graph
+[INFO] 12:30:53.683508 Running Tarjan on 6845 nodes
+[INFO] 12:30:53.705869 Tarjan found 6844 components
+[INFO] 12:30:53.733399 Variable type analysis: done
+[INFO] 12:30:53.73823 Building Runtime Type propagation graph
+[INFO] 12:30:53.815347 Running Tarjan on 6845 nodes
+[INFO] 12:30:53.824739 Tarjan found 6844 components
+[INFO] 12:30:53.841946 Variable type analysis: done
+[INFO] Analyzing 961 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 1 Retained UCFGs : 10
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 0
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 1
+[INFO] Running symbolic analysis
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=5119ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=1ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=67ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 8 source files to be analyzed
+[INFO] SCM Publisher 7/8 source files have been analyzed (done) | time=215ms
+[WARNING] Missing blame information for the following files:
+[WARNING]   * pom.xml
+[WARNING] This may lead to missing/broken features in SonarCloud
+[INFO] CPD E**cutor 15 files had no CPD blocks
+[INFO] CPD E**cutor Calculating CPD for 39 files
+[INFO] CPD E**cutor CPD calculation finished (done) | time=40ms
+[INFO] SCM writing changed lines
+[INFO] SCM writing changed lines (done) | time=84ms
+[INFO] Analysis report generated in 201ms, dir size=269 KB
+[INFO] Analysis report compressed in 69ms, zip size=101 KB
+[INFO] Analysis report uploaded in 134ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando_entando-portal-ui&pullRequest=15
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXdiuXrP5NWEyiZqM-HC
+[INFO] Analysis total time: 31.331 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:32 min
+[INFO] Finished at: 2021-02-02T12:30:58Z
+[INFO] ------------------------------------------------------------------------
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< org.entando.entando:entando-portal-ui >----------------
+[INFO] Building Entando Core: Portal UI 0.0.0-SNAPSHOT-PR-15-3
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-portal-ui ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: http://www.entando.com/
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.366 s
+[INFO] Finished at: 2021-02-02T12:31:12Z
+[INFO] ------------------------------------------------------------------------
+error: etcdserver: request is too large
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1834    0     0  100   209      0    241 --:--:-- --:--:-- --:--:--   241100  1834  100  1625  100   209   1873    241 --:--:-- --:--:-- --:--:--  1872
+{
+  "url": "https://api.github.com/repos/entando/entando-portal-ui/statuses/1e94209863b4d9ea75b25feed6460be480ce4c65",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12041094402,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA0MTA5NDQwMg==",
+  "state": "success",
+  "description": "Pre-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-portal-ui/PR-15/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-02T12:31:28Z",
+  "updated_at": "2021-02-02T12:31:28Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+Congratulations! No build failures found for entando-portal-ui-PR-15.
