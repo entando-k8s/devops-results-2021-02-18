@@ -19,37 +19,39 @@ package org.entando.kubernetes.controller.spi.result;
 import io.fabric8.kubernetes.api.model.Pod;
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.extensions.Ingress;
+import org.entando.kubernetes.controller.spi.common.SerializeByReference;
 import org.entando.kubernetes.model.AbstractServerStatus;
 
 public class ExposedDeploymentResult&lt;T extends ExposedDeploymentResult&lt;T&gt;&gt; extends ExposedService implements ServiceDeploymentResult&lt;T&gt; {
 
     private AbstractServerStatus status;
-    private Pod pod;
+    private final Pod pod;
 
     public ExposedDeploymentResult(Pod pod, Service service, Ingress ingress) {
-<span class="fc" id="L30">        super(service, ingress);</span>
-<span class="fc" id="L31">        this.pod = pod;</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L31">        super(service, ingress);</span>
+<span class="fc" id="L32">        this.pod = pod;</span>
+<span class="fc" id="L33">    }</span>
 
     @Override
     public T withStatus(AbstractServerStatus status) {
-<span class="fc" id="L36">        this.status = status;</span>
-<span class="fc" id="L37">        return thisAsT();</span>
+<span class="fc" id="L37">        this.status = status;</span>
+<span class="fc" id="L38">        return thisAsT();</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     private T thisAsT() {
-<span class="fc" id="L42">        return (T) this;</span>
+<span class="fc" id="L43">        return (T) this;</span>
     }
 
     @Override
     public AbstractServerStatus getStatus() {
-<span class="fc" id="L47">        return status;</span>
+<span class="fc" id="L48">        return status;</span>
     }
 
     @Override
+    @SerializeByReference
     public Pod getPod() {
-<span class="nc" id="L52">        return pod;</span>
+<span class="nc" id="L54">        return pod;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

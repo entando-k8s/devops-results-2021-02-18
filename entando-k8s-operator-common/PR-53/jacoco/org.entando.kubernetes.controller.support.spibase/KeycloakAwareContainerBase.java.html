@@ -17,27 +17,21 @@
 package org.entando.kubernetes.controller.support.spibase;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Optional;
 import org.entando.kubernetes.controller.spi.common.ForInternalUseOnly;
 import org.entando.kubernetes.controller.spi.container.KeycloakAwareContainer;
-import org.entando.kubernetes.controller.spi.container.KeycloakName;
 import org.entando.kubernetes.model.KeycloakAwareSpec;
+import org.entando.kubernetes.model.KeycloakToUse;
 
 public interface KeycloakAwareContainerBase extends KeycloakAwareContainer {
+
+    default Optional&lt;KeycloakToUse&gt; getPreferredKeycloakToUse() {
+<span class="fc" id="L29">        return getKeycloakAwareSpec().getKeycloakToUse();</span>
+    }
 
     @JsonIgnore
     @ForInternalUseOnly
     KeycloakAwareSpec getKeycloakAwareSpec();
-
-    default String getKeycloakRealmToUse() {
-<span class="fc" id="L32">        KeycloakAwareSpec keycloakAwareSpec = getKeycloakAwareSpec();</span>
-<span class="fc" id="L33">        return KeycloakName.ofTheRealm(keycloakAwareSpec);</span>
-
-    }
-
-    default String getPublicClientIdToUse() {
-<span class="fc" id="L38">        KeycloakAwareSpec keycloakAwareSpec = getKeycloakAwareSpec();</span>
-<span class="fc" id="L39">        return KeycloakName.ofThePublicClient(keycloakAwareSpec);</span>
-    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

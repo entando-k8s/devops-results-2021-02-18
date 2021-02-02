@@ -16,28 +16,21 @@
 
 package org.entando.kubernetes.controller.support.spibase;
 
-import org.entando.kubernetes.controller.spi.container.KeycloakName;
+import java.util.Optional;
 import org.entando.kubernetes.controller.spi.deployable.PublicIngressingDeployable;
 import org.entando.kubernetes.controller.spi.result.ExposedDeploymentResult;
 import org.entando.kubernetes.model.EntandoBaseCustomResource;
 import org.entando.kubernetes.model.KeycloakAwareSpec;
+import org.entando.kubernetes.model.KeycloakToUse;
 
 public interface PublicIngressingDeployableBase&lt;T extends ExposedDeploymentResult&lt;T&gt;&gt; extends IngressingDeployableBase&lt;T&gt;,
         PublicIngressingDeployable&lt;T&gt; {
 
     @Override
-    @SuppressWarnings(&quot;unchecked&quot;)
-    default String getKeycloakRealmToUse() {
+    default Optional&lt;KeycloakToUse&gt; getPreferredKeycloakToUse() {
 <span class="fc" id="L31">        EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt; ka = (EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt;) getCustomResource();</span>
-<span class="fc" id="L32">        return KeycloakName.ofTheRealm(ka.getSpec());</span>
+<span class="fc" id="L32">        return ka.getSpec().getKeycloakToUse();</span>
     }
 
-    @Override
-    @SuppressWarnings(&quot;unchecked&quot;)
-    default String getPublicClientIdToUse() {
-<span class="fc" id="L38">        EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt; ka = (EntandoBaseCustomResource&lt;KeycloakAwareSpec&gt;) getCustomResource();</span>
-<span class="fc" id="L39">        return KeycloakName.ofThePublicClient(ka.getSpec());</span>
-
-    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
