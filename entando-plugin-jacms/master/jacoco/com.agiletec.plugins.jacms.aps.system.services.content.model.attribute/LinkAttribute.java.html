@@ -136,7 +136,7 @@ import org.entando.entando.ent.exception.EntRuntimeException;
      */
     public String getDestination() {
 <span class="fc" id="L138">        String destination = &quot;&quot;;</span>
-<span class="fc bfc" id="L139" title="All 2 branches covered.">        if (null != this.getSymbolicLink()) {</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">        if (null != this.getSymbolicLink()) {</span>
 <span class="fc" id="L140">            destination = this.getSymbolicLink().getSymbolicDestination();</span>
 <span class="pc bpc" id="L141" title="1 of 2 branches missed.">            if (this.getSymbolicLink().getDestType() == SymbolicLink.URL_TYPE) {</span>
 <span class="fc" id="L142">                destination = destination.replaceAll(&quot;&amp;(?![a-z]+;)&quot;, &quot;&amp;amp;&quot;);</span>

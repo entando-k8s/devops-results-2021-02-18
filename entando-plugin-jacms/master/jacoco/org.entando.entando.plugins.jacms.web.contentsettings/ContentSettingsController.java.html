@@ -68,9 +68,9 @@ public class ContentSettingsController {
     @GetMapping(&quot;/plugins/cms/contentSettings&quot;)
     @RestAccessControl(permission = {Permission.CONTENT_SUPERVISOR, Permission.MANAGE_RESOURCES, Permission.CONTENT_EDITOR})
     public ResponseEntity&lt;SimpleRestResponse&lt;ContentSettingsDto&gt;&gt; getContentSettings() {
-<span class="nc" id="L71">        logger.debug(&quot;REST request - get content settings&quot;);</span>
-<span class="nc" id="L72">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L73">                service.getContentSettings()</span>
+<span class="fc" id="L71">        logger.debug(&quot;REST request - get content settings&quot;);</span>
+<span class="fc" id="L72">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L73">                service.getContentSettings()</span>
         ));
     }
 
@@ -83,10 +83,10 @@ public class ContentSettingsController {
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;Map&lt;String, List&lt;String&gt;&gt;&gt;&gt; createMetadata(
             @Valid @RequestBody CreateContentSettingsMetadataRequest request) {
-<span class="nc" id="L86">        logger.debug(&quot;REST request - add new content settings metadata&quot;);</span>
+<span class="fc" id="L86">        logger.debug(&quot;REST request - add new content settings metadata&quot;);</span>
 
-<span class="nc" id="L88">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L89">                service.addMetadata(request.getKey().trim(), request.getMapping().trim())</span>
+<span class="fc" id="L88">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L89">                service.addMetadata(request.getKey().trim(), request.getMapping().trim())</span>
         ));
     }
 
@@ -98,10 +98,10 @@ public class ContentSettingsController {
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;Map&lt;String, List&lt;String&gt;&gt;&gt;&gt; editMetadata(@PathVariable String key,
             @Valid @RequestBody EditContentSettingsMetadataRequest request) {
-<span class="nc" id="L101">        logger.debug(&quot;REST request - add new content settings metadata&quot;);</span>
+<span class="fc" id="L101">        logger.debug(&quot;REST request - add new content settings metadata&quot;);</span>
 
-<span class="nc" id="L103">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L104">                service.editMetadata(key, request.getMapping().trim())</span>
+<span class="fc" id="L103">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L104">                service.editMetadata(key, request.getMapping().trim())</span>
         ));
     }
 
@@ -112,10 +112,10 @@ public class ContentSettingsController {
     @DeleteMapping(&quot;/plugins/cms/contentSettings/metadata/{key}&quot;)
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;Map&lt;String, List&lt;String&gt;&gt;&gt;&gt; deleteMetadata(@PathVariable String key) {
-<span class="nc" id="L115">        logger.debug(&quot;REST request - delete content settings metadata: {}&quot;, key);</span>
+<span class="fc" id="L115">        logger.debug(&quot;REST request - delete content settings metadata: {}&quot;, key);</span>
 
-<span class="nc" id="L117">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L118">                service.removeMetadata(key.trim())</span>
+<span class="fc" id="L117">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L118">                service.removeMetadata(key.trim())</span>
         ));
     }
 
@@ -127,10 +127,10 @@ public class ContentSettingsController {
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;List&lt;String&gt;&gt;&gt; createCropRatio(
             @Valid @RequestBody ContentSettingsCropRatioRequest request) {
-<span class="nc" id="L130">        logger.debug(&quot;REST request - add new content settings crop ratio&quot;);</span>
+<span class="fc" id="L130">        logger.debug(&quot;REST request - add new content settings crop ratio&quot;);</span>
 
-<span class="nc" id="L132">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L133">                service.addCropRatio(request.getRatio().trim())</span>
+<span class="fc" id="L132">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L133">                service.addCropRatio(request.getRatio().trim())</span>
         ));
     }
 
@@ -142,10 +142,10 @@ public class ContentSettingsController {
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;List&lt;String&gt;&gt;&gt; editCropRatio(@PathVariable String ratio,
             @Valid @RequestBody ContentSettingsCropRatioRequest request) {
-<span class="nc" id="L145">        logger.debug(&quot;REST request - edit content settings crop ratio: {}&quot;, ratio);</span>
+<span class="fc" id="L145">        logger.debug(&quot;REST request - edit content settings crop ratio: {}&quot;, ratio);</span>
 
-<span class="nc" id="L147">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L148">                service.editCropRatio(ratio, request.getRatio().trim())</span>
+<span class="fc" id="L147">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L148">                service.editCropRatio(ratio, request.getRatio().trim())</span>
         ));
     }
 
@@ -156,10 +156,10 @@ public class ContentSettingsController {
     @DeleteMapping(&quot;/plugins/cms/contentSettings/cropRatios/{ratio}&quot;)
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;Map&gt;&gt; deleteCropRatio(@PathVariable String ratio) {
-<span class="nc" id="L159">        logger.debug(&quot;REST request - delete content settings crop ratio: {}&quot;, ratio);</span>
+<span class="fc" id="L159">        logger.debug(&quot;REST request - delete content settings crop ratio: {}&quot;, ratio);</span>
 
-<span class="nc" id="L161">        service.removeCropRatio(ratio.trim());</span>
-<span class="nc" id="L162">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(new HashMap()));</span>
+<span class="fc" id="L161">        service.removeCropRatio(ratio.trim());</span>
+<span class="fc" id="L162">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(new HashMap()));</span>
     }
 
     @ApiOperation(value = &quot;PUT ContentSettingsEditor&quot;, nickname = &quot;putContentSettingsEditor&quot;, tags = {&quot;content-settings-controller&quot;})
@@ -170,10 +170,10 @@ public class ContentSettingsController {
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;ContentSettingsDto.Editor&gt;&gt; setEditor(
             @ApiParam(&quot;Available editor codes: none, fckeditor&quot;) @Valid @RequestBody ContentSettingsEditorRequest request) {
-<span class="nc" id="L173">        logger.debug(&quot;REST request - set content settings editor&quot;);</span>
+<span class="fc" id="L173">        logger.debug(&quot;REST request - set content settings editor&quot;);</span>
 
-<span class="nc" id="L175">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
-<span class="nc" id="L176">                service.setEditor(request.getKey().trim())</span>
+<span class="fc" id="L175">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(</span>
+<span class="fc" id="L176">                service.setEditor(request.getKey().trim())</span>
         ));
     }
 
@@ -184,9 +184,9 @@ public class ContentSettingsController {
     @PostMapping(&quot;/plugins/cms/contentSettings/reloadIndexes&quot;)
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;Map&gt;&gt; reloadIndexes() {
-<span class="nc" id="L187">        logger.debug(&quot;REST request - reload indexes&quot;);</span>
-<span class="nc" id="L188">        service.reloadContentsIndex();</span>
-<span class="nc" id="L189">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(new HashMap()));</span>
+<span class="fc" id="L187">        logger.debug(&quot;REST request - reload indexes&quot;);</span>
+<span class="fc" id="L188">        service.reloadContentsIndex();</span>
+<span class="fc" id="L189">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(new HashMap()));</span>
     }
 
     @ApiOperation(value = &quot;POST Reload References&quot;, nickname = &quot;postReloadReferences&quot;, tags = {&quot;content-settings-controller&quot;})
@@ -196,9 +196,9 @@ public class ContentSettingsController {
     @PostMapping(&quot;/plugins/cms/contentSettings/reloadReferences&quot;)
     @RestAccessControl(permission = Permission.SUPERUSER)
     public ResponseEntity&lt;SimpleRestResponse&lt;Map&gt;&gt; reloadReferences() {
-<span class="nc" id="L199">        logger.debug(&quot;REST request - reload references&quot;);</span>
-<span class="nc" id="L200">        service.reloadContentsReference();</span>
-<span class="nc" id="L201">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(new HashMap()));</span>
+<span class="fc" id="L199">        logger.debug(&quot;REST request - reload references&quot;);</span>
+<span class="fc" id="L200">        service.reloadContentsReference();</span>
+<span class="fc" id="L201">        return ResponseEntity.ok(new SimpleRestResponse&lt;&gt;(new HashMap()));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

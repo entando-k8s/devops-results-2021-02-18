@@ -60,11 +60,11 @@ import org.springframework.cache.annotation.Cacheable;
     @Override
     @Deprecated
     public String getRenderedContent(String contentId, long modelId, String langCode, RequestContext reqCtx) {
-<span class="fc" id="L63">        ContentRenderizationInfo renderInfo = this.getRenderizationInfo(contentId, modelId, langCode, reqCtx);</span>
-<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (null == renderInfo) {</span>
+<span class="nc" id="L63">        ContentRenderizationInfo renderInfo = this.getRenderizationInfo(contentId, modelId, langCode, reqCtx);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (null == renderInfo) {</span>
 <span class="nc" id="L65">            return &quot;&quot;;</span>
         }
-<span class="fc" id="L67">        return renderInfo.getCachedRenderedContent();</span>
+<span class="nc" id="L67">        return renderInfo.getCachedRenderedContent();</span>
     }
 
     @Override
@@ -115,17 +115,17 @@ import org.springframework.cache.annotation.Cacheable;
 <span class="fc" id="L115">        ContentRenderizationInfo renderInfo = null;</span>
         try {
 <span class="fc bfc" id="L117" title="All 2 branches covered.">            List&lt;Group&gt; userGroups = (null != user) ? this.getAuthorizationManager().getUserGroups(user) : new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L118" title="All 2 branches covered.">            if (authInfo.isUserAllowed(userGroups)) {</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">            if (authInfo.isUserAllowed(userGroups)) {</span>
 <span class="fc" id="L119">                renderInfo = this.getBaseRenderizationInfo(authInfo, contentId, modelId, langCode, user, reqCtx);</span>
 <span class="pc bpc" id="L120" title="1 of 2 branches missed.">                if (null == renderInfo) {</span>
 <span class="nc" id="L121">                    return null;</span>
                 }
             } else {
-<span class="pc bpc" id="L124" title="1 of 2 branches missed.">                String renderedContent = &quot;Current user '&quot; + ((null != user) ? user.getUsername() : &quot;null&quot;) + &quot;' can't view this content&quot;;</span>
-<span class="fc" id="L125">                Content contentToRender = this.getContentManager().loadContent(contentId, true);</span>
-<span class="fc" id="L126">                renderInfo = new ContentRenderizationInfo(contentToRender, renderedContent, modelId, langCode, null);</span>
-<span class="fc" id="L127">                renderInfo.setRenderedContent(renderedContent);</span>
-<span class="fc" id="L128">                return renderInfo;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">                String renderedContent = &quot;Current user '&quot; + ((null != user) ? user.getUsername() : &quot;null&quot;) + &quot;' can't view this content&quot;;</span>
+<span class="nc" id="L125">                Content contentToRender = this.getContentManager().loadContent(contentId, true);</span>
+<span class="nc" id="L126">                renderInfo = new ContentRenderizationInfo(contentToRender, renderedContent, modelId, langCode, null);</span>
+<span class="nc" id="L127">                renderInfo.setRenderedContent(renderedContent);</span>
+<span class="nc" id="L128">                return renderInfo;</span>
             }
 <span class="nc" id="L130">        } catch (Throwable t) {</span>
 <span class="nc" id="L131">            _logger.error(&quot;Error while rendering content {}&quot;, contentId, t);</span>
@@ -187,7 +187,7 @@ import org.springframework.cache.annotation.Cacheable;
     }
     
     public static String getRenderizationInfoCacheKey(String contentId, long modelId, String langCode, RequestContext reqCtx) {
-<span class="fc bfc" id="L190" title="All 2 branches covered.">        UserDetails currentUser = (null != reqCtx) ? (UserDetails) reqCtx.getRequest().getSession().getAttribute(SystemConstants.SESSIONPARAM_CURRENT_USER) : null;</span>
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">        UserDetails currentUser = (null != reqCtx) ? (UserDetails) reqCtx.getRequest().getSession().getAttribute(SystemConstants.SESSIONPARAM_CURRENT_USER) : null;</span>
 <span class="fc" id="L191">        return getRenderizationInfoCacheKey(contentId, modelId, langCode, currentUser);</span>
     }
 
