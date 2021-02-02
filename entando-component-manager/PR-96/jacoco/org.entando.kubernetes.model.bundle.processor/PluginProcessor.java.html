@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PluginProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Component Manager</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.model.bundle.processor</a> &gt; <span class="el_source">PluginProcessor.java</span></div><h1>PluginProcessor.java</h1><pre class="source lang-java linenums">package org.entando.kubernetes.model.bundle.processor;
 
-import io.quarkus.runtime.util.StringUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +37,7 @@ import org.springframework.stereotype.Service;
  *
  * @author Sergio Marcelino
  */
-<span class="fc" id="L41">@Slf4j</span>
+<span class="fc" id="L40">@Slf4j</span>
 @Service
 @RequiredArgsConstructor
 public class PluginProcessor extends BaseComponentProcessor&lt;PluginDescriptor&gt; implements
@@ -48,22 +47,22 @@ public class PluginProcessor extends BaseComponentProcessor&lt;PluginDescriptor&
 
     @Override
     public ComponentType getSupportedComponentType() {
-<span class="fc" id="L51">        return ComponentType.PLUGIN;</span>
+<span class="fc" id="L50">        return ComponentType.PLUGIN;</span>
     }
 
     @Override
     public Class&lt;PluginDescriptor&gt; getDescriptorClass() {
-<span class="fc" id="L56">        return PluginDescriptor.class;</span>
+<span class="fc" id="L55">        return PluginDescriptor.class;</span>
     }
 
     @Override
     public Optional&lt;Function&lt;ComponentSpecDescriptor, List&lt;String&gt;&gt;&gt; getComponentSelectionFn() {
-<span class="fc" id="L61">        return Optional.of(ComponentSpecDescriptor::getPlugins);</span>
+<span class="fc" id="L60">        return Optional.of(ComponentSpecDescriptor::getPlugins);</span>
     }
 
     @Override
     public List&lt;Installable&lt;PluginDescriptor&gt;&gt; process(BundleReader bundleReader) {
-<span class="fc" id="L66">        return this.process(bundleReader, InstallAction.CREATE, new InstallActionsByComponentType(),</span>
+<span class="fc" id="L65">        return this.process(bundleReader, InstallAction.CREATE, new InstallActionsByComponentType(),</span>
                 new AnalysisReport());
     }
 
@@ -71,56 +70,56 @@ public class PluginProcessor extends BaseComponentProcessor&lt;PluginDescriptor&
     public List&lt;Installable&lt;PluginDescriptor&gt;&gt; process(BundleReader bundleReader, InstallAction conflictStrategy,
             InstallActionsByComponentType actions, AnalysisReport report) {
         try {
-<span class="fc" id="L74">            final List&lt;String&gt; descriptorList = getDescriptorList(bundleReader);</span>
+<span class="fc" id="L73">            final List&lt;String&gt; descriptorList = getDescriptorList(bundleReader);</span>
 
-<span class="fc" id="L76">            List&lt;Installable&lt;PluginDescriptor&gt;&gt; installableList = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L77" title="All 2 branches covered.">            for (String filename : descriptorList) {</span>
-<span class="fc" id="L78">                PluginDescriptor plugin = bundleReader.readDescriptorFile(filename, PluginDescriptor.class);</span>
-<span class="fc" id="L79">                validateDescriptorOrThrow(plugin);</span>
-<span class="fc" id="L80">                logDescriptorWarnings(plugin);</span>
-<span class="fc" id="L81">                InstallAction action = extractInstallAction(plugin.getComponentKey().getKey(), actions,</span>
+<span class="fc" id="L75">            List&lt;Installable&lt;PluginDescriptor&gt;&gt; installableList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            for (String filename : descriptorList) {</span>
+<span class="fc" id="L77">                PluginDescriptor plugin = bundleReader.readDescriptorFile(filename, PluginDescriptor.class);</span>
+<span class="fc" id="L78">                validateDescriptorOrThrow(plugin);</span>
+<span class="fc" id="L79">                logDescriptorWarnings(plugin);</span>
+<span class="fc" id="L80">                InstallAction action = extractInstallAction(plugin.getComponentKey().getKey(), actions,</span>
                         conflictStrategy, report);
-<span class="fc" id="L83">                installableList.add(new PluginInstallable(kubernetesService, plugin, action));</span>
-<span class="fc" id="L84">            }</span>
-<span class="fc" id="L85">            return installableList;</span>
-<span class="nc" id="L86">        } catch (IOException e) {</span>
-<span class="nc" id="L87">            throw new EntandoComponentManagerException(&quot;Error reading bundle&quot;, e);</span>
+<span class="fc" id="L82">                installableList.add(new PluginInstallable(kubernetesService, plugin, action));</span>
+<span class="fc" id="L83">            }</span>
+<span class="fc" id="L84">            return installableList;</span>
+<span class="nc" id="L85">        } catch (IOException e) {</span>
+<span class="nc" id="L86">            throw new EntandoComponentManagerException(&quot;Error reading bundle&quot;, e);</span>
         }
     }
 
     @Override
     public List&lt;Installable&lt;PluginDescriptor&gt;&gt; process(List&lt;EntandoBundleComponentJobEntity&gt; components) {
-<span class="fc" id="L93">        return components.stream()</span>
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">                .filter(c -&gt; c.getComponentType() == getSupportedComponentType())</span>
-<span class="fc" id="L95">                .map(c -&gt; new PluginInstallable(kubernetesService, buildDescriptorFromComponentJob(c), c.getAction()))</span>
-<span class="fc" id="L96">                .collect(Collectors.toList());</span>
+<span class="fc" id="L92">        return components.stream()</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">                .filter(c -&gt; c.getComponentType() == getSupportedComponentType())</span>
+<span class="fc" id="L94">                .map(c -&gt; new PluginInstallable(kubernetesService, buildDescriptorFromComponentJob(c), c.getAction()))</span>
+<span class="fc" id="L95">                .collect(Collectors.toList());</span>
     }
 
     @Override
     public PluginDescriptor buildDescriptorFromComponentJob(EntandoBundleComponentJobEntity component) {
-<span class="fc" id="L101">        return PluginDescriptor.builder().deploymentBaseName(component.getComponentId()).build();</span>
+<span class="fc" id="L100">        return PluginDescriptor.builder().deploymentBaseName(component.getComponentId()).build();</span>
     }
 
     @Override
     public Reportable getReportable(BundleReader bundleReader, ComponentProcessor&lt;?&gt; componentProcessor) {
 
-<span class="fc" id="L107">        List&lt;String&gt; idList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L106">        List&lt;String&gt; idList = new ArrayList&lt;&gt;();</span>
 
         try {
-<span class="fc" id="L110">            List&lt;String&gt; contentDescriptorList = componentProcessor.getDescriptorList(bundleReader);</span>
-<span class="fc bfc" id="L111" title="All 2 branches covered.">            for (String fileName : contentDescriptorList) {</span>
+<span class="fc" id="L109">            List&lt;String&gt; contentDescriptorList = componentProcessor.getDescriptorList(bundleReader);</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">            for (String fileName : contentDescriptorList) {</span>
 
-<span class="fc" id="L113">                PluginDescriptor pluginDescriptor = (PluginDescriptor) bundleReader</span>
-<span class="fc" id="L114">                        .readDescriptorFile(fileName, componentProcessor.getDescriptorClass());</span>
-<span class="fc" id="L115">                logDescriptorWarnings(pluginDescriptor);</span>
-<span class="fc" id="L116">                idList.add(pluginDescriptor.getComponentKey().getKey());</span>
-<span class="fc" id="L117">            }</span>
+<span class="fc" id="L112">                PluginDescriptor pluginDescriptor = (PluginDescriptor) bundleReader</span>
+<span class="fc" id="L113">                        .readDescriptorFile(fileName, componentProcessor.getDescriptorClass());</span>
+<span class="fc" id="L114">                logDescriptorWarnings(pluginDescriptor);</span>
+<span class="fc" id="L115">                idList.add(pluginDescriptor.getComponentKey().getKey());</span>
+<span class="fc" id="L116">            }</span>
 
-<span class="fc" id="L119">            return new Reportable(componentProcessor.getSupportedComponentType(), idList,</span>
-<span class="fc" id="L120">                    this.getReportableRemoteHandler());</span>
+<span class="fc" id="L118">            return new Reportable(componentProcessor.getSupportedComponentType(), idList,</span>
+<span class="fc" id="L119">                    this.getReportableRemoteHandler());</span>
 
-<span class="nc" id="L122">        } catch (IOException e) {</span>
-<span class="nc" id="L123">            throw new EntandoComponentManagerException(&quot;Error reading bundle&quot;, e);</span>
+<span class="nc" id="L121">        } catch (IOException e) {</span>
+<span class="nc" id="L122">            throw new EntandoComponentManagerException(&quot;Error reading bundle&quot;, e);</span>
         }
     }
 
@@ -128,40 +127,40 @@ public class PluginProcessor extends BaseComponentProcessor&lt;PluginDescriptor&
     private void logDescriptorWarnings(PluginDescriptor descriptor) {
 
         // deprecated descriptor
-<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (descriptor.isVersion1()) {</span>
-<span class="fc" id="L132">            log.warn(DEPRECATED_DESCRIPTOR, descriptor.getSpec().getImage());</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">        if (descriptor.isVersion1()) {</span>
+<span class="fc" id="L131">            log.warn(DEPRECATED_DESCRIPTOR, descriptor.getSpec().getImage());</span>
         }
 
         // plugin base name too long
-<span class="fc" id="L136">        String deploymentBaseName = descriptor.generateDeploymentBaseNameNotTruncated();</span>
-<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (deploymentBaseName.length() &gt; BundleUtilities.MAX_ENTANDO_K8S_POD_NAME_LENGTH) {</span>
+<span class="fc" id="L135">        String deploymentBaseName = descriptor.generateDeploymentBaseNameNotTruncated();</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        if (deploymentBaseName.length() &gt; BundleUtilities.MAX_ENTANDO_K8S_POD_NAME_LENGTH) {</span>
 
-<span class="pc bpc" id="L139" title="1 of 2 branches missed.">            String errMessage = descriptor.isVersion1()</span>
-<span class="fc" id="L140">                    ? DEPLOYMENT_BASE_NAME_MAX_LENGHT_TRUNCATED_V1 :</span>
-<span class="pc" id="L141">                    DEPLOYMENT_BASE_NAME_MAX_LENGHT_TRUNCATED_V2;</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">            String errMessage = descriptor.isVersion1()</span>
+<span class="fc" id="L139">                    ? DEPLOYMENT_BASE_NAME_MAX_LENGHT_TRUNCATED_V1 :</span>
+<span class="pc" id="L140">                    DEPLOYMENT_BASE_NAME_MAX_LENGHT_TRUNCATED_V2;</span>
 
-<span class="fc" id="L143">            log.warn(errMessage,</span>
-<span class="fc" id="L144">                    descriptor.getDockerImage(),</span>
-<span class="fc" id="L145">                    BundleUtilities.MAX_ENTANDO_K8S_POD_NAME_LENGTH,</span>
-<span class="fc" id="L146">                    BundleUtilities.truncatePodPrefixName(deploymentBaseName));</span>
+<span class="fc" id="L142">            log.warn(errMessage,</span>
+<span class="fc" id="L143">                    descriptor.getDockerImage(),</span>
+<span class="fc" id="L144">                    BundleUtilities.MAX_ENTANDO_K8S_POD_NAME_LENGTH,</span>
+<span class="fc" id="L145">                    BundleUtilities.truncatePodPrefixName(deploymentBaseName));</span>
         }
-<span class="fc" id="L148">    }</span>
+<span class="fc" id="L147">    }</span>
 
     private void validateDescriptorOrThrow(PluginDescriptor descriptor) {
 
         // validate securityLevel property
-<span class="fc bfc" id="L153" title="All 2 branches covered.">        if (!StringUtils.isEmpty(descriptor.getSecurityLevel())</span>
-<span class="pc bpc" id="L154" title="1 of 4 branches missed.">                || (descriptor.isVersion1() &amp;&amp; !StringUtils.isEmpty(descriptor.getSpec().getSecurityLevel()))) {</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">        if (!StringUtils.isEmpty(descriptor.getSecurityLevel())</span>
+<span class="pc bpc" id="L153" title="1 of 4 branches missed.">                || (descriptor.isVersion1() &amp;&amp; !StringUtils.isEmpty(descriptor.getSpec().getSecurityLevel()))) {</span>
 
             String securityLevel =
-<span class="fc bfc" id="L157" title="All 2 branches covered.">                    descriptor.isVersion1() ? descriptor.getSpec().getSecurityLevel() : descriptor.getSecurityLevel();</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">                    descriptor.isVersion1() ? descriptor.getSpec().getSecurityLevel() : descriptor.getSecurityLevel();</span>
 
-<span class="fc" id="L159">            Arrays.stream(PluginSecurityLevel.values())</span>
-<span class="fc" id="L160">                    .filter(pluginSecurityLevel -&gt; pluginSecurityLevel.toName().equals(securityLevel))</span>
-<span class="fc" id="L161">                    .findFirst()</span>
-<span class="fc" id="L162">                    .orElseThrow(() -&gt; new InvalidBundleException(SECURITY_LEVEL_NOT_RECOGNIZED)); // NOSONAR</span>
+<span class="fc" id="L158">            Arrays.stream(PluginSecurityLevel.values())</span>
+<span class="fc" id="L159">                    .filter(pluginSecurityLevel -&gt; pluginSecurityLevel.toName().equals(securityLevel))</span>
+<span class="fc" id="L160">                    .findFirst()</span>
+<span class="fc" id="L161">                    .orElseThrow(() -&gt; new InvalidBundleException(SECURITY_LEVEL_NOT_RECOGNIZED)); // NOSONAR</span>
         }
-<span class="fc" id="L164">    }</span>
+<span class="fc" id="L163">    }</span>
 
     public static final String DEPRECATED_DESCRIPTOR = &quot;The descriptor for plugin with docker image &quot;
             + &quot;'{}' uses a deprecated format. To have full control over plugins we encourage you to migrate &quot;
@@ -174,9 +173,9 @@ public class PluginProcessor extends BaseComponentProcessor&lt;PluginDescriptor&
     public static final String DEPLOYMENT_BASE_NAME_MAX_LENGHT_TRUNCATED_V2 =
             &quot;The prefix of the pod using the docker image &quot;
                     + &quot;'{}' is longer than {}. Plugin pods names will be truncated to '{}'&quot;;
-<span class="fc" id="L177">    public static final String SECURITY_LEVEL_NOT_RECOGNIZED =</span>
+<span class="fc" id="L176">    public static final String SECURITY_LEVEL_NOT_RECOGNIZED =</span>
             &quot;The received plugin descriptor contains an unknown securityLevel. Accepted values are: &quot;
-<span class="fc" id="L179">                    + Arrays.stream(PluginSecurityLevel.values()).map(PluginSecurityLevel::toName)</span>
-<span class="fc" id="L180">                    .collect(Collectors.joining(&quot;, &quot;));</span>
+<span class="fc" id="L178">                    + Arrays.stream(PluginSecurityLevel.values()).map(PluginSecurityLevel::toName)</span>
+<span class="fc" id="L179">                    .collect(Collectors.joining(&quot;, &quot;));</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
