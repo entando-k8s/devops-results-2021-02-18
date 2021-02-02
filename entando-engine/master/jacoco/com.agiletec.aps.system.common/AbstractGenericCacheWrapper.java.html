@@ -109,8 +109,8 @@ import org.springframework.cache.Cache;
 <span class="fc" id="L109">    }</span>
 
     protected &lt;O&gt; void manage(String key, O object, Action operation) {
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (null == object) {</span>
-<span class="nc" id="L113">            return;</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (null == object) {</span>
+<span class="fc" id="L113">            return;</span>
         }
 <span class="fc" id="L115">        Cache cache = this.getCache();</span>
 <span class="fc" id="L116">        List&lt;String&gt; codes = (List&lt;String&gt;) this.get(cache, this.getCodesCacheKey(), List.class);</span>

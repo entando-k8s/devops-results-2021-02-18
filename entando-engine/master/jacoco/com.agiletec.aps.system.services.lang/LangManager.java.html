@@ -115,7 +115,7 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 	@Override
 	public void updateLang(String code, String description) throws EntException {
 <span class="fc" id="L117">		Lang lang = this.getLang(code);</span>
-<span class="fc bfc" id="L118" title="All 2 branches covered.">		if (lang != null) {</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">		if (lang != null) {</span>
 <span class="fc" id="L119">			lang.setDescr(description);</span>
 <span class="fc" id="L120">			this.getCacheWrapper().updateLang(lang);</span>
 <span class="fc" id="L121">			this.updateConfig();</span>

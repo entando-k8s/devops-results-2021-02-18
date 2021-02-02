@@ -26,15 +26,15 @@ public class ApsCommandThread extends Thread {
 	/**
 	 * @param command The command to execute.
 	 */
-<span class="nc" id="L29">	public ApsCommandThread(ApsCommand command) {</span>
-<span class="nc" id="L30">		this._command = command;</span>
-<span class="nc" id="L31">		this.setName(command.getId());</span>
-<span class="nc" id="L32">	}</span>
+<span class="fc" id="L29">	public ApsCommandThread(ApsCommand command) {</span>
+<span class="fc" id="L30">		this._command = command;</span>
+<span class="fc" id="L31">		this.setName(command.getId());</span>
+<span class="fc" id="L32">	}</span>
 
 	@Override
 	public void run() {
-<span class="nc" id="L36">		this._command.apply();</span>
-<span class="nc" id="L37">	}</span>
+<span class="fc" id="L36">		this._command.apply();</span>
+<span class="fc" id="L37">	}</span>
 
 	/**
 	 * Stop the current command execution.

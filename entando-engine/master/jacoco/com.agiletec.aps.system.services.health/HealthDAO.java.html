@@ -29,12 +29,12 @@ import java.sql.SQLException;
 
     @Override
     public boolean isServDBConnectionHealthy() {
-<span class="nc" id="L32">        return isConnectionHealthy(servDataSource);</span>
+<span class="fc" id="L32">        return isConnectionHealthy(servDataSource);</span>
     }
 
     @Override
     public boolean isPortDBConnectionHealthy() {
-<span class="nc" id="L37">        return isConnectionHealthy(portDataSource);</span>
+<span class="fc" id="L37">        return isConnectionHealthy(portDataSource);</span>
     }
 
 
@@ -44,15 +44,15 @@ import java.sql.SQLException;
      */
     private boolean isConnectionHealthy(DataSource dataSource) {
 
-<span class="nc" id="L47">        Connection conn = null;</span>
+<span class="fc" id="L47">        Connection conn = null;</span>
 
         try {
-<span class="nc" id="L50">            conn = this.getConnection(dataSource);</span>
-<span class="nc" id="L51">            return conn.isValid(10);</span>
-<span class="nc" id="L52">        } catch (Throwable t) {</span>
-<span class="nc" id="L53">            return false;</span>
+<span class="fc" id="L50">            conn = this.getConnection(dataSource);</span>
+<span class="fc" id="L51">            return conn.isValid(10);</span>
+<span class="fc" id="L52">        } catch (Throwable t) {</span>
+<span class="fc" id="L53">            return false;</span>
         } finally {
-<span class="nc" id="L55">            closeConnection(conn);</span>
+<span class="fc" id="L55">            closeConnection(conn);</span>
         }
     }
 
@@ -64,14 +64,14 @@ import java.sql.SQLException;
      * @throws EntException In caso di errore in apertura di connessione.
      */
     private Connection getConnection(DataSource dataSource) throws EntException {
-<span class="nc" id="L67">        Connection conn = null;</span>
+<span class="fc" id="L67">        Connection conn = null;</span>
         try {
-<span class="nc" id="L69">            conn = dataSource.getConnection();</span>
-<span class="nc" id="L70">        } catch (SQLException e) {</span>
-<span class="nc" id="L71">            logger.error(&quot;Error getting connection to the datasource {}&quot;, dataSource, e);</span>
-<span class="nc" id="L72">            throw new EntException(&quot;Error getting connection to the datasource &quot; + dataSource.toString(), e);</span>
-<span class="nc" id="L73">        }</span>
-<span class="nc" id="L74">        return conn;</span>
+<span class="fc" id="L69">            conn = dataSource.getConnection();</span>
+<span class="fc" id="L70">        } catch (SQLException e) {</span>
+<span class="fc" id="L71">            logger.error(&quot;Error getting connection to the datasource {}&quot;, dataSource, e);</span>
+<span class="fc" id="L72">            throw new EntException(&quot;Error getting connection to the datasource &quot; + dataSource.toString(), e);</span>
+<span class="fc" id="L73">        }</span>
+<span class="fc" id="L74">        return conn;</span>
     }
 
 
@@ -83,10 +83,10 @@ import java.sql.SQLException;
      */
     private void closeConnection(Connection conn) {
         try {
-<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (conn != null) conn.close();</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            if (conn != null) conn.close();</span>
 <span class="nc" id="L87">        } catch (Throwable t) {</span>
 <span class="nc" id="L88">            logger.error(&quot;Error closing the connection&quot;, t);</span>
-<span class="nc" id="L89">        }</span>
-<span class="nc" id="L90">    }</span>
+<span class="fc" id="L89">        }</span>
+<span class="fc" id="L90">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

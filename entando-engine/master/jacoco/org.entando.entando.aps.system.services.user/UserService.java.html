@@ -309,12 +309,12 @@ import org.springframework.validation.BindingResult;
     @Override
     public List&lt;UserGroupPermissions&gt; getMyGroupPermissions(UserDetails user) {
 
-<span class="nc" id="L312">        return Optional.ofNullable(user)</span>
-<span class="nc" id="L313">                .map(UserDetails::getAuthorizations)</span>
-<span class="nc" id="L314">                .orElse(new ArrayList&lt;&gt;())</span>
-<span class="nc" id="L315">                .stream()</span>
-<span class="nc" id="L316">                .map(authorization -&gt; new UserGroupPermissions(authorization.getGroup().getName(), authorization.getRole().getPermissions()))</span>
-<span class="nc" id="L317">                .collect(Collectors.toList());</span>
+<span class="fc" id="L312">        return Optional.ofNullable(user)</span>
+<span class="fc" id="L313">                .map(UserDetails::getAuthorizations)</span>
+<span class="fc" id="L314">                .orElse(new ArrayList&lt;&gt;())</span>
+<span class="fc" id="L315">                .stream()</span>
+<span class="fc" id="L316">                .map(authorization -&gt; new UserGroupPermissions(authorization.getGroup().getName(), authorization.getRole().getPermissions()))</span>
+<span class="fc" id="L317">                .collect(Collectors.toList());</span>
     }
 
 

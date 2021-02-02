@@ -91,9 +91,9 @@ public class Filter {
 <span class="fc" id="L91">    }</span>
 
     public Filter(String attribute, String value, String operator) {
-<span class="nc" id="L94">        this(attribute, value);</span>
-<span class="nc" id="L95">        this.operator = operator;</span>
-<span class="nc" id="L96">    }</span>
+<span class="fc" id="L94">        this(attribute, value);</span>
+<span class="fc" id="L95">        this.operator = operator;</span>
+<span class="fc" id="L96">    }</span>
 
     @JsonIgnore
     public String getAttributeName() {
@@ -220,7 +220,10 @@ public class Filter {
 
     @Override
     public String toString() {
-<span class="nc" id="L223">        return &quot;Filter{&quot; + &quot;attribute=&quot; + attribute + &quot;, operator=&quot; + operator + &quot;, value=&quot; + value + &quot;, allowedValues=[&quot; + String.join(&quot;,&quot;, allowedValues) + &quot;]}&quot;;</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">        String allowedValuesDesc = (allowedValues != null) ? &quot;[&quot; + String.join(&quot;,&quot;, allowedValues) + &quot;]&quot; : &quot;null&quot;;</span>
+<span class="nc" id="L224">        return &quot;Filter{&quot; +</span>
+                &quot;attribute=&quot; + attribute + &quot;, operator=&quot; + operator + &quot;, value=&quot; + value + &quot;, &quot; +
+                &quot;allowedValues=&quot; + allowedValuesDesc + &quot;}&quot;;
     }
 
 }

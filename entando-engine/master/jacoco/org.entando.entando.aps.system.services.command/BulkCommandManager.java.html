@@ -61,23 +61,23 @@ import com.agiletec.aps.util.DateConverter;
 
 	@Override
 	public &lt;I&gt; BulkCommandReport&lt;I&gt; addCommand(String owner, BaseBulkCommand&lt;I, ?, ?&gt; command) {
-<span class="nc" id="L64">		return this.addCommand(owner, command, null);</span>
+<span class="fc" id="L64">		return this.addCommand(owner, command, null);</span>
 	}
 
 	@Override
 	public &lt;I&gt; BulkCommandReport&lt;I&gt; addCommand(String owner, BaseBulkCommand&lt;I, ?, ?&gt; command, Boolean execInThread) {
-<span class="nc" id="L69">		String commandId = this.generateId();</span>
-<span class="nc" id="L70">		command.setId(commandId);</span>
-<span class="nc" id="L71">		this.runCommand(command, execInThread);</span>
-<span class="nc" id="L72">		this.putCommandInMap(owner, command);</span>
-<span class="nc" id="L73">		return command.getReport();</span>
+<span class="fc" id="L69">		String commandId = this.generateId();</span>
+<span class="fc" id="L70">		command.setId(commandId);</span>
+<span class="fc" id="L71">		this.runCommand(command, execInThread);</span>
+<span class="fc" id="L72">		this.putCommandInMap(owner, command);</span>
+<span class="fc" id="L73">		return command.getReport();</span>
 	}
 
 	@Override
 	public BaseBulkCommand&lt;?, ?, ?&gt; getCommand(String owner, String commandId) {
-<span class="nc" id="L78">		BulkCommandContainer container = this.getCommandContainer(owner, commandId);</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">		BaseBulkCommand&lt;?, ?, ?&gt; command = container != null ? container.getCommand() : null;</span>
-<span class="nc" id="L80">		return command;</span>
+<span class="fc" id="L78">		BulkCommandContainer container = this.getCommandContainer(owner, commandId);</span>
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">		BaseBulkCommand&lt;?, ?, ?&gt; command = container != null ? container.getCommand() : null;</span>
+<span class="fc" id="L80">		return command;</span>
 	}
 
 	@Override
@@ -88,54 +88,54 @@ import com.agiletec.aps.util.DateConverter;
 	}
 
 	protected BulkCommandContainer getCommandContainer(String owner, String commandId) {
-<span class="nc" id="L91">		BulkCommandContainer container = null;</span>
-<span class="nc" id="L92">		Map&lt;String, BulkCommandContainer&gt; commandsByOwner = this._commands.get(owner);</span>
-<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (commandsByOwner != null) {</span>
-<span class="nc" id="L94">			container = commandsByOwner.get(commandId);</span>
+<span class="fc" id="L91">		BulkCommandContainer container = null;</span>
+<span class="fc" id="L92">		Map&lt;String, BulkCommandContainer&gt; commandsByOwner = this._commands.get(owner);</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		if (commandsByOwner != null) {</span>
+<span class="fc" id="L94">			container = commandsByOwner.get(commandId);</span>
 		}
-<span class="nc" id="L96">		return container;</span>
+<span class="fc" id="L96">		return container;</span>
 	}
 
 	protected void runCommand(BaseBulkCommand&lt;?, ?, ?&gt; command, Boolean execInThread) {
-<span class="nc bnc" id="L100" title="All 2 branches missed.">		if (this.isToExecInThread(command, execInThread)) {</span>
-<span class="nc" id="L101">			ApsCommandThread thread = new ApsCommandThread(command);</span>
-<span class="nc" id="L102">			thread.start();</span>
-<span class="nc" id="L103">		} else {</span>
-<span class="nc" id="L104">			command.apply();</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		if (this.isToExecInThread(command, execInThread)) {</span>
+<span class="fc" id="L101">			ApsCommandThread thread = new ApsCommandThread(command);</span>
+<span class="fc" id="L102">			thread.start();</span>
+<span class="fc" id="L103">		} else {</span>
+<span class="fc" id="L104">			command.apply();</span>
 		}
-<span class="nc" id="L106">	}</span>
+<span class="fc" id="L106">	}</span>
 
 	protected boolean isToExecInThread(BaseBulkCommand&lt;?, ?, ?&gt; command, Boolean execInThread) {
-<span class="nc" id="L109">		boolean inThread = false;</span>
-<span class="nc bnc" id="L110" title="All 2 branches missed.">		if (execInThread == null) {</span>
-<span class="nc bnc" id="L111" title="All 2 branches missed.">			inThread = command.getItems().size() &gt; 10;</span>
+<span class="fc" id="L109">		boolean inThread = false;</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">		if (execInThread == null) {</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">			inThread = command.getItems().size() &gt; 10;</span>
 		} else {
-<span class="nc" id="L113">			inThread = execInThread;</span>
+<span class="fc" id="L113">			inThread = execInThread;</span>
 		}
-<span class="nc" id="L115">		return inThread;</span>
+<span class="fc" id="L115">		return inThread;</span>
 	}
 
 	protected synchronized void putCommandInMap(String owner, BaseBulkCommand&lt;?, ?, ?&gt; command) {
-<span class="nc" id="L119">		BulkCommandContainer container = new BulkCommandContainer();</span>
-<span class="nc" id="L120">		container.setOwner(owner);</span>
-<span class="nc" id="L121">		container.setCommand(command);</span>
+<span class="fc" id="L119">		BulkCommandContainer container = new BulkCommandContainer();</span>
+<span class="fc" id="L120">		container.setOwner(owner);</span>
+<span class="fc" id="L121">		container.setCommand(command);</span>
 		
-<span class="nc" id="L123">		Map&lt;String, BulkCommandContainer&gt; commandsByOwner = this._commands.get(owner);</span>
-<span class="nc bnc" id="L124" title="All 2 branches missed.">		if (commandsByOwner == null) {</span>
-<span class="nc" id="L125">			commandsByOwner = new HashMap&lt;String, BulkCommandContainer&gt;();</span>
-<span class="nc" id="L126">			this._commands.put(owner, commandsByOwner);</span>
+<span class="fc" id="L123">		Map&lt;String, BulkCommandContainer&gt; commandsByOwner = this._commands.get(owner);</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">		if (commandsByOwner == null) {</span>
+<span class="fc" id="L125">			commandsByOwner = new HashMap&lt;String, BulkCommandContainer&gt;();</span>
+<span class="fc" id="L126">			this._commands.put(owner, commandsByOwner);</span>
 		}
-<span class="nc" id="L128">		commandsByOwner.put(command.getId(), container);</span>
-<span class="nc" id="L129">	}</span>
+<span class="fc" id="L128">		commandsByOwner.put(command.getId(), container);</span>
+<span class="fc" id="L129">	}</span>
 
 	protected String generateId() {
-<span class="nc" id="L132">		StringBuilder str = new StringBuilder(&quot;cmd_&quot;);</span>
-<span class="nc" id="L133">		str.append(DateConverter.getFormattedDate(new Date(), &quot;ddMMyyyymmssSSS&quot;));</span>
-<span class="nc" id="L134">		synchronized(this) {</span>
-<span class="nc" id="L135">			this._sec = (this._sec++) % 10;</span>
-<span class="nc" id="L136">			str.append(this._sec);</span>
-<span class="nc" id="L137">		}</span>
-<span class="nc" id="L138">		return str.toString();</span>
+<span class="fc" id="L132">		StringBuilder str = new StringBuilder(&quot;cmd_&quot;);</span>
+<span class="fc" id="L133">		str.append(DateConverter.getFormattedDate(new Date(), &quot;ddMMyyyymmssSSS&quot;));</span>
+<span class="fc" id="L134">		synchronized(this) {</span>
+<span class="fc" id="L135">			this._sec = (this._sec++) % 10;</span>
+<span class="fc" id="L136">			str.append(this._sec);</span>
+<span class="fc" id="L137">		}</span>
+<span class="fc" id="L138">		return str.toString();</span>
 	}
 	
 
@@ -156,14 +156,14 @@ import com.agiletec.aps.util.DateConverter;
 
 
 	protected synchronized void stopCommands() {
-<span class="pc bpc" id="L159" title="1 of 2 branches missed.">		for (Map&lt;String, BulkCommandContainer&gt; commandsByOwner : this._commands.values()) {</span>
-<span class="nc bnc" id="L160" title="All 2 branches missed.">			for (BulkCommandContainer container : commandsByOwner.values()) {</span>
-<span class="nc" id="L161">				BaseBulkCommand&lt;?, ?, ?&gt; command = container.getCommand();</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">				if (!command.isEnded()) {</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">		for (Map&lt;String, BulkCommandContainer&gt; commandsByOwner : this._commands.values()) {</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">			for (BulkCommandContainer container : commandsByOwner.values()) {</span>
+<span class="fc" id="L161">				BaseBulkCommand&lt;?, ?, ?&gt; command = container.getCommand();</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">				if (!command.isEnded()) {</span>
 <span class="nc" id="L163">					command.stopCommand();</span>
 				}
-<span class="nc" id="L165">			}</span>
-<span class="nc" id="L166">		}</span>
+<span class="fc" id="L165">			}</span>
+<span class="fc" id="L166">		}</span>
 <span class="fc" id="L167">	}</span>
 
 	protected boolean isCommandExpired(BaseBulkCommand&lt;?, ?, ?&gt; command) {

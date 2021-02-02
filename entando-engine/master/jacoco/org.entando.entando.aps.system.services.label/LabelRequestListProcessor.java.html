@@ -36,11 +36,11 @@ public class LabelRequestListProcessor extends RequestListProcessor&lt;LabelDto&
     @Override
     protected Function&lt;Filter, Predicate&lt;LabelDto&gt;&gt; getPredicates() {
 <span class="fc" id="L38">        return filter -&gt; {</span>
-<span class="pc bpc" id="L39" title="2 of 3 branches missed.">            switch (filter.getAttribute()) {</span>
+<span class="pc bpc" id="L39" title="1 of 3 branches missed.">            switch (filter.getAttribute()) {</span>
                 case LABEL_KEY_FILTER_KEY:
 <span class="nc" id="L41">                    return label -&gt; FilterUtils.filterString(filter, label.getKey());</span>
                 case LABEL_KEY_FILTER_VALUE:
-<span class="nc" id="L43">                    return label -&gt; label.getTitles().values().stream().anyMatch(value -&gt; FilterUtils.filterString(filter, value));</span>
+<span class="fc" id="L43">                    return label -&gt; label.getTitles().values().stream().anyMatch(value -&gt; FilterUtils.filterString(filter, value));</span>
                 default:
 <span class="fc" id="L45">                    return null;</span>
             }

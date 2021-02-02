@@ -29,7 +29,7 @@ import org.entando.entando.aps.system.common.command.constants.ApsCommandWarning
  *
  * @param &lt;I&gt; The type of items on which to apply the command.
  */
-<span class="nc" id="L32">public class DefaultBulkCommandTracer&lt;I&gt; implements BulkCommandTracer&lt;I&gt; {</span>
+<span class="fc" id="L32">public class DefaultBulkCommandTracer&lt;I&gt; implements BulkCommandTracer&lt;I&gt; {</span>
 
 	/**
 	 * This implementation do not trace successes.
@@ -38,36 +38,36 @@ import org.entando.entando.aps.system.common.command.constants.ApsCommandWarning
 	@Override
 	public void traceSuccess(I item) {
 		// Do nothing
-<span class="nc" id="L41">	}</span>
+<span class="fc" id="L41">	}</span>
 
 	@Override
 	public void traceWarning(I item, ApsCommandWarningCode warningCode) {
-<span class="nc bnc" id="L45" title="All 2 branches missed.">		this._warnings.put(item, warningCode != null ? warningCode : ApsCommandWarningCode.NOT_NECESSARY);</span>
-<span class="nc" id="L46">	}</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">		this._warnings.put(item, warningCode != null ? warningCode : ApsCommandWarningCode.NOT_NECESSARY);</span>
+<span class="fc" id="L46">	}</span>
 
 	@Override
 	public void traceError(I item, ApsCommandErrorCode errorCode) {
-<span class="nc bnc" id="L50" title="All 2 branches missed.">		this._errors.put(item, errorCode != null ? errorCode : ApsCommandErrorCode.ERROR);</span>
-<span class="nc" id="L51">	}</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">		this._errors.put(item, errorCode != null ? errorCode : ApsCommandErrorCode.ERROR);</span>
+<span class="fc" id="L51">	}</span>
 
 	@Override
 	public List&lt;I&gt; getSuccesses() {
-<span class="nc" id="L55">		return null;</span>
+<span class="fc" id="L55">		return null;</span>
 	}
 
 	@Override
 	public Map&lt;I, ApsCommandWarningCode&gt; getWarnings() {
-<span class="nc" id="L60">		return _warnings;</span>
+<span class="fc" id="L60">		return _warnings;</span>
 	}
 
 	@Override
 	public Map&lt;I, ApsCommandErrorCode&gt; getErrors() {
-<span class="nc" id="L65">		return _errors;</span>
+<span class="fc" id="L65">		return _errors;</span>
 	}
 
-<span class="nc" id="L68">	private Map&lt;I, ApsCommandWarningCode&gt; _warnings = new LinkedHashMap&lt;I, ApsCommandWarningCode&gt;();</span>
+<span class="fc" id="L68">	private Map&lt;I, ApsCommandWarningCode&gt; _warnings = new LinkedHashMap&lt;I, ApsCommandWarningCode&gt;();</span>
 
-<span class="nc" id="L70">	private Map&lt;I, ApsCommandErrorCode&gt; _errors = new LinkedHashMap&lt;I, ApsCommandErrorCode&gt;();</span>
+<span class="fc" id="L70">	private Map&lt;I, ApsCommandErrorCode&gt; _errors = new LinkedHashMap&lt;I, ApsCommandErrorCode&gt;();</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

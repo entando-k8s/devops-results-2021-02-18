@@ -45,7 +45,7 @@ public class ActionLogRecordDto {
 <span class="fc" id="L45">        this.setCreatedAt(src.getActionDate());</span>
 <span class="fc" id="L46">        this.setId(src.getId());</span>
 <span class="fc" id="L47">        this.setNamespace(src.getNamespace());</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (!StringUtils.isEmpty(src.getParameters())) {</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (!StringUtils.isEmpty(src.getParameters())) {</span>
 <span class="fc" id="L49">            List&lt;String&gt; lines = this.readLines(src.getParameters());</span>
 <span class="fc bfc" id="L50" title="All 2 branches covered.">            for (String line : lines) {</span>
 <span class="fc" id="L51">                String[] sections = line.split(&quot;=&quot;);</span>

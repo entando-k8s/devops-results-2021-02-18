@@ -600,7 +600,7 @@ import org.springframework.cache.Cache;
 <span class="pc bpc" id="L600" title="1 of 2 branches missed.">        if (childrenCodes != null) {</span>
 <span class="fc bfc" id="L601" title="All 2 branches covered.">            for (String childrenCode : childrenCodes) {</span>
 <span class="fc bfc" id="L602" title="All 2 branches covered.">                IPage child = (draft) ? this.getDraftPage(childrenCode) : this.getOnlinePage(childrenCode);</span>
-<span class="fc bfc" id="L603" title="All 2 branches covered.">                if (null != child) {</span>
+<span class="pc bpc" id="L603" title="1 of 2 branches missed.">                if (null != child) {</span>
 <span class="fc" id="L604">                    this.getWidgetUtilizers(child, utilizersMap, draft);</span>
                 }
             }

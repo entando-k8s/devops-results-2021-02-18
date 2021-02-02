@@ -64,16 +64,16 @@ import org.entando.entando.web.common.model.SimpleRestResponse;
     }
 
     public void setUserProfileService(IUserProfileService userProfileService) {
-<span class="nc" id="L67">        this.userProfileService = userProfileService;</span>
-<span class="nc" id="L68">    }</span>
+<span class="fc" id="L67">        this.userProfileService = userProfileService;</span>
+<span class="fc" id="L68">    }</span>
 
     public ProfileValidator getProfileValidator() {
 <span class="fc" id="L71">        return profileValidator;</span>
     }
 
     public void setProfileValidator(ProfileValidator profileValidator) {
-<span class="nc" id="L75">        this.profileValidator = profileValidator;</span>
-<span class="nc" id="L76">    }</span>
+<span class="fc" id="L75">        this.profileValidator = profileValidator;</span>
+<span class="fc" id="L76">    }</span>
 
     @RestAccessControl(permission = Permission.MANAGE_USER_PROFILES)
     @RequestMapping(value = &quot;/userProfiles/{username}&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

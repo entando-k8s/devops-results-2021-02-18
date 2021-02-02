@@ -338,8 +338,8 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 <span class="fc" id="L338">                    query.append(&quot;AND &quot;).append(this.getMasterTableName()).append(&quot;.&quot;).append(tableFieldName).append(&quot; &quot;);</span>
 <span class="fc" id="L339">                    query.append(&quot;&lt;= ? &quot;);</span>
                 }
-<span class="fc bfc" id="L341" title="All 2 branches covered.">            } else if (null != filter.getEnd()) {</span>
-<span class="fc" id="L342">                query.append(&quot;&lt;= ? &quot;);</span>
+<span class="pc bpc" id="L341" title="1 of 2 branches missed.">            } else if (null != filter.getEnd()) {</span>
+<span class="nc" id="L342">                query.append(&quot;&lt;= ? &quot;);</span>
 <span class="fc bfc" id="L343" title="All 2 branches covered.">            } else if (filter.isNullOption()) {</span>
 <span class="fc" id="L344">                query.append(&quot; IS NULL &quot;);</span>
             } else {

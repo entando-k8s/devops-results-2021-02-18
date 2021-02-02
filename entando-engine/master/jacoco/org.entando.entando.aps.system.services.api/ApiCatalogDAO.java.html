@@ -130,7 +130,7 @@ import com.agiletec.aps.util.ApsProperties;
 <span class="fc" id="L130">			String resourceCode = ApiResource.getCode(method.getNamespace(), method.getResourceName());</span>
 <span class="fc" id="L131">            this.resetApiStatus(resourceCode, method.getHttpMethod(), conn);</span>
 <span class="fc" id="L132">            stat = conn.prepareStatement(SAVE_API_STATUS);</span>
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">            int isActive = (method.isActive()) ? 1 : 0;</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">            int isActive = (method.isActive()) ? 1 : 0;</span>
 <span class="fc" id="L134">            stat.setString(1, resourceCode);</span>
 <span class="fc" id="L135">            stat.setString(2, method.getHttpMethod().toString());</span>
 <span class="fc" id="L136">            stat.setInt(3, isActive);</span>

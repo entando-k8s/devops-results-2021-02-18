@@ -38,58 +38,58 @@ public class DefaultBulkCommandReport&lt;I&gt; implements BulkCommandReport&lt;I
 	 * The constructor for the report.
 	 * @param command The bulk command.
 	 */
-<span class="nc" id="L41">	public DefaultBulkCommandReport(BaseBulkCommand&lt;I, ?, ?&gt; command) {</span>
-<span class="nc" id="L42">		this._command = command;</span>
-<span class="nc" id="L43">	}</span>
+<span class="fc" id="L41">	public DefaultBulkCommandReport(BaseBulkCommand&lt;I, ?, ?&gt; command) {</span>
+<span class="fc" id="L42">		this._command = command;</span>
+<span class="fc" id="L43">	}</span>
 
 	@Override
 	public String getCommandId() {
-<span class="nc" id="L47">		return this._command.getId();</span>
+<span class="fc" id="L47">		return this._command.getId();</span>
 	}
 
 	@Override
 	public int getTotal() {
-<span class="nc" id="L52">		return this._command.getTotal();</span>
+<span class="fc" id="L52">		return this._command.getTotal();</span>
 	}
 
 	@Override
 	public int getApplyTotal() {
-<span class="nc" id="L57">		return this._command.getApplySuccesses() + this._command.getApplyErrors();</span>
+<span class="fc" id="L57">		return this._command.getApplySuccesses() + this._command.getApplyErrors();</span>
 	}
 
 	@Override
 	public int getApplySuccesses() {
-<span class="nc" id="L62">		return this._command.getApplySuccesses();</span>
+<span class="fc" id="L62">		return this._command.getApplySuccesses();</span>
 	}
 
 	@Override
 	public int getApplyErrors() {
-<span class="nc" id="L67">		return this._command.getApplyErrors();</span>
+<span class="fc" id="L67">		return this._command.getApplyErrors();</span>
 	}
 
 	@Override
 	public List&lt;I&gt; getSuccesses() {
-<span class="nc" id="L72">		return this._command.getTracer().getSuccesses();</span>
+<span class="fc" id="L72">		return this._command.getTracer().getSuccesses();</span>
 	}
 
 	@Override
 	public Map&lt;I, ApsCommandWarningCode&gt; getWarnings() {
-<span class="nc" id="L77">		return this._command.getTracer().getWarnings();</span>
+<span class="fc" id="L77">		return this._command.getTracer().getWarnings();</span>
 	}
 
 	@Override
 	public Map&lt;I, ApsCommandErrorCode&gt; getErrors() {
-<span class="nc" id="L82">		return this._command.getTracer().getErrors();</span>
+<span class="fc" id="L82">		return this._command.getTracer().getErrors();</span>
 	}
 
 	@Override
 	public ApsCommandStatus getStatus() {
-<span class="nc" id="L87">		return this._command.getStatus();</span>
+<span class="fc" id="L87">		return this._command.getStatus();</span>
 	}
 
 	@Override
 	public Date getEndingTime() {
-<span class="nc" id="L92">		return this._command.getEndingTime();</span>
+<span class="fc" id="L92">		return this._command.getEndingTime();</span>
 	}
 	
 	private BaseBulkCommand&lt;I, ?, ?&gt; _command;

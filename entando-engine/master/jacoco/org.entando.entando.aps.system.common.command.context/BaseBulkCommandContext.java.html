@@ -19,34 +19,34 @@ import org.entando.entando.aps.system.common.command.tracer.BulkCommandTracer;
 
 public class BaseBulkCommandContext&lt;I&gt; implements BulkCommandContext&lt;I&gt; {
 	
-<span class="nc" id="L22">	public BaseBulkCommandContext(Collection&lt;I&gt; items, BulkCommandTracer&lt;I&gt; tracer) {</span>
-<span class="nc" id="L23">		this.setItems(items);</span>
-<span class="nc" id="L24">		this.setTracer(tracer);</span>
-<span class="nc" id="L25">	}</span>
+<span class="fc" id="L22">	public BaseBulkCommandContext(Collection&lt;I&gt; items, BulkCommandTracer&lt;I&gt; tracer) {</span>
+<span class="fc" id="L23">		this.setItems(items);</span>
+<span class="fc" id="L24">		this.setTracer(tracer);</span>
+<span class="fc" id="L25">	}</span>
 
 	@Override
 	public Collection&lt;I&gt; getItems() {
-<span class="nc" id="L29">		return _items;</span>
+<span class="fc" id="L29">		return _items;</span>
 	}
 	/**
 	 * Sets the items on which to apply the command.
 	 * @param items The items on which to apply the command.
 	 */
 	public void setItems(Collection&lt;I&gt; items) {
-<span class="nc" id="L36">		this._items = items;</span>
-<span class="nc" id="L37">	}</span>
+<span class="fc" id="L36">		this._items = items;</span>
+<span class="fc" id="L37">	}</span>
 
 	@Override
 	public BulkCommandTracer&lt;I&gt; getTracer() {
-<span class="nc" id="L41">		return _tracer;</span>
+<span class="fc" id="L41">		return _tracer;</span>
 	}
 	/**
 	 * Sets the tracer of the command execution.
 	 * @param tracer The tracer of the command execution.
 	 */
 	public void setTracer(BulkCommandTracer&lt;I&gt; tracer) {
-<span class="nc" id="L48">		this._tracer = tracer;</span>
-<span class="nc" id="L49">	}</span>
+<span class="fc" id="L48">		this._tracer = tracer;</span>
+<span class="fc" id="L49">	}</span>
 
 	private Collection&lt;I&gt; _items;
 	private BulkCommandTracer&lt;I&gt; _tracer;
