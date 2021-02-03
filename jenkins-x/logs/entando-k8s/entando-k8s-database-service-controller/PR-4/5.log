@@ -1,0 +1,889 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-fh759[0m
+{"level":"warn","ts":1612333862.9219353,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612333862.925524,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-fpvdb[0m
+{"level":"warn","ts":1612333866.4445338,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612333866.4489312,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-databas-q5v7l[0m
+{"level":"warn","ts":1612333912.325633,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612333913.500299,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-database-service-controller.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:d117da36f2be267cebad242ee34c627baf4ff950,4:aa3f6710324b854e9884a0a39c889d434f478043
+DEBUG: ran git fetch --unshallow origin aa3f6710324b854e9884a0a39c889d434f478043: d117da36f2be267cebad242ee34c627baf4ff950: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard d117da36f2be267cebad242ee34c627baf4ff950 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge aa3f6710324b854e9884a0a39c889d434f478043 in 
+Merged SHA aa3f6710324b854e9884a0a39c889d434f478043 with commit message 'ENG-1743 using latest baseimage' into base branch master
+Merged SHA d55019347bbde7c2c0a4d54844d2f8650ed4cfe5 with commit message 'ENG-1743 cleaned up after refactoring of operator-common' into base branch master
+Merged SHA 7b5ed4153beb5ace0f32d698b66ee098e60f724b with commit message 'ENG-1743 cleaned up after refactoring of operator-common' into base branch master
+Merged SHA d8a57669f8c057a4d278c041ed5e9e268a8f91aa with commit message 'ENG-1743 bumped to latest operator-common' into base branch master
+Merged SHA 1d5efbb3e26a6cabb3ea0e99920722dc3f22f798 with commit message 'ENG-1743 bumped parent pom' into base branch master
+Merged SHA fe2c03f5b32e8a430e847cc9c2bd173998ba0e1f with commit message 'Merge branch 'master' of github.com:entando-k8s/entando-k8s-database-service-controller into ENG-1743_Redhat_certification' into base branch master
+Merged SHA 25d57e0374a457af3c1931a480a46ffa4aaca175 with commit message 'ENG-1743 initial migration' into base branch master
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.entando:entando-k8s-database-service-controller >---------
+[INFO] Building Entando K8S Controller for shared Database Services 6.3.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-k8s-database-service-controller ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando:entando-k8s-database-service-controller:6.3.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-4-5
+[INFO] Processing org.entando:entando-k8s-database-service-controller
+[INFO]     Updating project org.entando:entando-k8s-database-service-controller
+[INFO]         from version 6.3.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-4-5
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.419 s
+[INFO] Finished at: 2021-02-03T06:32:14Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Switched to a new branch 'PR-4'
+M	pom.xml
+Deleted branch master (was aa3f671).
+From https://github.com/entando-k8s/entando-k8s-database-service-controller
+ * [new branch]      master     -> master
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1902  100  1672  100   230   2758    379 --:--:-- --:--:-- --:--:--  2777
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052185765,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE4NTc2NQ==",
+  "state": "pending",
+  "description": "Pre-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-03T06:32:17Z",
+  "updated_at": "2021-02-03T06:32:17Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/entando-**",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052185817,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE4NTgxNw==",
+  "state": "pending",
+  "description": "Post-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/failsafe-report.html",
+  "context": "Post-deployment tests",
+  "created_at": "2021-02-03T06:32:18Z",
+  "updated_at": "2021-02-03T06:32:18Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/entando-**",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1906  100  1674  100   232   2991    414 --:--:-- --:--:-- --:--:--  2994
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1852  100  1647  100   205   2799    348 --:--:-- --:--:-- --:--:--  2796
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052185871,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE4NTg3MQ==",
+  "state": "pending",
+  "description": "Checkstyle pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-02-03T06:32:19Z",
+  "updated_at": "2021-02-03T06:32:19Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1874    0     0  100   216      0    391 --:--:-- --:--:-- --:--:--   391100  1874  100  1658  100   216   3004    391 --:--:-- --:--:-- --:--:--  3003
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052185929,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE4NTkyOQ==",
+  "state": "pending",
+  "description": "OWASP CVE pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-02-03T06:32:19Z",
+  "updated_at": "2021-02-03T06:32:19Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.entando:entando-k8s-database-service-controller >---------
+[INFO] Building Entando K8S Controller for shared Database Services 0.0.0-SNAPSHOT-PR-4-5
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-database-service-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-database-service-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-database-service-controller ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-database-service-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-database-service-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-database-service-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-database-service-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /workspace/source/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.databaseservice.inprocesstests.DeployDatabaseServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.593 s - in org.entando.kubernetes.controller.databaseservice.inprocesstests.DeployDatabaseServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-database-service-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-database-service-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-tests.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ entando-k8s-database-service-controller ---
+[INFO] No previous run data found, generating javadoc.
+[INFO] 
+Loading source files for package org.entando.kubernetes.controller.databaseservice...
+Constructing Javadoc information...
+Standard Doclet version 11.0.6
+Building tree for all the packages and classes...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/databaseservice/EntandoDatabaseServiceController.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/databaseservice/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/databaseservice/package-tree.html...
+Generating /workspace/source/target/apidocs/constant-values.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/databaseservice/class-use/EntandoDatabaseServiceController.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/databaseservice/package-use.html...
+Building index for all the packages and classes...
+Generating /workspace/source/target/apidocs/overview-tree.html...
+Generating /workspace/source/target/apidocs/index-all.html...
+Building index for all classes...
+Generating /workspace/source/target/apidocs/allclasses-index.html...
+Generating /workspace/source/target/apidocs/allpackages-index.html...
+Generating /workspace/source/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /workspace/source/target/apidocs/allclasses.html...
+Generating /workspace/source/target/apidocs/allclasses.html...
+Generating /workspace/source/target/apidocs/index.html...
+Generating /workspace/source/target/apidocs/help-doc.html...
+[INFO] Building jar: /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-javadoc.jar
+[INFO] 
+[INFO] --- license-maven-plugin:2.0.0:aggregate-download-licenses (download-licenses) @ entando-k8s-database-service-controller ---
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ojdbc8:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ons:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:******pki:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:osdt_cert:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:osdt_core:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:simplefan:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ucp:19.3.0.0
+[WARNING] No license information available for: com.sun.org.apache:jaxp-ri:1.4
+[WARNING] No license information available for: javax.xml.parsers:jaxp-api:1.4
+[WARNING] Unable to retrieve license from URL 'https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html' for dependency 'javax.servlet:javax.servlet-api:3.0.1': Certificate for <glassfish.dev.java.net> doesn't match any of the subject alternative names: [*.java.net, java.net]
+[WARNING] Unable to retrieve license from URL 'LICENSE.txt' for dependency 'org.awaitility:awaitility:4.0.1': null
+Feb 03, 2021 6:33:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: _octo=GH1.1.639277107.1612333981; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 06:33:01 GMT; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 06:33:01 GMT
+Feb 03, 2021 6:33:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: logged_in=no; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 06:33:01 GMT; HttpOnly; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 06:33:01 GMT
+Feb 03, 2021 6:33:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: _octo=GH1.1.177267249.1612333981; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 06:33:01 GMT; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 06:33:01 GMT
+Feb 03, 2021 6:33:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: logged_in=no; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 06:33:01 GMT; HttpOnly; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 06:33:01 GMT
+[WARNING] Unable to retrieve license from URL 'https://jdbc.********ql.org/about/license.html' for dependency 'org.********ql:********ql:42.2.14': Connect to jdbc.********ql.org:443 [jdbc.********ql.org/72.32.157.228, jdbc.********ql.org/2001:4800:3e1:1:0:0:0:228] failed: Network is unreachable (connect failed)
+[WARNING] There were 12 download errors - check the warnings above
+[INFO] 
+[INFO] --- quarkus-maven-plugin:1.2.0.Final:build (default) @ entando-k8s-database-service-controller ---
+[WARNING] [io.quarkus.creator.curator.Curator] These dependencies are not recommended:
+	- javax.servlet:javax.servlet-api should be replaced by jakarta.servlet:jakarta.servlet-api
+You might end up with two different versions of the same classes or with an artifact you shouldn't have in your classpath.
+[INFO] [org.jboss.threads] JBoss Threads version 3.0.0.Final
+[WARNING] [io.quarkus.deployment.steps.ReflectiveHierarchyStep] Unable to properly register the hierarchy of the following classes for reflection as they are not in the Jandex index:
+	- org.entando.kubernetes.model.EntandoCustomResourceStatus
+Consider adding them to the index either by creating a Jandex index for your dependency via the Maven plugin, an empty META-INF/beans.xml or quarkus.index-dependency properties.");.
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building thin jar: /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-runner.jar
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 1564ms
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] --- dependency-check-maven:6.0.3:aggregate (default) @ entando-k8s-database-service-controller ---
+[INFO] Checking for updates
+[INFO] Skipping NVD check since last check was within 4 hours.
+[INFO] Check for updates complete (102 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (0 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (0 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Created CPE Index (2 seconds)
+[INFO] Finished CPE Analyzer (4 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[INFO] Finished Sonatype OSS Index Analyzer (1 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Analysis Complete (8 seconds)
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-k8s-database-service-controller ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando K8S Controller for shared Database Services' with 2 classes
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-database-service-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-k8s-database-service-controller ---
+[INFO] Installing /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-database-service-controller/0.0.0-SNAPSHOT-PR-4-5/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5.jar
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando-k8s-database-service-controller/0.0.0-SNAPSHOT-PR-4-5/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5.pom
+[INFO] Installing /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-database-service-controller/0.0.0-SNAPSHOT-PR-4-5/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-tests.jar
+[INFO] Installing /workspace/source/target/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-javadoc.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-database-service-controller/0.0.0-SNAPSHOT-PR-4-5/entando-k8s-database-service-controller-0.0.0-SNAPSHOT-PR-4-5-javadoc.jar
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-k8s-database-service-controller ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] --------< org.entando:entando-k8s-database-service-controller >---------
+[INFO] Building Entando K8S Controller for shared Database Services 0.0.0-SNAPSHOT-PR-4-5
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-k8s-database-service-controller ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en_US", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=220ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=79ms
+[INFO] Load/download plugins (done) | time=21900ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-database-service-controller'
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-database-service-controller' (done) | time=34ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=1ms
+[INFO] Project key: entando-k8s_entando-k8s-database-service-controller
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=39ms
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-database-service-controller'
+[INFO] Detected project binding: NOT_BOUND
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-database-service-controller' (done) | time=21ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=37ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=4ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=71ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1190ms
+[INFO] Organization key: entando-k8s
+[INFO] Pull request 4 for merge into master from PR-4
+[INFO] SCM collecting changed files in the branch
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] SCM collecting changed files in the branch (done) | time=341ms
+[INFO] Indexing files...
+[INFO] Project configuration:
+[INFO] 3 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando K8S Controller for shared Database Services
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=32ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=26ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=1ms
+[INFO] Java Main Files AST scan
+[INFO] 1 source files to be analyzed
+[INFO] 1/1 source files have been analyzed
+[INFO] Java Main Files AST scan (done) | time=2328ms
+[INFO] Java Test Files AST scan
+[INFO] 1 source files to be analyzed
+[INFO] Java Test Files AST scan (done) | time=311ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Java Generated Files AST scan
+[INFO] 0 source files to be analyzed
+[INFO] Java Generated Files AST scan (done) | time=0ms
+[INFO] 0/0 source files have been analyzed
+[INFO] Sensor JavaSquidSensor [java] (done) | time=3106ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=1ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=1ms
+[INFO] Sensor Import of Checkstyle issues [java]
+[INFO] Importing /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=80ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=37ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=285ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=6ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=214ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=2ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=26ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=3ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 30 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 06:34:01.810714 Building Runtime Type propagation graph
+[INFO] 06:34:01.821204 Running Tarjan on 21 nodes
+[INFO] 06:34:01.823762 Tarjan found 21 components
+[INFO] 06:34:01.827128 Variable type analysis: done
+[INFO] 06:34:01.828034 Building Runtime Type propagation graph
+[INFO] 06:34:01.829951 Running Tarjan on 21 nodes
+[INFO] 06:34:01.830376 Tarjan found 21 components
+[INFO] 06:34:01.830775 Variable type analysis: done
+[INFO] Analyzing 8 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 0 Retained UCFGs : 0
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 0
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 0
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=517ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=0ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=1ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=27ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 3 source files to be analyzed
+[INFO] SCM Publisher 2/3 source files have been analyzed (done) | time=111ms
+[WARNING] Missing blame information for the following files:
+[WARNING]   * pom.xml
+[WARNING] This may lead to missing/broken features in SonarCloud
+[INFO] CPD E**cutor Calculating CPD for 1 file
+[INFO] CPD E**cutor CPD calculation finished (done) | time=12ms
+[INFO] SCM writing changed lines
+[INFO] SCM writing changed lines (done) | time=65ms
+[INFO] Analysis report generated in 228ms, dir size=207 KB
+[INFO] Analysis report compressed in 22ms, zip size=47 KB
+[INFO] Analysis report uploaded in 171ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando-k8s_entando-k8s-database-service-controller&pullRequest=4
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXdmmQ3mfFqIyZZn2gY3
+[INFO] Analysis total time: 10.064 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:40 min
+[INFO] Finished at: 2021-02-03T06:34:02Z
+[INFO] ------------------------------------------------------------------------
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.entando:entando-k8s-database-service-controller >---------
+[INFO] Building Entando K8S Controller for shared Database Services 0.0.0-SNAPSHOT-PR-4-5
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-database-service-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.990 s
+[INFO] Finished at: 2021-02-03T06:34:14Z
+[INFO] ------------------------------------------------------------------------
+error: etcdserver: request is too large
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052199347,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE5OTM0Nw==",
+  "state": "success",
+  "description": "Pre-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-03T06:34:30Z",
+  "updated_at": "2021-02-03T06:34:30Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 12  1902    0     0  100   230      0    378 --:--:-- --:--:-- --:--:--   377100  1902  100  1672  100   230   2747    377 --:--:-- --:--:-- --:--:--  2745
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052199407,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE5OTQwNw==",
+  "state": "success",
+  "description": "Checkstyle success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-02-03T06:34:31Z",
+  "updated_at": "2021-02-03T06:34:31Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/entando-**",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1852  100  1647  100   205   2860    356 --:--:-- --:--:-- --:--:--  2864
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052199461,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjE5OTQ2MQ==",
+  "state": "success",
+  "description": "OWASP CVE success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-02-03T06:34:31Z",
+  "updated_at": "2021-02-03T06:34:31Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+Congratulations! No build failures found for entando-k8s-database-service-controller-PR-4.
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1874  100  1658  100   216   2958    385 --:--:-- --:--:-- --:--:--  2955
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+Generating tags...
+ - entando/entando-k8s-database-service-controller -> docker.io/entando/entando-k8s-database-service-controller:0.0.0-SNAPSHOT-PR-4-5
+Checking cache...
+ - entando/entando-k8s-database-service-controller: Not found. Building
+Building [entando/entando-k8s-database-service-controller]...
+Sending build context to Docker daemon  541.3kBSending build context to Docker daemon   8.75MBSending build context to Docker daemon   16.5MBSending build context to Docker daemon  24.86MBSending build context to Docker daemon  30.86MBSending build context to Docker daemon  36.96MBSending build context to Docker daemon  40.75MBSending build context to Docker daemon  44.39MB
+Step 1/9 : FROM entando/entando-k8s-operator-common:6.3.1
+ ---> 1766f844aece
+Step 2/9 : ARG VERSION
+ ---> Using cache
+ ---> 6a4149ee7662
+Step 3/9 : LABEL name "Entando K8S Database Service Controller" vendor "Entando" version "v${VERSION}" release "6" summary "This container processes the EntandoDatabaseService custom resource and makes the database service available." description "This is a run-to-completion container. It processes new EntandoDatabaseService Custom                    Resources. If the EntandoDatbaseService specifies that a deployment should be created,                    it deploys an instance of the specified database Docker image  to your cluster. Alternatively,                    it just creates Kubernetes service that points to an external database service.                    Subsequent e**cutions of this container against the same EntandoDatbaseService will patch the existing                    deployment resources"
+ ---> Running in fa031becfbcc
+ ---> 2234326bb133
+Step 4/9 : ENV JAVA_OPTIONS "-Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+ ---> Running in 327638b052ae
+ ---> 532019a8be9c
+Step 5/9 : ENV AB_ENABLED jmx_exporter
+ ---> Running in fbbd526eb2fd
+ ---> 6c16c431cf7e
+Step 6/9 : COPY target/generated-resources/licenses /licenses
+ ---> e0349ba2defa
+Step 7/9 : COPY target/lib/* /deployments/lib/
+ ---> 69e59e99657a
+Step 8/9 : COPY target/*-runner.jar /deployments/app.jar
+ ---> b0c5d729655b
+Step 9/9 : ENTRYPOINT /deployments/run-java.sh
+ ---> Running in f39aff79439b
+ ---> 902179880ec6
+Successfully built 902179880ec6
+The push refers to a repository [docker.io/entando/entando-k8s-database-service-controller]
+546b6b6db372: Preparing
+2f0cf65412b1: Preparing
+2a98b2363938: Preparing
+9c2039494f82: Preparing
+128e365e30f9: Preparing
+712a16020a60: Preparing
+088e643aafac: Preparing
+00af10937683: Preparing
+3aa55ff7bca1: Preparing
+712a16020a60: Waiting
+00af10937683: Waiting
+3aa55ff7bca1: Waiting
+088e643aafac: Waiting
+9c2039494f82: Mounted from entando/entando-k8s-keycloak-controller
+128e365e30f9: Mounted from entando/entando-k8s-keycloak-controller
+712a16020a60: Mounted from entando/entando-k8s-keycloak-controller
+546b6b6db372: Pushed
+088e643aafac: Mounted from entando/entando-k8s-operator-common
+2a98b2363938: Pushed
+00af10937683: Mounted from entando/entando-k8s-operator-common
+3aa55ff7bca1: Mounted from entando/entando-k8s-operator-common
+2f0cf65412b1: Pushed
+0.0.0-SNAPSHOT-PR-4-5: digest: sha256:d7179805a8a105750f8388b63eeeaf9aaa3bd58128bc76b110a93bfa3401574c size: 2214
+There is a new version (1.19.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://charts.helm.sh/stable 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-4-5/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-4-5/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: docker.io\/entando\/entando-k8s-database-service-controller|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-4-5/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-4-5" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Found commit author match for: ampie with email address: ampie.private@gmail.com
+Namespace entando-k8s-database-service-controller-dscpr4 created 
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: *************
+    exposer: Ingress
+    http: "****"
+preview:
+  image:
+    repository: docker.io/entando/entando-k8s-database-service-controller
+    tag: 0.0.0-SNAPSHOT-PR-4-5
+
+WARNING: Could not find the service URL in namespace entando-k8s-database-service-controller-dscpr4 for names : Timed out after 1m0s, last error: %!s(<nil>)
+Updating PipelineActivities entando-k8s-entando-k8s-database-service-controller-pr-4-5 which has status Running
+WARNING: Failed to find the service entando-k8s-database-service-controller : failed to find service entando-k8s-database-service-controller in namespace entando-k8s-database-service-controller-dscpr4: services "entando-k8s-database-service-controller" not found
+
+Showing logs for build [32mentando-k8s-entando-k8s-databas-2bb2s-5[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-run-post-deployment-tests[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.entando:entando-k8s-database-service-controller >---------
+[INFO] Building Entando K8S Controller for shared Database Services 0.0.0-SNAPSHOT-PR-4-5
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-database-service-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-database-service-controller ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-database-service-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-database-service-controller ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-database-service-controller ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.0.0-M4:integration-test (run-tests) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-database-service-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.0.0-M4:verify (run-tests) @ entando-k8s-database-service-controller ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-database-service-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.975 s
+[INFO] Finished at: 2021-02-03T06:37:06Z
+[INFO] ------------------------------------------------------------------------
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1906  100  1674  100   232   3088    428 --:--:-- --:--:-- --:--:--  3094
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-database-service-controller/statuses/aa3f6710324b854e9884a0a39c889d434f478043",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052215731,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjIxNTczMQ==",
+  "state": "success",
+  "description": "Post-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-database-service-controller/PR-4/failsafe-report.html",
+  "context": "Post-deployment tests",
+  "created_at": "2021-02-03T06:37:16Z",
+  "updated_at": "2021-02-03T06:37:16Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
