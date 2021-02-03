@@ -54,13 +54,14 @@ public class EntandoPluginController extends AbstractDbAwareController&lt;Entand
 <span class="fc" id="L54">        DatabaseServiceResult databaseServiceResult = null;</span>
 <span class="fc" id="L55">        DbmsVendor dbmsVendor = newEntandoPlugin.getSpec().getDbms().orElse(DbmsVendor.NONE);</span>
 <span class="fc" id="L56">        databaseServiceResult = prepareDatabaseService(newEntandoPlugin, dbmsVendor);</span>
-<span class="fc" id="L57">        KeycloakConnectionConfig keycloakConnectionConfig = k8sClient.entandoResources().findKeycloak(newEntandoPlugin);</span>
-<span class="fc" id="L58">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
-<span class="fc" id="L59">                keycloakConnectionConfig.getPassword());</span>
-<span class="fc" id="L60">        IngressingDeployCommand&lt;EntandoPluginDeploymentResult&gt; deployPluginServerCommand = new IngressingDeployCommand&lt;&gt;(</span>
+<span class="fc" id="L57">        KeycloakConnectionConfig keycloakConnectionConfig = k8sClient.entandoResources()</span>
+<span class="fc" id="L58">                .findKeycloak(newEntandoPlugin, newEntandoPlugin.getSpec()::getKeycloakToUse);</span>
+<span class="fc" id="L59">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
+<span class="fc" id="L60">                keycloakConnectionConfig.getPassword());</span>
+<span class="fc" id="L61">        IngressingDeployCommand&lt;EntandoPluginDeploymentResult&gt; deployPluginServerCommand = new IngressingDeployCommand&lt;&gt;(</span>
                 new EntandoPluginServerDeployable(databaseServiceResult, keycloakConnectionConfig, newEntandoPlugin));
-<span class="fc" id="L62">        EntandoPluginDeploymentResult result = deployPluginServerCommand.execute(k8sClient, keycloakClient);</span>
-<span class="fc" id="L63">        k8sClient.entandoResources().updateStatus(newEntandoPlugin, result.getStatus());</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L63">        EntandoPluginDeploymentResult result = deployPluginServerCommand.execute(k8sClient, keycloakClient);</span>
+<span class="fc" id="L64">        k8sClient.entandoResources().updateStatus(newEntandoPlugin, result.getStatus());</span>
+<span class="fc" id="L65">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
