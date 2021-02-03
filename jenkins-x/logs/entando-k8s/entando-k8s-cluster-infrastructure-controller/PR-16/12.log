@@ -1,0 +1,862 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-ftlg8[0m
+{"level":"warn","ts":1612336259.9703074,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612336259.9761894,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-pfhxq[0m
+{"level":"warn","ts":1612336270.37402,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612336270.3845336,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-cluster-xngzz[0m
+{"level":"warn","ts":1612336387.7269232,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612336389.0276408,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-cluster-infrastructure-controller.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:3d5d21817fba3c31b23fe33b789ff5b4eda7373c,16:bd36699eff6bb98fdcbceea3b960f9a162e026e6
+DEBUG: ran git fetch --unshallow origin bd36699eff6bb98fdcbceea3b960f9a162e026e6: 3d5d21817fba3c31b23fe33b789ff5b4eda7373c: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 3d5d21817fba3c31b23fe33b789ff5b4eda7373c in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge bd36699eff6bb98fdcbceea3b960f9a162e026e6 in 
+Merged SHA bd36699eff6bb98fdcbceea3b960f9a162e026e6 with commit message 'ENG-1738 using latest baseimage' into base branch master
+Merged SHA d6366dea2f555a88c7a77ddd8a25c5323a0b4291 with commit message 'ENG-1738 cleaned up for latest operator-common' into base branch master
+Merged SHA efc862a07591c509f2ac87ac3ac16bcd853da444 with commit message 'ENG-1738 bumped to latest operator-common' into base branch master
+Merged SHA 1051acb759f8e9bb9677f0e3f1971a0d5d2837e4 with commit message 'ENG-1738 bumped to latest operator-common' into base branch master
+Merged SHA a2795d96d74f7fc59070daa4890faebec0c0f4c4 with commit message 'ENG-1738 rebased to latest baseimage' into base branch master
+Merged SHA ef0610fd0a14c7ba95b30e8a8405359b2c086730 with commit message 'ENG-1738 fi**d the name labels of the Dockerfiles' into base branch master
+Merged SHA 461cfd82b11705114adfd1baf62d4b815dea6b49 with commit message 'ENG-1738 fi**d comments in Dockerfiles' into base branch master
+Merged SHA 9ef6751b8f98b15df84e5ac80dd943ae5c01e20e with commit message 'ENG-1738 suppressed false positives in Sonar' into base branch master
+Merged SHA 85fb4065fe8f9be439843acf82f76e330290e8dd with commit message 'ENG-1738 fi**d tests affected by environment variables in the pipeline' into base branch master
+Merged SHA b315df8ebfe0b9c68727f856e4bd46554ebabfaf with commit message 'ENG-1738 prepared build and docker files for Red Hat certifications' into base branch master
+Merged SHA 23a65a3f08cc7b49213f3ecc49c0716fa1cc3ca9 with commit message 'ENG-1738 using latest operator-common' into base branch master
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< org.entando:entando-k8s-cluster-infrastructure-controller >------
+[INFO] Building Entando K8S Controller for Entando Cluster Infrastructure Deployments 6.3.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando:entando-k8s-cluster-infrastructure-controller:6.3.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-16-12
+[INFO] Processing org.entando:entando-k8s-cluster-infrastructure-controller
+[INFO]     Updating project org.entando:entando-k8s-cluster-infrastructure-controller
+[INFO]         from version 6.3.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-16-12
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.646 s
+[INFO] Finished at: 2021-02-03T07:13:26Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Switched to a new branch 'PR-16'
+M	pom.xml
+Deleted branch master (was bd36699).
+From https://github.com/entando-k8s/entando-k8s-cluster-infrastructure-controller
+ * [new branch]      master     -> master
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052457160,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ1NzE2MA==",
+  "state": "pending",
+  "description": "Pre-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-03T07:13:30Z",
+  "updated_at": "2021-02-03T07:13:30Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1922  100  1685  100   237   1798    252 --:--:-- --:--:-- --:--:--  1807
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1926  100  1687  100   239   2912    412 --:--:-- --:--:-- --:--:--  2913
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052457249,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ1NzI0OQ==",
+  "state": "pending",
+  "description": "Post-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/failsafe-report.html",
+  "context": "Post-deployment tests",
+  "created_at": "2021-02-03T07:13:30Z",
+  "updated_at": "2021-02-03T07:13:30Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1872    0     0  100   212      0    297 --:--:-- --:--:-- --:--:--   297100  1872  100  1660  100   212   2330    297 --:--:-- --:--:-- --:--:--  2331
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052457331,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ1NzMzMQ==",
+  "state": "pending",
+  "description": "Checkstyle pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-02-03T07:13:31Z",
+  "updated_at": "2021-02-03T07:13:31Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1894  100  1671  100   223   2859    381 --:--:-- --:--:-- --:--:--  2886
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052457400,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ1NzQwMA==",
+  "state": "pending",
+  "description": "OWASP CVE pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-02-03T07:13:32Z",
+  "updated_at": "2021-02-03T07:13:32Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< org.entando:entando-k8s-cluster-infrastructure-controller >------
+[INFO] Building Entando K8S Controller for Entando Cluster Infrastructure Deployments 0.0.0-SNAPSHOT-PR-16-12
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /workspace/source/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.clusterinfrastructure.inprocesstests.DeployEntandoClusterInfrastructureTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.684 s - in org.entando.kubernetes.controller.clusterinfrastructure.inprocesstests.DeployEntandoClusterInfrastructureTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-tests.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] No previous run data found, generating javadoc.
+[INFO] Building jar: /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-javadoc.jar
+[INFO] 
+[INFO] --- license-maven-plugin:2.0.0:aggregate-download-licenses (download-licenses) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] skip flag is on, will skip goal.
+[INFO] 
+[INFO] --- quarkus-maven-plugin:1.2.0.Final:build (default) @ entando-k8s-cluster-infrastructure-controller ---
+[WARNING] [io.quarkus.creator.curator.Curator] These dependencies are not recommended:
+	- javax.servlet:javax.servlet-api should be replaced by jakarta.servlet:jakarta.servlet-api
+You might end up with two different versions of the same classes or with an artifact you shouldn't have in your classpath.
+[INFO] [org.jboss.threads] JBoss Threads version 3.0.0.Final
+[WARNING] [io.quarkus.deployment.steps.ReflectiveHierarchyStep] Unable to properly register the hierarchy of the following classes for reflection as they are not in the Jandex index:
+	- org.entando.kubernetes.model.EntandoCustomResourceStatus
+Consider adding them to the index either by creating a Jandex index for your dependency via the Maven plugin, an empty META-INF/beans.xml or quarkus.index-dependency properties.");.
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building thin jar: /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-runner.jar
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 1571ms
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] 
+[INFO] --- dependency-check-maven:6.0.3:aggregate (default) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Checking for updates
+[INFO] Skipping NVD check since last check was within 4 hours.
+[INFO] Check for updates complete (63 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (0 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (1 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Created CPE Index (2 seconds)
+[INFO] Finished CPE Analyzer (4 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[INFO] Finished Sonatype OSS Index Analyzer (1 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Analysis Complete (9 seconds)
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando K8S Controller for Entando Cluster Infrastructure Deployments' with 5 classes
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-cluster-infrastructure-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Installing /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-cluster-infrastructure-controller/0.0.0-SNAPSHOT-PR-16-12/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12.jar
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando-k8s-cluster-infrastructure-controller/0.0.0-SNAPSHOT-PR-16-12/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12.pom
+[INFO] Installing /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-cluster-infrastructure-controller/0.0.0-SNAPSHOT-PR-16-12/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-tests.jar
+[INFO] Installing /workspace/source/target/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-javadoc.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-cluster-infrastructure-controller/0.0.0-SNAPSHOT-PR-16-12/entando-k8s-cluster-infrastructure-controller-0.0.0-SNAPSHOT-PR-16-12-javadoc.jar
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] -----< org.entando:entando-k8s-cluster-infrastructure-controller >------
+[INFO] Building Entando K8S Controller for Entando Cluster Infrastructure Deployments 0.0.0-SNAPSHOT-PR-16-12
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en_US", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=228ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=89ms
+[INFO] Load/download plugins (done) | time=22049ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-cluster-infrastructure-controller'
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-cluster-infrastructure-controller' (done) | time=37ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=2ms
+[INFO] Project key: entando-k8s_entando-k8s-cluster-infrastructure-controller
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=35ms
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-cluster-infrastructure-controller'
+[INFO] Detected project binding: BOUND
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-cluster-infrastructure-controller' (done) | time=19ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=31ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=487ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=76ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1312ms
+[INFO] Organization key: entando-k8s
+[INFO] Pull request 16 for merge into master from ENG-1738_redhat_certification
+[INFO] SCM collecting changed files in the branch
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] SCM collecting changed files in the branch (done) | time=341ms
+[INFO] Indexing files...
+[INFO] Project configuration:
+[INFO] 9 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando K8S Controller for Entando Cluster Infrastructure Deployments
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=27ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=23ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=2ms
+[INFO] Java Main Files AST scan
+[INFO] 5 source files to be analyzed
+[INFO] Java Main Files AST scan (done) | time=3420ms
+[INFO] 5/5 source files have been analyzed
+[INFO] Java Test Files AST scan
+[INFO] 3 source files to be analyzed
+[INFO] Java Test Files AST scan (done) | time=636ms
+[INFO] Java Generated Files AST scan
+[INFO] 0 source files to be analyzed
+[INFO] Java Generated Files AST scan (done) | time=1ms
+[INFO] 3/3 source files have been analyzed
+[INFO] Sensor JavaSquidSensor [java] (done) | time=4513ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=1ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=1ms
+[INFO] 0/0 source files have been analyzed
+[INFO] Sensor Import of Checkstyle issues [java]
+[INFO] Importing /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=79ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=56ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=233ms
+[INFO] Sensor HTML [web]
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor HTML [web] (done) | time=7ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=181ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=4ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=192ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=2ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 87 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 07:15:03.386534 Building Runtime Type propagation graph
+[INFO] 07:15:03.398298 Running Tarjan on 112 nodes
+[INFO] 07:15:03.401237 Tarjan found 112 components
+[INFO] 07:15:03.404672 Variable type analysis: done
+[INFO] 07:15:03.405404 Building Runtime Type propagation graph
+[INFO] 07:15:03.408844 Running Tarjan on 112 nodes
+[INFO] 07:15:03.409538 Tarjan found 112 components
+[INFO] 07:15:03.410207 Variable type analysis: done
+[INFO] Analyzing 38 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 0 Retained UCFGs : 0
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 0
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 0
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=441ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=1ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=35ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 9 source files to be analyzed
+[INFO] SCM Publisher 8/9 source files have been analyzed (done) | time=155ms
+[WARNING] Missing blame information for the following files:
+[WARNING]   * pom.xml
+[WARNING] This may lead to missing/broken features in SonarCloud
+[INFO] CPD E**cutor 1 file had no CPD blocks
+[INFO] CPD E**cutor Calculating CPD for 4 files
+[INFO] CPD E**cutor CPD calculation finished (done) | time=10ms
+[INFO] SCM writing changed lines
+[INFO] SCM writing changed lines (done) | time=94ms
+[INFO] Analysis report generated in 209ms, dir size=260 KB
+[INFO] Analysis report compressed in 33ms, zip size=72 KB
+[INFO] Analysis report uploaded in 165ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando-k8s_entando-k8s-cluster-infrastructure-controller&pullRequest=16
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXdmvp1tnXIMuNREouDu
+[INFO] Analysis total time: 12.065 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:29 min
+[INFO] Finished at: 2021-02-03T07:15:04Z
+[INFO] ------------------------------------------------------------------------
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< org.entando:entando-k8s-cluster-infrastructure-controller >------
+[INFO] Building Entando K8S Controller for Entando Cluster Infrastructure Deployments 0.0.0-SNAPSHOT-PR-16-12
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.026 s
+[INFO] Finished at: 2021-02-03T07:15:15Z
+[INFO] ------------------------------------------------------------------------
+error: etcdserver: request is too large
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1922  100  1685  100   237   2651    372 --:--:-- --:--:-- --:--:--  2649
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052471565,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ3MTU2NQ==",
+  "state": "success",
+  "description": "Pre-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-02-03T07:15:31Z",
+  "updated_at": "2021-02-03T07:15:31Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1872    0     0  100   212      0    338 --:--:-- --:--:-- --:--:--   338100  1872  100  1660  100   212   2649    338 --:--:-- --:--:-- --:--:--  2647
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052471628,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ3MTYyOA==",
+  "state": "success",
+  "description": "Checkstyle success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-02-03T07:15:32Z",
+  "updated_at": "2021-02-03T07:15:32Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052471703,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ3MTcwMw==",
+  "state": "success",
+  "description": "OWASP CVE success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-02-03T07:15:33Z",
+  "updated_at": "2021-02-03T07:15:33Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1894  100  1671  100   223   2818    376 --:--:-- --:--:-- --:--:--  2822
+Congratulations! No build failures found for entando-k8s-cluster-infrastructure-controller-PR-16.
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+Generating tags...
+ - entando/entando-k8s-cluster-infrastructure-controller -> docker.io/entando/entando-k8s-cluster-infrastructure-controller:0.0.0-SNAPSHOT-PR-16-12
+Checking cache...
+ - entando/entando-k8s-cluster-infrastructure-controller: Not found. Building
+Building [entando/entando-k8s-cluster-infrastructure-controller]...
+Sending build context to Docker daemon  146.9kB
+Step 1/7 : FROM entando/entando-k8s-operator-common:6.3.1
+ ---> 1766f844aece
+Step 2/7 : ARG VERSION
+ ---> Using cache
+ ---> 6a4149ee7662
+Step 3/7 : LABEL name "Entando K8S Cluster Infrastructure Controller" vendor "Entando" version "v${VERSION}" release "6" summary "This container processes the EntandoClusterInfrastructure custom resource and deploys the Entando K8S Service." description "This is a run-to-completion container. It processes new EntandoClusterInfrastructure Custom                    Resources and deploys an instance of the Entando K8S Service                    to your cluster. This Entando K8S Service will be  configured to use a previously installed Keycloak Server.                    Subsequent e**cutions of this container against the same EntandoClusterInfrastructure will patch the existing                    deployment resources"
+ ---> Running in 0c57b6e89882
+ ---> 3b1b86524083
+Step 4/7 : ENV JAVA_OPTIONS "-Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+ ---> Running in ba6450fd84a1
+ ---> 26c6a8066cad
+Step 5/7 : ENV AB_ENABLED jmx_exporter
+ ---> Running in 8d0b068bbea7
+ ---> 19d5fc90b9b7
+Step 6/7 : COPY target/*-runner.jar /deployments/app.jar
+ ---> 8ae8084840e1
+Step 7/7 : ENTRYPOINT /deployments/run-java.sh
+ ---> Running in 0b4bf104e9b5
+ ---> 09eda1b47e41
+Successfully built 09eda1b47e41
+The push refers to a repository [docker.io/entando/entando-k8s-cluster-infrastructure-controller]
+bc39f12dcd8e: Preparing
+9c2039494f82: Preparing
+128e365e30f9: Preparing
+712a16020a60: Preparing
+088e643aafac: Preparing
+00af10937683: Preparing
+3aa55ff7bca1: Preparing
+00af10937683: Waiting
+3aa55ff7bca1: Waiting
+088e643aafac: Layer already exists
+00af10937683: Layer already exists
+9c2039494f82: Mounted from entando/entando-k8s-database-service-controller
+712a16020a60: Mounted from entando/entando-k8s-database-service-controller
+128e365e30f9: Mounted from entando/entando-k8s-database-service-controller
+3aa55ff7bca1: Layer already exists
+bc39f12dcd8e: Pushed
+0.0.0-SNAPSHOT-PR-16-12: digest: sha256:5b5a1c344bf4db53da7adca12010148d84bfcc98890a9d82ce254cbe51722993 size: 1791
+There is a new version (1.19.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://charts.helm.sh/stable 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-16-12/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-16-12/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: docker.io\/entando\/entando-k8s-cluster-infrastructure-controller|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-16-12/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-16-12" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Found commit author match for: ampie with email address: ampie.private@gmail.com
+Namespace entando-k8s-cluster-infrastructure-controller-cipr16 created 
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: *************
+    exposer: Ingress
+    http: "****"
+preview:
+  image:
+    repository: docker.io/entando/entando-k8s-cluster-infrastructure-controller
+    tag: 0.0.0-SNAPSHOT-PR-16-12
+
+WARNING: Could not find the service URL in namespace entando-k8s-cluster-infrastructure-controller-cipr16 for names : Timed out after 1m0s, last error: %!s(<nil>)
+Updating PipelineActivities entando-k8s-entando-k8s-cluster-infrastructure-controller-pr-16-12 which has status Running
+WARNING: Failed to find the service entando-k8s-cluster-infrastructure-controller : failed to find service entando-k8s-cluster-infrastructure-controller in namespace entando-k8s-cluster-infrastructure-controller-cipr16: services "entando-k8s-cluster-infrastructure-controller" not found
+
+Showing logs for build [32mentando-k8s-entando-k8s-cluster-t9fjv-12[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-run-post-deployment-tests[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< org.entando:entando-k8s-cluster-infrastructure-controller >------
+[INFO] Building Entando K8S Controller for Entando Cluster Infrastructure Deployments 0.0.0-SNAPSHOT-PR-16-12
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.0.0-M4:integration-test (run-tests) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.clusterinfrastructure.interprocesstests.AddClusterInfrastructureIT
+Feb 03, 2021 7:17:47 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-cluster-infrastructure-controller-cipr16/pg-test
+!!!!!!!On EntandoClusterInfrastructure add!!!!!!!!!
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=containers with unready status: [k8s-svc-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [k8s-svc-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=entando/entando-k8s-service@sha256:f0280ee845571eac1f5b673a67ba757b87e5eac7ca743daab7f3e4f1ac54a1b6, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=k8s-svc-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-02-03T07:18:01Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=containers with unready status: [k8s-svc-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [k8s-svc-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://dbf143ea716dfd0b2df586f903bdf74f9607c2d31007d8613436a689f8c1fc5f, image=docker.io/entando/entando-k8s-service@sha256:f0280ee845571eac1f5b673a67ba757b87e5eac7ca743daab7f3e4f1ac54a1b6, imageID=docker-pullable://docker.io/entando/entando-k8s-service@sha256:f0280ee845571eac1f5b673a67ba757b87e5eac7ca743daab7f3e4f1ac54a1b6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=k8s-svc-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-02-03T07:18:11Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.1.66, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-02-03T07:18:01Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:44Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-02-03T07:18:01Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://dbf143ea716dfd0b2df586f903bdf74f9607c2d31007d8613436a689f8c1fc5f, image=docker.io/entando/entando-k8s-service@sha256:f0280ee845571eac1f5b673a67ba757b87e5eac7ca743daab7f3e4f1ac54a1b6, imageID=docker-pullable://docker.io/entando/entando-k8s-service@sha256:f0280ee845571eac1f5b673a67ba757b87e5eac7ca743daab7f3e4f1ac54a1b6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=k8s-svc-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-02-03T07:18:11Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.1.66, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-02-03T07:18:01Z, additionalProperties={})
+Finished: eti-cipr16-k8s-svc-deployment-86bbc9dc5c-9th26
+200:null
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 63.441 s - in org.entando.kubernetes.controller.clusterinfrastructure.interprocesstests.AddClusterInfrastructureIT
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-cluster-infrastructure-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-cluster-infrastructure-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.0.0-M4:verify (run-tests) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-cluster-infrastructure-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:13 min
+[INFO] Finished at: 2021-02-03T07:18:49Z
+[INFO] ------------------------------------------------------------------------
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1926  100  1687  100   239   2774    393 --:--:-- --:--:-- --:--:--  2779
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-cluster-infrastructure-controller/statuses/bd36699eff6bb98fdcbceea3b960f9a162e026e6",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 12052497884,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMjA1MjQ5Nzg4NA==",
+  "state": "success",
+  "description": "Post-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-cluster-infrastructure-controller/PR-16/failsafe-report.html",
+  "context": "Post-deployment tests",
+  "created_at": "2021-02-03T07:19:06Z",
+  "updated_at": "2021-02-03T07:19:06Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
