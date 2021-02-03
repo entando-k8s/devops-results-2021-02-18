@@ -17,13 +17,13 @@
 package org.entando.kubernetes.controller.app;
 
 import io.fabric8.kubernetes.api.model.EnvVar;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import org.entando.kubernetes.controller.spi.DeployableContainer;
-import org.entando.kubernetes.controller.spi.IngressingContainer;
-import org.entando.kubernetes.controller.spi.ParameterizableContainer;
-import org.entando.kubernetes.controller.spi.TlsAware;
-import org.entando.kubernetes.model.EntandoIngressingDeploymentSpec;
+import org.entando.kubernetes.controller.spi.container.DeployableContainer;
+import org.entando.kubernetes.controller.spi.container.IngressingContainer;
+import org.entando.kubernetes.controller.spi.container.ParameterizableContainer;
+import org.entando.kubernetes.controller.spi.container.TlsAware;
 import org.entando.kubernetes.model.app.EntandoApp;
 
 public class AppBuilderDeployableContainer implements DeployableContainer, IngressingContainer, TlsAware, ParameterizableContainer {
@@ -71,13 +71,15 @@ public class AppBuilderDeployableContainer implements DeployableContainer, Ingre
     }
 
     @Override
-    public void addEnvironmentVariables(List&lt;EnvVar&gt; vars) {
-<span class="fc" id="L75">        vars.add(new EnvVar(&quot;DOMAIN&quot;, entandoApp.getSpec().getIngressPath().orElse(&quot;/entando-de-app&quot;), null));</span>
-<span class="fc" id="L76">    }</span>
+    public List&lt;EnvVar&gt; getEnvironmentVariables() {
+<span class="fc" id="L75">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L76">        vars.add(new EnvVar(&quot;DOMAIN&quot;, entandoApp.getSpec().getIngressPath().orElse(&quot;/entando-de-app&quot;), null));</span>
+<span class="fc" id="L77">        return vars;</span>
+    }
 
     @Override
-    public EntandoIngressingDeploymentSpec getCustomResourceSpec() {
-<span class="fc" id="L80">        return this.entandoApp.getSpec();</span>
+    public List&lt;EnvVar&gt; getEnvironmentVariableOverrides() {
+<span class="fc" id="L82">        return entandoApp.getSpec().getEnvironmentVariables();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

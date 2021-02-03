@@ -34,7 +34,6 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L34">    DEFAULT(&quot;org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker&quot;,</span>
             &quot;org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter&quot;);
 
-
     /**
      * contains full class name responsible to check for connection validity.
      */
@@ -45,40 +44,40 @@ import org.entando.kubernetes.model.DbmsVendor;
      */
     private final String exceptionSorterClassName;
 
-
-<span class="fc" id="L49">    JbossDatasourceValidation(String validConnectionCheckerClassName, String exceptionSorterClassName) {</span>
-<span class="fc" id="L50">        this.validConnectionCheckerClassName = validConnectionCheckerClassName;</span>
-<span class="fc" id="L51">        this.exceptionSorterClassName = exceptionSorterClassName;</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L47">    JbossDatasourceValidation(String validConnectionCheckerClassName, String exceptionSorterClassName) {</span>
+<span class="fc" id="L48">        this.validConnectionCheckerClassName = validConnectionCheckerClassName;</span>
+<span class="fc" id="L49">        this.exceptionSorterClassName = exceptionSorterClassName;</span>
+<span class="fc" id="L50">    }</span>
 
     public String getValidConnectionCheckerClassName() {
-<span class="fc" id="L55">        return validConnectionCheckerClassName;</span>
+<span class="fc" id="L53">        return validConnectionCheckerClassName;</span>
     }
 
     public String getExceptionSorterClassName() {
-<span class="fc" id="L59">        return exceptionSorterClassName;</span>
+<span class="fc" id="L57">        return exceptionSorterClassName;</span>
     }
 
     /**
      * receives a DbmsVendor and returns the corresponing JbossDatasourceValidation.
+     *
      * @param dbmsVendor the DbmsVendor on which switch
      * @return the corresponing JbossDatasourceValidation
      */
     public static JbossDatasourceValidation getValidConnectionCheckerClass(DbmsVendor dbmsVendor) {
 
-<span class="pc bpc" id="L69" title="2 of 4 branches missed.">        switch (Optional.ofNullable(dbmsVendor).orElse(DbmsVendor.NONE)) {</span>
+<span class="pc bpc" id="L68" title="2 of 4 branches missed.">        switch (Optional.ofNullable(dbmsVendor).orElse(DbmsVendor.NONE)) {</span>
 
             case MYSQL:
-<span class="fc" id="L72">                return MYSQL;</span>
+<span class="fc" id="L71">                return MYSQL;</span>
 
             case ORACLE:
-<span class="fc" id="L75">                return ORACLE;</span>
+<span class="fc" id="L74">                return ORACLE;</span>
 
             case POSTGRESQL:
-<span class="nc" id="L78">                return POSTGRESQL;</span>
+<span class="nc" id="L77">                return POSTGRESQL;</span>
 
             default:
-<span class="nc" id="L81">                return DEFAULT;</span>
+<span class="nc" id="L80">                return DEFAULT;</span>
         }
     }
 

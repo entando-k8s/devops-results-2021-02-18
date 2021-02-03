@@ -19,13 +19,12 @@ package org.entando.kubernetes.controller.app;
 import io.fabric8.kubernetes.api.model.Pod;
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.extensions.Ingress;
-import org.entando.kubernetes.controller.ExposedDeploymentResult;
+import org.entando.kubernetes.controller.spi.result.ExposedDeploymentResult;
 
 public class EntandoAppDeploymentResult extends ExposedDeploymentResult&lt;EntandoAppDeploymentResult&gt; {
 
-    public EntandoAppDeploymentResult(Pod pod, Service service,
-            Ingress ingress) {
-<span class="fc" id="L28">        super(pod, service, ingress);</span>
-<span class="fc" id="L29">    }</span>
+    public EntandoAppDeploymentResult(Pod pod, Service service, Ingress ingress) {
+<span class="fc" id="L27">        super(pod, service, ingress);</span>
+<span class="fc" id="L28">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
