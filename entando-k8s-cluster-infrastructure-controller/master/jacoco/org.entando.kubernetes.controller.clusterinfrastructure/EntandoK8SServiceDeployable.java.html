@@ -18,8 +18,8 @@ package org.entando.kubernetes.controller.clusterinfrastructure;
 
 import java.util.Arrays;
 import java.util.List;
-import org.entando.kubernetes.controller.KeycloakConnectionConfig;
-import org.entando.kubernetes.controller.spi.DeployableContainer;
+import org.entando.kubernetes.controller.spi.container.DeployableContainer;
+import org.entando.kubernetes.controller.spi.container.KeycloakConnectionConfig;
 import org.entando.kubernetes.model.infrastructure.EntandoClusterInfrastructure;
 
 public class EntandoK8SServiceDeployable extends InfrastructureDeployableBase {
@@ -33,7 +33,7 @@ public class EntandoK8SServiceDeployable extends InfrastructureDeployableBase {
 <span class="fc" id="L33">    }</span>
 
     @Override
-    public String getServiceAccountName() {
+    public String getDefaultServiceAccountName() {
 <span class="fc" id="L37">        return &quot;entando-k8s-service&quot;;</span>
     }
 
@@ -50,6 +50,11 @@ public class EntandoK8SServiceDeployable extends InfrastructureDeployableBase {
     @Override
     public String getNameQualifier() {
 <span class="fc" id="L52">        return &quot;k8s-svc&quot;;</span>
+    }
+
+    @Override
+    public String getServiceAccountToUse() {
+<span class="fc" id="L57">        return this.entandoClusterInfrastructure.getSpec().getServiceAccountToUse().orElse(getDefaultServiceAccountName());</span>
     }
 
 }
