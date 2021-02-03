@@ -20,15 +20,13 @@ import io.fabric8.kubernetes.client.ConfigBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import javax.enterprise.inject.Produces;
-import org.entando.kubernetes.controller.EntandoOperatorConfig;
 
-<span class="nc" id="L25">public class KubernetesClientProducer {</span>
+<span class="nc" id="L24">public class KubernetesClientProducer {</span>
 
     @Produces
     public KubernetesClient produce() {
-<span class="nc" id="L29">        ConfigBuilder configBuilder = new ConfigBuilder().withTrustCerts(true).withRequestTimeout(30000).withConnectionTimeout(30000);</span>
-<span class="nc" id="L30">        EntandoOperatorConfig.getOperatorNamespaceToObserve().ifPresent(configBuilder::withNamespace);</span>
-<span class="nc" id="L31">        return new DefaultKubernetesClient(configBuilder.build());</span>
+<span class="nc" id="L28">        ConfigBuilder configBuilder = new ConfigBuilder().withTrustCerts(true).withRequestTimeout(30000).withConnectionTimeout(30000);</span>
+<span class="nc" id="L29">        return new DefaultKubernetesClient(configBuilder.build());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

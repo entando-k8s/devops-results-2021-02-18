@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DatabaseDeployable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Operator Common Library</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.controller.spi.database</a> &gt; <span class="el_source">DatabaseDeployable.java</span></div><h1>DatabaseDeployable.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.controller.spi.database;
+
+import static java.lang.String.format;
+
+import io.fabric8.kubernetes.api.model.EnvVar;
+import io.fabric8.kubernetes.api.model.Pod;
+import io.fabric8.kubernetes.api.model.Secret;
+import io.fabric8.kubernetes.api.model.Service;
+import io.fabric8.kubernetes.api.model.apps.Deployment;
+import io.fabric8.kubernetes.api.model.extensions.Ingress;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import org.entando.kubernetes.controller.spi.common.DbmsDockerVendorStrategy;
+import org.entando.kubernetes.controller.spi.common.NameUtils;
+import org.entando.kubernetes.controller.spi.common.SecretUtils;
+import org.entando.kubernetes.controller.spi.container.DeployableContainer;
+import org.entando.kubernetes.controller.spi.deployable.Deployable;
+import org.entando.kubernetes.controller.spi.deployable.Secretive;
+import org.entando.kubernetes.model.EntandoCustomResource;
+
+public class DatabaseDeployable implements Deployable&lt;DatabaseDeploymentResult&gt;, Secretive {
+
+    private final DbmsDockerVendorStrategy dbmsVendor;
+    private final EntandoCustomResource customResource;
+    protected List&lt;DeployableContainer&gt; containers;
+
+<span class="fc" id="L44">    public DatabaseDeployable(DbmsDockerVendorStrategy dbmsVendor, EntandoCustomResource customResource, Integer portOverride) {</span>
+<span class="fc" id="L45">        this.dbmsVendor = dbmsVendor;</span>
+<span class="fc" id="L46">        this.customResource = customResource;</span>
+<span class="fc" id="L47">        this.containers = Collections.singletonList(new DatabaseContainer(buildVariableInitializer(dbmsVendor), dbmsVendor, portOverride));</span>
+<span class="fc" id="L48">    }</span>
+
+    @Override
+    public String getServiceAccountToUse() {
+<span class="fc" id="L52">        return getDefaultServiceAccountName();</span>
+    }
+
+    private DatabaseVariableInitializer buildVariableInitializer(DbmsDockerVendorStrategy vendorStrategy) {
+<span class="pc bpc" id="L56" title="1 of 3 branches missed.">        switch (vendorStrategy) {</span>
+            case CENTOS_MYSQL:
+            case RHEL_MYSQL:
+<span class="fc" id="L59">                return vars -&gt;</span>
+                        //No DB creation. Dbs are created during schema creation
+<span class="fc" id="L61">                        vars.add(new EnvVar(&quot;MYSQL_ROOT_PASSWORD&quot;, null,</span>
+<span class="fc" id="L62">                                SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
+            case CENTOS_POSTGRESQL:
+            case RHEL_POSTGRESQL:
+<span class="fc" id="L65">                return vars -&gt; {</span>
+<span class="fc" id="L66">                    vars.add(new EnvVar(&quot;POSTGRESQL_DATABASE&quot;, getDatabaseName(), null));</span>
+                    // This username will not be used, as we will be creating schema/user pairs,
+                    // but without it the DB isn't created.
+<span class="fc" id="L69">                    vars.add(new EnvVar(&quot;POSTGRESQL_USER&quot;, getDatabaseName() + &quot;_user&quot;, null));</span>
+<span class="fc" id="L70">                    vars.add(new EnvVar(&quot;POSTGRESQL_PASSWORD&quot;, null,</span>
+<span class="fc" id="L71">                            SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
+<span class="fc" id="L72">                    vars.add(new EnvVar(&quot;POSTGRESQL_ADMIN_PASSWORD&quot;, null,</span>
+<span class="fc" id="L73">                            SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
+
+<span class="fc" id="L75">                };</span>
+            default:
+<span class="nc" id="L77">                throw new IllegalStateException(</span>
+<span class="nc" id="L78">                        format(&quot;The DBMS %s not supported for containerized deployments&quot;, vendorStrategy.getName()));</span>
+        }
+    }
+
+    @Override
+    public Optional&lt;Long&gt; getFileSystemUserAndGroupId() {
+<span class="fc" id="L84">        return dbmsVendor.getFileSystemUserGroupid();</span>
+    }
+
+    @Override
+    public List&lt;DeployableContainer&gt; getContainers() {
+<span class="fc" id="L89">        return containers;</span>
+    }
+
+    @Override
+    public String getNameQualifier() {
+<span class="fc" id="L94">        return NameUtils.DB_NAME_QUALIFIER;</span>
+    }
+
+    @Override
+    public EntandoCustomResource getCustomResource() {
+<span class="fc" id="L99">        return customResource;</span>
+    }
+
+    @Override
+    public DatabaseDeploymentResult createResult(Deployment deployment, Service service, Ingress ingress, Pod pod) {
+<span class="fc" id="L104">        return new DatabaseDeploymentResult(service, dbmsVendor, getDatabaseName(), getDatabaseAdminSecretName(), pod);</span>
+    }
+
+    @Override
+    public List&lt;Secret&gt; getSecrets() {
+<span class="fc" id="L109">        Secret secret = SecretUtils.generateSecret(</span>
+                customResource,
+<span class="fc" id="L111">                getDatabaseAdminSecretName(),</span>
+<span class="fc" id="L112">                dbmsVendor.getDefaultAdminUsername()</span>
+        );
+<span class="fc" id="L114">        return Collections.singletonList(secret);</span>
+    }
+
+    protected String getDatabaseAdminSecretName() {
+<span class="fc" id="L118">        return ExternalDatabaseDeployment.adminSecretName(customResource, getNameQualifier());</span>
+    }
+
+    protected String getDatabaseName() {
+<span class="fc" id="L122">        return NameUtils.databaseCompliantName(customResource, getNameQualifier(), dbmsVendor.getVendorConfig());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

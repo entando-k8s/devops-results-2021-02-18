@@ -21,11 +21,11 @@ import okhttp3.Response;
 
 public class EntandoExecListener implements ExecListener {
 
-<span class="fc" id="L24">    private long start = System.currentTimeMillis();</span>
-<span class="fc" id="L25">    private boolean failed = false;</span>
-<span class="fc" id="L26">    boolean shouldStillWait = true;</span>
-    private Object mutex;
-    private int timeoutSeconds;
+    private final Object mutex;
+    private final int timeoutSeconds;
+<span class="fc" id="L26">    private final long start = System.currentTimeMillis();</span>
+<span class="fc" id="L27">    private boolean failed = false;</span>
+<span class="fc" id="L28">    boolean shouldStillWait = true;</span>
 
 <span class="fc" id="L30">    public EntandoExecListener(Object mutex, int timeoutSeconds) {</span>
 <span class="fc" id="L31">        this.mutex = mutex;</span>
@@ -55,7 +55,7 @@ public class EntandoExecListener implements ExecListener {
 <span class="fc" id="L55">    }</span>
 
     public boolean shouldStillWait() {
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000) {</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000L) {</span>
 <span class="nc" id="L59">            failed = true;</span>
 <span class="nc" id="L60">            shouldStillWait = false;</span>
 <span class="nc" id="L61">            return false;</span>
