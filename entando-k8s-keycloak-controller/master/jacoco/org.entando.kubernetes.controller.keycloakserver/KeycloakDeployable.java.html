@@ -16,7 +16,7 @@
 
 package org.entando.kubernetes.controller.keycloakserver;
 
-import static org.entando.kubernetes.controller.KubeUtils.generateSecret;
+import static org.entando.kubernetes.controller.spi.common.SecretUtils.generateSecret;
 
 import io.fabric8.kubernetes.api.model.Pod;
 import io.fabric8.kubernetes.api.model.Secret;
@@ -24,33 +24,33 @@ import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.apps.Deployment;
 import io.fabric8.kubernetes.api.model.extensions.Ingress;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import org.entando.kubernetes.controller.KubeUtils;
-import org.entando.kubernetes.controller.database.DatabaseServiceResult;
-import org.entando.kubernetes.controller.spi.DbAwareDeployable;
-import org.entando.kubernetes.controller.spi.DeployableContainer;
-import org.entando.kubernetes.controller.spi.IngressingDeployable;
-import org.entando.kubernetes.controller.spi.Secretive;
-import org.entando.kubernetes.model.DbmsVendor;
+import org.entando.kubernetes.controller.spi.common.NameUtils;
+import org.entando.kubernetes.controller.spi.container.DeployableContainer;
+import org.entando.kubernetes.controller.spi.deployable.DbAwareDeployable;
+import org.entando.kubernetes.controller.spi.deployable.Secretive;
+import org.entando.kubernetes.controller.spi.result.DatabaseServiceResult;
+import org.entando.kubernetes.controller.support.spibase.IngressingDeployableBase;
 import org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServer;
-import org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServerSpec;
+import org.entando.kubernetes.model.keycloakserver.StandardKeycloakImage;
 
-public class KeycloakDeployable implements IngressingDeployable&lt;KeycloakServiceDeploymentResult, EntandoKeycloakServerSpec&gt;,
-        DbAwareDeployable,
+public class KeycloakDeployable
+        implements IngressingDeployableBase&lt;KeycloakServiceDeploymentResult&gt;, DbAwareDeployable&lt;KeycloakServiceDeploymentResult&gt;,
         Secretive {
 
+    public static final long KEYCLOAK_IMAGE_DEFAULT_USERID = 1000L;
+    public static final long REDHAT_SSO_IMAGE_DEFAULT_USERID = 185L;
     private final EntandoKeycloakServer keycloakServer;
     private final List&lt;DeployableContainer&gt; containers;
-    private final DatabaseServiceResult databaseServiceResult;
     private final Secret keycloakAdminSecret;
 
     public KeycloakDeployable(EntandoKeycloakServer keycloakServer,
             DatabaseServiceResult databaseServiceResult,
-<span class="fc" id="L50">            Secret existingKeycloakAdminSecret) {</span>
-<span class="fc" id="L51">        this.keycloakServer = keycloakServer;</span>
-<span class="fc" id="L52">        this.databaseServiceResult = databaseServiceResult;</span>
-<span class="fc" id="L53">        this.containers = Arrays.asList(new KeycloakDeployableContainer(keycloakServer, databaseServiceResult));</span>
+<span class="fc" id="L51">            Secret existingKeycloakAdminSecret) {</span>
+<span class="fc" id="L52">        this.keycloakServer = keycloakServer;</span>
+<span class="fc" id="L53">        this.containers = Collections.singletonList(new KeycloakDeployableContainer(keycloakServer, databaseServiceResult));</span>
 <span class="fc" id="L54">        this.keycloakAdminSecret = generateSecret(</span>
                 this.keycloakServer,
 <span class="fc" id="L56">                KeycloakDeployableContainer.secretName(this.keycloakServer),</span>
@@ -60,58 +60,57 @@ public class KeycloakDeployable implements IngressingDeployable&lt;KeycloakServi
 <span class="fc" id="L60">    }</span>
 
     @Override
-    public boolean hasContainersExpectingSchemas() {
-<span class="pc bpc" id="L64" title="1 of 4 branches missed.">        return keycloakServer.getSpec().getDbms().map(v -&gt; v != DbmsVendor.NONE &amp;&amp; v != DbmsVendor.EMBEDDED).orElse(false);</span>
-    }
-
-    @Override
     public Optional&lt;Long&gt; getFileSystemUserAndGroupId() {
-<span class="nc" id="L69">        return Optional.of(1000L);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (EntandoKeycloakHelper.determineStandardImage(keycloakServer) == StandardKeycloakImage.KEYCLOAK) {</span>
+<span class="fc" id="L65">            return Optional.of(KEYCLOAK_IMAGE_DEFAULT_USERID);</span>
+        } else {
+<span class="fc" id="L67">            return Optional.of(REDHAT_SSO_IMAGE_DEFAULT_USERID);</span>
+        }
     }
 
     @Override
     public List&lt;DeployableContainer&gt; getContainers() {
-<span class="fc" id="L74">        return containers;</span>
-    }
-
-    @Override
-    public DatabaseServiceResult getDatabaseServiceResult() {
-<span class="fc" id="L79">        return databaseServiceResult;</span>
+<span class="fc" id="L73">        return containers;</span>
     }
 
     @Override
     public String getNameQualifier() {
-<span class="fc" id="L84">        return KubeUtils.DEFAULT_SERVER_QUALIFIER;</span>
+<span class="fc" id="L78">        return NameUtils.DEFAULT_SERVER_QUALIFIER;</span>
     }
 
     @Override
     public EntandoKeycloakServer getCustomResource() {
-<span class="fc" id="L89">        return keycloakServer;</span>
+<span class="fc" id="L83">        return keycloakServer;</span>
     }
 
     @Override
     public KeycloakServiceDeploymentResult createResult(Deployment deployment, Service service, Ingress ingress, Pod pod) {
-<span class="fc" id="L94">        return new KeycloakServiceDeploymentResult(pod, service, ingress);</span>
+<span class="fc" id="L88">        return new KeycloakServiceDeploymentResult(pod, service, ingress);</span>
+    }
+
+    @Override
+    public String getServiceAccountToUse() {
+<span class="fc" id="L93">        return keycloakServer.getSpec().getServiceAccountToUse().orElse(getDefaultServiceAccountName());</span>
     }
 
     @Override
     public int getReplicas() {
-<span class="fc" id="L99">        return keycloakServer.getSpec().getReplicas().orElse(1);</span>
+<span class="fc" id="L98">        return keycloakServer.getSpec().getReplicas().orElse(1);</span>
     }
 
     @Override
     public String getIngressName() {
-<span class="fc" id="L104">        return KubeUtils.standardIngressName(keycloakServer);</span>
+<span class="fc" id="L103">        return NameUtils.standardIngressName(keycloakServer);</span>
     }
 
     @Override
     public String getIngressNamespace() {
-<span class="fc" id="L109">        return keycloakServer.getMetadata().getNamespace();</span>
+<span class="fc" id="L108">        return keycloakServer.getMetadata().getNamespace();</span>
     }
 
     @Override
-    public List&lt;Secret&gt; buildSecrets() {
-<span class="fc" id="L114">        return Arrays.asList(keycloakAdminSecret);</span>
+    public List&lt;Secret&gt; getSecrets() {
+<span class="fc" id="L113">        return Arrays.asList(keycloakAdminSecret);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
