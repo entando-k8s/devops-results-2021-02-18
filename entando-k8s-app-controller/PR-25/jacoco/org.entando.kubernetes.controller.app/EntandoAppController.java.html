@@ -52,24 +52,25 @@ public class EntandoAppController extends AbstractDbAwareController&lt;EntandoAp
 
     @Override
     protected void synchronizeDeploymentState(EntandoApp entandoApp) {
-<span class="fc" id="L55">        KeycloakConnectionConfig keycloakConnectionConfig = k8sClient.entandoResources().findKeycloak(entandoApp);</span>
-<span class="fc" id="L56">        DatabaseServiceResult databaseServiceResult = prepareDatabaseService(entandoApp, entandoApp.getSpec().getDbms().orElse(</span>
+<span class="fc" id="L55">        KeycloakConnectionConfig keycloakConnectionConfig = k8sClient.entandoResources()</span>
+<span class="fc" id="L56">                .findKeycloak(entandoApp, entandoApp.getSpec()::getKeycloakToUse);</span>
+<span class="fc" id="L57">        DatabaseServiceResult databaseServiceResult = prepareDatabaseService(entandoApp, entandoApp.getSpec().getDbms().orElse(</span>
                 DbmsVendor.EMBEDDED));
-<span class="fc" id="L58">        EntandoAppDeploymentResult entandoAppDeployment = performDeployCommand(</span>
+<span class="fc" id="L59">        EntandoAppDeploymentResult entandoAppDeployment = performDeployCommand(</span>
                 new EntandoAppServerDeployable(entandoApp, keycloakConnectionConfig, databaseServiceResult)
         );
-<span class="fc" id="L61">        performDeployCommand(new AppBuilderDeployable(entandoApp, keycloakConnectionConfig));</span>
-<span class="fc" id="L62">        InfrastructureConfig infrastructureConfig = k8sClient.entandoResources().findInfrastructureConfig(entandoApp).orElse(null);</span>
-<span class="fc" id="L63">        performDeployCommand(</span>
+<span class="fc" id="L62">        performDeployCommand(new AppBuilderDeployable(entandoApp, keycloakConnectionConfig));</span>
+<span class="fc" id="L63">        InfrastructureConfig infrastructureConfig = k8sClient.entandoResources().findInfrastructureConfig(entandoApp).orElse(null);</span>
+<span class="fc" id="L64">        performDeployCommand(</span>
                 new ComponentManagerDeployable(entandoApp, keycloakConnectionConfig, infrastructureConfig, databaseServiceResult,
                         entandoAppDeployment)
         );
-<span class="fc" id="L67">    }</span>
+<span class="fc" id="L68">    }</span>
 
     private EntandoAppDeploymentResult performDeployCommand(AbstractEntandoAppDeployable deployable) {
-<span class="fc" id="L70">        EntandoAppDeploymentResult result = new IngressingDeployCommand&lt;&gt;(deployable).execute(k8sClient, keycloakClient);</span>
-<span class="fc" id="L71">        k8sClient.entandoResources().updateStatus(deployable.getCustomResource(), result.getStatus());</span>
-<span class="fc" id="L72">        return result;</span>
+<span class="fc" id="L71">        EntandoAppDeploymentResult result = new IngressingDeployCommand&lt;&gt;(deployable).execute(k8sClient, keycloakClient);</span>
+<span class="fc" id="L72">        k8sClient.entandoResources().updateStatus(deployable.getCustomResource(), result.getStatus());</span>
+<span class="fc" id="L73">        return result;</span>
     }
 
 }
