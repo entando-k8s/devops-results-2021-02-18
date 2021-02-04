@@ -69,30 +69,34 @@ public class PluginDescriptor implements Descriptor {
      * The ingress path to assign to the current plugin. If not specified it will be composed by the image name
      */
     private String ingressPath;
+    /**
+     * The security level to apply to the current plugin.
+     */
+    private String securityLevel;
 
 
     public DockerImage getDockerImage() {
-<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (dockerImage == null) {</span>
-<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (!isVersion1()) {</span>
-<span class="fc" id="L77">                this.dockerImage = DockerImage.fromString(this.image);</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (dockerImage == null) {</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (!isVersion1()) {</span>
+<span class="fc" id="L81">                this.dockerImage = DockerImage.fromString(this.image);</span>
             } else {
-<span class="fc" id="L79">                this.dockerImage = DockerImage.fromString(this.spec.getImage());</span>
+<span class="fc" id="L83">                this.dockerImage = DockerImage.fromString(this.spec.getImage());</span>
             }
         }
-<span class="fc" id="L82">        return this.dockerImage;</span>
+<span class="fc" id="L86">        return this.dockerImage;</span>
     }
 
     public boolean isVersion1() {
-<span class="fc" id="L86">        return StringUtils.isEmpty(image);</span>
+<span class="fc" id="L90">        return StringUtils.isEmpty(image);</span>
     }
 
     @Override
     public ComponentKey getComponentKey() {
-<span class="fc" id="L91">        return new ComponentKey(BundleUtilities.extractNameFromDescriptor(this));</span>
+<span class="fc" id="L95">        return new ComponentKey(BundleUtilities.extractNameFromDescriptor(this));</span>
     }
 
     public String generateDeploymentBaseNameNotTruncated() {
-<span class="fc" id="L95">        return BundleUtilities.composeDeploymentBaseName(this);</span>
+<span class="fc" id="L99">        return BundleUtilities.composeDeploymentBaseName(this);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
