@@ -1,0 +1,966 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-dcjr2[0m
+{"level":"warn","ts":1612436196.8614843,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612436196.8764596,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-t5r8k[0m
+{"level":"warn","ts":1612436203.1469414,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612436203.1737964,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-service-4znw2[0m
+{"level":"warn","ts":1612436242.7413201,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612436244.1665108,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-service.git @ v6.3.0 in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:945602f6d4f4b4a907e831cbdd16b2f6fdc4bcea
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fetch-history-for-sonar[0m
+From https://github.com/entando-k8s/entando-k8s-service
+ * [new branch]      ENG-1485_plugin-override-keeping-old-link -> origin/ENG-1485_plugin-override-keeping-old-link
+ * [new branch]      ENG-1713-update-image -> origin/ENG-1713-update-image
+ * [new branch]      ENG-249_fix-plugin-info-endpoint -> origin/ENG-249_fix-plugin-info-endpoint
+ * [new branch]      ENG-337_track-plugin-link-deployment-status -> origin/ENG-337_track-plugin-link-deployment-status
+ * [new branch]      ENG-451_clean-env-when-plugin-deployemtn-fails -> origin/ENG-451_clean-env-when-plugin-deployemtn-fails
+ * [new branch]      ENG-881_switch-to-entando-component-bundle -> origin/ENG-881_switch-to-entando-component-bundle
+ * [new branch]      badges-on-readme      -> origin/badges-on-readme
+ * [new branch]      fix-pom-test-plugins  -> origin/fix-pom-test-plugins
+ * [new branch]      master                -> origin/master
+ * [new branch]      owners-update         -> origin/owners-update
+ * [new tag]         v6.0.17.1             -> v6.0.17.1
+ * [new tag]         v6.3.0                -> v6.3.0
+ * [new tag]         v6.0.1                -> v6.0.1
+ * [new tag]         v6.0.17               -> v6.0.17
+
+Showing logs for build [32mentando-k8s-entando-k8s-service-xvbq2-22[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-deploy-release[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.entando:entando-k8s-service >-------------------
+[INFO] Building Entando Kubernetes Service 6.3.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ entando-k8s-service ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-service ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-service ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-service ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-service ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 38 source files to /workspace/source/target/classes
+[WARNING] /workspace/source/src/main/java/org/entando/kubernetes/service/EntandoKubernetesResourceCollector.java:[38,25] unchecked method invocation: method toArray in interface java.util.stream.Stream is applied to given types
+  required: java.util.function.IntFunction<A[]>
+  found: java.util.function.IntFunction<java.util.concurrent.CompletableFuture[]>
+[WARNING] /workspace/source/src/main/java/org/entando/kubernetes/service/EntandoKubernetesResourceCollector.java:[38,25] unchecked conversion
+  required: java.util.concurrent.CompletableFuture<java.util.List<T>>[]
+  found:    java.util.concurrent.CompletableFuture[]
+[INFO] /workspace/source/src/main/java/org/entando/kubernetes/security/oauth2/JwtAuthorityExtractor.java: /workspace/source/src/main/java/org/entando/kubernetes/security/oauth2/JwtAuthorityExtractor.java uses or overrides a deprecated API.
+[INFO] /workspace/source/src/main/java/org/entando/kubernetes/security/oauth2/JwtAuthorityExtractor.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-service ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /workspace/source/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-service ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.ObservedNamespaceControllerTest
+10:58:19.852 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+10:58:19.883 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+10:58:19.959 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [org.entando.kubernetes.controller.ObservedNamespaceControllerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+10:58:19.998 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.entando.kubernetes.controller.ObservedNamespaceControllerTest], using SpringBootContextLoader
+10:58:20.007 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [org.entando.kubernetes.controller.ObservedNamespaceControllerTest]: class path resource [org/entando/kubernetes/controller/ObservedNamespaceControllerTest-context.xml] does not exist
+10:58:20.009 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [org.entando.kubernetes.controller.ObservedNamespaceControllerTest]: class path resource [org/entando/kubernetes/controller/ObservedNamespaceControllerTestContext.groovy] does not exist
+10:58:20.010 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [org.entando.kubernetes.controller.ObservedNamespaceControllerTest]: no resource found for suffi**s {-context.xml, Context.groovy}.
+10:58:20.451 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestE**cutionListeners is not present for class [org.entando.kubernetes.controller.ObservedNamespaceControllerTest]: using defaults.
+10:58:20.455 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener, org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener, org.springframework.test.context.event.EventPublishingTestE**cutionListener, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener]
+10:58:20.495 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestE**cutionListener [org.springframework.test.context.transaction.TransactionalTestE**cutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+10:58:20.497 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestE**cutionListener [org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+10:58:20.503 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@5f1db390, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@78c5ef58, org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener@1fce6eb4, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestE**cutionListener@7d44eab, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@35e7fcf2, org.springframework.test.context.event.EventPublishingTestE**cutionListener@620f7a39, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener@e581302, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener@2b5ca574, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener@21d6dc81, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener@3891b430, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener@769f6023, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener@38a61c81, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener@2f03fdc0]
+10:58:20.509 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestE**cutionListener - Before test class: context [DefaultTestContext@a36ff0b testClass = ObservedNamespaceControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1ecf784f testClass = ObservedNamespaceControllerTest, locations = '{}', classes = '{class org.entando.kubernetes.EntandoKubernetesJavaApplication, class org.entando.kubernetes.config.TestSecurityConfiguration, class org.entando.kubernetes.config.TestKubernetesConfig, class org.entando.kubernetes.config.TestJwtDecoderConfig, class org.entando.kubernetes.EntandoKubernetesJavaApplication, class org.entando.kubernetes.config.TestSecurityConfiguration, class org.entando.kubernetes.config.TestKubernetesConfig, class org.entando.kubernetes.config.TestJwtDecoderConfig}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=****, server.port=0}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3661b732, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4bceac99, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6e617c0e, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6e7fa4b0, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestE**cutionListener.activateListener' -> false]], class annotated with @DirtiesContext [false] with mode [null].
+10:58:20.531 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestE**cutionListener - Performing dependency injection for test context [[DefaultTestContext@a36ff0b testClass = ObservedNamespaceControllerTest, testInstance = org.entando.kubernetes.controller.ObservedNamespaceControllerTest@215f8d7, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1ecf784f testClass = ObservedNamespaceControllerTest, locations = '{}', classes = '{class org.entando.kubernetes.EntandoKubernetesJavaApplication, class org.entando.kubernetes.config.TestSecurityConfiguration, class org.entando.kubernetes.config.TestKubernetesConfig, class org.entando.kubernetes.config.TestJwtDecoderConfig, class org.entando.kubernetes.EntandoKubernetesJavaApplication, class org.entando.kubernetes.config.TestSecurityConfiguration, class org.entando.kubernetes.config.TestKubernetesConfig, class org.entando.kubernetes.config.TestJwtDecoderConfig}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=****, server.port=0}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3661b732, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4bceac99, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6e617c0e, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6e7fa4b0, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestE**cutionListener.activateListener' -> false]]].
+10:58:20.606 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=****, server.port=0}
+  _____           _                         _
+ | ____|  _ __   | |_    __ _   _ __     __| |   ___
+ |  _|   | '_ \  | __|  / _` | | '_ \   / _` |  / _ \
+ | |___  | | | | | |_  | (_| | | | | | | (_| | | (_) |
+ |_____| |_| |_|  \__|  \__,_| |_| |_|  \__,_|  \___/
+2021-02-04 10:58:21.271  INFO 113 --- [           main] o.e.k.c.ObservedNamespaceControllerTest  : Starting ObservedNamespaceControllerTest on entando-k8s-entando-k8s-service-xvbq2-22-from-build-pack-p9jlb with PID 113 (started by **** in /workspace/source)
+2021-02-04 10:58:21.274  INFO 113 --- [           main] o.e.k.c.ObservedNamespaceControllerTest  : The following profiles are active: test
+2021-02-04 10:58:23.794  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3a9fe0d4' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:23.817  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:24.481  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-02-04 10:58:24.508  INFO 113 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-04 10:58:24.509  INFO 113 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.40]
+2021-02-04 10:58:24.756  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-04 10:58:24.756  INFO 113 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3412 ms
+2021-02-04 10:58:27.204  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:28.051  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@895f1e1, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c4d1aaf, org.springframework.security.web.header.HeaderWriterFilter@222462b3, org.springframework.security.web.authentication.logout.LogoutFilter@2001b9ca, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1ee03bc5, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@2e1ae7d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d8ab17c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72b6f4fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b78b25d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@6d4cc641, org.springframework.security.web.session.SessionManagementFilter@5197c3d7, org.springframework.security.web.access.ExceptionTranslationFilter@204e547a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ab10e04]
+2021-02-04 10:58:28.077  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@39e770c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ec97aa2, org.springframework.security.web.header.HeaderWriterFilter@4cb18267, org.springframework.security.web.csrf.CsrfFilter@400a884f, org.springframework.security.web.authentication.logout.LogoutFilter@2a162006, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f1b9f27, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f799e19, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7aadb8b7, org.springframework.security.web.session.SessionManagementFilter@147094d3, org.springframework.security.web.access.ExceptionTranslationFilter@586d21d5]
+2021-02-04 10:58:28.299  INFO 113 --- [           main] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Initializing E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:30.530  INFO 113 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-04 10:58:31.088  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 36480 (http) with context path ''
+2021-02-04 10:58:31.095  INFO 113 --- [           main] o.e.k.c.ObservedNamespaceControllerTest  : Started ObservedNamespaceControllerTest in 10.484 seconds (JVM running for 14.455)
+2021-02-04 10:58:31.291  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:31.321  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:31.321  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:31.354  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 32 ms
+2021-02-04 10:58:32.004  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:32.005  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:32.005  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:32.008  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2021-02-04 10:58:32.043  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:32.044  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:32.045  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:32.057  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 12 ms
+2021-02-04 10:58:32.089  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Bad Request: Provided namespace not-checked is not part of namespaces observed by this instance
+2021-02-04 10:58:32.148  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:32.149  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:32.149  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:32.151  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:32.227  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:32.228  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:32.228  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:32.231  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2021-02-04 10:58:32.236  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Bad Request: Provided namespace Access-Control-Allow-Origin: * isn't valid for regex '[a-z0-9]([-a-z0-9]*[a-z0-9])?'
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.583 s - in org.entando.kubernetes.controller.ObservedNamespaceControllerTest
+[INFO] Running org.entando.kubernetes.controller.EntandoPluginControllerTest
+2021-02-04 10:58:32.251  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.entando.kubernetes.controller.EntandoPluginControllerTest], using SpringBootContextLoader
+2021-02-04 10:58:32.252  INFO 113 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.entando.kubernetes.controller.EntandoPluginControllerTest]: no resource found for suffi**s {-context.xml, Context.groovy}.
+2021-02-04 10:58:32.262  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener, org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener, org.springframework.test.context.event.EventPublishingTestE**cutionListener, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener]
+2021-02-04 10:58:32.264  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@4082c974, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@15336569, org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener@10ef43b8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestE**cutionListener@3a369f1f, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@6c292844, org.springframework.test.context.event.EventPublishingTestE**cutionListener@62bf1085, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener@8277de9, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener@6e7c595, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener@23a9b605, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener@3988a1cd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener@af34b20, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener@3280ec86, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener@5c777d4d]
+  _____           _                         _
+ | ____|  _ __   | |_    __ _   _ __     __| |   ___
+ |  _|   | '_ \  | __|  / _` | | '_ \   / _` |  / _ \
+ | |___  | | | | | |_  | (_| | | | | | | (_| | | (_) |
+ |_____| |_| |_|  \__|  \__,_| |_| |_|  \__,_|  \___/
+2021-02-04 10:58:32.310  INFO 113 --- [           main] o.e.k.c.EntandoPluginControllerTest      : Starting EntandoPluginControllerTest on entando-k8s-entando-k8s-service-xvbq2-22-from-build-pack-p9jlb with PID 113 (started by **** in /workspace/source)
+2021-02-04 10:58:32.310  INFO 113 --- [           main] o.e.k.c.EntandoPluginControllerTest      : The following profiles are active: test
+2021-02-04 10:58:33.021  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@79d25465' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:33.038  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:33.137  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-02-04 10:58:33.139  INFO 113 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-04 10:58:33.139  INFO 113 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.40]
+2021-02-04 10:58:33.166  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-02-04 10:58:33.166  INFO 113 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 850 ms
+2021-02-04 10:58:33.687  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:33.954  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@667969b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@1043bfd9, org.springframework.security.web.header.HeaderWriterFilter@5adbf690, org.springframework.security.web.authentication.logout.LogoutFilter@291b93d7, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2c54142, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@1503cffe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f931312, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3af90d06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d0e26ba, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@2619dc91, org.springframework.security.web.session.SessionManagementFilter@35956b3e, org.springframework.security.web.access.ExceptionTranslationFilter@11f7d102, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@396f39e7]
+2021-02-04 10:58:33.966  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17b0730d, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b764a0a, org.springframework.security.web.header.HeaderWriterFilter@5999cfe2, org.springframework.security.web.csrf.CsrfFilter@1cc231f2, org.springframework.security.web.authentication.logout.LogoutFilter@2e2efda9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@338154dd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24f07b90, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@303ba690, org.springframework.security.web.session.SessionManagementFilter@76b6b88f, org.springframework.security.web.access.ExceptionTranslationFilter@148b9697]
+2021-02-04 10:58:34.075  INFO 113 --- [           main] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Initializing E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:35.418  INFO 113 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-04 10:58:35.519  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 40603 (http) with context path ''
+2021-02-04 10:58:35.522  INFO 113 --- [           main] o.e.k.c.EntandoPluginControllerTest      : Started EntandoPluginControllerTest in 3.253 seconds (JVM running for 18.882)
+2021-02-04 10:58:35.554  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:35.554  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:35.563  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
+2021-02-04 10:58:35.586  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:35.586  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:35.588  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:35.922  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:35.923  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:35.925  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:35.950  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:35.950  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:35.953  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2021-02-04 10:58:35.957  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Listing all deployed plugins in observed namespaces
+2021-02-04 10:58:36.012  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.012  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.014  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:36.020  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Searching plugin with name my-plugin in observed namespaces
+2021-02-04 10:58:36.025  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Not Found: Ingress not found for EntandoPlugin my-plugin in namespace test-namespace
+2021-02-04 10:58:36.049  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.049  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.051  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:36.057  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Searching plugin with name my-plugin in observed namespaces
+2021-02-04 10:58:36.072  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.072  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.074  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:36.082  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Listing all deployed plugins in test-namespace observed namespace
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /plugins
+       Parameters = {namespace=[test-namespace]}
+          Headers = [Accept:"application/json"]
+             Body = <no character encoding set>
+    Session Attrs = {}
+
+Handler:
+             Type = org.entando.kubernetes.controller.EntandoPluginController
+           Method = org.entando.kubernetes.controller.EntandoPluginController#listInNamespace(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Content-Security-Policy:"default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:", Referrer-Policy:"strict-origin-when-cross-origin", Feature-Policy:"geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'"]
+     Content type = application/json
+             Body = {"_embedded":{"entandoPlugins":[{"kind":"EntandoPlugin","apiVersion":"entando.org/v1alpha1","metadata":{"name":"my-plugin","namespace":"test-namespace"},"spec":{"image":"entando/entando-avatar-plugin","dbms":"********ql","replicas":1,"ingressPath":"/dummyPlugin","healthCheckPath":"/management/health","securityLevel":"lenient","ingressHostName":"dummyPlugin.test","roles":[],"permissions":[],"environmentVariables":[],"connectionConfigNames":[],"companionContainers":[]},"_links":{"self":{"href":"http://localhost/plugins/my-plugin"},"plugins":{"href":"http://localhost/plugins"},"plugins-in-namespace":{"href":"http://localhost/plugins?namespace=test-namespace"},"plugin-ingress":{"href":"http://localhost/plugins/my-plugin/ingress"},"namespace":{"href":"http://localhost/namespaces/test-namespace"}}}]},"_links":{"plugin":{"href":"http://localhost/plugins/{name}","templated":****},"plugins-in-namespace":{"href":"http://localhost/plugins?namespace={namespace}","templated":****},"plugin-links":{"href":"http://localhost/app-plugin-links?plugin={plugin}","templated":****},"create-or-replace-plugin":{"href":"http://localhost/plugins"}}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-02-04 10:58:36.248  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.248  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.250  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-02-04 10:58:36.254  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Listing all deployed plugins in test-namespace observed namespace
+2021-02-04 10:58:36.275  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.275  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.279  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2021-02-04 10:58:36.291  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Searching plugin with name my-plugin in observed namespaces
+2021-02-04 10:58:36.305  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.306  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.308  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:36.314  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Bad Request: Plugin with name my-plugin is already deployed in observed namespaces
+2021-02-04 10:58:36.324  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:36.324  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:36.328  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2021-02-04 10:58:36.332  INFO 113 --- [           main] o.e.k.c.EntandoPluginController          : Deleting plugin with identifier my-plugin from observed namespaces
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.053 s - in org.entando.kubernetes.controller.EntandoPluginControllerTest
+[INFO] Running org.entando.kubernetes.controller.EntandoLinksControllerTest
+2021-02-04 10:58:36.341  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.entando.kubernetes.controller.EntandoLinksControllerTest], using SpringBootContextLoader
+2021-02-04 10:58:36.343  INFO 113 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.entando.kubernetes.controller.EntandoLinksControllerTest]: no resource found for suffi**s {-context.xml, Context.groovy}.
+2021-02-04 10:58:36.348  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener, org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener, org.springframework.test.context.event.EventPublishingTestE**cutionListener, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener]
+2021-02-04 10:58:36.351  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@3e400d1f, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@da7bc1e, org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener@5dcc1a36, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestE**cutionListener@1c97da26, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@2281045e, org.springframework.test.context.event.EventPublishingTestE**cutionListener@12f60b5c, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener@2f56be9e, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener@db207b8, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener@273b51a4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener@53512f4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener@1f8dee82, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener@29fb50c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener@7fd4728a]
+  _____           _                         _
+ | ____|  _ __   | |_    __ _   _ __     __| |   ___
+ |  _|   | '_ \  | __|  / _` | | '_ \   / _` |  / _ \
+ | |___  | | | | | |_  | (_| | | | | | | (_| | | (_) |
+ |_____| |_| |_|  \__|  \__,_| |_| |_|  \__,_|  \___/
+2021-02-04 10:58:36.391  INFO 113 --- [           main] o.e.k.c.EntandoLinksControllerTest       : Starting EntandoLinksControllerTest on entando-k8s-entando-k8s-service-xvbq2-22-from-build-pack-p9jlb with PID 113 (started by **** in /workspace/source)
+2021-02-04 10:58:36.392  INFO 113 --- [           main] o.e.k.c.EntandoLinksControllerTest       : The following profiles are active: test
+2021-02-04 10:58:36.999  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7a797210' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:37.015  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:37.109  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-02-04 10:58:37.111  INFO 113 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-04 10:58:37.112  INFO 113 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.40]
+2021-02-04 10:58:37.148  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-02-04 10:58:37.148  INFO 113 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 752 ms
+2021-02-04 10:58:37.679  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:37.935  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4532e1ca, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f35330c, org.springframework.security.web.header.HeaderWriterFilter@bedb327, org.springframework.security.web.authentication.logout.LogoutFilter@41b846e1, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@287b575c, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@a67526f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5da837e7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bbac3fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75f62729, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@1e0f5347, org.springframework.security.web.session.SessionManagementFilter@4c9e0974, org.springframework.security.web.access.ExceptionTranslationFilter@455eee3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f9e8f1b]
+2021-02-04 10:58:37.945  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b897f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@79ca044, org.springframework.security.web.header.HeaderWriterFilter@1e3dcae0, org.springframework.security.web.csrf.CsrfFilter@75d196d8, org.springframework.security.web.authentication.logout.LogoutFilter@33a12805, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bdfbe07, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bc50756, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16d4cfa6, org.springframework.security.web.session.SessionManagementFilter@7e029e0a, org.springframework.security.web.access.ExceptionTranslationFilter@584289b1]
+2021-02-04 10:58:38.056  INFO 113 --- [           main] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Initializing E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:38.980  INFO 113 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-04 10:58:39.070  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 35840 (http) with context path ''
+2021-02-04 10:58:39.071  INFO 113 --- [           main] o.e.k.c.EntandoLinksControllerTest       : Started EntandoLinksControllerTest in 2.714 seconds (JVM running for 22.431)
+2021-02-04 10:58:39.081  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.082  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.091  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
+2021-02-04 10:58:39.159  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.159  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.161  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:39.168  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Not Found: Not Found: EntandoAppPluginLink with name any-name not found in observed namespace
+2021-02-04 10:58:39.183  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.183  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.185  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:39.190  INFO 113 --- [           main] o.e.k.controller.EntandoLinksController  : Removing link associated plugin my-plugin as it's deployment phase is not SUCCESSFUL
+2021-02-04 10:58:39.205  INFO 113 --- [           main] o.e.k.controller.EntandoLinksController  : Removing link associated plugin my-plugin as it's deployment phase is not SUCCESSFUL
+2021-02-04 10:58:39.214  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.214  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.222  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 8 ms
+2021-02-04 10:58:39.254  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.254  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.256  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-02-04 10:58:39.298  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.298  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.300  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:39.333  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.334  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.336  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:39.349  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.349  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.351  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:39.385  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:39.385  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:39.387  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.053 s - in org.entando.kubernetes.controller.EntandoLinksControllerTest
+[INFO] Running org.entando.kubernetes.controller.EntandoDeBundleControllerTest
+2021-02-04 10:58:39.418  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.entando.kubernetes.controller.EntandoDeBundleControllerTest], using SpringBootContextLoader
+2021-02-04 10:58:39.419  INFO 113 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.entando.kubernetes.controller.EntandoDeBundleControllerTest]: no resource found for suffi**s {-context.xml, Context.groovy}.
+2021-02-04 10:58:39.423  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener, org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener, org.springframework.test.context.event.EventPublishingTestE**cutionListener, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener]
+2021-02-04 10:58:39.425  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@49519e2e, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@11019c05, org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener@5c60cbea, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestE**cutionListener@785df172, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@3d38a0b9, org.springframework.test.context.event.EventPublishingTestE**cutionListener@20c4f2af, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener@7aa152c6, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener@6d60ea81, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener@15a5b2fc, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener@12f37b6d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener@62b43c97, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener@8eaf6a2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener@30608711]
+  _____           _                         _
+ | ____|  _ __   | |_    __ _   _ __     __| |   ___
+ |  _|   | '_ \  | __|  / _` | | '_ \   / _` |  / _ \
+ | |___  | | | | | |_  | (_| | | | | | | (_| | | (_) |
+ |_____| |_| |_|  \__|  \__,_| |_| |_|  \__,_|  \___/
+2021-02-04 10:58:39.457  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleControllerTest    : Starting EntandoDeBundleControllerTest on entando-k8s-entando-k8s-service-xvbq2-22-from-build-pack-p9jlb with PID 113 (started by **** in /workspace/source)
+2021-02-04 10:58:39.458  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleControllerTest    : The following profiles are active: test
+2021-02-04 10:58:39.913  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@249250b7' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:39.922  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:40.039  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-02-04 10:58:40.041  INFO 113 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-04 10:58:40.041  INFO 113 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.40]
+2021-02-04 10:58:40.068  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-02-04 10:58:40.069  INFO 113 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 606 ms
+2021-02-04 10:58:40.501  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:40.708  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43acd2ee, org.springframework.security.web.context.SecurityContextPersistenceFilter@3121fe16, org.springframework.security.web.header.HeaderWriterFilter@74981ca4, org.springframework.security.web.authentication.logout.LogoutFilter@6af6a2ce, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@23589265, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@32b09423, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43f66d94, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@773f2472, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63778853, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@15ff0ba1, org.springframework.security.web.session.SessionManagementFilter@dc5c808, org.springframework.security.web.access.ExceptionTranslationFilter@7ea18096, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b832527]
+2021-02-04 10:58:40.727  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19f61e1b, org.springframework.security.web.context.SecurityContextPersistenceFilter@d346b6e, org.springframework.security.web.header.HeaderWriterFilter@3b6d8c2, org.springframework.security.web.csrf.CsrfFilter@1360ec77, org.springframework.security.web.authentication.logout.LogoutFilter@256c26e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e3052db, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b75fd17, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d4fd577, org.springframework.security.web.session.SessionManagementFilter@19a33f79, org.springframework.security.web.access.ExceptionTranslationFilter@48cf7f0c]
+2021-02-04 10:58:40.839  INFO 113 --- [           main] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Initializing E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:41.931  INFO 113 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-04 10:58:42.004  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 39472 (http) with context path ''
+2021-02-04 10:58:42.006  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleControllerTest    : Started EntandoDeBundleControllerTest in 2.578 seconds (JVM running for 25.366)
+2021-02-04 10:58:42.016  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:42.016  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:42.025  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
+2021-02-04 10:58:42.029  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleController        : Listing available digital-exchange bundles
+2021-02-04 10:58:42.053  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:42.053  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:42.055  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:42.069  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleController        : Getting entando-de-bundle with name my-bundle in observed namespaces
+2021-02-04 10:58:42.094  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleController        : Getting entando-de-bundle with name my-bundle in observed namespaces
+2021-02-04 10:58:42.106  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:42.107  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:42.109  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:42.112  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleController        : Listing available digital-exchange bundles
+2021-02-04 10:58:42.129  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:42.129  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:42.131  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-02-04 10:58:42.136  INFO 113 --- [           main] o.e.k.c.EntandoDeBundleController        : Listing available entando-de-bundles in namespace test-namespace
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.714 s - in org.entando.kubernetes.controller.EntandoDeBundleControllerTest
+[INFO] Running org.entando.kubernetes.controller.ApiEntrypointControllerTest
+2021-02-04 10:58:42.164  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.entando.kubernetes.controller.ApiEntrypointControllerTest], using SpringBootContextLoader
+2021-02-04 10:58:42.166  INFO 113 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.entando.kubernetes.controller.ApiEntrypointControllerTest]: no resource found for suffi**s {-context.xml, Context.groovy}.
+2021-02-04 10:58:42.170  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener, org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener, org.springframework.test.context.event.EventPublishingTestE**cutionListener, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener]
+2021-02-04 10:58:42.172  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@7a923ff9, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@216b3bc8, org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener@52de38fb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestE**cutionListener@30009246, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@5b061e48, org.springframework.test.context.event.EventPublishingTestE**cutionListener@234bcb9b, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener@7136e9, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener@34570603, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener@5f48ba9f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener@2222b5fe, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener@2b6d092d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener@2706655d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener@3d80af60]
+2021-02-04 10:58:42.178  INFO 113 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:42.178  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:42.180  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /
+       Parameters = {}
+          Headers = [Accept:"application/hal+json"]
+             Body = <no character encoding set>
+    Session Attrs = {}
+
+Handler:
+             Type = org.entando.kubernetes.controller.ApiEntryPointController
+           Method = org.entando.kubernetes.controller.ApiEntryPointController#****()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/hal+json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Content-Security-Policy:"default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:", Referrer-Policy:"strict-origin-when-cross-origin", Feature-Policy:"geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'"]
+     Content type = application/hal+json
+             Body = {"_links":{"apps":{"href":"http://localhost/apps"},"plugins":{"href":"http://localhost/plugins"},"bundles":{"href":"http://localhost/bundles/"},"app-plugin-links":{"href":"http://localhost/app-plugin-links"},"observed-namespaces":{"href":"http://localhost/namespaces"}}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.entando.kubernetes.controller.ApiEntrypointControllerTest
+[INFO] Running org.entando.kubernetes.controller.EntandoAppControllerTest
+2021-02-04 10:58:42.197  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.entando.kubernetes.controller.EntandoAppControllerTest], using SpringBootContextLoader
+2021-02-04 10:58:42.198  INFO 113 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.entando.kubernetes.controller.EntandoAppControllerTest]: no resource found for suffi**s {-context.xml, Context.groovy}.
+2021-02-04 10:58:42.201  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener, org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener, org.springframework.test.context.event.EventPublishingTestE**cutionListener, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener]
+2021-02-04 10:58:42.202  INFO 113 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@5d658c8b, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@6526c3e8, org.springframework.boot.test.mock.mockito.MockitoTestE**cutionListener@3cc65e0f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestE**cutionListener@1c9883d3, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@6d68451f, org.springframework.test.context.event.EventPublishingTestE**cutionListener@3e02f2d9, org.springframework.security.test.context.support.WithSecurityContextTestE**cutionListener@303ae530, org.springframework.security.test.context.support.ReactorContextTestE**cutionListener@68e47eff, org.springframework.boot.test.mock.mockito.ResetMocksTestE**cutionListener@478b8e41, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestE**cutionListener@6e362853, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestE**cutionListener@9c253c0, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestE**cutionListener@429ad781, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestE**cutionListener@5978b015]
+  _____           _                         _
+ | ____|  _ __   | |_    __ _   _ __     __| |   ___
+ |  _|   | '_ \  | __|  / _` | | '_ \   / _` |  / _ \
+ | |___  | | | | | |_  | (_| | | | | | | (_| | | (_) |
+ |_____| |_| |_|  \__|  \__,_| |_| |_|  \__,_|  \___/
+2021-02-04 10:58:42.228  INFO 113 --- [           main] o.e.k.c.EntandoAppControllerTest         : Starting EntandoAppControllerTest on entando-k8s-entando-k8s-service-xvbq2-22-from-build-pack-p9jlb with PID 113 (started by **** in /workspace/source)
+2021-02-04 10:58:42.228  INFO 113 --- [           main] o.e.k.c.EntandoAppControllerTest         : The following profiles are active: test
+2021-02-04 10:58:42.598  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2cd9e389' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:42.606  INFO 113 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-04 10:58:42.692  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-02-04 10:58:42.693  INFO 113 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-04 10:58:42.694  INFO 113 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.40]
+2021-02-04 10:58:42.714  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-02-04 10:58:42.715  INFO 113 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 483 ms
+2021-02-04 10:58:43.105  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:43.314  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e3b7d5e, org.springframework.security.web.context.SecurityContextPersistenceFilter@49d0438e, org.springframework.security.web.header.HeaderWriterFilter@632ebf99, org.springframework.security.web.authentication.logout.LogoutFilter@33808d14, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6c280d43, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@43f143b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3183b9d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27c71a06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1259226e, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@55b42484, org.springframework.security.web.session.SessionManagementFilter@2a3ea43b, org.springframework.security.web.access.ExceptionTranslationFilter@bee78b4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e48bf8b]
+2021-02-04 10:58:43.324  INFO 113 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7aaca189, org.springframework.security.web.context.SecurityContextPersistenceFilter@27f49b60, org.springframework.security.web.header.HeaderWriterFilter@74886bb2, org.springframework.security.web.csrf.CsrfFilter@24a6a666, org.springframework.security.web.authentication.logout.LogoutFilter@7ef1e504, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@780f9ac1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f6dab89, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58bf6cb6, org.springframework.security.web.session.SessionManagementFilter@36709e5e, org.springframework.security.web.access.ExceptionTranslationFilter@21afd17e]
+2021-02-04 10:58:43.409  INFO 113 --- [           main] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Initializing E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:44.254  INFO 113 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-04 10:58:44.334  INFO 113 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41915 (http) with context path ''
+2021-02-04 10:58:44.335  INFO 113 --- [           main] o.e.k.c.EntandoAppControllerTest         : Started EntandoAppControllerTest in 2.13 seconds (JVM running for 27.695)
+2021-02-04 10:58:44.346  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.347  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.356  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
+2021-02-04 10:58:44.363  INFO 113 --- [           main] o.e.k.controller.EntandoAppController    : Listing apps
+2021-02-04 10:58:44.402  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.403  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.406  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:44.416  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Not Found: Not Found: EntandoApp with name my-app not found in observed namespaces
+2021-02-04 10:58:44.436  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.437  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.441  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2021-02-04 10:58:44.494  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Not Found: Not Found: EntandoApp with name my-app not found in observed namespaces
+2021-02-04 10:58:44.505  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.506  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.509  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:44.538  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.539  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.541  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-02-04 10:58:44.552  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.553  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.555  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:44.557  INFO 113 --- [           main] o.e.k.controller.EntandoAppController    : Listing apps from all observed namespaces
+2021-02-04 10:58:44.571  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.571  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.573  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:44.579  WARN 113 --- [           main] o.z.problem.spring.common.AdviceTraits   : Not Found: Ingress not found for EntandoApp my-app in namespace test-namespace
+2021-02-04 10:58:44.589  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.590  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.592  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:44.596  INFO 113 --- [           main] o.e.k.controller.EntandoAppController    : Listing apps
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /apps
+       Parameters = {namespace=[test-namespace]}
+          Headers = [Accept:"application/json"]
+             Body = <no character encoding set>
+    Session Attrs = {}
+
+Handler:
+             Type = org.entando.kubernetes.controller.EntandoAppController
+           Method = org.entando.kubernetes.controller.EntandoAppController#listInNamespace(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY", Content-Security-Policy:"default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:", Referrer-Policy:"strict-origin-when-cross-origin", Feature-Policy:"geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'"]
+     Content type = application/json
+             Body = {"_embedded":{"entandoApps":[{"kind":"EntandoApp","apiVersion":"entando.org/v1alpha1","metadata":{"name":"my-app","namespace":"test-namespace"},"spec":{"standardServerImage":"wildfly","dbms":"********ql","replicas":1,"backupGitSpec":{},"environmentVariables":[]},"_links":{"self":{"href":"http://localhost/apps/my-app"},"apps":{"href":"http://localhost/apps"},"apps-in-namespace":{"href":"http://localhost/apps?namespace=test-namespace"},"app-ingress":{"href":"http://localhost/apps/my-app/ingress"},"app-links":{"href":"http://localhost/app-plugin-links?app=my-app"},"namespace":{"href":"http://localhost/namespaces/test-namespace"}}}]},"_links":{"app":{"href":"http://localhost/apps/{name}","templated":****},"app-links":{"href":"http://localhost/app-plugin-links?app={app}","templated":****},"apps-in-namespace":{"href":"http://localhost/apps?namespace={namespace}","templated":****}}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-02-04 10:58:44.648  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.648  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.650  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-02-04 10:58:44.668  INFO 113 --- [           main] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2021-02-04 10:58:44.668  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-02-04 10:58:44.671  INFO 113 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.48 s - in org.entando.kubernetes.controller.EntandoAppControllerTest
+[INFO] Running org.entando.kubernetes.service.EntandoLinkServiceTest
+2021-02-04 10:58:44.801  INFO 113 --- [WebServer 36016] okhttp3.mockwebserver.MockWebServer      : MockWebServer[36016] starting to accept connections
+2021-02-04 10:58:44.865  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:45.277  INFO 113 --- [127.0.0.1:57564] okhttp3.mockwebserver.MockWebServer      : MockWebServer[36016] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:45.579  INFO 113 --- [WebServer 36016] okhttp3.mockwebserver.MockWebServer      : MockWebServer[36016] done accepting connections: Socket closed
+2021-02-04 10:58:45.601  INFO 113 --- [WebServer 52030] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52030] starting to accept connections
+2021-02-04 10:58:45.602  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:45.728  INFO 113 --- [127.0.0.1:34898] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52030] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:45.744  INFO 113 --- [WebServer 52030] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52030] done accepting connections: Socket closed
+2021-02-04 10:58:45.760  INFO 113 --- [WebServer 52746] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52746] starting to accept connections
+2021-02-04 10:58:45.761  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:45.877  INFO 113 --- [127.0.0.1:57522] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52746] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:45.890  INFO 113 --- [WebServer 52746] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52746] done accepting connections: Socket closed
+2021-02-04 10:58:45.905  INFO 113 --- [WebServer 52733] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52733] starting to accept connections
+2021-02-04 10:58:45.907  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.009  INFO 113 --- [127.0.0.1:32948] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52733] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.025  INFO 113 --- [WebServer 52733] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52733] done accepting connections: Socket closed
+2021-02-04 10:58:46.034  INFO 113 --- [WebServer 34690] okhttp3.mockwebserver.MockWebServer      : MockWebServer[34690] starting to accept connections
+2021-02-04 10:58:46.036  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.136  INFO 113 --- [127.0.0.1:41662] okhttp3.mockwebserver.MockWebServer      : MockWebServer[34690] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.150  INFO 113 --- [WebServer 34690] okhttp3.mockwebserver.MockWebServer      : MockWebServer[34690] done accepting connections: Socket closed
+2021-02-04 10:58:46.167  INFO 113 --- [WebServer 50246] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50246] starting to accept connections
+2021-02-04 10:58:46.169  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.272  INFO 113 --- [127.0.0.1:52348] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50246] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.285  INFO 113 --- [WebServer 50246] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50246] done accepting connections: Socket closed
+2021-02-04 10:58:46.303  INFO 113 --- [WebServer 57482] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57482] starting to accept connections
+2021-02-04 10:58:46.305  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.409  INFO 113 --- [127.0.0.1:55802] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57482] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.428  INFO 113 --- [WebServer 57482] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57482] done accepting connections: Socket closed
+2021-02-04 10:58:46.452  INFO 113 --- [WebServer 45048] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45048] starting to accept connections
+2021-02-04 10:58:46.454  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.557  INFO 113 --- [127.0.0.1:52130] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45048] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.586  INFO 113 --- [WebServer 45048] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45048] done accepting connections: Socket closed
+2021-02-04 10:58:46.596  INFO 113 --- [WebServer 60550] okhttp3.mockwebserver.MockWebServer      : MockWebServer[60550] starting to accept connections
+2021-02-04 10:58:46.598  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.697  INFO 113 --- [127.0.0.1:33184] okhttp3.mockwebserver.MockWebServer      : MockWebServer[60550] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.709  INFO 113 --- [WebServer 60550] okhttp3.mockwebserver.MockWebServer      : MockWebServer[60550] done accepting connections: Socket closed
+2021-02-04 10:58:46.725  INFO 113 --- [WebServer 53386] okhttp3.mockwebserver.MockWebServer      : MockWebServer[53386] starting to accept connections
+2021-02-04 10:58:46.727  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.823  INFO 113 --- [127.0.0.1:37424] okhttp3.mockwebserver.MockWebServer      : MockWebServer[53386] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.833  INFO 113 --- [WebServer 53386] okhttp3.mockwebserver.MockWebServer      : MockWebServer[53386] done accepting connections: Socket closed
+[ERROR] Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 2.121 s <<< FAILURE! - in org.entando.kubernetes.service.EntandoLinkServiceTest
+[ERROR] shouldCreateLinkBetweenAppAndPlugin  Time elapsed: 0.879 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldDeleteEntandoAppPluginLink  Time elapsed: 0.152 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldFindAllLinks  Time elapsed: 0.145 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldNotThrowIfDeletingNonExistingPlugin  Time elapsed: 0.134 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldFindAllLinksInNamespace  Time elapsed: 0.125 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldFindLinksAssociatedWithPlugin  Time elapsed: 0.134 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldFindLinkAssociatedWithApp  Time elapsed: 0.148 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldNotFindAnyLinkIfAppHasNoLink  Time elapsed: 0.15 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldNotFindAnyLinkIfNoAppIsAvailable  Time elapsed: 0.122 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[ERROR] shouldGenerateLinkWithAppropriateInfoFromAppAndPlugin  Time elapsed: 0.123 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoLinkServiceTest.setUp(EntandoLinkServiceTest.java:48)
+
+[INFO] Running org.entando.kubernetes.service.ObservedNamespaceServiceTest
+2021-02-04 10:58:46.838  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are bundle-namespace, plugin-namespace, app-namespace, test-namespace
+2021-02-04 10:58:46.841  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are bundle-namespace, plugin-namespace, app-namespace, test-namespace
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.entando.kubernetes.service.ObservedNamespaceServiceTest
+[INFO] Running org.entando.kubernetes.service.FileBaseNamespaceProviderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.entando.kubernetes.service.FileBaseNamespaceProviderTest
+[INFO] Running org.entando.kubernetes.service.EntandoAppServiceTest
+2021-02-04 10:58:46.866  INFO 113 --- [WebServer 33966] okhttp3.mockwebserver.MockWebServer      : MockWebServer[33966] starting to accept connections
+2021-02-04 10:58:46.868  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:46.967  INFO 113 --- [127.0.0.1:33268] okhttp3.mockwebserver.MockWebServer      : MockWebServer[33966] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:46.986  INFO 113 --- [WebServer 33966] okhttp3.mockwebserver.MockWebServer      : MockWebServer[33966] done accepting connections: Socket closed
+2021-02-04 10:58:47.000  INFO 113 --- [WebServer 42870] okhttp3.mockwebserver.MockWebServer      : MockWebServer[42870] starting to accept connections
+2021-02-04 10:58:47.001  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:47.102  INFO 113 --- [127.0.0.1:60728] okhttp3.mockwebserver.MockWebServer      : MockWebServer[42870] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.122  INFO 113 --- [WebServer 42870] okhttp3.mockwebserver.MockWebServer      : MockWebServer[42870] done accepting connections: Socket closed
+2021-02-04 10:58:47.140  INFO 113 --- [WebServer 40799] okhttp3.mockwebserver.MockWebServer      : MockWebServer[40799] starting to accept connections
+2021-02-04 10:58:47.142  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:47.239  INFO 113 --- [127.0.0.1:42042] okhttp3.mockwebserver.MockWebServer      : MockWebServer[40799] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.256  INFO 113 --- [WebServer 40799] okhttp3.mockwebserver.MockWebServer      : MockWebServer[40799] done accepting connections: Socket closed
+2021-02-04 10:58:47.273  INFO 113 --- [WebServer 44069] okhttp3.mockwebserver.MockWebServer      : MockWebServer[44069] starting to accept connections
+2021-02-04 10:58:47.274  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:47.378  INFO 113 --- [127.0.0.1:48092] okhttp3.mockwebserver.MockWebServer      : MockWebServer[44069] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.393  INFO 113 --- [WebServer 44069] okhttp3.mockwebserver.MockWebServer      : MockWebServer[44069] done accepting connections: Socket closed
+2021-02-04 10:58:47.409  INFO 113 --- [WebServer 45163] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45163] starting to accept connections
+2021-02-04 10:58:47.410  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:47.513  INFO 113 --- [127.0.0.1:53004] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45163] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.536  INFO 113 --- [WebServer 45163] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45163] done accepting connections: Socket closed
+2021-02-04 10:58:47.551  INFO 113 --- [WebServer 36759] okhttp3.mockwebserver.MockWebServer      : MockWebServer[36759] starting to accept connections
+2021-02-04 10:58:47.553  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:47.655  INFO 113 --- [127.0.0.1:54404] okhttp3.mockwebserver.MockWebServer      : MockWebServer[36759] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.682  INFO 113 --- [WebServer 36759] okhttp3.mockwebserver.MockWebServer      : MockWebServer[36759] done accepting connections: Socket closed
+2021-02-04 10:58:47.701  INFO 113 --- [WebServer 58141] okhttp3.mockwebserver.MockWebServer      : MockWebServer[58141] starting to accept connections
+2021-02-04 10:58:47.703  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:47.800  INFO 113 --- [127.0.0.1:41236] okhttp3.mockwebserver.MockWebServer      : MockWebServer[58141] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.809  INFO 113 --- [WebServer 58141] okhttp3.mockwebserver.MockWebServer      : MockWebServer[58141] done accepting connections: Socket closed
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.93 s <<< FAILURE! - in org.entando.kubernetes.service.EntandoAppServiceTest
+[ERROR] shouldReturnEmptyOptionalForNotFoundApp  Time elapsed: 0.11 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[ERROR] shouldThrowExceptionIfSearchingAppInNotObservedNamespace  Time elapsed: 0.133 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[ERROR] shouldReturnOneApp  Time elapsed: 0.132 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[ERROR] shouldReturnAnEmptyListIfNoAppAvailable  Time elapsed: 0.136 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[ERROR] shouldReturnAppInClientNamespace  Time elapsed: 0.142 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[ERROR] shouldFindAnAppInAnyNamespace  Time elapsed: 0.147 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[ERROR] shouldFindAnAppInNamespace  Time elapsed: 0.126 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoAppServiceTest.setUp(EntandoAppServiceTest.java:42)
+
+[INFO] Running org.entando.kubernetes.service.EntandoPluginServiceTest
+2021-02-04 10:58:47.823  INFO 113 --- [WebServer 49106] okhttp3.mockwebserver.MockWebServer      : MockWebServer[49106] starting to accept connections
+2021-02-04 10:58:47.825  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:47.930  INFO 113 --- [127.0.0.1:56274] okhttp3.mockwebserver.MockWebServer      : MockWebServer[49106] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:47.941  INFO 113 --- [WebServer 49106] okhttp3.mockwebserver.MockWebServer      : MockWebServer[49106] done accepting connections: Socket closed
+2021-02-04 10:58:47.956  INFO 113 --- [WebServer 57764] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57764] starting to accept connections
+2021-02-04 10:58:47.958  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.054  INFO 113 --- [127.0.0.1:60586] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57764] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.071  INFO 113 --- [WebServer 57764] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57764] done accepting connections: Socket closed
+2021-02-04 10:58:48.087  INFO 113 --- [WebServer 41358] okhttp3.mockwebserver.MockWebServer      : MockWebServer[41358] starting to accept connections
+2021-02-04 10:58:48.094  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.202  INFO 113 --- [127.0.0.1:42222] okhttp3.mockwebserver.MockWebServer      : MockWebServer[41358] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.214  INFO 113 --- [WebServer 41358] okhttp3.mockwebserver.MockWebServer      : MockWebServer[41358] done accepting connections: Socket closed
+2021-02-04 10:58:48.234  INFO 113 --- [WebServer 39996] okhttp3.mockwebserver.MockWebServer      : MockWebServer[39996] starting to accept connections
+2021-02-04 10:58:48.236  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.336  INFO 113 --- [127.0.0.1:52134] okhttp3.mockwebserver.MockWebServer      : MockWebServer[39996] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.357  INFO 113 --- [WebServer 39996] okhttp3.mockwebserver.MockWebServer      : MockWebServer[39996] done accepting connections: Socket closed
+2021-02-04 10:58:48.374  INFO 113 --- [WebServer 35897] okhttp3.mockwebserver.MockWebServer      : MockWebServer[35897] starting to accept connections
+2021-02-04 10:58:48.381  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.492  INFO 113 --- [127.0.0.1:41714] okhttp3.mockwebserver.MockWebServer      : MockWebServer[35897] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.506  INFO 113 --- [WebServer 35897] okhttp3.mockwebserver.MockWebServer      : MockWebServer[35897] done accepting connections: Socket closed
+2021-02-04 10:58:48.521  INFO 113 --- [WebServer 37147] okhttp3.mockwebserver.MockWebServer      : MockWebServer[37147] starting to accept connections
+2021-02-04 10:58:48.523  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.617  INFO 113 --- [127.0.0.1:50450] okhttp3.mockwebserver.MockWebServer      : MockWebServer[37147] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.629  INFO 113 --- [WebServer 37147] okhttp3.mockwebserver.MockWebServer      : MockWebServer[37147] done accepting connections: Socket closed
+2021-02-04 10:58:48.637  INFO 113 --- [WebServer 50929] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50929] starting to accept connections
+2021-02-04 10:58:48.638  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.747  INFO 113 --- [127.0.0.1:54872] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50929] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.758  INFO 113 --- [WebServer 50929] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50929] done accepting connections: Socket closed
+2021-02-04 10:58:48.767  INFO 113 --- [WebServer 34342] okhttp3.mockwebserver.MockWebServer      : MockWebServer[34342] starting to accept connections
+2021-02-04 10:58:48.768  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:48.872  INFO 113 --- [127.0.0.1:49852] okhttp3.mockwebserver.MockWebServer      : MockWebServer[34342] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:48.881  INFO 113 --- [WebServer 34342] okhttp3.mockwebserver.MockWebServer      : MockWebServer[34342] done accepting connections: Socket closed
+2021-02-04 10:58:48.903  INFO 113 --- [WebServer 37942] okhttp3.mockwebserver.MockWebServer      : MockWebServer[37942] starting to accept connections
+2021-02-04 10:58:48.905  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.010  INFO 113 --- [127.0.0.1:57888] okhttp3.mockwebserver.MockWebServer      : MockWebServer[37942] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.022  INFO 113 --- [WebServer 37942] okhttp3.mockwebserver.MockWebServer      : MockWebServer[37942] done accepting connections: Socket closed
+2021-02-04 10:58:49.038  INFO 113 --- [WebServer 52008] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52008] starting to accept connections
+2021-02-04 10:58:49.040  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.143  INFO 113 --- [127.0.0.1:58710] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52008] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.153  INFO 113 --- [WebServer 52008] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52008] done accepting connections: Socket closed
+2021-02-04 10:58:49.172  INFO 113 --- [WebServer 59149] okhttp3.mockwebserver.MockWebServer      : MockWebServer[59149] starting to accept connections
+2021-02-04 10:58:49.174  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.282  INFO 113 --- [127.0.0.1:34340] okhttp3.mockwebserver.MockWebServer      : MockWebServer[59149] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.292  INFO 113 --- [WebServer 59149] okhttp3.mockwebserver.MockWebServer      : MockWebServer[59149] done accepting connections: Socket closed
+2021-02-04 10:58:49.300  INFO 113 --- [WebServer 52930] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52930] starting to accept connections
+2021-02-04 10:58:49.301  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.400  INFO 113 --- [127.0.0.1:48486] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52930] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.414  INFO 113 --- [WebServer 52930] okhttp3.mockwebserver.MockWebServer      : MockWebServer[52930] done accepting connections: Socket closed
+2021-02-04 10:58:49.431  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.436  INFO 113 --- [WebServer 45007] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45007] starting to accept connections
+2021-02-04 10:58:49.533  INFO 113 --- [127.0.0.1:36740] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45007] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.543  INFO 113 --- [WebServer 45007] okhttp3.mockwebserver.MockWebServer      : MockWebServer[45007] done accepting connections: Socket closed
+2021-02-04 10:58:49.559  INFO 113 --- [WebServer 49310] okhttp3.mockwebserver.MockWebServer      : MockWebServer[49310] starting to accept connections
+2021-02-04 10:58:49.560  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.656  INFO 113 --- [127.0.0.1:60796] okhttp3.mockwebserver.MockWebServer      : MockWebServer[49310] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.666  INFO 113 --- [WebServer 49310] okhttp3.mockwebserver.MockWebServer      : MockWebServer[49310] done accepting connections: Socket closed
+2021-02-04 10:58:49.682  INFO 113 --- [WebServer 39428] okhttp3.mockwebserver.MockWebServer      : MockWebServer[39428] starting to accept connections
+2021-02-04 10:58:49.684  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.776  INFO 113 --- [127.0.0.1:54058] okhttp3.mockwebserver.MockWebServer      : MockWebServer[39428] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.826  INFO 113 --- [WebServer 39428] okhttp3.mockwebserver.MockWebServer      : MockWebServer[39428] done accepting connections: Socket closed
+2021-02-04 10:58:49.844  INFO 113 --- [WebServer 54523] okhttp3.mockwebserver.MockWebServer      : MockWebServer[54523] starting to accept connections
+2021-02-04 10:58:49.846  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are my-namespace, test-namespace
+2021-02-04 10:58:49.941  INFO 113 --- [127.0.0.1:36724] okhttp3.mockwebserver.MockWebServer      : MockWebServer[54523] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:49.962  INFO 113 --- [WebServer 54523] okhttp3.mockwebserver.MockWebServer      : MockWebServer[54523] done accepting connections: Socket closed
+[ERROR] Tests run: 16, Failures: 0, Errors: 16, Skipped: 0, Time elapsed: 2.146 s <<< FAILURE! - in org.entando.kubernetes.service.EntandoPluginServiceTest
+[ERROR] shouldReturnAnEmptyListIfNoPluginAvailable  Time elapsed: 0.114 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldCreateOrReplaceAPluginInAnotherObservedNamespace  Time elapsed: 0.129 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldCreateOrReplaceAPluginInProvidedNamespace  Time elapsed: 0.146 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldThrowExceptionWhenSearchingPluginInNotObservedNamespace  Time elapsed: 0.139 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldReturnPluginInClientNamespace  Time elapsed: 0.148 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldDeletePluginAnywhere  Time elapsed: 0.122 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldReturnEmptyOptionalForNotFoundPlugin  Time elapsed: 0.128 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldCreateAPluginInProvidedNamespace  Time elapsed: 0.124 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldDeletePluginInNamespace  Time elapsed: 0.139 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldUseCurrentNamespaceIfPluginNamespaceIsAbsent  Time elapsed: 0.139 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldFindAPluginInAnyNamespace  Time elapsed: 0.129 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldCreateAPluginInAnotherObservedNamespace  Time elapsed: 0.123 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldFindAPluginInNamespace  Time elapsed: 0.128 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldReturnOnlyPluginsFromObservedNamespaces  Time elapsed: 0.122 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldThrowAnExceptionWhenDeployingInNotObservedNamespace  Time elapsed: 0.159 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[ERROR] shouldReturnOnePlugin  Time elapsed: 0.145 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoPluginServiceTest.setUp(EntandoPluginServiceTest.java:52)
+
+[INFO] Running org.entando.kubernetes.service.EntandoDeBundleServiceTest
+2021-02-04 10:58:50.001  INFO 113 --- [WebServer 57329] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57329] starting to accept connections
+2021-02-04 10:58:50.002  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.099  INFO 113 --- [127.0.0.1:46894] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57329] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.106  INFO 113 --- [WebServer 57329] okhttp3.mockwebserver.MockWebServer      : MockWebServer[57329] done accepting connections: Socket closed
+2021-02-04 10:58:50.131  INFO 113 --- [WebServer 35697] okhttp3.mockwebserver.MockWebServer      : MockWebServer[35697] starting to accept connections
+2021-02-04 10:58:50.132  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.229  INFO 113 --- [127.0.0.1:58524] okhttp3.mockwebserver.MockWebServer      : MockWebServer[35697] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.235  INFO 113 --- [WebServer 35697] okhttp3.mockwebserver.MockWebServer      : MockWebServer[35697] done accepting connections: Socket closed
+2021-02-04 10:58:50.257  INFO 113 --- [WebServer 50247] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50247] starting to accept connections
+2021-02-04 10:58:50.258  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.354  INFO 113 --- [127.0.0.1:48322] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50247] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.364  INFO 113 --- [WebServer 50247] okhttp3.mockwebserver.MockWebServer      : MockWebServer[50247] done accepting connections: Socket closed
+2021-02-04 10:58:50.373  INFO 113 --- [WebServer 44228] okhttp3.mockwebserver.MockWebServer      : MockWebServer[44228] starting to accept connections
+2021-02-04 10:58:50.374  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.471  INFO 113 --- [127.0.0.1:45034] okhttp3.mockwebserver.MockWebServer      : MockWebServer[44228] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.478  INFO 113 --- [WebServer 44228] okhttp3.mockwebserver.MockWebServer      : MockWebServer[44228] done accepting connections: Socket closed
+2021-02-04 10:58:50.487  INFO 113 --- [WebServer 46100] okhttp3.mockwebserver.MockWebServer      : MockWebServer[46100] starting to accept connections
+2021-02-04 10:58:50.489  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.586  INFO 113 --- [127.0.0.1:50058] okhttp3.mockwebserver.MockWebServer      : MockWebServer[46100] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.592  INFO 113 --- [WebServer 46100] okhttp3.mockwebserver.MockWebServer      : MockWebServer[46100] done accepting connections: Socket closed
+2021-02-04 10:58:50.613  INFO 113 --- [WebServer 56713] okhttp3.mockwebserver.MockWebServer      : MockWebServer[56713] starting to accept connections
+2021-02-04 10:58:50.614  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.722  INFO 113 --- [127.0.0.1:33986] okhttp3.mockwebserver.MockWebServer      : MockWebServer[56713] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.722  INFO 113 --- [WebServer 56713] okhttp3.mockwebserver.MockWebServer      : MockWebServer[56713] done accepting connections: Socket closed
+2021-02-04 10:58:50.746  INFO 113 --- [WebServer 55821] okhttp3.mockwebserver.MockWebServer      : MockWebServer[55821] starting to accept connections
+2021-02-04 10:58:50.751  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.857  INFO 113 --- [127.0.0.1:39470] okhttp3.mockwebserver.MockWebServer      : MockWebServer[55821] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.866  INFO 113 --- [WebServer 55821] okhttp3.mockwebserver.MockWebServer      : MockWebServer[55821] done accepting connections: Socket closed
+2021-02-04 10:58:50.881  INFO 113 --- [WebServer 38080] okhttp3.mockwebserver.MockWebServer      : MockWebServer[38080] starting to accept connections
+2021-02-04 10:58:50.883  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:50.988  INFO 113 --- [127.0.0.1:36168] okhttp3.mockwebserver.MockWebServer      : MockWebServer[38080] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:50.995  INFO 113 --- [WebServer 38080] okhttp3.mockwebserver.MockWebServer      : MockWebServer[38080] done accepting connections: Socket closed
+2021-02-04 10:58:51.010  INFO 113 --- [WebServer 42596] okhttp3.mockwebserver.MockWebServer      : MockWebServer[42596] starting to accept connections
+2021-02-04 10:58:51.012  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:51.111  INFO 113 --- [127.0.0.1:52624] okhttp3.mockwebserver.MockWebServer      : MockWebServer[42596] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:51.117  INFO 113 --- [WebServer 42596] okhttp3.mockwebserver.MockWebServer      : MockWebServer[42596] done accepting connections: Socket closed
+2021-02-04 10:58:51.131  INFO 113 --- [WebServer 58454] okhttp3.mockwebserver.MockWebServer      : MockWebServer[58454] starting to accept connections
+2021-02-04 10:58:51.132  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:51.230  INFO 113 --- [127.0.0.1:53340] okhttp3.mockwebserver.MockWebServer      : MockWebServer[58454] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:51.238  INFO 113 --- [WebServer 58454] okhttp3.mockwebserver.MockWebServer      : MockWebServer[58454] done accepting connections: Socket closed
+[ERROR] Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 1.234 s <<< FAILURE! - in org.entando.kubernetes.service.EntandoDeBundleServiceTest
+[ERROR] shouldReturnBundlesAvailableInTheObservedNamespace  Time elapsed: 0.106 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldReturnEmptyListIfNoBundleIsAvailableInTheObservedNamespace  Time elapsed: 0.129 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldNotFindBundleBecauseMissingAKeywords  Time elapsed: 0.122 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldFindBundleByNameAndNamespace  Time elapsed: 0.114 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldFindBundlesWithAllKeywords  Time elapsed: 0.117 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldFindBundlesWithKeywords  Time elapsed: 0.135 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldNotFindBundleByNameInWrongNamespace  Time elapsed: 0.133 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldFindBundleByName  Time elapsed: 0.128 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldStartCorrectly  Time elapsed: 0.121 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[ERROR] shouldReturnBundlesAvailableInASpecificNamespace  Time elapsed: 0.122 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.EntandoDeBundleServiceTest.setup(EntandoDeBundleServiceTest.java:42)
+
+[INFO] Running org.entando.kubernetes.service.IngressServiceTest
+2021-02-04 10:58:51.256  INFO 113 --- [WebServer 41198] okhttp3.mockwebserver.MockWebServer      : MockWebServer[41198] starting to accept connections
+2021-02-04 10:58:51.258  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:51.354  INFO 113 --- [127.0.0.1:43986] okhttp3.mockwebserver.MockWebServer      : MockWebServer[41198] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:51.372  INFO 113 --- [WebServer 41198] okhttp3.mockwebserver.MockWebServer      : MockWebServer[41198] done accepting connections: Socket closed
+2021-02-04 10:58:51.389  INFO 113 --- [WebServer 55734] okhttp3.mockwebserver.MockWebServer      : MockWebServer[55734] starting to accept connections
+2021-02-04 10:58:51.391  INFO 113 --- [           main] o.e.k.m.namespace.ObservedNamespaces     : ObservedNamespaces are test-namespace
+2021-02-04 10:58:51.489  INFO 113 --- [127.0.0.1:38056] okhttp3.mockwebserver.MockWebServer      : MockWebServer[55734] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+2021-02-04 10:58:51.496  INFO 113 --- [WebServer 55734] okhttp3.mockwebserver.MockWebServer      : MockWebServer[55734] done accepting connections: Socket closed
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.232 s <<< FAILURE! - in org.entando.kubernetes.service.IngressServiceTest
+[ERROR] shouldFindIngressForApp  Time elapsed: 0.108 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.IngressServiceTest.setUp(IngressServiceTest.java:43)
+
+[ERROR] shouldFindIngressForPlugin  Time elapsed: 0.124 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.entando.kubernetes.service.IngressServiceTest.setUp(IngressServiceTest.java:43)
+
+2021-02-04 10:58:51.546  INFO 113 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Shutting down E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:51.546  INFO 113 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Shutting down E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:51.546  INFO 113 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Shutting down E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:51.554  INFO 113 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Shutting down E**cutorService 'applicationTaskE**cutor'
+2021-02-04 10:58:51.555  INFO 113 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskE**cutor  : Shutting down E**cutorService 'applicationTaskE**cutor'
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoAppServiceTest.setUp:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoDeBundleServiceTest.setup:42 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoLinkServiceTest.setUp:48 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   EntandoPluginServiceTest.setUp:52 » NullPointer
+[ERROR]   IngressServiceTest.setUp:43 » NullPointer
+[ERROR]   IngressServiceTest.setUp:43 » NullPointer
+[INFO] 
+[ERROR] Tests run: 89, Failures: 0, Errors: 45, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping Entando Kubernetes Service
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:21 min
+[INFO] Finished at: 2021-02-04T10:58:52Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] The requested profile "***" could not be activated because it does not exist.
+[ERROR] Failed to e**cute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M1:test (default-test) on project entando-k8s-service: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /workspace/source/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-***Run[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Pre-deployment tests failed for entando-k8s-service-master.
+No OWASP dependency check found for entando-k8s-service-master.
+The following checks failed for entando-k8s-service-master:
+Pre-deployment tests
+No OWASP dependency check results produced by build
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-mvn-deploy-release'. The execution of the pipeline has stopped.[0m
