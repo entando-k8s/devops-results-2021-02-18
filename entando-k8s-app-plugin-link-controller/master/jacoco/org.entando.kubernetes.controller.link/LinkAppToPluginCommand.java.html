@@ -18,16 +18,15 @@ package org.entando.kubernetes.controller.link;
 
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.extensions.Ingress;
-import org.entando.kubernetes.controller.ExposedService;
-import org.entando.kubernetes.controller.KeycloakConnectionConfig;
-import org.entando.kubernetes.controller.KubeUtils;
-import org.entando.kubernetes.controller.SimpleKeycloakClient;
-import org.entando.kubernetes.controller.common.KeycloakName;
-import org.entando.kubernetes.controller.creators.IngressPathCreator;
-import org.entando.kubernetes.controller.creators.ServiceCreator;
-import org.entando.kubernetes.controller.k8sclient.ServiceClient;
-import org.entando.kubernetes.controller.k8sclient.SimpleK8SClient;
-import org.entando.kubernetes.controller.spi.ServiceResult;
+import org.entando.kubernetes.controller.spi.common.NameUtils;
+import org.entando.kubernetes.controller.spi.container.KeycloakConnectionConfig;
+import org.entando.kubernetes.controller.spi.container.KeycloakName;
+import org.entando.kubernetes.controller.support.client.ServiceClient;
+import org.entando.kubernetes.controller.support.client.SimpleK8SClient;
+import org.entando.kubernetes.controller.support.client.SimpleKeycloakClient;
+import org.entando.kubernetes.controller.support.common.KubeUtils;
+import org.entando.kubernetes.controller.support.creators.IngressPathCreator;
+import org.entando.kubernetes.controller.support.creators.ServiceCreator;
 import org.entando.kubernetes.model.AbstractServerStatus;
 import org.entando.kubernetes.model.WebServerStatus;
 import org.entando.kubernetes.model.app.EntandoApp;
@@ -40,74 +39,80 @@ public class LinkAppToPluginCommand {
     private final EntandoAppPluginLink entandoAppPluginLink;
     private final IngressPathCreator ingressCreator;
     private final EntandoLinkedPluginIngressing entandoLinkedPluginIngressing;
-    private final ServiceCreator&lt;?&gt; serviceCreator;
-<span class="fc" id="L44">    private final WebServerStatus status = new WebServerStatus(&quot;link&quot;);</span>
+    private final ServiceCreator serviceCreator;
+<span class="fc" id="L43">    private final WebServerStatus status = new WebServerStatus(&quot;link&quot;);</span>
 
+    //TODO fix ServiceCreator not to assume an EntandoDeploymentSpec
 <span class="fc" id="L46">    public LinkAppToPluginCommand(EntandoAppPluginLink entandoAppPluginLink, EntandoLinkedPluginIngressing entandoLinkedPluginIngressing) {</span>
 <span class="fc" id="L47">        this.entandoAppPluginLink = entandoAppPluginLink;</span>
-        //TODO fix this problem. Links do not have EntandoDeploymentSpecs
-<span class="fc" id="L49">        this.serviceCreator = new ServiceCreator(entandoAppPluginLink,</span>
-<span class="fc" id="L50">                entandoLinkedPluginIngressing.getEntandoPluginDeploymentResult().getService());</span>
-<span class="fc" id="L51">        this.ingressCreator = new IngressPathCreator(entandoAppPluginLink);</span>
-<span class="fc" id="L52">        this.entandoLinkedPluginIngressing = entandoLinkedPluginIngressing;</span>
-<span class="fc" id="L53">    }</span>
+<span class="fc" id="L48">        this.serviceCreator = new ServiceCreator(entandoAppPluginLink,</span>
+<span class="fc" id="L49">                entandoLinkedPluginIngressing.getEntandoPluginDeploymentResult().getService());</span>
+<span class="fc" id="L50">        this.ingressCreator = new IngressPathCreator(entandoAppPluginLink);</span>
+<span class="fc" id="L51">        this.entandoLinkedPluginIngressing = entandoLinkedPluginIngressing;</span>
+<span class="fc" id="L52">    }</span>
 
-    public ServiceResult execute(SimpleK8SClient&lt;?&gt; k8sClient, SimpleKeycloakClient keycloakClient) {
-<span class="fc" id="L56">        Service service = prepareReachableService(k8sClient.services());</span>
-<span class="fc" id="L57">        status.setServiceStatus(service.getStatus());</span>
-<span class="fc" id="L58">        k8sClient.entandoResources().updateStatus(entandoAppPluginLink, status);</span>
-<span class="fc" id="L59">        Ingress ingress = addMissingIngressPaths(k8sClient, service);</span>
-<span class="fc" id="L60">        status.setIngressStatus(ingress.getStatus());</span>
-<span class="fc" id="L61">        k8sClient.entandoResources().updateStatus(entandoAppPluginLink, status);</span>
-<span class="fc" id="L62">        grantAppAccessToPlugin(k8sClient, keycloakClient);</span>
+    public void execute(SimpleK8SClient&lt;?&gt; k8sClient, SimpleKeycloakClient keycloakClient) {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (entandoLinkedPluginIngressing.usingSameHostname()) {</span>
+<span class="fc" id="L56">            status.setServiceStatus(entandoLinkedPluginIngressing.getEntandoPluginDeploymentResult().getService().getStatus());</span>
+<span class="fc" id="L57">            status.setIngressStatus(entandoLinkedPluginIngressing.getEntandoPluginDeploymentResult().getIngress().getStatus());</span>
+<span class="fc" id="L58">            k8sClient.entandoResources().updateStatus(entandoAppPluginLink, status);</span>
+        } else {
+<span class="fc" id="L60">            Service service = prepareReachableService(k8sClient.services());</span>
+<span class="fc" id="L61">            status.setServiceStatus(service.getStatus());</span>
+<span class="fc" id="L62">            k8sClient.entandoResources().updateStatus(entandoAppPluginLink, status);</span>
+<span class="fc" id="L63">            Ingress ingress = addMissingIngressPaths(k8sClient, service);</span>
+<span class="fc" id="L64">            status.setIngressStatus(ingress.getStatus());</span>
+<span class="fc" id="L65">            k8sClient.entandoResources().updateStatus(entandoAppPluginLink, status);</span>
+        }
+<span class="fc" id="L67">        grantAppAccessToPlugin(k8sClient, keycloakClient);</span>
         //TODO wait for result - when new ingress path is available
-<span class="fc" id="L64">        return new ExposedService(service, ingress);</span>
-    }
+<span class="fc" id="L69">    }</span>
 
-    private void grantAppAccessToPlugin(SimpleK8SClient k8sClient, SimpleKeycloakClient keycloakClient) {
-<span class="fc" id="L68">        EntandoApp entandoApp = this.entandoLinkedPluginIngressing.getEntandoApp();</span>
-<span class="fc" id="L69">        String pluginClientId = entandoAppPluginLink.getSpec().getEntandoPluginName() + &quot;-&quot; + KubeUtils.DEFAULT_SERVER_QUALIFIER;</span>
-<span class="fc" id="L70">        KeycloakConnectionConfig keycloakConnectionConfig = k8sClient.entandoResources()</span>
-<span class="fc" id="L71">                .findKeycloak(entandoLinkedPluginIngressing.getEntandoApp());</span>
-<span class="fc" id="L72">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
-<span class="fc" id="L73">                keycloakConnectionConfig.getPassword());</span>
-<span class="fc" id="L74">        keycloakClient.assignRoleToClientServiceAccount(</span>
-<span class="fc" id="L75">                KeycloakName.ofTheRealm(entandoApp.getSpec()),</span>
-<span class="fc" id="L76">                entandoAppPluginLink.getSpec().getEntandoAppName() + &quot;-&quot; + KubeUtils.DEFAULT_SERVER_QUALIFIER,</span>
+    private void grantAppAccessToPlugin(SimpleK8SClient&lt;?&gt; k8sClient, SimpleKeycloakClient keycloakClient) {
+<span class="fc" id="L72">        EntandoApp entandoApp = this.entandoLinkedPluginIngressing.getEntandoApp();</span>
+<span class="fc" id="L73">        String pluginClientId = entandoAppPluginLink.getSpec().getEntandoPluginName() + &quot;-&quot; + NameUtils.DEFAULT_SERVER_QUALIFIER;</span>
+<span class="fc" id="L74">        KeycloakConnectionConfig keycloakConnectionConfig = k8sClient.entandoResources()</span>
+<span class="fc" id="L75">                .findKeycloak(entandoLinkedPluginIngressing.getEntandoApp(),</span>
+<span class="fc" id="L76">                        entandoLinkedPluginIngressing.getEntandoApp().getSpec()::getKeycloakToUse);</span>
+<span class="fc" id="L77">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
+<span class="fc" id="L78">                keycloakConnectionConfig.getPassword());</span>
+<span class="fc" id="L79">        keycloakClient.assignRoleToClientServiceAccount(</span>
+<span class="fc" id="L80">                KeycloakName.ofTheRealm(entandoApp.getSpec()::getKeycloakToUse),</span>
+<span class="fc" id="L81">                entandoAppPluginLink.getSpec().getEntandoAppName() + &quot;-&quot; + NameUtils.DEFAULT_SERVER_QUALIFIER,</span>
                 new Permission(pluginClientId,
                         KubeUtils.ENTANDO_APP_ROLE)
         );
-<span class="fc" id="L80">        keycloakClient.assignRoleToClientServiceAccount(</span>
-<span class="fc" id="L81">                KeycloakName.ofTheRealm(entandoApp.getSpec()),</span>
-<span class="fc" id="L82">                entandoAppPluginLink.getSpec().getEntandoAppName() + &quot;-&quot; + COMPONENT_MANAGER_QUALIFIER,</span>
+<span class="fc" id="L85">        keycloakClient.assignRoleToClientServiceAccount(</span>
+<span class="fc" id="L86">                KeycloakName.ofTheRealm(entandoApp.getSpec()::getKeycloakToUse),</span>
+<span class="fc" id="L87">                entandoAppPluginLink.getSpec().getEntandoAppName() + &quot;-&quot; + COMPONENT_MANAGER_QUALIFIER,</span>
                 new Permission(pluginClientId,
                         KubeUtils.ENTANDO_APP_ROLE)
         );
-<span class="fc" id="L86">    }</span>
+<span class="fc" id="L91">    }</span>
 
-    private Ingress addMissingIngressPaths(SimpleK8SClient k8sClient, Service service) {
-<span class="fc" id="L89">        return ingressCreator.addMissingHttpPaths(k8sClient.ingresses(), entandoLinkedPluginIngressing,</span>
-<span class="fc" id="L90">                entandoLinkedPluginIngressing.getEntandoAppDeploymentResult().getIngress(), service);</span>
+    private Ingress addMissingIngressPaths(SimpleK8SClient&lt;?&gt; k8sClient, Service service) {
+<span class="fc" id="L94">        return ingressCreator.addMissingHttpPaths(k8sClient.ingresses(), entandoLinkedPluginIngressing,</span>
+<span class="fc" id="L95">                entandoLinkedPluginIngressing.getEntandoAppDeploymentResult().getIngress(), service);</span>
     }
 
     private Service prepareReachableService(ServiceClient services) {
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        if (getAppServiceNamespace().equals(getPluginServiceNamespace())) {</span>
-<span class="nc" id="L95">            return serviceCreator.getService();</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">        if (getAppServiceNamespace().equals(getPluginServiceNamespace())) {</span>
+<span class="nc" id="L100">            return serviceCreator.getService();</span>
         } else {
-<span class="fc" id="L97">            return serviceCreator.newDelegatingService(services, entandoLinkedPluginIngressing);</span>
+<span class="fc" id="L102">            return serviceCreator.newDelegatingService(services, entandoLinkedPluginIngressing);</span>
         }
     }
 
     private String getPluginServiceNamespace() {
-<span class="fc" id="L102">        return this.entandoLinkedPluginIngressing.getEntandoAppDeploymentResult().getService().getMetadata().getNamespace();</span>
+<span class="fc" id="L107">        return this.entandoLinkedPluginIngressing.getEntandoAppDeploymentResult().getService().getMetadata().getNamespace();</span>
     }
 
     private String getAppServiceNamespace() {
-<span class="fc" id="L106">        return this.entandoLinkedPluginIngressing.getEntandoPluginDeploymentResult().getService().getMetadata().getNamespace();</span>
+<span class="fc" id="L111">        return this.entandoLinkedPluginIngressing.getEntandoPluginDeploymentResult().getService().getMetadata().getNamespace();</span>
     }
 
     public AbstractServerStatus getStatus() {
-<span class="fc" id="L110">        return status;</span>
+<span class="fc" id="L115">        return status;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
