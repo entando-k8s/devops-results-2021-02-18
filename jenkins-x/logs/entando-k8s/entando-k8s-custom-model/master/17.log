@@ -1,0 +1,1338 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-8kdq8[0m
+{"level":"warn","ts":1612513045.007934,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612513045.052045,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-ggxbm[0m
+{"level":"warn","ts":1612513047.6900802,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612513047.7159252,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-custom-jqffs[0m
+{"level":"warn","ts":1612513076.969098,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612513078.9493232,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-custom-model.git @ v6.3.1 in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:205e722ecd93f16411cbc11150ad0028a36686b1
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fetch-history-for-sonar[0m
+From https://github.com/entando-k8s/entando-k8s-custom-model
+ * [new branch]      ENG-1218_added_resource_requirements -> origin/ENG-1218_added_resource_requirements
+ * [new branch]      ENG-1301_single_host_quickstart -> origin/ENG-1301_single_host_quickstart
+ * [new branch]      ENG-1447_improved_keycloak_config -> origin/ENG-1447_improved_keycloak_config
+ * [new branch]      ENG-1737_added_standardImage_to_keycloak_crd -> origin/ENG-1737_added_standardImage_to_keycloak_crd
+ * [new branch]      ENG-395_bundle-crd-rewrite -> origin/ENG-395_bundle-crd-rewrite
+ * [new branch]      ENG-562_support_h2_and_derby -> origin/ENG-562_support_h2_and_derby
+ * [new branch]      ENG-872_parameters_migrated_to_envvars -> origin/ENG-872_parameters_migrated_to_envvars
+ * [new branch]      configurable_serviceacount -> origin/configurable_serviceacount
+ * [new branch]      **********-patch-1 -> origin/**********-patch-1
+ * [new branch]      firegloves-owners  -> origin/firegloves-owners
+ * [new branch]      master             -> origin/master
+ * [new branch]      poste              -> origin/poste
+ * [new tag]         v6.3.1             -> v6.3.1
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-deploy-release[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.entando:entando-k8s-custom-model >----------------
+[INFO] Building Entando Kubernetes Custom Model 6.3.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ entando-k8s-custom-model ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-custom-model ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-custom-model ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-custom-model ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-custom-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-custom-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 135 source files to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-custom-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-custom-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 28 source files to /workspace/source/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-custom-model ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoCustomResourceStatusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.659 s - in org.entando.kubernetes.model.inprocesstest.EntandoCustomResourceStatusTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoPluginMockedTest
+Feb 05, 2021 8:18:41 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[41188] starting to accept connections
+Feb 05, 2021 8:18:41 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoplugins.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /apis/entando.org/v1/namespaces/default/entandoplugins HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /apis/entando.org/v1/namespaces/default/entandoplugins HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:42 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins/my-plugin HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins/my-plugin HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins/my-plugin HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41188] received request: PUT /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins/my-plugin/status HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[41188] done accepting connections: Socket closed
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[49734] starting to accept connections
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: GET /apis/entando.org/v1/namespaces/default/entandoplugins HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: GET /apis/entando.org/v1/namespaces/default/entandoplugins HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:43 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49734] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoplugins/my-plugin HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[49734] done accepting connections: Socket closed
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[34334] starting to accept connections
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34334] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34334] received request: GET /apis/entando.org/v1/namespaces/default/entandoplugins HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34334] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34334] received request: GET /apis/entando.org/v1/namespaces/default/entandoplugins HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34334] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34334] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[34334] done accepting connections: Socket closed
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[54344] starting to accept connections
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.183 s - in org.entando.kubernetes.model.inprocesstest.EntandoPluginMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoKeycloakServerMockedTest
+Feb 05, 2021 8:18:44 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandokeycloakservers.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /apis/entando.org/v1/namespaces/default/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /apis/entando.org/v1/namespaces/default/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54344] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers/my-keycloak HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[54344] done accepting connections: Socket closed
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[52316] starting to accept connections
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:45 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /apis/entando.org/v1/namespaces/default/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /apis/entando.org/v1/namespaces/default/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers/my-keycloak HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers/my-keycloak HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers/my-keycloak HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52316] received request: PUT /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandokeycloakservers/my-keycloak/status HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[52316] done accepting connections: Socket closed
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[41646] starting to accept connections
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41646] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:46 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41646] received request: GET /apis/entando.org/v1/namespaces/default/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41646] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41646] received request: GET /apis/entando.org/v1/namespaces/default/entandokeycloakservers HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41646] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[41646] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[41646] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.498 s - in org.entando.kubernetes.model.inprocesstest.EntandoKeycloakServerMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoClusterInfrastructureMockedTest
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[57373] starting to accept connections
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoclusterinfrastructures.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /apis/entando.org/v1/namespaces/default/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:47 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /apis/entando.org/v1/namespaces/default/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57373] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures/my-entando-cluster-infrastructure HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[57373] done accepting connections: Socket closed
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[33318] starting to accept connections
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /apis/entando.org/v1/namespaces/default/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /apis/entando.org/v1/namespaces/default/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:48 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures/my-entando-cluster-infrastructure HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures/my-entando-cluster-infrastructure HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures/my-entando-cluster-infrastructure HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33318] received request: PUT /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoclusterinfrastructures/my-entando-cluster-infrastructure/status HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33318] done accepting connections: Socket closed
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[45015] starting to accept connections
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45015] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45015] received request: GET /apis/entando.org/v1/namespaces/default/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45015] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45015] received request: GET /apis/entando.org/v1/namespaces/default/entandoclusterinfrastructures HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45015] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45015] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[45015] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.526 s - in org.entando.kubernetes.model.inprocesstest.EntandoClusterInfrastructureMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoDeBundleMockedTest
+Feb 05, 2021 8:18:49 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[33727] starting to accept connections
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodebundles.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /apis/entando.org/v1/namespaces/default/entandodebundles HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /apis/entando.org/v1/namespaces/default/entandodebundles HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodebundles HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodebundles/my-bundle HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodebundles/my-bundle HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:50 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33727] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodebundles/my-bundle HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33727] done accepting connections: Socket closed
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[54094] starting to accept connections
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: GET /apis/entando.org/v1/namespaces/default/entandodebundles HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: GET /apis/entando.org/v1/namespaces/default/entandodebundles HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodebundles HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54094] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodebundles/my-bundle HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[54094] done accepting connections: Socket closed
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[34927] starting to accept connections
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34927] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:51 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34927] received request: GET /apis/entando.org/v1/namespaces/default/entandodebundles HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34927] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34927] received request: GET /apis/entando.org/v1/namespaces/default/entandodebundles HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34927] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34927] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[34927] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.396 s - in org.entando.kubernetes.model.inprocesstest.EntandoDeBundleMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoAppPluginLinkMockedTest
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[47126] starting to accept connections
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapppluginlinks.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /apis/entando.org/v1/namespaces/default/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /apis/entando.org/v1/namespaces/default/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:52 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapppluginlinks/my-app-plugin-link HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapppluginlinks/my-app-plugin-link HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47126] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapppluginlinks/my-app-plugin-link HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[47126] done accepting connections: Socket closed
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[57739] starting to accept connections
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: GET /apis/entando.org/v1/namespaces/default/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: GET /apis/entando.org/v1/namespaces/default/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:53 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57739] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapppluginlinks/my-app-plugin-link HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[57739] done accepting connections: Socket closed
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[45081] starting to accept connections
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45081] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45081] received request: GET /apis/entando.org/v1/namespaces/default/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45081] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45081] received request: GET /apis/entando.org/v1/namespaces/default/entandoapppluginlinks HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45081] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45081] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[45081] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.332 s - in org.entando.kubernetes.model.inprocesstest.EntandoAppPluginLinkMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoCompositeAppMockedTest
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[53975] starting to accept connections
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandocompositeapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:54 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /apis/entando.org/v1/namespaces/default/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /apis/entando.org/v1/namespaces/default/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[53975] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps/my-comnposite-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[53975] done accepting connections: Socket closed
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[47197] starting to accept connections
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /apis/entando.org/v1/namespaces/default/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:55 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /apis/entando.org/v1/namespaces/default/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps/my-comnposite-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps/my-comnposite-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps/my-comnposite-app HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47197] received request: PUT /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandocompositeapps/my-comnposite-app/status HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[47197] done accepting connections: Socket closed
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[42449] starting to accept connections
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42449] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42449] received request: GET /apis/entando.org/v1/namespaces/default/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42449] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:56 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42449] received request: GET /apis/entando.org/v1/namespaces/default/entandocompositeapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42449] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42449] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[42449] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.459 s - in org.entando.kubernetes.model.inprocesstest.EntandoCompositeAppMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoAppMockedTest
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[36131] starting to accept connections
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandoapps.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /apis/entando.org/v1/namespaces/default/entandoapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /apis/entando.org/v1/namespaces/default/entandoapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:57 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps/my-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps/my-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps/my-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36131] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps/my-app HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[36131] done accepting connections: Socket closed
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[43772] starting to accept connections
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: GET /apis/entando.org/v1/namespaces/default/entandoapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: GET /apis/entando.org/v1/namespaces/default/entandoapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:58 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43772] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandoapps/my-app HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[43772] done accepting connections: Socket closed
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[39661] starting to accept connections
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39661] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39661] received request: GET /apis/entando.org/v1/namespaces/default/entandoapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39661] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39661] received request: GET /apis/entando.org/v1/namespaces/default/entandoapps HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39661] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39661] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[39661] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.47 s - in org.entando.kubernetes.model.inprocesstest.EntandoAppMockedTest
+[INFO] Running org.entando.kubernetes.model.inprocesstest.EntandoDatabaseServiceMockedTest
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[44324] starting to accept connections
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/entandodatabaseservices.entando.org HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: POST /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:18:59 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /apis/entando.org/v1/namespaces/default/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /apis/entando.org/v1/namespaces/default/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[44324] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodatabaseservices/my-external-database HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[44324] done accepting connections: Socket closed
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[59187] starting to accept connections
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /apis/entando.org/v1/namespaces/default/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /apis/entando.org/v1/namespaces/default/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:00 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: POST /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodatabaseservices/my-external-database HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: GET /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodatabaseservices/my-external-database HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[59187] received request: PATCH /apis/entando.org/v1/namespaces/entando-k8s-custom-model-cums17/entandodatabaseservices/my-external-database HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[59187] done accepting connections: Socket closed
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$2 e**cute
+INFO: MockWebServer[56770] starting to accept connections
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56770] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56770] received request: GET /apis/entando.org/v1/namespaces/default/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56770] received request: GET /api/v1/namespaces/test HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56770] received request: GET /apis/entando.org/v1/namespaces/default/entandodatabaseservices HTTP/1.1 and responded: HTTP/1.1 200 OK
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56770] received request: GET /api/v1/namespaces/entando-k8s-custom-model-cums17 HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Feb 05, 2021 8:19:01 AM okhttp3.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56770] received request: POST /api/v1/namespaces HTTP/1.1 and responded: HTTP/1.1 202 OK
+Feb 05, 2021 8:19:02 AM okhttp3.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[56770] done accepting connections: Socket closed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.312 s - in org.entando.kubernetes.model.inprocesstest.EntandoDatabaseServiceMockedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoKeycloakServerIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.442 s - in org.entando.kubernetes.model.interprocesstest.EntandoKeycloakServerIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoAppPluginLinkIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.053 s - in org.entando.kubernetes.model.interprocesstest.EntandoAppPluginLinkIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoDatabaseServiceIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.958 s - in org.entando.kubernetes.model.interprocesstest.EntandoDatabaseServiceIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoPluginIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.89 s - in org.entando.kubernetes.model.interprocesstest.EntandoPluginIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoAppIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.76 s - in org.entando.kubernetes.model.interprocesstest.EntandoAppIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoDeBundleIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.823 s - in org.entando.kubernetes.model.interprocesstest.EntandoDeBundleIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoCompositeAppIntegratedTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.902 s - in org.entando.kubernetes.model.interprocesstest.EntandoCompositeAppIntegratedTest
+[INFO] Running org.entando.kubernetes.model.interprocesstest.EntandoClusterInfrastructureIntegratedTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.3 s - in org.entando.kubernetes.model.interprocesstest.EntandoClusterInfrastructureIntegratedTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-custom-model ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-custom-model-6.3.1.jar
+[INFO] 
+[INFO] --- license-maven-plugin:2.0.0:aggregate-download-licenses (download-licenses) @ entando-k8s-custom-model ---
+[WARNING] Unable to retrieve license from URL 'LICENSE.txt' for dependency 'org.awaitility:awaitility:4.0.1': null
+[WARNING] There were 1 download errors - check the warnings above
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-custom-model ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-custom-model-6.3.1-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.1:jar-no-fork (attach-sources) @ entando-k8s-custom-model ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-custom-model-6.3.1-sources.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.2.1:test-jar (attach-sources) > generate-sources @ entando-k8s-custom-model >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-custom-model ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-custom-model ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-custom-model ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] <<< maven-source-plugin:3.2.1:test-jar (attach-sources) < generate-sources @ entando-k8s-custom-model <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.1:test-jar (attach-sources) @ entando-k8s-custom-model ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-custom-model-6.3.1-test-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ entando-k8s-custom-model ---
+[INFO] No previous run data found, generating javadoc.
+[INFO] 
+Loading source files for package org.entando.kubernetes.model.keycloakserver...
+Loading source files for package org.entando.kubernetes.model...
+Loading source files for package org.entando.kubernetes.model.app...
+Loading source files for package org.entando.kubernetes.model.externaldatabase...
+Loading source files for package org.entando.kubernetes.model.infrastructure...
+Loading source files for package org.entando.kubernetes.model.plugin...
+Loading source files for package org.entando.kubernetes.model.gitspec...
+Loading source files for package org.entando.kubernetes.model.debundle...
+Loading source files for package org.entando.kubernetes.model.link...
+Loading source files for package org.entando.kubernetes.model.compositeapp...
+Constructing Javadoc information...
+Standard Doclet version 11.0.6
+Building tree for all the packages and classes...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/AbstractServerStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/ClusterInfrastructureAwareSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/ClusterInfrastructureAwareSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/Coalescence.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/DbmsVendor.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/DbServerStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/DoneableEntandoCustomResource.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoBaseCustomResource.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoBaseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoControllerFailure.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoControllerFailureBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoCustomResource.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoCustomResourceResolver.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoCustomResourceStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoDeploymentPhase.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoDeploymentSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoDeploymentSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoDeploymentSpecFluent.EntandoResourceRequirementsNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoIngressingDeploymentBaseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoIngressingDeploymentSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoIngressingDeploymentSpecBaseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoIngressingDeploymentSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoResourceOperationsRegistry.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoResourceRequirements.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoResourceRequirementsBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/EntandoResourceRequirementsFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/HasIngress.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/JeeServer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/KeycloakAwareSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/KeycloakAwareSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/KeycloakAwareSpecFluent.KeycloakToUseNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/KeycloakToUse.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/KeycloakToUseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/MetadataNestedImpl.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/NestedIngressingDeploymentSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/ResourceReference.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/SampleWriter.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/SpecHasIngress.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/WebServerStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/DoneableEntandoApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/EntandoAppSpecFluent.GitSpecBuilderNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/NestedEntandoAppSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/DoneableEntandoCompositeApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppFluent.NestedEntandoCompositeAppFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoAppNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoAppPluginLinkNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoClusterInfrastructureNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoCustomResourceReferenceNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoDatabaseServiceNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoKeycloakServerNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.EntandoPluginNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReference.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReferenceBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReferenceFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReferenceFluent.NestedEntandoCustomResourceReferenceSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReferenceSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReferenceSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/EntandoCustomResourceReferenceSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/DoneableEntandoDeBundle.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundle.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleDetails.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleDetailsBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleDetailsFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleFluent.SpecNestedImpl.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleSpecFluent.DetailsNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleSpecFluent.TagNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleTag.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleTagBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/EntandoDeBundleTagFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/DoneableEntandoDatabaseService.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseService.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/NestedEntandoDatabaseServiceFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/GitResponsibility.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/GitSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/GitSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/GitSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/DoneableEntandoClusterInfrastructure.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructure.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/NestedEntandClusterInfrastructureSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/DoneableEntandoKeycloakServer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/NestedEntandoKeycloakServerSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/StandardKeycloakImage.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/DoneableEntandoAppPluginLink.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLink.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkFluent.NestedEntandoAppPluginLinkSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/EntandoAppPluginLinkSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/DoneableEntandoPlugin.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPlugin.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/EntandoPluginSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/ExpectedRole.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/NestedEntandoPluginSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/Permission.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/PluginSecurityLevel.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/package-tree.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/package-tree.html...
+Generating /workspace/source/target/apidocs/constant-values.html...
+Generating /workspace/source/target/apidocs/serialized-form.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/StandardKeycloakImage.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/DoneableEntandoKeycloakServer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/NestedEntandoKeycloakServerSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/class-use/EntandoKeycloakServerSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/ResourceReference.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/DbmsVendor.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoResourceRequirements.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/Coalescence.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/JeeServer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/KeycloakAwareSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoDeploymentSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/SampleWriter.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoBaseCustomResource.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoIngressingDeploymentSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoResourceOperationsRegistry.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/KeycloakToUse.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoCustomResourceResolver.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoBaseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/SpecHasIngress.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/AbstractServerStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoControllerFailureBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/ClusterInfrastructureAwareSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoIngressingDeploymentBaseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/DoneableEntandoCustomResource.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoResourceRequirementsFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/HasIngress.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoControllerFailure.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoCustomResource.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoIngressingDeploymentSpecBaseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/ClusterInfrastructureAwareSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/KeycloakToUseFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoCustomResourceStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoDeploymentPhase.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/KeycloakAwareSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/KeycloakAwareSpecFluent.KeycloakToUseNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/NestedIngressingDeploymentSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/DbServerStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/MetadataNestedImpl.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoIngressingDeploymentSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoDeploymentSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoDeploymentSpecFluent.EntandoResourceRequirementsNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/WebServerStatus.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/class-use/EntandoResourceRequirementsBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppSpecFluent.GitSpecBuilderNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/NestedEntandoAppSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/DoneableEntandoApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/class-use/EntandoAppSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/NestedEntandoDatabaseServiceFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseService.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/DoneableEntandoDatabaseService.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/class-use/EntandoDatabaseServiceBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/DoneableEntandoClusterInfrastructure.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructure.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/NestedEntandClusterInfrastructureSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/class-use/EntandoClusterInfrastructureBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/ExpectedRole.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/Permission.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/NestedEntandoPluginSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/PluginSecurityLevel.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/DoneableEntandoPlugin.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPlugin.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/class-use/EntandoPluginOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/class-use/GitSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/class-use/GitResponsibility.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/class-use/GitSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/class-use/GitSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleDetailsBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/DoneableEntandoDeBundle.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleDetails.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleSpecFluent.TagNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleSpecFluent.DetailsNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleTagBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleFluent.SpecNestedImpl.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleDetailsFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleTag.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundleTagFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/class-use/EntandoDeBundle.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLink.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/EntandoAppPluginLinkFluent.NestedEntandoAppPluginLinkSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/class-use/DoneableEntandoAppPluginLink.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReferenceSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReferenceSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoCustomResourceReferenceNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoDatabaseServiceNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoAppPluginLinkNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoPluginNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoClusterInfrastructureNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoAppNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecFluent.EntandoKeycloakServerNested.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpecBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReference.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReferenceFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReferenceFluent.NestedEntandoCustomResourceReferenceSpecFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppOperationFactory.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/DoneableEntandoCompositeApp.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReferenceSpec.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppList.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCustomResourceReferenceBuilder.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/class-use/EntandoCompositeAppFluent.NestedEntandoCompositeAppFluent.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/app/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/compositeapp/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/debundle/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/externaldatabase/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/gitspec/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/infrastructure/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/keycloakserver/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/link/package-use.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/model/plugin/package-use.html...
+Building index for all the packages and classes...
+Generating /workspace/source/target/apidocs/overview-tree.html...
+Generating /workspace/source/target/apidocs/index-all.html...
+Building index for all classes...
+Generating /workspace/source/target/apidocs/allclasses-index.html...
+Generating /workspace/source/target/apidocs/allpackages-index.html...
+Generating /workspace/source/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /workspace/source/target/apidocs/allclasses.html...
+Generating /workspace/source/target/apidocs/allclasses.html...
+Generating /workspace/source/target/apidocs/index.html...
+Generating /workspace/source/target/apidocs/overview-summary.html...
+Generating /workspace/source/target/apidocs/help-doc.html...
+[INFO] Building jar: /workspace/source/target/entando-k8s-custom-model-6.3.1-javadoc.jar
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-custom-model ---
+[INFO] 
+[INFO] --- dependency-check-maven:6.0.3:aggregate (default) @ entando-k8s-custom-model ---
+[INFO] Checking for updates
+[INFO] Download Started for NVD CVE - Modified
+[INFO] Download Complete for NVD CVE - Modified  (774 ms)
+[INFO] Processing Started for NVD CVE - Modified
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.fasterxml.jackson.module.afterburner.util.MyClassLoader (file:/home/jenkins/.mvnrepository/com/fasterxml/jackson/module/jackson-module-afterburner/2.11.3/jackson-module-afterburner-2.11.3.jar) to method java.lang.ClassLoader.findLoadedClass(java.lang.String)
+WARNING: Please consider reporting this to the maintainers of com.fasterxml.jackson.module.afterburner.util.MyClassLoader
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Processing Complete for NVD CVE - Modified  (6361 ms)
+[INFO] Begin database maintenance
+[INFO] End database maintenance (865 ms)
+[INFO] Check for updates complete (8824 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (0 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (0 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Created CPE Index (2 seconds)
+[INFO] Finished CPE Analyzer (3 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[INFO] Finished Sonatype OSS Index Analyzer (1 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Analysis Complete (6 seconds)
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-k8s-custom-model ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando Kubernetes Custom Model' with 144 classes
+[INFO] 
+[INFO] --- maven-gpg-plugin:1.6:sign (sign-artifacts) @ entando-k8s-custom-model ---
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-custom-model ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-k8s-custom-model ---
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1.jar
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1.pom
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-tests.jar
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-sources.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-sources.jar
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-test-sources.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-test-sources.jar
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-javadoc.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-javadoc.jar
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1.pom.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1.pom.asc
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-tests.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-tests.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-sources.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-sources.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-test-sources.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-test-sources.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-custom-model-6.3.1-javadoc.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-custom-model/6.3.1/entando-k8s-custom-model-6.3.1-javadoc.jar.asc
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-k8s-custom-model ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-custom-model ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] 
+[INFO] ----------------< org.entando:entando-k8s-custom-model >----------------
+[INFO] Building Entando Kubernetes Custom Model 6.3.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-k8s-custom-model ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=212ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=81ms
+[INFO] Load/download plugins (done) | time=21625ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-custom-model'
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-custom-model' (done) | time=47ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=2ms
+[INFO] Project key: entando-k8s_entando-k8s-custom-model
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=31ms
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-custom-model'
+[INFO] Detected project binding: BOUND
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-custom-model' (done) | time=25ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=34ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=3ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=61ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1465ms
+[INFO] Organization key: entando-k8s
+[INFO] Indexing files...
+[INFO] Project configuration:
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] 164 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando Kubernetes Custom Model
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=31ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=20ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=1ms
+[INFO] Java Main Files AST scan
+[INFO] 135 source files to be analyzed
+[INFO] Load project repositories
+[INFO] Load project repositories (done) | time=153ms
+[INFO] 39/135 files analyzed, current file: src/main/java/org/entando/kubernetes/model/plugin/DoneableEntandoPlugin.java
+[INFO] 135/135 source files have been analyzed
+[INFO] Java Main Files AST scan (done) | time=19954ms
+[INFO] Java Test Files AST scan
+[INFO] 28 source files to be analyzed
+[INFO] Java Test Files AST scan (done) | time=2812ms
+[INFO] Java Generated Files AST scan
+[INFO] 0 source files to be analyzed
+[INFO] 28/28 source files have been analyzed
+[INFO] 0/0 source files have been analyzed
+[INFO] Java Generated Files AST scan (done) | time=2ms
+[INFO] Sensor JavaSquidSensor [java] (done) | time=23566ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=2ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=1ms
+[INFO] Sensor Import of Checkstyle issues [java]
+[INFO] Importing /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=101ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=86ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=438ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=5ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=204ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=2ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=109ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=13ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 296 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 08:21:12.474292 Building Runtime Type propagation graph
+[INFO] 08:21:12.530663 Running Tarjan on 2358 nodes
+[INFO] 08:21:12.543588 Tarjan found 2267 components
+[INFO] 08:21:12.556537 Variable type analysis: done
+[INFO] 08:21:12.561586 Building Runtime Type propagation graph
+[INFO] 08:21:12.585788 Running Tarjan on 2358 nodes
+[INFO] 08:21:12.590481 Tarjan found 2267 components
+[INFO] 08:21:12.597403 Variable type analysis: done
+[INFO] Analyzing 661 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 0 Retained UCFGs : 0
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 0
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 0
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=3527ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=1ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=152ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 2 source files to be analyzed
+[WARNING] Shallow clone detected, no blame information will be provided. You can convert to non-shallow with 'git fetch --unshallow'.
+[INFO] SCM Publisher 0/2 source files have been analyzed (done) | time=3ms
+[WARNING] Missing blame information for the following files:
+[WARNING]   * pom.xml
+[WARNING]   * src/main/java/org/entando/kubernetes/model/compositeapp/EntandoCompositeAppSpecFluent.java
+[WARNING] This may lead to missing/broken features in SonarCloud
+[INFO] CPD E**cutor 45 files had no CPD blocks
+[INFO] CPD E**cutor Calculating CPD for 90 files
+[INFO] CPD E**cutor CPD calculation finished (done) | time=47ms
+[INFO] Analysis report generated in 183ms, dir size=853 KB
+[INFO] Analysis report compressed in 450ms, zip size=456 KB
+[INFO] Analysis report uploaded in 148ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando-k8s_entando-k8s-custom-model
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXdxR_KvIDU9hk5YnoLL
+[INFO] Analysis total time: 36.890 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:09 min
+[INFO] Finished at: 2021-02-05T08:21:16Z
+[INFO] ------------------------------------------------------------------------
+error: etcdserver: request is too large
+Congratulations! No build failures found for entando-k8s-custom-model-master.
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-4r2lg-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source to an unshallow repository
+Generating change log from git ref 5345a6e4c555626da75f28ff35600071e4b93d37 => 33d0c39d2199fbe22722b85525da9548cc37a171
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Finding issues in commit messages using git format
+WARNING: No release found for entando-k8s/entando-k8s-custom-model and tag v6.3.1 so creating a new release
+Updated the release information at https://github.com/entando-k8s/entando-k8s-custom-model/releases/tag/v6.3.1
+generated: /workspace/source/templates/release.yaml
+Created Release entando-k8s-custom-model-6-3-1 resource in namespace **
+Updating PipelineActivity entando-k8s-entando-k8s-custom-model-master-17 with version 6.3.1
+Updated PipelineActivities entando-k8s-entando-k8s-custom-model-master-17 with release notes URL: https://github.com/entando-k8s/entando-k8s-custom-model/releases/tag/v6.3.1
