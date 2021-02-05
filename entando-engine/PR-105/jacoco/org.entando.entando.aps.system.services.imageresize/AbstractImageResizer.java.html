@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractImageResizer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Core: Engine</a> &gt; <a href="index.source.html" class="el_package">org.entando.entando.aps.system.services.imageresize</a> &gt; <span class="el_source">AbstractImageResizer.java</span></div><h1>AbstractImageResizer.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+package org.entando.entando.aps.system.services.imageresize;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import org.entando.entando.aps.system.services.storage.IStorageManager;
+import org.entando.entando.aps.system.services.userprofilepicture.UserProfilePictureVersion;
+import org.entando.entando.ent.exception.EntException;
+
+/**
+ * Classe astratta base a servizio delle classi delegate al redimensionameno e salvataggio di file tipo immagine.
+ * @author E.Santoboni
+ */
+<span class="fc" id="L29">public abstract class AbstractImageResizer implements IImageResizer {</span>
+
+	@Override
+	public void saveResizedImage(String subPath, boolean isProtectedResource,
+			ImageIcon imageIcon, ImageResizeDimension dimension, UserProfilePictureVersion version) throws EntException {
+<span class="fc" id="L34">		BufferedImage outImage = this.getResizedImage(imageIcon, dimension.getDimx(), dimension.getDimy());</span>
+<span class="fc" id="L35">		String filename = subPath.substring(subPath.lastIndexOf(&quot;/&quot;) + 1);</span>
+<span class="fc" id="L36">		String tempFilePath = System.getProperty(&quot;java.io.tmpdir&quot;) + File.separator + &quot;temp_&quot; + filename;</span>
+		try {
+<span class="fc" id="L38">			File tempFile = new File(tempFilePath);</span>
+<span class="fc" id="L39">	        ImageIO.write(outImage, this.getFileExtension(tempFilePath), tempFile);</span>
+<span class="fc" id="L40">			this.getStorageManager().saveFile(subPath, isProtectedResource, new FileInputStream(tempFile));</span>
+<span class="fc" id="L41">			long realLength = (int)Math.ceil(tempFile.length() / 1000.0);</span>
+<span class="fc" id="L42">			version.setSize(realLength + &quot; Kb&quot;);</span>
+<span class="fc" id="L43">			tempFile.delete();</span>
+<span class="nc" id="L44">		} catch (Throwable t) {</span>
+<span class="nc" id="L45">			throw new EntException(&quot;Error creating resigned Image&quot;, t);</span>
+<span class="fc" id="L46">		}</span>
+<span class="fc" id="L47">	}</span>
+	
+	protected abstract BufferedImage getResizedImage(ImageIcon imageIcon, int dimensionX, int dimensionY) throws EntException;
+	
+	/**
+	 * Calcola il rapporto di scala sulla base della dimensione maggiore (tenuto conto
+	 * del rapporto finale desiderato).
+	 * Il fattore di scala restituito non sarà comunque superiore ad 1.
+	 * @param width Dimensione attuale dell'immagine
+	 * @param height Dimensione attuale dell'immagine
+	 * @param finalWidth Dimensione finale dell'immagine
+	 * @param finalHeight Dimensione finale dell'immagine
+	 * @return Il fattore di scala da applicare all'immagine
+	 */
+	protected double computeScale(int width, int height, int finalWidth, int finalHeight) {
+		double scale;
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (((double) width / (double) height) &gt;= ((double) finalWidth / (double) finalHeight)) {</span>
+<span class="fc" id="L64">			scale = (double) finalWidth / width;</span>
+		} else {
+<span class="nc" id="L66">			scale = (double) finalHeight / height;</span>
+		}
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">		if (scale &gt; 1) {</span>
+<span class="nc" id="L69">			scale = 1;</span>
+		}
+<span class="fc" id="L71">		return scale;</span>
+	}
+	
+	protected String getFileExtension(String fileName) {
+<span class="fc" id="L75">		return fileName.substring(fileName.lastIndexOf('.')+1).trim();</span>
+	}
+	
+	protected IStorageManager getStorageManager() {
+<span class="fc" id="L79">		return _storageManager;</span>
+	}
+	@Override
+	public void setStorageManager(IStorageManager storageManager) {
+<span class="fc" id="L83">		this._storageManager = storageManager;</span>
+<span class="fc" id="L84">	}</span>
+	
+	private IStorageManager _storageManager;
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -8,13 +8,13 @@ import java.io.InputStream;
 
     private File file;
     private String mimeType;
-    private String fileName;
+    private String filename;
     private InputStream inputStream;
     private int fileSize;
     private UserDetails user;
 
     public File getFile() {
-<span class="nc" id="L17">        return file;</span>
+<span class="fc" id="L17">        return file;</span>
     }
 
     public void setFile(File file) {
@@ -29,12 +29,12 @@ import java.io.InputStream;
 <span class="fc" id="L29">        this.mimeType = mimeType;</span>
 <span class="fc" id="L30">    }</span>
 
-    public String getFileName() {
-<span class="fc" id="L33">        return fileName;</span>
+    public String getFilename() {
+<span class="fc" id="L33">        return filename;</span>
     }
 
-    public void setFileName(String fileName) {
-<span class="fc" id="L37">        this.fileName = fileName;</span>
+    public void setFilename(String filename) {
+<span class="fc" id="L37">        this.filename = filename;</span>
 <span class="fc" id="L38">    }</span>
 
     public InputStream getInputStream() {
@@ -54,7 +54,7 @@ import java.io.InputStream;
 <span class="fc" id="L54">    }</span>
 
     public UserDetails getUser() {
-<span class="fc" id="L57">        return user;</span>
+<span class="nc" id="L57">        return user;</span>
     }
 
     public void setUser(UserDetails user) {

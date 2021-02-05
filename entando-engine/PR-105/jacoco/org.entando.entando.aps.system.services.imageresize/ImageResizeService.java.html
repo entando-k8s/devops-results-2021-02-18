@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ImageResizeService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Core: Engine</a> &gt; <a href="index.source.html" class="el_package">org.entando.entando.aps.system.services.imageresize</a> &gt; <span class="el_source">ImageResizeService.java</span></div><h1>ImageResizeService.java</h1><pre class="source lang-java linenums">package org.entando.entando.aps.system.services.imageresize;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
+import org.apache.commons.io.FilenameUtils;
+import org.entando.entando.aps.system.services.storage.IStorageManager;
+import org.entando.entando.aps.system.services.userprofilepicture.UserProfilePicture;
+import org.entando.entando.aps.system.services.userprofilepicture.UserProfilePictureFile;
+import org.entando.entando.aps.system.services.userprofilepicture.UserProfilePictureVersion;
+import org.entando.entando.ent.exception.EntException;
+import org.entando.entando.ent.exception.EntRuntimeException;
+import org.springframework.util.Assert;
+
+<span class="fc" id="L20">public class ImageResizeService {</span>
+
+    private IStorageManager storageManager;
+    private PNGImageResizer pngImageResizer;
+    private DefaultImageResizer defaultImageResizer;
+<span class="fc" id="L25">    private final List&lt;ImageResizeDimension&gt; dimensions = createDimensions();</span>
+
+    public File saveTempFile(String filename, InputStream is) throws EntException, IOException {
+<span class="fc" id="L28">        String tempDir = System.getProperty(&quot;java.io.tmpdir&quot;);</span>
+<span class="fc" id="L29">        String filePath = tempDir + File.separator + filename;</span>
+<span class="fc" id="L30">        FileOutputStream outStream = null;</span>
+        try {
+<span class="fc" id="L32">            byte[] buffer = new byte[1024];</span>
+            int length;
+<span class="fc" id="L34">            outStream = new FileOutputStream(filePath);</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            while ((length = is.read(buffer)) != -1) {</span>
+<span class="fc" id="L36">                outStream.write(buffer, 0, length);</span>
+<span class="fc" id="L37">                outStream.flush();</span>
+            }
+<span class="nc" id="L39">        } catch (Exception e) {</span>
+<span class="nc" id="L40">            throw new EntException(&quot;Error on saving temporary file&quot;, e);</span>
+        } finally {
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">            if (null != outStream) {</span>
+<span class="fc" id="L43">                outStream.close();</span>
+            }
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">            if (null != is) {</span>
+<span class="fc" id="L46">                is.close();</span>
+            }
+        }
+<span class="fc" id="L49">        return new File(filePath);</span>
+    }
+
+    private void saveResizedImage(UserProfilePictureFile file, ImageIcon imageIcon, ImageResizeDimension dimension,
+            UserProfilePictureVersion version, String path) throws EntException {
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (dimension.getIdDim() == 0) {</span>
+<span class="nc" id="L55">            return;</span>
+        }
+
+<span class="fc" id="L58">        String imageName = getNewInstanceFileName(file.getFilename(), dimension.getIdDim(), null);</span>
+<span class="fc" id="L59">        String filePath = path + imageName;</span>
+
+        try {
+<span class="fc" id="L62">            version.setDimensions(String.format(&quot;%dx%d px&quot;, dimension.getDimx(), dimension.getDimy()));</span>
+<span class="fc" id="L63">            version.setPath(filePath);</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">            if(file.getMimeType().contains(&quot;svg&quot;)) {</span>
+<span class="nc" id="L65">                long realLength = calculateSize(file.getFile().length());</span>
+<span class="nc" id="L66">                version.setSize(realLength + &quot; Kb&quot;);</span>
+<span class="nc" id="L67">                this.storageManager.saveFile(filePath, false, new FileInputStream(file.getFile()));</span>
+<span class="nc" id="L68">            }else {</span>
+<span class="fc" id="L69">                storageManager.deleteFile(filePath, false);</span>
+<span class="fc" id="L70">                IImageResizer resizer = this.getImageResizer(filePath);</span>
+<span class="fc" id="L71">                resizer.saveResizedImage(filePath, false, imageIcon, dimension, version);</span>
+            }
+<span class="nc" id="L73">        } catch (Exception e) {</span>
+<span class="nc" id="L74">            throw new EntException(&quot;Error creating resource file instance '&quot; + filePath + &quot;'&quot;, e);</span>
+<span class="fc" id="L75">        }</span>
+<span class="fc" id="L76">    }</span>
+
+    public void saveResizedImages(UserProfilePicture result, String masterFilePath, UserProfilePictureFile file,
+            String path)
+            throws EntException {
+        try {
+<span class="fc bfc" id="L82" title="All 2 branches covered.">            for (ImageResizeDimension dimension : dimensions) {</span>
+<span class="fc" id="L83">                UserProfilePictureVersion version = new UserProfilePictureVersion();</span>
+<span class="fc" id="L84">                version.setUsername(result.getUsername());</span>
+<span class="fc" id="L85">                result.getVersions().add(version);</span>
+<span class="fc" id="L86">                ImageIcon imageIcon = new ImageIcon(masterFilePath);</span>
+<span class="fc" id="L87">                this.saveResizedImage(file, imageIcon, dimension, version, path);</span>
+<span class="fc" id="L88">            }</span>
+<span class="nc" id="L89">        } catch (Exception e) {</span>
+<span class="nc" id="L90">            throw new EntException(&quot;Error saving resized image resource instances&quot;, e);</span>
+<span class="fc" id="L91">        }</span>
+<span class="fc" id="L92">    }</span>
+
+    public String getNewInstanceFileName(String masterFileName, int size, String langCode) {
+<span class="fc" id="L95">        String baseName = FilenameUtils.getBaseName(masterFileName);</span>
+<span class="fc" id="L96">        String extension = FilenameUtils.getExtension(masterFileName);</span>
+<span class="fc" id="L97">        String suffix = &quot;&quot;;</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">        if (size &gt;= 0) {</span>
+<span class="fc" id="L99">            suffix += &quot;_d&quot; + size;</span>
+        }
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (langCode != null) {</span>
+<span class="nc" id="L102">            suffix += &quot;_&quot; + langCode;</span>
+        }
+<span class="fc" id="L104">        return this.createFileName(getMultiFileUniqueBaseName(baseName, suffix, extension), extension);</span>
+    }
+
+    protected String createFileName(String baseName, String extension) {
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        return extension == null ? baseName : baseName + '.' + extension;</span>
+    }
+
+    protected String getMultiFileUniqueBaseName(String baseName, String suffix, String extension) {
+<span class="fc" id="L112">        Assert.hasLength(baseName, &quot;base name of file can't be null or empty&quot;);</span>
+<span class="fc" id="L113">        Assert.notNull(suffix, &quot;file suffix can't be null&quot;);</span>
+<span class="fc" id="L114">        baseName = this.purgeBaseName(baseName);</span>
+<span class="fc" id="L115">        String suggestedName = baseName + suffix;</span>
+<span class="fc" id="L116">        int fileOrder = 1;</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">        while(this.exists(this.createFileName(suggestedName, extension))) {</span>
+<span class="nc" id="L118">            suggestedName = baseName + '_' + fileOrder + suffix;</span>
+<span class="nc" id="L119">            fileOrder ++;</span>
+        }
+<span class="fc" id="L121">        return suggestedName;</span>
+    }
+
+    private String purgeBaseName(String baseName) {
+<span class="fc" id="L125">        String purgedName = baseName.replaceAll(&quot;[^ _.a-zA-Z0-9]&quot;, &quot;&quot;);</span>
+<span class="fc" id="L126">        return purgedName.trim().replace(' ', '_');</span>
+    }
+
+    protected boolean exists(String filePath) {
+        try {
+<span class="fc" id="L131">            return storageManager.exists(filePath, false);</span>
+<span class="nc" id="L132">        } catch (Exception e) {</span>
+<span class="nc" id="L133">            throw new EntRuntimeException(&quot;Error testing existing file &quot; + filePath, e);</span>
+        }
+    }
+
+    private IImageResizer getImageResizer(String filePath) {
+<span class="fc" id="L138">        String extension = FilenameUtils.getExtension(filePath);</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">        if (&quot;png&quot;.equals(extension)) {</span>
+<span class="nc" id="L140">            return pngImageResizer;</span>
+        } else {
+<span class="fc" id="L142">            return defaultImageResizer;</span>
+        }
+    }
+
+    private int calculateSize(long length) {
+<span class="nc" id="L147">        return (int)Math.ceil(length / 1000.0);</span>
+    }
+
+    private List&lt;ImageResizeDimension&gt; createDimensions() {
+<span class="fc" id="L151">        List&lt;ImageResizeDimension&gt; result = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L153">        result.add(new ImageResizeDimension(1, 90, 90));</span>
+<span class="fc" id="L154">        result.add(new ImageResizeDimension(2, 130, 130));</span>
+<span class="fc" id="L155">        result.add(new ImageResizeDimension(3, 150, 150));</span>
+
+<span class="fc" id="L157">        return result;</span>
+    }
+
+    public void setStorageManager(IStorageManager storageManager) {
+<span class="fc" id="L161">        this.storageManager = storageManager;</span>
+<span class="fc" id="L162">    }</span>
+
+    public void setPngImageResizer(PNGImageResizer pngImageResizer) {
+<span class="fc" id="L165">        this.pngImageResizer = pngImageResizer;</span>
+<span class="fc" id="L166">    }</span>
+
+    public void setDefaultImageResizer(
+            DefaultImageResizer defaultImageResizer) {
+<span class="fc" id="L170">        this.defaultImageResizer = defaultImageResizer;</span>
+<span class="fc" id="L171">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

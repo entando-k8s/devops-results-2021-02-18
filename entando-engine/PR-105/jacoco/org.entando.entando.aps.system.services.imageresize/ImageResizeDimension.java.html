@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ImageResizeDimension.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Core: Engine</a> &gt; <a href="index.source.html" class="el_package">org.entando.entando.aps.system.services.imageresize</a> &gt; <span class="el_source">ImageResizeDimension.java</span></div><h1>ImageResizeDimension.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+package org.entando.entando.aps.system.services.imageresize;
+
+import java.io.Serializable;
+
+/**
+ * Classe rappresentante una dimensione di resize di una risorsa immagine.
+ * @author E.Santoboni
+ */
+public class ImageResizeDimension implements Serializable {
+
+    private int idDim;
+    private int dimx;
+    private int dimy;
+
+<span class="fc" id="L28">    public ImageResizeDimension(int idDim, int dimx, int dimy) {</span>
+<span class="fc" id="L29">        this.idDim = idDim;</span>
+<span class="fc" id="L30">        this.dimx = dimx;</span>
+<span class="fc" id="L31">        this.dimy = dimy;</span>
+<span class="fc" id="L32">    }</span>
+
+    /**
+     * Setta l'identificativo del resize.
+     * @return Returns L'identificativo del resize.
+     */
+    public int getIdDim() {
+<span class="fc" id="L39">    	return idDim;</span>
+    }
+
+    /**
+     * Restituisce l'identificativo del resize.
+     * @param idDim L'identificativo del resize.
+     */
+    public void setIdDim(int idDim) {
+<span class="nc" id="L47">    	this.idDim = idDim;</span>
+<span class="nc" id="L48">    }</span>
+
+    /**
+     * Restituisce la dimensione lungo l'asse x in px.
+     * @return La dimensione lungo l'asse x in px.
+     */
+    public int getDimx() {
+<span class="fc" id="L55">        return dimx;</span>
+    }
+
+    /**
+     * Setta la dimensione lungo l'asse x in px.
+     * @param dimx La dimensione lungo l'asse x in px.
+     */
+    public void setDimx(int dimx) {
+<span class="nc" id="L63">        this.dimx = dimx;</span>
+<span class="nc" id="L64">    }</span>
+
+    /**
+     * Restituisce la dimensione lungo l'asse y in px.
+     * @return La dimensione lungo l'asse y in px.
+     */
+    public int getDimy() {
+<span class="fc" id="L71">        return dimy;</span>
+    }
+
+    /**
+     * Setta la dimensione lungo l'asse y in px.
+     * @param dimy La dimensione lungo l'asse y in px.
+     */
+    public void setDimy(int dimy) {
+<span class="nc" id="L79">        this.dimy = dimy;</span>
+<span class="nc" id="L80">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
