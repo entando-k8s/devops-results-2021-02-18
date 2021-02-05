@@ -110,7 +110,7 @@ Entando Component Manager,org.entando.kubernetes.client.k8ssvc,DefaultK8SService
 Entando Component Manager,org.entando.kubernetes.client.k8ssvc,DefaultK8SServiceClient.new ParameterizedTypeReference() {...},0,6,0,0,0,1,0,1,0,1
 Entando Component Manager,org.entando.kubernetes.client.k8ssvc,DefaultK8SServiceClient.new ParameterizedTypeReference() {...},0,6,0,0,0,1,0,1,0,1
 Entando Component Manager,org.entando.kubernetes.client.k8ssvc,DefaultK8SServiceClient.new ParameterizedTypeReference() {...},0,6,0,0,0,1,0,1,0,1
-Entando Component Manager,org.entando.kubernetes.client.k8ssvc,DefaultK8SServiceClient,209,868,20,14,42,184,21,46,6,44
+Entando Component Manager,org.entando.kubernetes.client.k8ssvc,DefaultK8SServiceClient,209,873,20,14,42,184,21,46,6,44
 Entando Component Manager,org.entando.kubernetes.model.bundle.downloader,GitBundleDownloader,37,68,2,2,8,18,3,3,1,3
 Entando Component Manager,org.entando.kubernetes.model.bundle.downloader,NpmBundleDownloader,54,158,8,8,13,35,6,8,0,6
 Entando Component Manager,org.entando.kubernetes.model.bundle.downloader,BundleDownloader.Type,0,24,0,0,0,3,0,1,0,1

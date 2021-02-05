@@ -171,7 +171,7 @@ import org.springframework.web.util.UriComponentsBuilder;
     public void unlink(EntandoAppPluginLink el) {
 <span class="fc" id="L172">        String linkName = el.getMetadata().getName();</span>
 <span class="fc" id="L173">        String appName = el.getSpec().getEntandoAppName();</span>
-<span class="fc" id="L174">        String pluginName = el.getSpec().getEntandoAppNamespace();</span>
+<span class="fc" id="L174">        String pluginName = el.getSpec().getEntandoAppNamespace().orElse(el.getMetadata().getNamespace());</span>
 <span class="fc" id="L175">        Link unlinkHref = traverson.follow(APP_PLUGIN_LINKS_ENDPOINT)</span>
 <span class="fc" id="L176">                .follow(Hop.rel(&quot;app-plugin-link&quot;).withParameter(&quot;name&quot;, linkName))</span>
 <span class="fc" id="L177">                .asLink();</span>
