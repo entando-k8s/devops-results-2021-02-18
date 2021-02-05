@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserProfilePictureFile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Core: Engine</a> &gt; <a href="index.source.html" class="el_package">org.entando.entando.aps.system.services.userprofilepicture</a> &gt; <span class="el_source">UserProfilePictureFile.java</span></div><h1>UserProfilePictureFile.java</h1><pre class="source lang-java linenums">package org.entando.entando.aps.system.services.userprofilepicture;
+
+import com.agiletec.aps.system.services.user.UserDetails;
+import java.io.File;
+import java.io.InputStream;
+
+<span class="fc" id="L7">public class UserProfilePictureFile {</span>
+
+    private File file;
+    private String mimeType;
+    private String fileName;
+    private InputStream inputStream;
+    private int fileSize;
+    private UserDetails user;
+
+    public File getFile() {
+<span class="nc" id="L17">        return file;</span>
+    }
+
+    public void setFile(File file) {
+<span class="fc" id="L21">        this.file = file;</span>
+<span class="fc" id="L22">    }</span>
+
+    public String getMimeType() {
+<span class="fc" id="L25">        return mimeType;</span>
+    }
+
+    public void setMimeType(String mimeType) {
+<span class="fc" id="L29">        this.mimeType = mimeType;</span>
+<span class="fc" id="L30">    }</span>
+
+    public String getFileName() {
+<span class="fc" id="L33">        return fileName;</span>
+    }
+
+    public void setFileName(String fileName) {
+<span class="fc" id="L37">        this.fileName = fileName;</span>
+<span class="fc" id="L38">    }</span>
+
+    public InputStream getInputStream() {
+<span class="fc" id="L41">        return inputStream;</span>
+    }
+
+    public void setInputStream(InputStream inputStream) {
+<span class="fc" id="L45">        this.inputStream = inputStream;</span>
+<span class="fc" id="L46">    }</span>
+
+    public int getFileSize() {
+<span class="fc" id="L49">        return fileSize;</span>
+    }
+
+    public void setFileSize(int fileSize) {
+<span class="fc" id="L53">        this.fileSize = fileSize;</span>
+<span class="fc" id="L54">    }</span>
+
+    public UserDetails getUser() {
+<span class="fc" id="L57">        return user;</span>
+    }
+
+    public void setUser(UserDetails user) {
+<span class="fc" id="L61">        this.user = user;</span>
+<span class="fc" id="L62">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
