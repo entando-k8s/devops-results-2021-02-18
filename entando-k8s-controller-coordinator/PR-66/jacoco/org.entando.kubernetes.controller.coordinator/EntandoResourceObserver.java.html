@@ -86,7 +86,7 @@ public class EntandoResourceObserver&lt;R extends EntandoCustomResource, D exten
 
     private boolean performCriteriaProcessing(R resource) {
 <span class="fc bfc" id="L88" title="All 2 branches covered.">        return requiresUpgrade(resource)</span>
-<span class="pc bpc" id="L89" title="1 of 2 branches missed.">                || (hasNewResourceVersion(resource)</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                || (hasNewResourceVersion(resource)</span>
 <span class="fc bfc" id="L90" title="All 2 branches covered.">                &amp;&amp; isNotOwnedByCompositeApp(resource)</span>
 <span class="pc bpc" id="L91" title="1 of 2 branches missed.">                &amp;&amp; EntandoOperatorMatcher.matchesThisOperator(resource)</span>
 <span class="fc bfc" id="L92" title="All 2 branches covered.">                &amp;&amp; processGenerationIncrement(resource));</span>
@@ -148,13 +148,13 @@ public class EntandoResourceObserver&lt;R extends EntandoCustomResource, D exten
     }
 
     private boolean hasNewResourceVersion(R newResource) {
-<span class="pc bpc" id="L151" title="1 of 2 branches missed.">        if (cache.containsKey(newResource.getMetadata().getUid())) {</span>
-<span class="nc" id="L152">            R oldResource = cache.get(newResource.getMetadata().getUid());</span>
-<span class="nc" id="L153">            int knownResourceVersion = Integer.parseInt(oldResource.getMetadata().getResourceVersion());</span>
-<span class="nc" id="L154">            int receivedVersion = Integer.parseInt(newResource.getMetadata().getResourceVersion());</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">            if (knownResourceVersion &gt; receivedVersion) {</span>
-<span class="nc" id="L156">                logResource(Level.WARNING, &quot;Duplicate event for %s %s/%s. ResourceVersion=&quot; + receivedVersion, newResource);</span>
-<span class="nc" id="L157">                return false;</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        if (cache.containsKey(newResource.getMetadata().getUid())) {</span>
+<span class="fc" id="L152">            R oldResource = cache.get(newResource.getMetadata().getUid());</span>
+<span class="fc" id="L153">            int knownResourceVersion = Integer.parseInt(oldResource.getMetadata().getResourceVersion());</span>
+<span class="fc" id="L154">            int receivedVersion = Integer.parseInt(newResource.getMetadata().getResourceVersion());</span>
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">            if (knownResourceVersion &gt; receivedVersion) {</span>
+<span class="fc" id="L156">                logResource(Level.WARNING, &quot;Duplicate event for %s %s/%s. ResourceVersion=&quot; + receivedVersion, newResource);</span>
+<span class="fc" id="L157">                return false;</span>
             }
         }
 <span class="fc" id="L160">        return true;</span>

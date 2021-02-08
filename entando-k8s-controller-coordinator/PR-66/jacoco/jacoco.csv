@@ -3,6 +3,6 @@ Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator
 Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoOperatorMatcher,10,191,1,19,1,32,1,22,0,13
 Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoOperatorMatcher.EntandoOperatorMatcherProperty,0,37,0,0,0,7,0,3,0,3
 Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoControllerCoordinator,10,154,1,5,1,35,1,10,0,8
-Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoResourceObserver,124,281,14,26,19,59,15,27,5,17
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoResourceObserver,89,316,11,29,13,65,13,29,5,17
 Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,SimpleEntandoOperations,0,28,0,0,0,11,0,2,0,2
 Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,DefaultSimpleEntandoOperationsRegistry,0,17,0,0,0,4,0,2,0,2
