@@ -1,4 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,DefaultSimpleEntandoOperations,22,27,0,0,3,8,2,4,2,4
 Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoOperatorMatcher,10,191,1,19,1,32,1,22,0,13
-Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoControllerCoordinator,17,157,2,4,3,38,2,8,0,7
-Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoResourceObserver,90,277,11,27,13,57,13,24,5,13
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoOperatorMatcher.EntandoOperatorMatcherProperty,0,37,0,0,0,7,0,3,0,3
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoControllerCoordinator,10,154,1,5,1,35,1,10,0,8
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,EntandoResourceObserver,124,281,14,26,19,59,15,27,5,17
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,SimpleEntandoOperations,0,28,0,0,0,11,0,2,0,2
+Entando K8S Controller Coordinator,org.entando.kubernetes.controller.coordinator,DefaultSimpleEntandoOperationsFactory,0,17,0,0,0,4,0,2,0,2
