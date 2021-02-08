@@ -13,42 +13,74 @@
  */
 package org.entando.entando.web.userpreferences.model;
 
-<span class="fc" id="L16">public class UserPreferencesRequest {</span>
+import java.util.List;
+
+<span class="fc" id="L18">public class UserPreferencesRequest {</span>
 
     private Boolean wizard;
     private Boolean loadOnPageSelect;
     private Boolean translationWarning;
+    private Boolean displayAttributes;
+    private String defaultOwnerGroup;
+    private List&lt;String&gt; defaultJoinGroups;
 
     public Boolean getWizard() {
-<span class="fc" id="L23">        return wizard;</span>
+<span class="fc" id="L28">        return wizard;</span>
     }
 
     public void setWizard(Boolean wizard) {
-<span class="fc" id="L27">        this.wizard = wizard;</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L32">        this.wizard = wizard;</span>
+<span class="fc" id="L33">    }</span>
 
     public Boolean getLoadOnPageSelect() {
-<span class="fc" id="L31">        return loadOnPageSelect;</span>
+<span class="fc" id="L36">        return loadOnPageSelect;</span>
     }
 
     public void setLoadOnPageSelect(Boolean loadOnPageSelect) {
-<span class="fc" id="L35">        this.loadOnPageSelect = loadOnPageSelect;</span>
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L40">        this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="fc" id="L41">    }</span>
 
     public Boolean getTranslationWarning() {
-<span class="fc" id="L39">        return translationWarning;</span>
+<span class="fc" id="L44">        return translationWarning;</span>
     }
 
     public void setTranslationWarning(Boolean translationWarning) {
-<span class="fc" id="L43">        this.translationWarning = translationWarning;</span>
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L48">        this.translationWarning = translationWarning;</span>
+<span class="fc" id="L49">    }</span>
+
+    public Boolean getDisplayAttributes() {
+<span class="fc" id="L52">        return displayAttributes;</span>
+    }
+
+    public void setDisplayAttributes(Boolean displayAttributes) {
+<span class="fc" id="L56">        this.displayAttributes = displayAttributes;</span>
+<span class="fc" id="L57">    }</span>
+
+    public String getDefaultOwnerGroup() {
+<span class="fc" id="L60">        return defaultOwnerGroup;</span>
+    }
+
+    public void setDefaultOwnerGroup(String defaultOwnerGroup) {
+<span class="fc" id="L64">        this.defaultOwnerGroup = defaultOwnerGroup;</span>
+<span class="fc" id="L65">    }</span>
+
+    public List&lt;String&gt; getDefaultJoinGroups() {
+<span class="fc" id="L68">        return defaultJoinGroups;</span>
+    }
+
+    public void setDefaultJoinGroups(List&lt;String&gt; defaultJoinGroups) {
+<span class="fc" id="L72">        this.defaultJoinGroups = defaultJoinGroups;</span>
+<span class="fc" id="L73">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L48">        return &quot;UserPreferencesRequest{&quot; +</span>
+<span class="nc" id="L77">        return &quot;UserPreferencesRequest{&quot; +</span>
                 &quot;wizard=&quot; + wizard +
                 &quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
                 &quot;, translationWarning=&quot; + translationWarning +
+                &quot;, displayAttributes=&quot; + displayAttributes +
+                &quot;, defaultOwnerGroup='&quot; + defaultOwnerGroup + '\'' +
+                &quot;, defaultJoinGroups=&quot; + defaultJoinGroups +
                 '}';
     }
 }

@@ -19,57 +19,92 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = &quot;userPreferences&quot;)
-@XmlType(propOrder = {&quot;username&quot;, &quot;wizard&quot;, &quot;loadOnPageSelect&quot;, &quot;translationWarning&quot;})
-<span class="fc" id="L23">public class UserPreferences implements Serializable {</span>
-
-	@XmlElement(name = &quot;username&quot;, required = true)
-	public String getUsername() {
-<span class="fc" id="L27">		return username;</span>
-	}
-
-	public void setUsername(String username) {
-<span class="fc" id="L31">		this.username = username;</span>
-<span class="fc" id="L32">	}</span>
-
-	@XmlElement(name = &quot;wizard&quot;, required = true)
-	public boolean isWizard() {
-<span class="fc" id="L36">		return wizard;</span>
-	}
-
-	public void setWizard(boolean wizard) {
-<span class="fc" id="L40">		this.wizard = wizard;</span>
-<span class="fc" id="L41">	}</span>
-
-	@XmlElement(name = &quot;loadOnPageSelect&quot;, required = true)
-	public boolean isLoadOnPageSelect() {
-<span class="fc" id="L45">		return loadOnPageSelect;</span>
-	}
-
-	public void setLoadOnPageSelect(boolean loadOnPageSelect) {
-<span class="fc" id="L49">		this.loadOnPageSelect = loadOnPageSelect;</span>
-<span class="fc" id="L50">	}</span>
-
-	@XmlElement(name = &quot;translationWarning&quot;, required = true)
-	public boolean isTranslationWarning() {
-<span class="fc" id="L54">		return translationWarning;</span>
-	}
-
-	public void setTranslationWarning(boolean translationWarning) {
-<span class="fc" id="L58">		this.translationWarning = translationWarning;</span>
-<span class="fc" id="L59">	}</span>
+@XmlType(propOrder = {&quot;username&quot;, &quot;wizard&quot;, &quot;loadOnPageSelect&quot;, &quot;translationWarning&quot;, &quot;displayAttributes&quot;,
+		&quot;defaultOwnerGroup&quot;,
+		&quot;defaultJoinGroups&quot;})
+<span class="fc" id="L25">public class UserPreferences implements Serializable {</span>
 
 	private String username;
 	private boolean wizard;
 	private boolean loadOnPageSelect;
 	private boolean translationWarning;
+	private boolean displayAttributes;
+	private String defaultOwnerGroup;
+	private String defaultJoinGroups;
+
+	@XmlElement(name = &quot;username&quot;, required = true)
+	public String getUsername() {
+<span class="fc" id="L37">		return username;</span>
+	}
+
+	public void setUsername(String username) {
+<span class="fc" id="L41">		this.username = username;</span>
+<span class="fc" id="L42">	}</span>
+
+	@XmlElement(name = &quot;wizard&quot;, required = true)
+	public boolean isWizard() {
+<span class="fc" id="L46">		return wizard;</span>
+	}
+
+	public void setWizard(boolean wizard) {
+<span class="fc" id="L50">		this.wizard = wizard;</span>
+<span class="fc" id="L51">	}</span>
+
+	@XmlElement(name = &quot;loadOnPageSelect&quot;, required = true)
+	public boolean isLoadOnPageSelect() {
+<span class="fc" id="L55">		return loadOnPageSelect;</span>
+	}
+
+	public void setLoadOnPageSelect(boolean loadOnPageSelect) {
+<span class="fc" id="L59">		this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="fc" id="L60">	}</span>
+
+	@XmlElement(name = &quot;translationWarning&quot;, required = true)
+	public boolean isTranslationWarning() {
+<span class="fc" id="L64">		return translationWarning;</span>
+	}
+
+	public void setTranslationWarning(boolean translationWarning) {
+<span class="fc" id="L68">		this.translationWarning = translationWarning;</span>
+<span class="fc" id="L69">	}</span>
+
+	@XmlElement(name = &quot;displayAttributes&quot;, required = true)
+	public boolean isDisplayAttributes() {
+<span class="fc" id="L73">		return displayAttributes;</span>
+	}
+
+	public void setDisplayAttributes(boolean displayAttributes) {
+<span class="fc" id="L77">		this.displayAttributes = displayAttributes;</span>
+<span class="fc" id="L78">	}</span>
+
+	@XmlElement(name = &quot;defaultOwnerGroup&quot;)
+	public String getDefaultOwnerGroup() {
+<span class="fc" id="L82">		return defaultOwnerGroup;</span>
+	}
+
+	public void setDefaultOwnerGroup(String defaultOwnerGroup) {
+<span class="fc" id="L86">		this.defaultOwnerGroup = defaultOwnerGroup;</span>
+<span class="fc" id="L87">	}</span>
+
+	@XmlElement(name = &quot;defaultJoinGroups&quot;)
+	public String getDefaultJoinGroups() {
+<span class="fc" id="L91">		return defaultJoinGroups;</span>
+	}
+
+	public void setDefaultJoinGroups(String defaultJoinGroups) {
+<span class="fc" id="L95">		this.defaultJoinGroups = defaultJoinGroups;</span>
+<span class="fc" id="L96">	}</span>
 
 	@Override
 	public String toString() {
-<span class="nc" id="L68">		return &quot;UserPreferences{&quot; +</span>
+<span class="nc" id="L100">		return &quot;UserPreferences{&quot; +</span>
 				&quot;username='&quot; + username + '\'' +
 				&quot;, wizard=&quot; + wizard +
 				&quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
 				&quot;, translationWarning=&quot; + translationWarning +
+				&quot;, displayAttributes=&quot; + displayAttributes +
+				&quot;, defaultOwnerGroup='&quot; + defaultOwnerGroup + '\'' +
+				&quot;, defaultJoinGroups='&quot; + defaultJoinGroups + '\'' +
 				'}';
 	}
 }
