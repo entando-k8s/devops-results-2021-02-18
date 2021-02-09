@@ -1,0 +1,238 @@
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-6k9cw[0m
+{"level":"warn","ts":1612881899.5502295,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612881899.5629668,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-5pdgq[0m
+{"level":"warn","ts":1612881901.478388,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612881901.4965272,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-entando-keycloak-pr-14-72xvb[0m
+{"level":"warn","ts":1612881919.2851367,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612881921.5368438,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando/entando-keycloak.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:48ee10957ba5699a4047604456fae8ad8c7d6bc1,14:f16767cfce3375fe066b8e2f1ac01cb8cd0cbc10
+DEBUG: ran git fetch --unshallow origin f16767cfce3375fe066b8e2f1ac01cb8cd0cbc10: 48ee10957ba5699a4047604456fae8ad8c7d6bc1: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 48ee10957ba5699a4047604456fae8ad8c7d6bc1 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge f16767cfce3375fe066b8e2f1ac01cb8cd0cbc10 in 
+Merged SHA ac7b7aa6263a5843778a38f4da93276ed894f84d with commit message 'Merge commit 'f16767cfce3375fe066b8e2f1ac01cb8cd0cbc10'' into base branch master
+Merged SHA f16767cfce3375fe066b8e2f1ac01cb8cd0cbc10 with commit message 'ENG-1736 installing with microdnf' into base branch master
+Merged SHA 30aa618d2b3371cf672ea22928377160695d3f16 with commit message 'ENG-1736 installing with microdnf' into base branch master
+Merged SHA 27fdcdfa2c2054738b8c2a68a390d17ded1f6df4 with commit message 'ENG-1736 minor security update' into base branch master
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-container-build1[0m
+This avoids unwanted kaniko command substitution
+Generating tags...
+ - entando/entando-keycloak -> docker.io/entando/entando-keycloak:0.0.0-SNAPSHOT-PR-14-3
+Checking cache...
+ - entando/entando-keycloak: Not found. Building
+Building [entando/entando-keycloak]...
+Sending build context to Docker daemon  546.3kBSending build context to Docker daemon  5.967MBSending build context to Docker daemon  8.743MB
+Step 1/11 : FROM jboss/keycloak:11.0.3
+ ---> b23fdd4af375
+Step 2/11 : LABEL MAINTAINER "Entando <dev@entando.com>"
+ ---> Using cache
+ ---> 3c54630961b9
+Step 3/11 : ARG VERSION
+ ---> Using cache
+ ---> 2c00ddba161d
+Step 4/11 : LABEL name "Entando Keycloak" vendor "Entando" version "v${VERSION}" release "6" summary "Keycloak with Entando's themes and extensions." description "This is container hosts Keycloak along with themes created for Entando."
+ ---> Running in 831f46010213
+ ---> 726bf86181ee
+Step 5/11 : COPY LICENSE /licences/entando-lgpl.txt
+ ---> 115db821b5e0
+Step 6/11 : COPY themes /opt/jboss/keycloak/themes
+ ---> 36322a5b6dea
+Step 7/11 : COPY cli /opt/jboss/tools/cli
+ ---> a2045135fbc5
+Step 8/11 : RUN export KEYCLOAK_HTTP_PORT=8080 &&       cd  /opt/jboss/keycloak/modules/******/layers/base/com/******/jdbc/main/ &&       mkdir driver &&       curl https://repo1.maven.org/maven2/com/******/ojdbc/ojdbc8/19.3.0.0/ojdbc8-19.3.0.0.jar -o driver/ojdbc.jar
+ ---> Running in d2f7145f4468
+[91m[0m
+[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m100 4111k  100 4111k    0     0  12.7M      0 --:--:-- --:--:-- --:--:-- 12.7M
+[0m ---> 2e1bf9ddb0d4
+Step 9/11 : ENV KEYCLOAK_DEFAULT_THEME "entando" KEYCLOAK_HOME "/opt/jboss/keycloak"
+ ---> Running in 1f309b2ae683
+ ---> e290af2294a0
+Step 10/11 : EXPOSE 8080
+ ---> Running in 52d9065487ae
+ ---> 6aaace711a8d
+Step 11/11 : CMD -b 0.0.0.0
+ ---> Running in 318fde95eb2a
+ ---> 548a1489a5f6
+Successfully built 548a1489a5f6
+The push refers to a repository [docker.io/entando/entando-keycloak]
+b8bd4b46db70: Preparing
+0b5389f94f8a: Preparing
+a2c00fd5b643: Preparing
+8dd39815aa0a: Preparing
+ff8dde26889b: Preparing
+9a122bc5bb12: Preparing
+f47704b2a676: Preparing
+37330a2a1954: Preparing
+d6ec160dc60f: Preparing
+f47704b2a676: Waiting
+37330a2a1954: Waiting
+d6ec160dc60f: Waiting
+9a122bc5bb12: Waiting
+ff8dde26889b: Layer already exists
+9a122bc5bb12: Layer already exists
+f47704b2a676: Layer already exists
+37330a2a1954: Layer already exists
+d6ec160dc60f: Layer already exists
+0b5389f94f8a: Pushed
+8dd39815aa0a: Pushed
+b8bd4b46db70: Pushed
+a2c00fd5b643: Pushed
+0.0.0-SNAPSHOT-PR-14-3: digest: sha256:f526385bbfd8517b3c0b1fc96ba7114121b6ae9854a9a7fc15dde2d0cb415eca size: 2209
+There is a new version (1.19.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-lt7t7-3[0m stage [32mfrom-build-pack[0m and container [32mstep-container-build2[0m
+This avoids unwanted kaniko command substitution
+Generating tags...
+ - entando/entando-redhat-sso -> docker.io/entando/entando-redhat-sso:0.0.0-SNAPSHOT-PR-14-3
+Checking cache...
+ - entando/entando-redhat-sso: Not found. Building
+Building [entando/entando-redhat-sso]...
+Sending build context to Docker daemon  536.1kBSending build context to Docker daemon  7.563MBSending build context to Docker daemon  8.779MB
+Step 1/12 : FROM registry.redhat.io/rh-sso-7/sso74-openshift-rhel8:latest
+ ---> eee32f8895df
+Step 2/12 : LABEL MAINTAINER "Entando <dev@entando.com>"
+ ---> Using cache
+ ---> 239f2ceb755f
+Step 3/12 : ARG VERSION
+ ---> Using cache
+ ---> ba9ab9a24846
+Step 4/12 : LABEL name "Entando Red Hat SSO" vendor "Entando" version "v${VERSION}" release "6" summary "Red Hat SSO with Entando's themes and extensions." description "This is container hosts Red Hat SSO along with themes created for Entando."
+ ---> Running in c3b3b4d59051
+ ---> fbb99af76912
+Step 5/12 : COPY LICENSE /licences/entando-lgpl.txt
+ ---> bbe747c1d840
+Step 6/12 : COPY themes /opt/eap/themes
+ ---> 0cfb915d36bc
+Step 7/12 : COPY redhat-sso/standalone-openshift.xml /opt/eap/standalone/configuration/standalone-openshift.xml
+ ---> 9b307f1bbb3d
+Step 8/12 : COPY LICENSE /licenses/entando-lgpl.txt
+ ---> c2ec779bd0ec
+Step 9/12 : USER ****
+ ---> Running in c09d58945e20
+ ---> 8a35c20fcb88
+Step 10/12 : RUN microdnf install yum        && yum -y update-minimal --security --sec-severity=Important --sec-severity=Critical        && microdnf remove yum        && microdnf clean all
+ ---> Running in 54361c4b181b
+
+[91m[0m[91m
+(microdnf:8): librhsm-WARNING **: 14:45:47.630: Found 0 entitlement certificates
+[0m[91m
+(microdnf:8): librhsm-WARNING **: 14:45:47.633: Found 0 entitlement certificates
+[0mDownloading metadata...
+Downloading metadata...
+Downloading metadata...
+Package                                   Repository          Size
+Installing:                                                       
+ dnf-4.2.23-4.el8.noarch                  ubi-8-baseos    525.6 kB
+ dnf-data-4.2.23-4.el8.noarch             ubi-8-baseos    152.9 kB
+ ima-evm-utils-1.1-5.el8.x86_64           ubi-8-baseos     56.8 kB
+ libcomps-0.1.11-4.el8.x86_64             ubi-8-baseos     82.6 kB
+ libevent-2.1.8-5.el8.x86_64              ubi-8-baseos    259.6 kB
+ libreport-file******-2.9.5-15.el8.x86_64 ubi-8-baseos     21.5 kB
+ python3-dnf-4.2.23-4.el8.noarch          ubi-8-baseos    538.9 kB
+ python3-gpg-1.13.1-3.el8.x86_64          ubi-8-baseos    250.1 kB
+ python3-hawkey-0.48.0-5.el8.x86_64       ubi-8-baseos    114.2 kB
+ python3-libcomps-0.1.11-4.el8.x86_64     ubi-8-baseos     53.7 kB
+ python3-libdnf-0.48.0-5.el8.x86_64       ubi-8-baseos    774.5 kB
+ python3-rpm-4.14.3-4.el8.x86_64          ubi-8-baseos    160.3 kB
+ python3-unbound-1.7.3-14.el8.x86_64      ubi-8-appstream 121.2 kB
+ rpm-build-libs-4.14.3-4.el8.x86_64       ubi-8-baseos    157.8 kB
+ unbound-libs-1.7.3-14.el8.x86_64         ubi-8-appstream 511.6 kB
+ yum-4.2.23-4.el8.noarch                  ubi-8-baseos    196.7 kB
+Transaction Summary:
+ Installing:       16 packages
+ Reinstalling:      0 packages
+ Upgrading:         0 packages
+ Removing:          0 packages
+ Downgrading:       0 packages
+Downloading packages...
+Running transaction test...
+Installing: python3-libdnf;0.48.0-5.el8;x86_64;ubi-8-baseos
+Installing: ima-evm-utils;1.1-5.el8;x86_64;ubi-8-baseos
+Installing: libevent;2.1.8-5.el8;x86_64;ubi-8-baseos
+Installing: unbound-libs;1.7.3-14.el8;x86_64;ubi-8-appstream
+Installing: python3-unbound;1.7.3-14.el8;x86_64;ubi-8-appstream
+Installing: rpm-build-libs;4.14.3-4.el8;x86_64;ubi-8-baseos
+Installing: python3-rpm;4.14.3-4.el8;x86_64;ubi-8-baseos
+Installing: python3-hawkey;0.48.0-5.el8;x86_64;ubi-8-baseos
+Installing: libcomps;0.1.11-4.el8;x86_64;ubi-8-baseos
+Installing: python3-libcomps;0.1.11-4.el8;x86_64;ubi-8-baseos
+Installing: libreport-file******;2.9.5-15.el8;x86_64;ubi-8-baseos
+Installing: dnf-data;4.2.23-4.el8;noarch;ubi-8-baseos
+Installing: python3-gpg;1.13.1-3.el8;x86_64;ubi-8-baseos
+Installing: python3-dnf;4.2.23-4.el8;noarch;ubi-8-baseos
+Installing: dnf;4.2.23-4.el8;noarch;ubi-8-baseos
+Installing: yum;4.2.23-4.el8;noarch;ubi-8-baseos
+Complete.
+Red Hat Universal Base Image 8 (RPMs) - BaseOS  4.2 MB/s | 772 kB     00:00    
+Red Hat Universal Base Image 8 (RPMs) - AppStre  24 MB/s | 4.9 MB     00:00    
+Red Hat Universal Base Image 8 (RPMs) - CodeRea  85 kB/s |  13 kB     00:00    
+[91mNo security updates needed, but 14 updates available
+[0mDependencies resolved.
+Nothing to do.
+Complete!
+[91m
+(microdnf:100): librhsm-WARNING **: 14:45:57.740: Found 0 entitlement certificates
+[0m[91m
+(microdnf:100): librhsm-WARNING **: 14:45:57.745: Found 0 entitlement certificates
+[0mPackage                  Repository    Size
+Removing:                                  
+ yum-4.2.23-4.el8.noarch @System    72.0 kB
+Transaction Summary:
+ Installing:        0 packages
+ Reinstalling:      0 packages
+ Upgrading:         0 packages
+ Removing:          1 packages
+ Downgrading:       0 packages
+Running transaction test...
+Removing: yum;4.2.23-4.el8;noarch;installed
+Complete.
+[91m
+(microdnf:1): librhsm-WARNING **: 14:45:58.007: Found 0 entitlement certificates
+[0m[91m
+(microdnf:1): librhsm-WARNING **: 14:45:58.009: Found 0 entitlement certificates
+[0mComplete.
+ ---> 9646d2259650
+Step 11/12 : USER jboss
+ ---> Running in f6775c217d2d
+ ---> a7063e7480d3
+Step 12/12 : ENV KEYCLOAK_DEFAULT_THEME "entando" KEYCLOAK_HOME "/opt/eap"
+ ---> Running in 1142c6a06d36
+ ---> dd0e54cd03b0
+Successfully built dd0e54cd03b0
+The push refers to a repository [docker.io/entando/entando-redhat-sso]
+d08b22e66af4: Preparing
+251eaeabd136: Preparing
+e71c6f4877c0: Preparing
+9ca9ff91a62d: Preparing
+42a376a3dde0: Preparing
+8a37395357cf: Preparing
+37330a2a1954: Preparing
+d6ec160dc60f: Preparing
+8a37395357cf: Waiting
+37330a2a1954: Waiting
+d6ec160dc60f: Waiting
+42a376a3dde0: Pushed
+251eaeabd136: Pushed
+e71c6f4877c0: Pushed
+37330a2a1954: Layer already exists
+8a37395357cf: Layer already exists
+d6ec160dc60f: Layer already exists
+9ca9ff91a62d: Pushed
+d08b22e66af4: Pushed
+0.0.0-SNAPSHOT-PR-14-3: digest: sha256:f266d64d6b7d770a4b31a55b834b09b17073cceef1a327746b142379ba4e338c size: 1998
+There is a new version (1.19.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
