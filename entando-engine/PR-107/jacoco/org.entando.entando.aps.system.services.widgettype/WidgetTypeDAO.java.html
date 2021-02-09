@@ -71,9 +71,9 @@ import java.util.Map;
 <span class="fc" id="L71">                WidgetType widgetType = this.createWidgetTypeFromResultSet(res);</span>
 <span class="fc" id="L72">                widgetTypes.put(widgetType.getCode(), widgetType);</span>
 <span class="fc" id="L73">            }</span>
-<span class="nc" id="L74">        } catch (Throwable t) {</span>
-<span class="nc" id="L75">            logger.error( ERROR_LOADING_WIDGETS , t);</span>
-<span class="nc" id="L76">            throw new RuntimeException(ERROR_LOADING_WIDGETS, t);</span>
+<span class="nc" id="L74">        } catch (EntException | SQLException e) {</span>
+<span class="nc" id="L75">            logger.error( ERROR_LOADING_WIDGETS , e);</span>
+<span class="nc" id="L76">            throw new EntRuntimeException(ERROR_LOADING_WIDGETS, e);</span>
         } finally {
 <span class="fc" id="L78">            closeDaoResources(res, stat, conn);</span>
         }
@@ -97,7 +97,7 @@ import java.util.Map;
             }
 <span class="nc" id="L98">        } catch (EntException | SQLException e) {</span>
 <span class="nc" id="L99">            logger.error(ERROR_LOADING_WIDGET, e);</span>
-<span class="nc" id="L100">            throw new EntException(String.format(&quot;%s %s&quot;, ERROR_LOADING_WIDGET, e));</span>
+<span class="nc" id="L100">            throw new EntException(ERROR_LOADING_WIDGET, e);</span>
         } finally {
 <span class="fc" id="L102">            closeDaoResources(res, stat, conn);</span>
         }
@@ -260,97 +260,67 @@ import java.util.Map;
     @Override
     public void updateWidgetType(String widgetTypeCode, ApsProperties titles, ApsProperties defaultConfig, String mainGroup,
                                  String configUi, String bundleId, Boolean readonlyPageWidgetConfig, String widgetCategory) {
-<span class="fc" id="L263">        Connection conn = null;</span>
-<span class="fc" id="L264">        PreparedStatement stat = null;</span>
+
         String icon;
 
         try {
-<span class="fc" id="L268">            icon = getWidgetType(widgetTypeCode).getIcon();</span>
-<span class="nc" id="L269">        } catch (EntException | RuntimeException e) {</span>
-<span class="nc" id="L270">            throw new EntRuntimeException(ERROR_UPDATE_WIDGET, e);</span>
-<span class="fc" id="L271">        }</span>
+<span class="fc" id="L267">            icon = getWidgetType(widgetTypeCode).getIcon();</span>
+<span class="nc" id="L268">        } catch (EntException | RuntimeException e) {</span>
+<span class="nc" id="L269">            throw new EntRuntimeException(ERROR_UPDATE_WIDGET, e);</span>
+<span class="fc" id="L270">        }</span>
 
-        try {
-<span class="fc" id="L274">            conn = this.getConnection();</span>
-<span class="fc" id="L275">            conn.setAutoCommit(false);</span>
-<span class="fc" id="L276">            stat = conn.prepareStatement(UPDATE_WIDGET_TYPE);</span>
-<span class="fc" id="L277">            stat.setString(1, titles.toXml());</span>
-<span class="pc bpc" id="L278" title="1 of 4 branches missed.">            if (null == defaultConfig || defaultConfig.isEmpty()) {</span>
-<span class="fc" id="L279">                stat.setNull(2, Types.VARCHAR);</span>
-            } else {
-<span class="fc" id="L281">                stat.setString(2, defaultConfig.toXml());</span>
-            }
-<span class="fc" id="L283">            stat.setString(3, mainGroup);</span>
-<span class="fc" id="L284">            stat.setString(4, configUi);</span>
-<span class="fc" id="L285">            stat.setString(5, bundleId);</span>
-
-<span class="pc bpc" id="L287" title="1 of 2 branches missed.">            if (Boolean.TRUE.equals(readonlyPageWidgetConfig)) {</span>
-<span class="fc" id="L288">                stat.setInt(6, 1);</span>
-            } else {
-<span class="nc" id="L290">                stat.setInt(6, 0);</span>
-            }
-<span class="fc" id="L292">            stat.setString(7, widgetCategory);</span>
-<span class="fc" id="L293">            stat.setString(8, icon);</span>
-<span class="fc" id="L294">            stat.setString(9, widgetTypeCode);</span>
-<span class="fc" id="L295">            stat.executeUpdate();</span>
-<span class="fc" id="L296">            conn.commit();</span>
-<span class="nc" id="L297">        } catch (EntException | SQLException | IOException e ) {</span>
-<span class="nc" id="L298">            this.executeRollback(conn);</span>
-<span class="nc" id="L299">            logger.error(&quot;{} {}&quot;, ERROR_UPDATE_WIDGET, widgetTypeCode, e);</span>
-<span class="nc" id="L300">            throw new EntRuntimeException(String.format(&quot;%s %s&quot;, ERROR_UPDATE_WIDGET, e));</span>
-        } finally {
-<span class="fc" id="L302">            closeDaoResources(null, stat, conn);</span>
-        }
-<span class="fc" id="L304">    }</span>
+<span class="fc" id="L272">        updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup,</span>
+                configUi,  bundleId, readonlyPageWidgetConfig , widgetCategory, icon);
+<span class="fc" id="L274">    }</span>
 
     public void updateWidgetType(String widgetTypeCode, ApsProperties titles, ApsProperties defaultConfig, String mainGroup,
                                  String configUi, String bundleId, Boolean readonlyPageWidgetConfig, String widgetCategory,
                                  String icon) {
-<span class="fc" id="L309">        Connection conn = null;</span>
-<span class="fc" id="L310">        PreparedStatement stat = null;</span>
+<span class="fc" id="L279">        Connection conn = null;</span>
+<span class="fc" id="L280">        PreparedStatement stat = null;</span>
         try {
-<span class="fc" id="L312">            conn = this.getConnection();</span>
-<span class="fc" id="L313">            conn.setAutoCommit(false);</span>
-<span class="fc" id="L314">            stat = conn.prepareStatement(UPDATE_WIDGET_TYPE);</span>
-<span class="fc" id="L315">            stat.setString(1, titles.toXml());</span>
-<span class="fc bfc" id="L316" title="All 4 branches covered.">            if (null == defaultConfig || defaultConfig.isEmpty()) {</span>
-<span class="fc" id="L317">                stat.setNull(2, Types.VARCHAR);</span>
+<span class="fc" id="L282">            conn = this.getConnection();</span>
+<span class="fc" id="L283">            conn.setAutoCommit(false);</span>
+<span class="fc" id="L284">            stat = conn.prepareStatement(UPDATE_WIDGET_TYPE);</span>
+<span class="fc" id="L285">            stat.setString(1, titles.toXml());</span>
+<span class="fc bfc" id="L286" title="All 4 branches covered.">            if (null == defaultConfig || defaultConfig.isEmpty()) {</span>
+<span class="fc" id="L287">                stat.setNull(2, Types.VARCHAR);</span>
             } else {
-<span class="fc" id="L319">                stat.setString(2, defaultConfig.toXml());</span>
+<span class="fc" id="L289">                stat.setString(2, defaultConfig.toXml());</span>
             }
-<span class="fc" id="L321">            stat.setString(3, mainGroup);</span>
-<span class="fc" id="L322">            stat.setString(4, configUi);</span>
-<span class="fc" id="L323">            stat.setString(5, bundleId);</span>
+<span class="fc" id="L291">            stat.setString(3, mainGroup);</span>
+<span class="fc" id="L292">            stat.setString(4, configUi);</span>
+<span class="fc" id="L293">            stat.setString(5, bundleId);</span>
 
-<span class="fc bfc" id="L325" title="All 2 branches covered.">            if (Boolean.TRUE.equals(readonlyPageWidgetConfig)) {</span>
-<span class="fc" id="L326">                stat.setInt(6, 1);</span>
+<span class="fc bfc" id="L295" title="All 2 branches covered.">            if (Boolean.TRUE.equals(readonlyPageWidgetConfig)) {</span>
+<span class="fc" id="L296">                stat.setInt(6, 1);</span>
             } else {
-<span class="fc" id="L328">                stat.setInt(6, 0);</span>
+<span class="fc" id="L298">                stat.setInt(6, 0);</span>
             }
 
-<span class="fc" id="L331">            stat.setString(7, widgetCategory);</span>
-<span class="fc" id="L332">            stat.setString(8, icon);</span>
-<span class="fc" id="L333">            stat.setString(9, widgetTypeCode);</span>
+<span class="fc" id="L301">            stat.setString(7, widgetCategory);</span>
+<span class="fc" id="L302">            stat.setString(8, icon);</span>
+<span class="fc" id="L303">            stat.setString(9, widgetTypeCode);</span>
 
-<span class="fc" id="L335">            stat.executeUpdate();</span>
-<span class="fc" id="L336">            conn.commit();</span>
-<span class="nc" id="L337">        } catch (EntException | SQLException | IOException e) {</span>
-<span class="nc" id="L338">            this.executeRollback(conn);</span>
-<span class="nc" id="L339">            logger.error(&quot;{} {}&quot;, ERROR_UPDATE_WIDGET, widgetTypeCode, e);</span>
-<span class="nc" id="L340">            throw new EntRuntimeException(String.format(&quot;%s %s&quot;, ERROR_UPDATE_WIDGET, e));</span>
+<span class="fc" id="L305">            stat.executeUpdate();</span>
+<span class="fc" id="L306">            conn.commit();</span>
+<span class="nc" id="L307">        } catch (EntException | SQLException | IOException e) {</span>
+<span class="nc" id="L308">            this.executeRollback(conn);</span>
+<span class="nc" id="L309">            logger.error(&quot;{} {}&quot;, ERROR_UPDATE_WIDGET, widgetTypeCode, e);</span>
+<span class="nc" id="L310">            throw new EntRuntimeException(ERROR_UPDATE_WIDGET, e);</span>
         } finally {
-<span class="fc" id="L342">            closeDaoResources(null, stat, conn);</span>
+<span class="fc" id="L312">            closeDaoResources(null, stat, conn);</span>
         }
-<span class="fc" id="L344">    }</span>
+<span class="fc" id="L314">    }</span>
 
 
     protected ILangManager getLangManager() {
-<span class="fc" id="L348">        return langManager;</span>
+<span class="fc" id="L318">        return langManager;</span>
     }
 
     public void setLangManager(ILangManager langManager) {
-<span class="fc" id="L352">        this.langManager = langManager;</span>
-<span class="fc" id="L353">    }</span>
+<span class="fc" id="L322">        this.langManager = langManager;</span>
+<span class="fc" id="L323">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
