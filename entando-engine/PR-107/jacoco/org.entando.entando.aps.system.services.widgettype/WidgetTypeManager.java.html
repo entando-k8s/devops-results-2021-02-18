@@ -180,34 +180,34 @@ import java.util.List;
         try {
 
             boolean readonlyPageWidgetConfigLocalVar;
-<span class="nc" id="L183">            WidgetType type = this.getWidgetType(widgetTypeCode);</span>
-<span class="nc bnc" id="L184" title="All 2 branches missed.">            if (null == type) {</span>
+<span class="fc" id="L183">            WidgetType type = this.getWidgetType(widgetTypeCode);</span>
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">            if (null == type) {</span>
 <span class="nc" id="L185">                logger.error(WIDGET_TYPE_NOT_EXIST, widgetTypeCode);</span>
 <span class="nc" id="L186">                return;</span>
             }
-<span class="nc bnc" id="L188" title="All 6 branches missed.">            if (type.isLocked() || !type.isLogic() || !type.isUserType()) {</span>
+<span class="pc bpc" id="L188" title="3 of 6 branches missed.">            if (type.isLocked() || !type.isLogic() || !type.isUserType()) {</span>
 <span class="nc" id="L189">                defaultConfig = type.getConfig();</span>
             }
-<span class="nc bnc" id="L191" title="All 2 branches missed.">            if (type.isLocked()) {</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">            if (type.isLocked()) {</span>
 <span class="nc" id="L192">                readonlyPageWidgetConfigLocalVar = type.isReadonlyPageWidgetConfig();</span>
             } else {
-<span class="nc" id="L194">                readonlyPageWidgetConfigLocalVar = readonlyPageWidgetConfig;</span>
+<span class="fc" id="L194">                readonlyPageWidgetConfigLocalVar = readonlyPageWidgetConfig;</span>
             }
-<span class="nc" id="L196">            this.getWidgetTypeDAO().updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup, configUi, bundleId, readonlyPageWidgetConfigLocalVar, widgetCategory);</span>
-<span class="nc" id="L197">            type.setTitles(titles);</span>
-<span class="nc" id="L198">            type.setConfig(defaultConfig);</span>
-<span class="nc" id="L199">            type.setMainGroup(mainGroup);</span>
-<span class="nc" id="L200">            type.setConfigUi(configUi);</span>
-<span class="nc" id="L201">            type.setBundleId(bundleId);</span>
-<span class="nc" id="L202">            type.setReadonlyPageWidgetConfig(readonlyPageWidgetConfigLocalVar);</span>
-<span class="nc" id="L203">            type.setWidgetCategory(widgetCategory);</span>
-<span class="nc" id="L204">            this.getCacheWrapper().updateWidgetType(type);</span>
-<span class="nc" id="L205">            this.notifyWidgetTypeChanging(widgetTypeCode, WidgetTypeChangedEvent.UPDATE_OPERATION_CODE);</span>
+<span class="fc" id="L196">            this.getWidgetTypeDAO().updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup, configUi, bundleId, readonlyPageWidgetConfigLocalVar, widgetCategory);</span>
+<span class="fc" id="L197">            type.setTitles(titles);</span>
+<span class="fc" id="L198">            type.setConfig(defaultConfig);</span>
+<span class="fc" id="L199">            type.setMainGroup(mainGroup);</span>
+<span class="fc" id="L200">            type.setConfigUi(configUi);</span>
+<span class="fc" id="L201">            type.setBundleId(bundleId);</span>
+<span class="fc" id="L202">            type.setReadonlyPageWidgetConfig(readonlyPageWidgetConfigLocalVar);</span>
+<span class="fc" id="L203">            type.setWidgetCategory(widgetCategory);</span>
+<span class="fc" id="L204">            this.getCacheWrapper().updateWidgetType(type);</span>
+<span class="fc" id="L205">            this.notifyWidgetTypeChanging(widgetTypeCode, WidgetTypeChangedEvent.UPDATE_OPERATION_CODE);</span>
 <span class="nc" id="L206">        } catch (Throwable t) {</span>
 <span class="nc" id="L207">            logger.error(&quot;Error updating Widget type titles : type code {}&quot;, widgetTypeCode, t);</span>
 <span class="nc" id="L208">            throw new EntException(&quot;Error updating Widget type titles : type code&quot; + widgetTypeCode, t);</span>
-<span class="nc" id="L209">        }</span>
-<span class="nc" id="L210">    }</span>
+<span class="fc" id="L209">        }</span>
+<span class="fc" id="L210">    }</span>
 
     @Override
     public void updateWidgetType(String widgetTypeCode, ApsProperties titles, ApsProperties defaultConfig, String mainGroup,
