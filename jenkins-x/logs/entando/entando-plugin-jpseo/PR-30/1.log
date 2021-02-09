@@ -1,0 +1,1595 @@
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-hbwql[0m
+{"level":"warn","ts":1612870261.078522,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612870261.0909019,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-ptncj[0m
+{"level":"warn","ts":1612870266.2209249,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612870266.2489707,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-entando-plugin-jpseo-pr-jbkdk[0m
+{"level":"warn","ts":1612870309.3946447,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612870310.9512937,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando/entando-plugin-jpseo.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8a2324e93ae1d615c88fe3ebf5d0d01e8b902313,30:e45c9b50e100870905a5c7b56f98da047a930b3b
+DEBUG: ran git fetch --unshallow origin e45c9b50e100870905a5c7b56f98da047a930b3b: 8a2324e93ae1d615c88fe3ebf5d0d01e8b902313: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 8a2324e93ae1d615c88fe3ebf5d0d01e8b902313 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge e45c9b50e100870905a5c7b56f98da047a930b3b in 
+Merged SHA e45c9b50e100870905a5c7b56f98da047a930b3b with commit message 'ENG-1461 add icon to jpseo_content_viewer widget type in widgetcatalog table' into base branch master
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 6.3.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-plugin-jpseo ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando.entando.plugins:entando-plugin-jpseo:6.3.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-30-1
+[INFO] Processing org.entando.entando.plugins:entando-plugin-jpseo
+[INFO]     Updating project org.entando.entando.plugins:entando-plugin-jpseo
+[INFO]         from version 6.3.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-30-1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.513 s
+[INFO] Finished at: 2021-02-09T11:32:07Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Switched to a new branch 'PR-30'
+M	pom.xml
+Deleted branch master (was e45c9b5).
+From https://github.com/entando/entando-plugin-jpseo
+ * [new branch]      master            -> master
+ * [new tag]         pia-crs4          -> pia-crs4
+ * [new tag]         v6.2.0-sprint1-rc -> v6.2.0-sprint1-rc
+ * [new tag]         v6.2.0-sprint2-rc -> v6.2.0-sprint2-rc
+ * [new tag]         v6.2.0-sprint3-rc -> v6.2.0-sprint3-rc
+ * [new tag]         v6.2.0-sprint4-rc -> v6.2.0-sprint4-rc
+ * [new tag]         v6.2.0-sprint5-rc -> v6.2.0-sprint5-rc
+
+Showing logs for build [32mentando-entando-plugin-jpseo-pr-7n9rm-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 0.0.0-SNAPSHOT-PR-30-1
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-plugin-jpseo ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-plugin-jpseo ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-plugin-jpseo ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 12 resources
+[INFO] Copying 1 resource
+[INFO] Copying 5 resources
+[INFO] Copying 11 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-plugin-jpseo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 50 source files to /workspace/source/target/classes
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[92,73] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[100,65] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[122,66] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[186,70] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java:[203,70] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageService.java:[270,62] unchecked conversion
+  required: java.util.Map<java.lang.String,java.util.Map<java.lang.String,org.entando.entando.plugins.jpseo.aps.******.services.page.PageMetatag>>
+  found:    java.util.HashMap
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[119,61] unchecked cast
+  required: java.util.List<java.lang.String>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[129,56] unchecked cast
+  required: java.util.List<java.lang.String>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[167,46] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java:[174,46] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/tags/SiteMapTag.java:[90,44] unchecked call to FieldSearchFilter(java.lang.String,T,boolean) as a member of the raw type com.agiletec.aps.******.common.FieldSearchFilter
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[73,38] unchecked method invocation: method createURL in class com.agiletec.aps.******.services.url.URLManager is applied to given types
+  required: com.agiletec.aps.******.services.page.IPage,com.agiletec.aps.******.services.lang.Lang,java.util.Map<java.lang.String,java.lang.String>,boolean,javax.servlet.http.HttpServletRequest
+  found: com.agiletec.aps.******.services.page.IPage,com.agiletec.aps.******.services.lang.Lang,java.util.Map,boolean,javax.servlet.http.HttpServletRequest
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[73,72] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[75,45] unchecked method invocation: method createFriendlyUrl in class org.entando.entando.plugins.jpseo.aps.******.services.url.URLManager is applied to given types
+  required: java.lang.String,com.agiletec.aps.******.services.lang.Lang,java.util.Map<java.lang.String,java.lang.String>,boolean,javax.servlet.http.HttpServletRequest
+  found: java.lang.String,com.agiletec.aps.******.services.lang.Lang,java.util.Map,boolean,javax.servlet.http.HttpServletRequest
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/url/URLManager.java:[75,83] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.String>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/metatag/MetatagDOM.java:[44,83] unchecked conversion
+  required: java.util.List<org.jdom.Element>
+  found:    java.util.List
+[WARNING] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/sitemap/SitemapAction.java:[109,44] unchecked call to FieldSearchFilter(java.lang.String,T,boolean) as a member of the raw type com.agiletec.aps.******.common.FieldSearchFilter
+[INFO] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/controller/control/RequestValidator.java: /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/controller/control/RequestValidator.java uses or overrides a deprecated API.
+[INFO] /workspace/source/src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/controller/control/RequestValidator.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:copy-resources (copy-resources-test) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:copy-resources (copy-resources-file-test-) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ entando-plugin-jpseo ---
+[debug] e**cute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-plugin-jpseo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /workspace/source/target/test-classes
+[WARNING] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps*****/portal/PageActionIntegrationTest.java:[90,125] unchecked cast
+  required: java.util.Map<java.lang.String,java.util.Map<java.lang.String,org.entando.entando.plugins.jpseo.aps.******.services.page.PageMetatag>>
+  found:    java.lang.Object
+[WARNING] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps*****/portal/PageActionIntegrationTest.java:[395,67] unchecked conversion
+  required: java.util.Map<java.lang.String,java.util.Map<java.lang.String,org.entando.entando.plugins.jpseo.aps.******.services.page.PageMetatag>>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps*****/portal/PageActionIntegrationTest.java:[407,29] unchecked conversion
+  required: java.util.Map<java.lang.String,java.util.Map<java.lang.String,org.entando.entando.plugins.jpseo.aps.******.services.page.PageMetatag>>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps*****/portal/PageSettingsActionAspectTest.java:[100,49] unchecked method invocation: method convertValue in class com.opensymphony.xwork2.conversion.impl.XWorkConverter is applied to given types
+  required: java.util.Map<java.lang.String,java.lang.Object>,java.lang.Object,java.lang.Class
+  found: java.util.Map,java.lang.Object,java.lang.Class
+[WARNING] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps*****/portal/PageSettingsActionAspectTest.java:[100,61] unchecked conversion
+  required: java.util.Map<java.lang.String,java.lang.Object>
+  found:    java.util.Map
+[WARNING] /workspace/source/src/test/java/org/entando/entando/plugins/jpseo/aps*****/content/ContentActionIntegrationTest.java:[68,46] unchecked call to EntitySearchFilter(java.lang.String,boolean,T,boolean) as a member of the raw type com.agiletec.aps.******.common.entity.model.EntitySearchFilter
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M4:test (default-test) @ entando-plugin-jpseo ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.entando.aps.******.services.controller.control.SeoRequestValidatorIntegrationTest
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/jenkins/.mvnrepository/org/slf4j/slf4j-jdk14/1.7.26/slf4j-jdk14-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/jenkins/.mvnrepository/org/apache/logging/log4j/log4j-slf4j-impl/2.13.3/log4j-slf4j-impl-2.13.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.JDK14LoggerFactory]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder activate
+INFO: Activating simple JNDI environment
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logActiveFileOutput] = [false]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestServ;create=****]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.password] = [agile]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.beanName] = [servDataSource]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestPort;create=****]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.beanName] = [portDataSource]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.password] = [agile]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.username] = [agile]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.username] = [agile]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:32:45 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:32:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/servDataSource] = [org.apache.commons.dbcp2.BasicDataSource@7ff6804a]
+Feb 09, 2021 11:32:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/portDataSource] = [org.apache.commons.dbcp2.BasicDataSource@12aa519b]
+Feb 09, 2021 11:32:46 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring **** WebApplicationContext
+Feb 09, 2021 11:32:46 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Report not availablejava.sql.SQLSyntaxErrorException: Schema 'AGILE' does not exist
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/sysconfig
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/categories
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/localstrings
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/pagemodels
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/pages
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/pages_metadata_online
+Feb 09, 2021 11:32:57 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/pages_metadata_draft
+Feb 09, 2021 11:32:58 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/widgetcatalog
+Feb 09, 2021 11:32:58 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/guifragment
+Feb 09, 2021 11:32:58 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/widgetconfig
+Feb 09, 2021 11:32:58 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/widgetconfig_draft
+Feb 09, 2021 11:32:58 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/uniquekeys
+Feb 09, 2021 11:32:58 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/userpreferences
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authgroups
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authpermissions
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authroles
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authrolepermissions
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authusers
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authusergrouprole
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/api_oauth_consumers
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/api_oauth_tokens
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/apicatalog_methods
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/apicatalog_services
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authuserprofiles
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authuserprofilesearch
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authuserprofileattrroles
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/actionlogrecords
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/actionlogrelations
+Feb 09, 2021 11:32:59 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/actionloglikerecords
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/actionlogcommentrecords
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/dataobjectmodels
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/dataobjects
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/dataobjectrelations
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/dataobjectsearch
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/dataobjectattributeroles
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/contentmodels
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/contents
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/resources
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/resourcerelations
+Feb 09, 2021 11:33:00 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/contentrelations
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/contentsearch
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/contentattributeroles
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/workcontentrelations
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/workcontentsearch
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/workcontentattributeroles
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - servDataSource/authusershortcuts
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Created table - portDataSource/jpseo_friendlycode
+Feb 09, 2021 11:33:01 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:03 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:04 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:04 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:04 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:10 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Successfully created a random page_preview_hash
+Feb 09, 2021 11:33:19 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:33:22 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7bfb5fc1, org.springframework.security.web.context.SecurityContextPersistenceFilter@39f7a4ac, org.springframework.security.web.header.HeaderWriterFilter@3bdbbd32, org.springframework.security.web.authentication.logout.LogoutFilter@3d638ed4, org.springframework.web.filter.CorsFilter@7e0b0516, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2fafd4fb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7dd93f95, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e65a8a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12ca9071, org.springframework.security.web.session.SessionManagementFilter@858c0bb, org.springframework.security.web.access.ExceptionTranslationFilter@48c5b6d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22e36c10]
+Feb 09, 2021 11:33:22 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35308784, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e897610, org.springframework.security.web.header.HeaderWriterFilter@57cb0b62, org.springframework.web.filter.CorsFilter@7e0b0516, org.springframework.security.web.authentication.logout.LogoutFilter@f95f08d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a541b2e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cc5a575, org.springframework.security.web.session.SessionManagementFilter@4d663bbf, org.springframework.security.web.access.ExceptionTranslationFilter@7f07d63e]
+Feb 09, 2021 11:33:22 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext initialized in 35858 ms
+Feb 09, 2021 11:33:22 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:25 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:34 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:33:36 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18f6a6fa, org.springframework.security.web.context.SecurityContextPersistenceFilter@dce1f57, org.springframework.security.web.header.HeaderWriterFilter@5b0728ea, org.springframework.security.web.authentication.logout.LogoutFilter@7f149a6e, org.springframework.web.filter.CorsFilter@4f606b39, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5c81c5ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cad5dc6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4da5f244, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56540d32, org.springframework.security.web.session.SessionManagementFilter@2a0d9704, org.springframework.security.web.access.ExceptionTranslationFilter@b1bf162, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@826360d]
+Feb 09, 2021 11:33:36 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c9a7f4b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a64e933, org.springframework.security.web.header.HeaderWriterFilter@326054d1, org.springframework.web.filter.CorsFilter@4f606b39, org.springframework.security.web.authentication.logout.LogoutFilter@5c084f99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45cb56c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@294aee16, org.springframework.security.web.session.SessionManagementFilter@55b65e9b, org.springframework.security.web.access.ExceptionTranslationFilter@398a4821]
+Feb 09, 2021 11:33:38 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 52.756 s - in org.entando.entando.aps.******.services.controller.control.SeoRequestValidatorIntegrationTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps*****.content.ContentActionIntegrationTest
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logActiveFileOutput] = [false]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestServ;create=****]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.password] = [agile]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.beanName] = [servDataSource]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestPort;create=****]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.beanName] = [portDataSource]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.password] = [agile]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.username] = [agile]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.username] = [agile]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/servDataSource] = [org.apache.commons.dbcp2.BasicDataSource@48edc034]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/portDataSource] = [org.apache.commons.dbcp2.BasicDataSource@618e6171]
+Feb 09, 2021 11:33:38 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring **** WebApplicationContext
+Feb 09, 2021 11:33:38 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:41 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:49 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:33:51 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b71ee28, org.springframework.security.web.context.SecurityContextPersistenceFilter@68a931ce, org.springframework.security.web.header.HeaderWriterFilter@21c48d46, org.springframework.security.web.authentication.logout.LogoutFilter@72ba5825, org.springframework.web.filter.CorsFilter@1c4fd843, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@422a8745, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@581de290, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59fdff05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33f28b5d, org.springframework.security.web.session.SessionManagementFilter@43188539, org.springframework.security.web.access.ExceptionTranslationFilter@144670f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3977984b]
+Feb 09, 2021 11:33:51 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a35026, org.springframework.security.web.context.SecurityContextPersistenceFilter@3223b52b, org.springframework.security.web.header.HeaderWriterFilter@5f5d9b3b, org.springframework.web.filter.CorsFilter@1c4fd843, org.springframework.security.web.authentication.logout.LogoutFilter@4ba84208, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3564e435, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bd846dd, org.springframework.security.web.session.SessionManagementFilter@7d075527, org.springframework.security.web.access.ExceptionTranslationFilter@4a18c8a9]
+Feb 09, 2021 11:33:51 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext initialized in 13226 ms
+Feb 09, 2021 11:33:51 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:33:54 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:02 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:34:04 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78c718f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@20303b42, org.springframework.security.web.header.HeaderWriterFilter@7782c1b0, org.springframework.security.web.authentication.logout.LogoutFilter@3b289035, org.springframework.web.filter.CorsFilter@3cb825c1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1a4b1a05, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24773690, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f0381c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@501dba34, org.springframework.security.web.session.SessionManagementFilter@51093887, org.springframework.security.web.access.ExceptionTranslationFilter@2f136ff2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f715110]
+Feb 09, 2021 11:34:04 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bddbdbb, org.springframework.security.web.context.SecurityContextPersistenceFilter@577e3472, org.springframework.security.web.header.HeaderWriterFilter@134d817f, org.springframework.web.filter.CorsFilter@3cb825c1, org.springframework.security.web.authentication.logout.LogoutFilter@5a1461, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52fb44fe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@368b54eb, org.springframework.security.web.session.SessionManagementFilter@760f5649, org.springframework.security.web.access.ExceptionTranslationFilter@2c0aedf4]
+[INFO ] 2021-02-09 11:34:06.032 [main] SpringObjectFactory - Setting autowire strategy to name
+[INFO ] 2021-02-09 11:34:06.954 [main] SpringObjectFactory - Setting autowire strategy to name
+Feb 09, 2021 11:34:07 AM org.entando.entando.ent.util.EntLogging$EntLogger warn
+WARNING: Unrecognized location of resource '/workspace/source/target/classes/org/entando/entando/plugins/jpseo/aps*****/global-messages_en.properties'
+Feb 09, 2021 11:34:07 AM org.entando.entando.ent.util.EntLogging$EntLogger warn
+WARNING: Unrecognized location of resource '/workspace/source/target/classes/org/entando/entando/plugins/jpseo/aps*****/global-messages_it.properties'
+Feb 09, 2021 11:34:07 AM org.entando.entando.ent.util.EntLogging$EntLogger warn
+WARNING: Unrecognized location of resource 'file:/home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jacms/6.3.11/entando-plugin-jacms-6.3.11-classes.jar!/org/entando/entando/plugins/jacms/aps*****/global-messages_en.properties'
+Feb 09, 2021 11:34:07 AM org.entando.entando.ent.util.EntLogging$EntLogger warn
+WARNING: Unrecognized location of resource 'file:/home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jacms/6.3.11/entando-plugin-jacms-6.3.11-classes.jar!/org/entando/entando/plugins/jacms/aps*****/global-messages_it.properties'
+Feb 09, 2021 11:34:07 AM org.entando.entando.ent.util.EntLogging$EntLogger warn
+WARNING: Unrecognized location of resource 'file:/home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jacms/6.3.11/entando-plugin-jacms-6.3.11-classes.jar!/com/agiletec/plugins/jacms/aps*****/global-messages_en.properties'
+Feb 09, 2021 11:34:07 AM org.entando.entando.ent.util.EntLogging$EntLogger warn
+WARNING: Unrecognized location of resource 'file:/home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jacms/6.3.11/entando-plugin-jacms-6.3.11-classes.jar!/com/agiletec/plugins/jacms/aps*****/global-messages_it.properties'
+Feb 09, 2021 11:34:09 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Saving content ART202 - Description: 'Il titolo' - User: *****
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.94 s - in org.entando.entando.plugins.jpseo.aps*****.content.ContentActionIntegrationTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps*****.portal.PageSettingsActionAspectTest
+Feb 09, 2021 11:34:12 AM org.entando.entando.ent.util.EntLogging$EntLogger error
+SEVERE: error updating page settings for seo
+org.entando.entando.ent.exception.EntException
+
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.079 s - in org.entando.entando.plugins.jpseo.aps*****.portal.PageSettingsActionAspectTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps*****.portal.PageActionIntegrationTest
+[INFO ] 2021-02-09 11:34:12.708 [main] SpringObjectFactory - Setting autowire strategy to name
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.177 s - in org.entando.entando.plugins.jpseo.aps*****.portal.PageActionIntegrationTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps*****.portal.PageSettingsActionIntegrationTest
+[INFO ] 2021-02-09 11:34:18.781 [main] SpringObjectFactory - Setting autowire strategy to name
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.507 s - in org.entando.entando.plugins.jpseo.aps*****.portal.PageSettingsActionIntegrationTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps.******.services.metatag.MetatagCatalogueIntegrationTest
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logActiveFileOutput] = [false]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestServ;create=****]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.password] = [agile]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.beanName] = [servDataSource]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestPort;create=****]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.beanName] = [portDataSource]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.password] = [agile]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.username] = [agile]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.username] = [agile]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/servDataSource] = [org.apache.commons.dbcp2.BasicDataSource@264d90b5]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/portDataSource] = [org.apache.commons.dbcp2.BasicDataSource@4fb3f5d6]
+Feb 09, 2021 11:34:19 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring **** WebApplicationContext
+Feb 09, 2021 11:34:19 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:34:22 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:31 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:34:33 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72545942, org.springframework.security.web.context.SecurityContextPersistenceFilter@154cbef8, org.springframework.security.web.header.HeaderWriterFilter@4f082b93, org.springframework.security.web.authentication.logout.LogoutFilter@6d20fa57, org.springframework.web.filter.CorsFilter@4c03cd38, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@34cc2e06, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72a37d55, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b12c1fa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@774ff3cd, org.springframework.security.web.session.SessionManagementFilter@1466b74f, org.springframework.security.web.access.ExceptionTranslationFilter@500cbac1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@944b161]
+Feb 09, 2021 11:34:33 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a062747, org.springframework.security.web.context.SecurityContextPersistenceFilter@594c0dbb, org.springframework.security.web.header.HeaderWriterFilter@7d33dbaa, org.springframework.web.filter.CorsFilter@4c03cd38, org.springframework.security.web.authentication.logout.LogoutFilter@5d863d10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3aa0599f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b431d60, org.springframework.security.web.session.SessionManagementFilter@66925c92, org.springframework.security.web.access.ExceptionTranslationFilter@29c1a429]
+Feb 09, 2021 11:34:33 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext initialized in 13661 ms
+Feb 09, 2021 11:34:33 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:34:36 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:44 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:34:46 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41e89fd, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e566d70, org.springframework.security.web.header.HeaderWriterFilter@448448ca, org.springframework.security.web.authentication.logout.LogoutFilter@4543522d, org.springframework.web.filter.CorsFilter@2d84bc92, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@34e69b23, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1679a85a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58c6ad08, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22ccaa99, org.springframework.security.web.session.SessionManagementFilter@67d3e879, org.springframework.security.web.access.ExceptionTranslationFilter@59a7f55b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@500292fb]
+Feb 09, 2021 11:34:46 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60f30a5f, org.springframework.security.web.context.SecurityContextPersistenceFilter@120aa422, org.springframework.security.web.header.HeaderWriterFilter@831cb7d, org.springframework.web.filter.CorsFilter@2d84bc92, org.springframework.security.web.authentication.logout.LogoutFilter@5cedcdfe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54293d63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f3b0855, org.springframework.security.web.session.SessionManagementFilter@6a8e9e40, org.springframework.security.web.access.ExceptionTranslationFilter@16f46b05]
+Feb 09, 2021 11:34:46 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.433 s - in org.entando.entando.plugins.jpseo.aps.******.services.metatag.MetatagCatalogueIntegrationTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps.******.services.mapping.SeoMappingManagerIntegrationTest
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logActiveFileOutput] = [false]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestServ;create=****]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.password] = [agile]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.beanName] = [servDataSource]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestPort;create=****]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.beanName] = [portDataSource]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.password] = [agile]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.username] = [agile]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.username] = [agile]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/servDataSource] = [org.apache.commons.dbcp2.BasicDataSource@3d77803f]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/portDataSource] = [org.apache.commons.dbcp2.BasicDataSource@7f295911]
+Feb 09, 2021 11:34:46 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring **** WebApplicationContext
+Feb 09, 2021 11:34:46 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:34:48 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:34:57 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:34:58 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6312fbde, org.springframework.security.web.context.SecurityContextPersistenceFilter@332acb81, org.springframework.security.web.header.HeaderWriterFilter@421bdec2, org.springframework.security.web.authentication.logout.LogoutFilter@2731c3b2, org.springframework.web.filter.CorsFilter@6f596bff, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@27d8bb9f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6abc40e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6cc74994, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1603a35d, org.springframework.security.web.session.SessionManagementFilter@69505f7f, org.springframework.security.web.access.ExceptionTranslationFilter@63ebddf2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1934cd00]
+Feb 09, 2021 11:34:59 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2095d48c, org.springframework.security.web.context.SecurityContextPersistenceFilter@85f12a6, org.springframework.security.web.header.HeaderWriterFilter@6426d3bc, org.springframework.web.filter.CorsFilter@6f596bff, org.springframework.security.web.authentication.logout.LogoutFilter@32b7295e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@195d054f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e3e7695, org.springframework.security.web.session.SessionManagementFilter@422ceac1, org.springframework.security.web.access.ExceptionTranslationFilter@306ca654]
+Feb 09, 2021 11:34:59 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext initialized in 12759 ms
+Feb 09, 2021 11:34:59 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:02 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:11 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:35:12 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ec8ad93, org.springframework.security.web.context.SecurityContextPersistenceFilter@19bef925, org.springframework.security.web.header.HeaderWriterFilter@7bcf0f91, org.springframework.security.web.authentication.logout.LogoutFilter@5c2f0602, org.springframework.web.filter.CorsFilter@4c7bb239, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1d1ceeb4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30cbfa3d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68ea54b3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b73674d, org.springframework.security.web.session.SessionManagementFilter@21c5aa72, org.springframework.security.web.access.ExceptionTranslationFilter@1808e874, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a6890b7]
+Feb 09, 2021 11:35:12 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22487bf5, org.springframework.security.web.context.SecurityContextPersistenceFilter@1944ca32, org.springframework.security.web.header.HeaderWriterFilter@d75fa5a, org.springframework.web.filter.CorsFilter@4c7bb239, org.springframework.security.web.authentication.logout.LogoutFilter@19441aa8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a714ddc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@206b339f, org.springframework.security.web.session.SessionManagementFilter@53592349, org.springframework.security.web.access.ExceptionTranslationFilter@57943995]
+Feb 09, 2021 11:35:15 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: Content EVN218 with friendly codes [wonders_theater, teatro_delle_meraviglie]
+Feb 09, 2021 11:35:18 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.727 s - in org.entando.entando.plugins.jpseo.aps.******.services.mapping.SeoMappingManagerIntegrationTest
+[INFO] Running org.entando.entando.plugins.jpseo.aps.******.services.page.SeoPageServiceTest
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logActiveFileOutput] = [false]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestServ;create=****]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.password] = [agile]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.beanName] = [servDataSource]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestPort;create=****]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.beanName] = [portDataSource]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.password] = [agile]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.username] = [agile]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.username] = [agile]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/servDataSource] = [org.apache.commons.dbcp2.BasicDataSource@2bb54ce9]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/portDataSource] = [org.apache.commons.dbcp2.BasicDataSource@6d751509]
+Feb 09, 2021 11:35:18 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring **** WebApplicationContext
+Feb 09, 2021 11:35:18 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:21 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:29 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:35:31 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35dcbf57, org.springframework.security.web.context.SecurityContextPersistenceFilter@665aa6be, org.springframework.security.web.header.HeaderWriterFilter@1472bced, org.springframework.security.web.authentication.logout.LogoutFilter@5f15fd64, org.springframework.web.filter.CorsFilter@71e809cf, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6366884d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@761e9470, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e03254, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72e6e79e, org.springframework.security.web.session.SessionManagementFilter@29beec8d, org.springframework.security.web.access.ExceptionTranslationFilter@75bd2909, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d6fd7c1]
+Feb 09, 2021 11:35:31 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@db353a5, org.springframework.security.web.context.SecurityContextPersistenceFilter@650738d3, org.springframework.security.web.header.HeaderWriterFilter@66b19fbb, org.springframework.web.filter.CorsFilter@71e809cf, org.springframework.security.web.authentication.logout.LogoutFilter@45ae8d34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@142d51d2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@529691ce, org.springframework.security.web.session.SessionManagementFilter@7c8ec711, org.springframework.security.web.access.ExceptionTranslationFilter@179f7c76]
+Feb 09, 2021 11:35:31 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext initialized in 13220 ms
+Feb 09, 2021 11:35:31 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:34 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:42 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:35:44 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@393f7df1, org.springframework.security.web.context.SecurityContextPersistenceFilter@6cfeaf15, org.springframework.security.web.header.HeaderWriterFilter@3506737f, org.springframework.security.web.authentication.logout.LogoutFilter@14fef29a, org.springframework.web.filter.CorsFilter@4669576, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1fe7679e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d9b176b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24735048, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@788b36ca, org.springframework.security.web.session.SessionManagementFilter@39eb4060, org.springframework.security.web.access.ExceptionTranslationFilter@42f6e55b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dcd4a19]
+Feb 09, 2021 11:35:44 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cc433f1, org.springframework.security.web.context.SecurityContextPersistenceFilter@54b55e8b, org.springframework.security.web.header.HeaderWriterFilter@462c6258, org.springframework.web.filter.CorsFilter@4669576, org.springframework.security.web.authentication.logout.LogoutFilter@30ff00a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66761bbe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4085ac62, org.springframework.security.web.session.SessionManagementFilter@34573fce, org.springframework.security.web.access.ExceptionTranslationFilter@3aa8747a]
+Feb 09, 2021 11:35:44 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport shutdown
+INFO: Shutting down E**cutorService 'entandoScheduler'
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.202 s - in org.entando.entando.plugins.jpseo.aps.******.services.page.SeoPageServiceTest
+[INFO] Running org.entando.entando.plugins.jpseo.web.page.SeoPageControllerTest
+[INFO ] 2021-02-09 11:35:45.126 [main] Version - HV000001: Hibernate Validator 6.0.17.Final
+Feb 09, 2021 11:35:45 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:35:45 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:35:45 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 0 ms
+Feb 09, 2021 11:35:45 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:35:45 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:35:45 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 0 ms
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.677 s - in org.entando.entando.plugins.jpseo.web.page.SeoPageControllerTest
+[INFO] Running org.entando.entando.plugins.jpseo.web.page.SeoPageControllerIntegrationTest
+Feb 09, 2021 11:35:46 AM org.springframework.test.context.support.AbstractTestContextBootstrapper getDefaultTestE**cutionListenerClassNames
+INFO: Loaded default TestE**cutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestE**cutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener, org.springframework.test.context.support.DirtiesContextTestE**cutionListener, org.springframework.test.context.transaction.TransactionalTestE**cutionListener, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener]
+Feb 09, 2021 11:35:46 AM org.springframework.test.context.support.AbstractTestContextBootstrapper getTestE**cutionListeners
+INFO: Using TestE**cutionListeners: [org.springframework.test.context.web.ServletTestE**cutionListener@3b47f2f8, org.springframework.test.context.support.DirtiesContextBeforeModesTestE**cutionListener@56c523af, org.springframework.test.context.support.DependencyInjectionTestE**cutionListener@438ffa03, org.springframework.test.context.support.DirtiesContextTestE**cutionListener@46374ef2, org.springframework.test.context.transaction.TransactionalTestE**cutionListener@42e3a4fe, org.springframework.test.context.jdbc.SqlScriptsTestE**cutionListener@3d442f56]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/portDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logActiveFileOutput] = [false]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestServ;create=****]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/servDataSourceClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFilesCount] = [10]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/applicationBaseURL] = [/Entando/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.password] = [agile]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logLevel] = [ERROR]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/indexDiskRootFolder] = [target/test/indexdir]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileSize] = [1048576]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceDiskRootFolder] = [target/test/resources/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceRootURL] = [/Entando/protected/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/resourceRootURL] = [/Entando/resources/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/configVersion] = [test]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.beanName] = [servDataSource]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.url] = [jdbc:derby:/workspace/source/target/test/db/entando-plugin-jpseotestPort;create=****]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/protectedResourceDiskRootFolder] = [target/test/protected/]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.beanName] = [portDataSource]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.password] = [agile]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.driverClassName] = [org.apache.derby.jdbc.EmbeddedDriver]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.portDb.username] = [agile]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc.servDb.username] = [agile]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logName] = [/workspace/source/target/test/entando-plugin-jpseo]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/logFileRotatePattern] = [/workspace/source/target/test/entando-plugin-jpseo_logs/entando-plugin-jpseo-%i.log.gz]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/servDataSource] = [org.apache.commons.dbcp2.BasicDataSource@5bbae4d9]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder bind
+INFO: Static JNDI binding: [java:comp/env/jdbc/portDataSource] = [org.apache.commons.dbcp2.BasicDataSource@319c68b0]
+Feb 09, 2021 11:35:46 AM org.springframework.mock.jndi.SimpleNamingContextBuilder activate
+INFO: Activating simple JNDI environment
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: Core ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jacms ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-*****-console ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: entando-portal-ui ] :: DATA
+|   
+Feb 09, 2021 11:35:49 AM org.entando.entando.ent.util.EntLogging$EntLogger info
+INFO: + [ Component: jpseo ] :: DATA
+|   
+Feb 09, 2021 11:35:59 AM org.springframework.scheduling.concurrent.E**cutorConfigurationSupport initialize
+INFO: Initializing E**cutorService 'entandoScheduler'
+Feb 09, 2021 11:36:03 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@159a1f87, org.springframework.security.web.context.SecurityContextPersistenceFilter@224cbedd, org.springframework.security.web.header.HeaderWriterFilter@28ca0b81, org.springframework.security.web.authentication.logout.LogoutFilter@15a8d56c, org.springframework.web.filter.CorsFilter@135cdec, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2eddf637, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@183817ca, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d24b99e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cb07f90, org.springframework.security.web.session.SessionManagementFilter@2462aa69, org.springframework.security.web.access.ExceptionTranslationFilter@71724ff2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@33a0c3f6]
+Feb 09, 2021 11:36:03 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@332394e1, org.springframework.security.web.context.SecurityContextPersistenceFilter@77aec760, org.springframework.security.web.header.HeaderWriterFilter@46310966, org.springframework.web.filter.CorsFilter@135cdec, org.springframework.security.web.authentication.logout.LogoutFilter@6dc3551e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c2158a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@312033c5, org.springframework.security.web.session.SessionManagementFilter@2dea3df0, org.springframework.security.web.access.ExceptionTranslationFilter@7aa174b3]
+Feb 09, 2021 11:36:03 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:03 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:03 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 104 ms
+Feb 09, 2021 11:36:04 AM org.entando.entando.ent.util.EntLogging$EntLogger error
+SEVERE: Invalid friendly Code test_page_2
+Feb 09, 2021 11:36:04 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 3 ms
+Feb 09, 2021 11:36:04 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 2 ms
+Feb 09, 2021 11:36:04 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 3 ms
+Feb 09, 2021 11:36:04 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:04 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 2 ms
+Feb 09, 2021 11:36:07 AM org.entando.entando.ent.util.EntLogging$EntLogger error
+SEVERE: Invalid friendly Code test_page_2_fc
+Feb 09, 2021 11:36:07 AM org.entando.entando.ent.util.EntLogging$EntLogger error
+SEVERE: Invalid friendly Code test_page_2_fc
+Feb 09, 2021 11:36:07 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:07 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:07 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 4 ms
+Feb 09, 2021 11:36:07 AM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring TestDispatcherServlet ''
+Feb 09, 2021 11:36:07 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Initializing Servlet ''
+Feb 09, 2021 11:36:07 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: Completed initialization in 4 ms
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.923 s - in org.entando.entando.plugins.jpseo.web.page.SeoPageControllerIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ entando-plugin-jpseo ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [entando-plugin-jpseo] in [/workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/workspace/source/src/main/webapp]
+[INFO] Building jar: /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1/WEB-INF/lib/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1.jar
+[INFO] Webapp assembled in [843 msecs]
+[INFO] Building war: /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1.war
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2.1:single (package-classes) @ entando-plugin-jpseo ---
+[INFO] Reading assembly descriptor: /workspace/source/src/main/assembly/classes.xml
+[INFO] Building jar: /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1-classes.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-plugin-jpseo ---
+[INFO] Building jar: /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1-tests.jar
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-plugin-jpseo ---
+[INFO] 
+[INFO] --- dependency-check-maven:5.3.2:aggregate (default) @ entando-plugin-jpseo ---
+[INFO] Skipping National Vulnerability Database Report
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-plugin-jpseo ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando Plugin: SEO' with 44 classes
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-plugin-jpseo ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-plugin-jpseo ---
+[INFO] Installing /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1.war to /home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jpseo/0.0.0-SNAPSHOT-PR-30-1/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1.war
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jpseo/0.0.0-SNAPSHOT-PR-30-1/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1.pom
+[INFO] Installing /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1-classes.jar to /home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jpseo/0.0.0-SNAPSHOT-PR-30-1/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1-classes.jar
+[INFO] Installing /workspace/source/target/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando/plugins/entando-plugin-jpseo/0.0.0-SNAPSHOT-PR-30-1/entando-plugin-jpseo-0.0.0-SNAPSHOT-PR-30-1-tests.jar
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-plugin-jpseo ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 0.0.0-SNAPSHOT-PR-30-1
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-plugin-jpseo ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en_US", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=225ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=90ms
+[INFO] Load/download plugins (done) | time=25321ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando_entando-plugin-jpseo'
+[INFO] Load project settings for component key: 'entando_entando-plugin-jpseo' (done) | time=37ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=2ms
+[INFO] Project key: entando_entando-plugin-jpseo
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=69ms
+[INFO] Check ALM binding of project 'entando_entando-plugin-jpseo'
+[INFO] Detected project binding: NOT_BOUND
+[INFO] Check ALM binding of project 'entando_entando-plugin-jpseo' (done) | time=27ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=66ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=4ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=86ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1514ms
+[INFO] Organization key: entando
+[INFO] Pull request 30 for merge into master from PR-30
+[INFO] SCM collecting changed files in the branch
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] SCM collecting changed files in the branch (done) | time=525ms
+[INFO] Indexing files...
+[INFO] Project configuration:
+[INFO] 90 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for css: Sonar way
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for jsp: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando Plugin: SEO
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=28ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=246ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=3ms
+Feb 09, 2021 11:36:58 AM org.apache.jasper.servlet.TldScanner scanJars
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[WARNING] Some JSP pages failed to transpile. Enable debug log for details.
+[INFO] Java Main Files AST scan
+[INFO] 50 source files to be analyzed
+[INFO] 10/50 files analyzed, current file: src/main/java/org/entando/entando/plugins/jpseo/aps*****/portal/SeoPageActionUtils.java
+[INFO] 32/50 files analyzed, current file: src/main/java/org/entando/entando/plugins/jpseo/aps/tags/SiteMapTag.java
+[INFO] 46/50 files analyzed, current file: src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/SeoMappingDAO.java
+[INFO] 50/50 source files have been analyzed
+[INFO] Slowest analyzed files:
+    src/main/java/org/entando/entando/plugins/jpseo/aps*****/content/helper/ContentActionHelperAspect.java (3593ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageExtraConfigDOM.java (2051ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageMetadata.java (1626ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/SeoMappingManager.java (1570ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/mapping/cache/SeoMappingCacheWrapper.java (1532ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps*****/portal/SeoPageAction.java (1271ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/tags/CurrentPageTag.java (1224ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps*****/portal/PageActionAspect.java (1202ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/tags/SeoMetatagsTag.java (1155ms)
+    src/main/java/org/entando/entando/plugins/jpseo/aps/******/services/page/SeoPageService.java (1136ms)
+[INFO] Java Main Files AST scan (done) | time=31053ms
+[INFO] Java Test Files AST scan
+[INFO] 11 source files to be analyzed
+[INFO] Java Test Files AST scan (done) | time=2978ms
+[INFO] 11/11 source files have been analyzed
+[INFO] Java Generated Files AST scan
+[INFO] 5 source files to be analyzed
+[INFO] Java Generated Files AST scan (done) | time=3620ms
+[INFO] Sensor JavaSquidSensor [java] (done) | time=42463ms
+[INFO] Sensor SonarCSS Metrics [cssfamily]
+[INFO] 5/5 source files have been analyzed
+[INFO] Sensor SonarCSS Metrics [cssfamily] (done) | time=53ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] 1 source files to be analyzed
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=6481ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=2ms
+[INFO] Sensor Import of Checkstyle issues [java]
+[WARNING] Checkstyle report not found: /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=4ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=172ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 6 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=165ms
+[INFO] 6/6 source files have been analyzed
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=314ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 6 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=280ms
+[INFO] 6/6 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=1ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=86ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=4ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 338 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 11:37:47.177582 Building Runtime Type propagation graph
+[INFO] 11:37:47.340239 Running Tarjan on 5312 nodes
+[INFO] 11:37:47.36436 Tarjan found 5307 components
+[INFO] 11:37:47.386948 Variable type analysis: done
+[INFO] 11:37:47.391857 Building Runtime Type propagation graph
+[INFO] 11:37:47.457027 Running Tarjan on 5312 nodes
+[INFO] 11:37:47.468293 Tarjan found 5307 components
+[INFO] 11:37:47.484786 Variable type analysis: done
+[INFO] Analyzing 696 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 2 Retained UCFGs : 9
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 2
+[INFO] Running symbolic analysis
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 0
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=4768ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=1ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=145ms
+[INFO] CPD E**cutor 8 files had no CPD blocks
+[INFO] CPD E**cutor Calculating CPD for 49 files
+[INFO] CPD E**cutor CPD calculation finished (done) | time=298ms
+[INFO] SCM writing changed lines
+[INFO] SCM writing changed lines (done) | time=7ms
+[INFO] Analysis report generated in 228ms, dir size=245 KB
+[INFO] Analysis report compressed in 88ms, zip size=98 KB
+[INFO] Analysis report uploaded in 207ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando_entando-plugin-jpseo&pullRequest=30
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXeGlV8oPeKkDp4-eJYr
+[INFO] Analysis total time: 1:04.747 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:39 min
+[INFO] Finished at: 2021-02-09T11:37:52Z
+[INFO] ------------------------------------------------------------------------
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< org.entando.entando.plugins:entando-plugin-jpseo >----------
+[INFO] Building Entando Plugin: SEO 0.0.0-SNAPSHOT-PR-30-1
+[INFO] --------------------------------[ war ]---------------------------------
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-plugin-jpseo ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: http://www.entando.com/
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.505 s
+[INFO] Finished at: 2021-02-09T11:38:08Z
+[INFO] ------------------------------------------------------------------------
+error: etcdserver: request is too large
+Congratulations! No build failures found for entando-plugin-jpseo-PR-30.
