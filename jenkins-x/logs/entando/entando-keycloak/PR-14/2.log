@@ -1,0 +1,106 @@
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-pwvsc[0m
+{"level":"warn","ts":1612880396.9098063,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612880396.914005,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-fczcl[0m
+{"level":"warn","ts":1612880399.9839153,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612880399.9922128,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-entando-keycloak-pr-14-97rgk[0m
+{"level":"warn","ts":1612880435.1663928,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612880440.9363086,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando/entando-keycloak.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:48ee10957ba5699a4047604456fae8ad8c7d6bc1,14:30aa618d2b3371cf672ea22928377160695d3f16
+DEBUG: ran git fetch --unshallow origin 30aa618d2b3371cf672ea22928377160695d3f16: 48ee10957ba5699a4047604456fae8ad8c7d6bc1: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 48ee10957ba5699a4047604456fae8ad8c7d6bc1 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 30aa618d2b3371cf672ea22928377160695d3f16 in 
+Merged SHA 3d44dbe6ef52c1106a6ce94f38b547694ca28c22 with commit message 'Merge commit '30aa618d2b3371cf672ea22928377160695d3f16'' into base branch master
+Merged SHA 30aa618d2b3371cf672ea22928377160695d3f16 with commit message 'ENG-1736 installing with microdnf' into base branch master
+Merged SHA 27fdcdfa2c2054738b8c2a68a390d17ded1f6df4 with commit message 'ENG-1736 minor security update' into base branch master
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-container-build1[0m
+This avoids unwanted kaniko command substitution
+Generating tags...
+ - entando/entando-keycloak -> docker.io/entando/entando-keycloak:0.0.0-SNAPSHOT-PR-14-2
+Checking cache...
+ - entando/entando-keycloak: Not found. Building
+Building [entando/entando-keycloak]...
+Sending build context to Docker daemon  546.3kBSending build context to Docker daemon  8.743MB
+Step 1/11 : FROM jboss/keycloak:11.0.3
+ ---> b23fdd4af375
+Step 2/11 : LABEL MAINTAINER "Entando <dev@entando.com>"
+ ---> Using cache
+ ---> 3c54630961b9
+Step 3/11 : ARG VERSION
+ ---> Using cache
+ ---> 2c00ddba161d
+Step 4/11 : LABEL name "Entando Keycloak" vendor "Entando" version "v${VERSION}" release "6" summary "Keycloak with Entando's themes and extensions." description "This is container hosts Keycloak along with themes created for Entando."
+ ---> Running in b94b6a3359de
+ ---> 9e5fd421bfa6
+Step 5/11 : COPY LICENSE /licences/entando-lgpl.txt
+ ---> 0083f47ae38d
+Step 6/11 : COPY themes /opt/jboss/keycloak/themes
+ ---> fc9ff6ecd87e
+Step 7/11 : COPY cli /opt/jboss/tools/cli
+ ---> 1b252a03bc8e
+Step 8/11 : RUN export KEYCLOAK_HTTP_PORT=8080 &&       cd  /opt/jboss/keycloak/modules/******/layers/base/com/******/jdbc/main/ &&       mkdir driver &&       curl https://repo1.maven.org/maven2/com/******/ojdbc/ojdbc8/19.3.0.0/ojdbc8-19.3.0.0.jar -o driver/ojdbc.jar
+ ---> Running in 802c091926f2
+[91m[0m
+[91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[0m[91m100 4111k  100 4111k    0     0  9198k      0 --:--:-- --:--:-- --:--:-- 9198k
+[0m ---> bed3f46ee78a
+Step 9/11 : ENV KEYCLOAK_DEFAULT_THEME "entando" KEYCLOAK_HOME "/opt/jboss/keycloak"
+ ---> Running in 21855b09462c
+ ---> b49a28e25836
+Step 10/11 : EXPOSE 8080
+ ---> Running in 56826365d68a
+ ---> 17353e06d709
+Step 11/11 : CMD -b 0.0.0.0
+ ---> Running in 7ca4d9d25ee8
+ ---> 65f5dc2c5c91
+Successfully built 65f5dc2c5c91
+The push refers to a repository [docker.io/entando/entando-keycloak]
+fcd14a5da402: Preparing
+7af4a8a4fbf3: Preparing
+54005f80d4ce: Preparing
+82d9501bcd45: Preparing
+ff8dde26889b: Preparing
+9a122bc5bb12: Preparing
+f47704b2a676: Preparing
+37330a2a1954: Preparing
+d6ec160dc60f: Preparing
+9a122bc5bb12: Waiting
+f47704b2a676: Waiting
+d6ec160dc60f: Waiting
+37330a2a1954: Waiting
+ff8dde26889b: Layer already exists
+9a122bc5bb12: Layer already exists
+f47704b2a676: Layer already exists
+37330a2a1954: Layer already exists
+d6ec160dc60f: Layer already exists
+7af4a8a4fbf3: Pushed
+82d9501bcd45: Pushed
+fcd14a5da402: Pushed
+54005f80d4ce: Pushed
+0.0.0-SNAPSHOT-PR-14-2: digest: sha256:6bbc7b0ef052ea3f943c1fc863c991d4922d9013f97a7ffc1ec667da15f3842a size: 2209
+There is a new version (1.19.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
+
+Showing logs for build [32mentando-entando-keycloak-pr-14-bs7w7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-container-build2[0m
+This avoids unwanted kaniko command substitution
+Generating tags...
+ - entando/entando-redhat-sso -> docker.io/entando/entando-redhat-sso:0.0.0-SNAPSHOT-PR-14-2
+Checking cache...
+ - entando/entando-redhat-sso: Not found. Building
+Building [entando/entando-redhat-sso]...
+Sending build context to Docker daemon  536.1kBSending build context to Docker daemon  5.938MBSending build context to Docker daemon  8.779MB
+time="2021-02-09T14:21:02Z" level=fatal msg="build failed: build failed: building [entando/entando-redhat-sso]: build artifact: docker build: Error response from daemon: Unknown instruction: &&"
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-container-build2'. The execution of the pipeline has stopped.[0m
