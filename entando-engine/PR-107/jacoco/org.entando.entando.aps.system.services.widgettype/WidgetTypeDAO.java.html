@@ -264,14 +264,14 @@ import java.util.Map;
         String icon;
 
         try {
-<span class="fc" id="L267">            icon = getWidgetType(widgetTypeCode).getIcon();</span>
+<span class="nc" id="L267">            icon = getWidgetType(widgetTypeCode).getIcon();</span>
 <span class="nc" id="L268">        } catch (EntException | RuntimeException e) {</span>
 <span class="nc" id="L269">            throw new EntRuntimeException(ERROR_UPDATE_WIDGET, e);</span>
-<span class="fc" id="L270">        }</span>
+<span class="nc" id="L270">        }</span>
 
-<span class="fc" id="L272">        updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup,</span>
+<span class="nc" id="L272">        updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup,</span>
                 configUi,  bundleId, readonlyPageWidgetConfig , widgetCategory, icon);
-<span class="fc" id="L274">    }</span>
+<span class="nc" id="L274">    }</span>
 
     public void updateWidgetType(String widgetTypeCode, ApsProperties titles, ApsProperties defaultConfig, String mainGroup,
                                  String configUi, String bundleId, Boolean readonlyPageWidgetConfig, String widgetCategory,

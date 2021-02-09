@@ -1,12 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 Entando Core: Engine,com.agiletec.aps.system.common.model.dao,SearcherDaoPaginatedResult,9,32,1,1,4,12,3,5,2,5
 Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeParameter,0,34,0,0,0,13,0,7,0,7
-Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeManager,167,501,21,51,39,131,19,38,0,21
+Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeManager,141,456,17,47,34,119,15,38,0,21
 Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeDOM,57,251,15,13,11,69,13,15,1,13
 Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeListProcessor,26,84,4,7,4,13,7,17,3,12
 Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetService,172,790,18,54,39,175,17,55,1,35
 Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetType,206,643,84,86,53,152,70,56,2,39
-Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeDAO,156,521,6,36,33,137,7,26,1,11
+Entando Core: Engine,org.entando.entando.aps.system.services.widgettype,WidgetTypeDAO,174,503,6,36,37,133,8,25,2,10
 Entando Core: Engine,org.entando.entando.web.language,LanguageController,4,94,0,2,2,19,1,8,1,7
 Entando Core: Engine,org.entando.entando.web.common.model,RestNamedId,0,125,1,21,0,21,1,17,0,7
 Entando Core: Engine,org.entando.entando.web.common.model,SimpleRestResponse,11,7,0,0,4,2,2,1,2,1
