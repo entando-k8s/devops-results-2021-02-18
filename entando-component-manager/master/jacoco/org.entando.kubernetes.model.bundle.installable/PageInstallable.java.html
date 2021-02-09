@@ -32,7 +32,7 @@ public class PageInstallable extends Installable&lt;PageDescriptor&gt; {
             }
 
 <span class="pc bpc" id="L34" title="1 of 2 branches missed.">            if (representation.getStatus().equals(&quot;published&quot;)) {</span>
-<span class="fc" id="L35">                engineService.publishPage(representation);</span>
+<span class="fc" id="L35">                engineService.setPageStatus(getName(), EntandoCoreClient.PUBLISHED);</span>
             }
 <span class="fc" id="L37">        });</span>
     }
@@ -42,19 +42,22 @@ public class PageInstallable extends Installable&lt;PageDescriptor&gt; {
 <span class="fc" id="L42">        return CompletableFuture.runAsync(() -&gt; {</span>
 <span class="fc" id="L43">            log.info(&quot;Removing Page {}&quot;, getName());</span>
 <span class="fc bfc" id="L44" title="All 2 branches covered.">            if (shouldCreate()) {</span>
-<span class="fc" id="L45">                engineService.deletePage(getName());</span>
+                // unpublish
+<span class="fc" id="L46">                engineService.setPageStatus(getName(), EntandoCoreClient.DRAFT);</span>
+                // delete
+<span class="fc" id="L48">                engineService.deletePage(getName());</span>
             }
-<span class="fc" id="L47">        });</span>
+<span class="fc" id="L50">        });</span>
     }
 
     @Override
     public ComponentType getComponentType() {
-<span class="fc" id="L52">        return ComponentType.PAGE;</span>
+<span class="fc" id="L55">        return ComponentType.PAGE;</span>
     }
 
     @Override
     public String getName() {
-<span class="fc" id="L57">        return representation.getCode();</span>
+<span class="fc" id="L60">        return representation.getCode();</span>
     }
 
 }
