@@ -13,50 +13,94 @@
  */
 package org.entando.entando.web.userpreferences.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.entando.entando.aps.system.services.userpreferences.UserPreferences;
+import static org.entando.entando.aps.system.services.userpreferences.UserPreferencesService.DEFAULT_JOIN_GROUP_DELIMITER;
 
 public class UserPreferencesDto {
 
     private Boolean wizard;
     private Boolean loadOnPageSelect;
     private Boolean translationWarning;
+    private Boolean displayAttributes;
+    private String defaultOwnerGroup;
+    private List&lt;String&gt; defaultJoinGroups;
 
-<span class="fc" id="L24">    public UserPreferencesDto(UserPreferences userPreferences) {</span>
-<span class="fc" id="L25">        this.wizard = userPreferences.isWizard();</span>
-<span class="fc" id="L26">        this.loadOnPageSelect = userPreferences.isLoadOnPageSelect();</span>
-<span class="fc" id="L27">        this.translationWarning = userPreferences.isTranslationWarning();</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L30">    public UserPreferencesDto(UserPreferences userPreferences) {</span>
+<span class="fc" id="L31">        wizard = userPreferences.isWizard();</span>
+<span class="fc" id="L32">        loadOnPageSelect = userPreferences.isLoadOnPageSelect();</span>
+<span class="fc" id="L33">        translationWarning = userPreferences.isTranslationWarning();</span>
+<span class="fc" id="L34">        displayAttributes = userPreferences.isDisplayAttributes();</span>
+<span class="fc" id="L35">        defaultOwnerGroup = userPreferences.getDefaultOwnerGroup();</span>
+<span class="fc" id="L36">        String defaultJoinGroupsString = userPreferences.getDefaultJoinGroups();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (defaultJoinGroupsString != null) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            for (String group : userPreferences.getDefaultJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">                if (defaultJoinGroups == null) {</span>
+<span class="fc" id="L40">                    defaultJoinGroups = new ArrayList&lt;&gt;();</span>
+                }
+<span class="fc" id="L42">                defaultJoinGroups.add(group);</span>
+            }
+        }
+<span class="fc" id="L45">    }</span>
 
     public Boolean getWizard() {
-<span class="fc" id="L31">        return wizard;</span>
+<span class="fc" id="L48">        return wizard;</span>
     }
 
     public void setWizard(Boolean wizard) {
-<span class="nc" id="L35">        this.wizard = wizard;</span>
-<span class="nc" id="L36">    }</span>
+<span class="nc" id="L52">        this.wizard = wizard;</span>
+<span class="nc" id="L53">    }</span>
 
     public Boolean getLoadOnPageSelect() {
-<span class="fc" id="L39">        return loadOnPageSelect;</span>
+<span class="fc" id="L56">        return loadOnPageSelect;</span>
     }
 
     public void setLoadOnPageSelect(Boolean loadOnPageSelect) {
-<span class="nc" id="L43">        this.loadOnPageSelect = loadOnPageSelect;</span>
-<span class="nc" id="L44">    }</span>
+<span class="nc" id="L60">        this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="nc" id="L61">    }</span>
 
     public Boolean getTranslationWarning() {
-<span class="fc" id="L47">        return translationWarning;</span>
+<span class="fc" id="L64">        return translationWarning;</span>
     }
 
     public void setTranslationWarning(Boolean translationWarning) {
-<span class="nc" id="L51">        this.translationWarning = translationWarning;</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L68">        this.translationWarning = translationWarning;</span>
+<span class="nc" id="L69">    }</span>
+
+    public Boolean getDisplayAttributes() {
+<span class="fc" id="L72">        return displayAttributes;</span>
+    }
+
+    public void setDisplayAttributes(Boolean displayAttributes) {
+<span class="nc" id="L76">        this.displayAttributes = displayAttributes;</span>
+<span class="nc" id="L77">    }</span>
+
+    public String getDefaultOwnerGroup() {
+<span class="fc" id="L80">        return defaultOwnerGroup;</span>
+    }
+
+    public void setDefaultOwnerGroup(String defaultOwnerGroup) {
+<span class="nc" id="L84">        this.defaultOwnerGroup = defaultOwnerGroup;</span>
+<span class="nc" id="L85">    }</span>
+
+    public List&lt;String&gt; getDefaultJoinGroups() {
+<span class="fc" id="L88">        return defaultJoinGroups;</span>
+    }
+
+    public void setDefaultJoinGroups(List&lt;String&gt; defaultJoinGroups) {
+<span class="nc" id="L92">        this.defaultJoinGroups = defaultJoinGroups;</span>
+<span class="nc" id="L93">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L56">        return &quot;UserPreferencesRequest{&quot; +</span>
+<span class="nc" id="L97">        return &quot;UserPreferencesDto{&quot; +</span>
                 &quot;wizard=&quot; + wizard +
                 &quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
                 &quot;, translationWarning=&quot; + translationWarning +
+                &quot;, displayAttributes=&quot; + displayAttributes +
+                &quot;, defaultOwnerGroup='&quot; + defaultOwnerGroup + '\'' +
+                &quot;, defaultJoinGroups=&quot; + defaultJoinGroups +
                 '}';
     }
 }

@@ -43,5 +43,20 @@ import com.j256.ormlite.table.DatabaseTable;
             canBeNull = false)
     private short translationwarning;
 
+    @DatabaseField(columnName = &quot;displayAttributes&quot;,
+            dataType = DataType.SHORT,
+            canBeNull = false)
+    private short displayAttributes;
+
+    @DatabaseField(columnName = &quot;defaultOwnerGroup&quot;,
+            dataType = DataType.STRING,
+            width = 64)
+    private String defaultOwnerGroup;
+
+    @DatabaseField(columnName = &quot;defaultJoinGroups&quot;,
+            dataType = DataType.STRING,
+            width = 256)
+    private String defaultJoinGroups;
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
