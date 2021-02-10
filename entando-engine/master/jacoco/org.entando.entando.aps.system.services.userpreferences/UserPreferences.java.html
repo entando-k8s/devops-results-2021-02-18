@@ -19,18 +19,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = &quot;userPreferences&quot;)
-@XmlType(propOrder = {&quot;username&quot;, &quot;wizard&quot;, &quot;loadOnPageSelect&quot;, &quot;translationWarning&quot;, &quot;displayAttributes&quot;,
-		&quot;defaultOwnerGroup&quot;,
-		&quot;defaultJoinGroups&quot;})
-<span class="fc" id="L25">public class UserPreferences implements Serializable {</span>
+@XmlType(propOrder = {&quot;username&quot;, &quot;wizard&quot;, &quot;loadOnPageSelect&quot;, &quot;translationWarning&quot;, &quot;defaultPageOwnerGroup&quot;,
+		&quot;defaultPageJoinGroups&quot;, &quot;defaultContentOwnerGroup&quot;, &quot;defaultContentJoinGroups&quot;})
+<span class="fc" id="L24">public class UserPreferences implements Serializable {</span>
 
 	private String username;
 	private boolean wizard;
 	private boolean loadOnPageSelect;
 	private boolean translationWarning;
-	private boolean displayAttributes;
-	private String defaultOwnerGroup;
-	private String defaultJoinGroups;
+	private String defaultPageOwnerGroup;
+	private String defaultPageJoinGroups;
+	private String defaultContentOwnerGroup;
+	private String defaultContentJoinGroups;
 
 	@XmlElement(name = &quot;username&quot;, required = true)
 	public String getUsername() {
@@ -68,43 +68,53 @@ import javax.xml.bind.annotation.XmlType;
 <span class="fc" id="L68">		this.translationWarning = translationWarning;</span>
 <span class="fc" id="L69">	}</span>
 
-	@XmlElement(name = &quot;displayAttributes&quot;, required = true)
-	public boolean isDisplayAttributes() {
-<span class="fc" id="L73">		return displayAttributes;</span>
+	@XmlElement(name = &quot;defaultPageOwnerGroup&quot;)
+	public String getDefaultPageOwnerGroup() {
+<span class="fc" id="L73">		return defaultPageOwnerGroup;</span>
 	}
 
-	public void setDisplayAttributes(boolean displayAttributes) {
-<span class="fc" id="L77">		this.displayAttributes = displayAttributes;</span>
+	public void setDefaultPageOwnerGroup(String defaultPageOwnerGroup) {
+<span class="fc" id="L77">		this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
 <span class="fc" id="L78">	}</span>
 
-	@XmlElement(name = &quot;defaultOwnerGroup&quot;)
-	public String getDefaultOwnerGroup() {
-<span class="fc" id="L82">		return defaultOwnerGroup;</span>
+	@XmlElement(name = &quot;defaultPageJoinGroups&quot;)
+	public String getDefaultPageJoinGroups() {
+<span class="fc" id="L82">		return defaultPageJoinGroups;</span>
 	}
 
-	public void setDefaultOwnerGroup(String defaultOwnerGroup) {
-<span class="fc" id="L86">		this.defaultOwnerGroup = defaultOwnerGroup;</span>
+	public void setDefaultPageJoinGroups(String defaultPageJoinGroups) {
+<span class="fc" id="L86">		this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
 <span class="fc" id="L87">	}</span>
 
-	@XmlElement(name = &quot;defaultJoinGroups&quot;)
-	public String getDefaultJoinGroups() {
-<span class="fc" id="L91">		return defaultJoinGroups;</span>
+	@XmlElement(name = &quot;defaultContentOwnerGroup&quot;)
+	public String getDefaultContentOwnerGroup() {
+<span class="fc" id="L91">		return defaultContentOwnerGroup;</span>
 	}
 
-	public void setDefaultJoinGroups(String defaultJoinGroups) {
-<span class="fc" id="L95">		this.defaultJoinGroups = defaultJoinGroups;</span>
+	public void setDefaultContentOwnerGroup(String defaultContentOwnerGroup) {
+<span class="fc" id="L95">		this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
 <span class="fc" id="L96">	}</span>
+
+	@XmlElement(name = &quot;defaultContentJoinGroups&quot;)
+	public String getDefaultContentJoinGroups() {
+<span class="fc" id="L100">		return defaultContentJoinGroups;</span>
+	}
+
+	public void setDefaultContentJoinGroups(String defaultContentJoinGroups) {
+<span class="fc" id="L104">		this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
+<span class="fc" id="L105">	}</span>
 
 	@Override
 	public String toString() {
-<span class="nc" id="L100">		return &quot;UserPreferences{&quot; +</span>
+<span class="nc" id="L109">		return &quot;UserPreferences{&quot; +</span>
 				&quot;username='&quot; + username + '\'' +
 				&quot;, wizard=&quot; + wizard +
 				&quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
 				&quot;, translationWarning=&quot; + translationWarning +
-				&quot;, displayAttributes=&quot; + displayAttributes +
-				&quot;, defaultOwnerGroup='&quot; + defaultOwnerGroup + '\'' +
-				&quot;, defaultJoinGroups='&quot; + defaultJoinGroups + '\'' +
+				&quot;, defaultPageOwnerGroup='&quot; + defaultPageOwnerGroup + '\'' +
+				&quot;, defaultPageJoinGroups='&quot; + defaultPageJoinGroups + '\'' +
+				&quot;, defaultContentOwnerGroup='&quot; + defaultContentOwnerGroup + '\'' +
+				&quot;, defaultContentJoinGroups='&quot; + defaultContentJoinGroups + '\'' +
 				'}';
 	}
 }
