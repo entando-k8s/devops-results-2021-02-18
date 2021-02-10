@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserPreferencesDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Core: Engine</a> &gt; <a href="index.source.html" class="el_package">org.entando.entando.web.userpreferences.model</a> &gt; <span class="el_source">UserPreferencesDto.java</span></div><h1>UserPreferencesDto.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+package org.entando.entando.web.userpreferences.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.entando.entando.aps.system.services.userpreferences.UserPreferences;
+import static org.entando.entando.aps.system.services.userpreferences.UserPreferencesService.DEFAULT_JOIN_GROUP_DELIMITER;
+
+public class UserPreferencesDto {
+
+    private Boolean wizard;
+    private Boolean loadOnPageSelect;
+    private Boolean translationWarning;
+    private String defaultPageOwnerGroup;
+    private List&lt;String&gt; defaultPageJoinGroups;
+    private String defaultContentOwnerGroup;
+    private List&lt;String&gt; defaultContentJoinGroups;
+
+<span class="fc" id="L31">    public UserPreferencesDto(UserPreferences userPreferences) {</span>
+<span class="fc" id="L32">        wizard = userPreferences.isWizard();</span>
+<span class="fc" id="L33">        loadOnPageSelect = userPreferences.isLoadOnPageSelect();</span>
+<span class="fc" id="L34">        translationWarning = userPreferences.isTranslationWarning();</span>
+<span class="fc" id="L35">        defaultPageOwnerGroup = userPreferences.getDefaultPageOwnerGroup();</span>
+<span class="fc" id="L36">        String defaultJoinPageGroupsString = userPreferences.getDefaultPageJoinGroups();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (defaultJoinPageGroupsString != null) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            for (String group : userPreferences.getDefaultPageJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">                if (defaultPageJoinGroups == null) {</span>
+<span class="fc" id="L40">                    defaultPageJoinGroups = new ArrayList&lt;&gt;();</span>
+                }
+<span class="fc" id="L42">                defaultPageJoinGroups.add(group);</span>
+            }
+        }
+<span class="fc" id="L45">        defaultContentOwnerGroup = userPreferences.getDefaultContentOwnerGroup();</span>
+<span class="fc" id="L46">        String defaultJoinContentGroupsString = userPreferences.getDefaultContentJoinGroups();</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (defaultJoinContentGroupsString != null) {</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            for (String group : userPreferences.getDefaultContentJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">                if (defaultContentJoinGroups == null) {</span>
+<span class="fc" id="L50">                    defaultContentJoinGroups = new ArrayList&lt;&gt;();</span>
+                }
+<span class="fc" id="L52">                defaultContentJoinGroups.add(group);</span>
+            }
+        }
+<span class="fc" id="L55">    }</span>
+
+    public Boolean getWizard() {
+<span class="fc" id="L58">        return wizard;</span>
+    }
+
+    public void setWizard(Boolean wizard) {
+<span class="nc" id="L62">        this.wizard = wizard;</span>
+<span class="nc" id="L63">    }</span>
+
+    public Boolean getLoadOnPageSelect() {
+<span class="fc" id="L66">        return loadOnPageSelect;</span>
+    }
+
+    public void setLoadOnPageSelect(Boolean loadOnPageSelect) {
+<span class="nc" id="L70">        this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="nc" id="L71">    }</span>
+
+    public Boolean getTranslationWarning() {
+<span class="fc" id="L74">        return translationWarning;</span>
+    }
+
+    public void setTranslationWarning(Boolean translationWarning) {
+<span class="nc" id="L78">        this.translationWarning = translationWarning;</span>
+<span class="nc" id="L79">    }</span>
+
+    public String getDefaultPageOwnerGroup() {
+<span class="fc" id="L82">        return defaultPageOwnerGroup;</span>
+    }
+
+    public void setDefaultPageOwnerGroup(String defaultPageOwnerGroup) {
+<span class="nc" id="L86">        this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
+<span class="nc" id="L87">    }</span>
+
+    public List&lt;String&gt; getDefaultPageJoinGroups() {
+<span class="fc" id="L90">        return defaultPageJoinGroups;</span>
+    }
+
+    public void setDefaultPageJoinGroups(List&lt;String&gt; defaultPageJoinGroups) {
+<span class="nc" id="L94">        this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
+<span class="nc" id="L95">    }</span>
+
+    public String getDefaultContentOwnerGroup() {
+<span class="fc" id="L98">        return defaultContentOwnerGroup;</span>
+    }
+
+    public void setDefaultContentOwnerGroup(String defaultContentOwnerGroup) {
+<span class="nc" id="L102">        this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
+<span class="nc" id="L103">    }</span>
+
+    public List&lt;String&gt; getDefaultContentJoinGroups() {
+<span class="fc" id="L106">        return defaultContentJoinGroups;</span>
+    }
+
+    public void setDefaultContentJoinGroups(List&lt;String&gt; defaultContentJoinGroups) {
+<span class="nc" id="L110">        this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
+<span class="nc" id="L111">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L115">        return &quot;UserPreferencesDto{&quot; +</span>
+                &quot;wizard=&quot; + wizard +
+                &quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
+                &quot;, translationWarning=&quot; + translationWarning +
+                &quot;, defaultPageOwnerGroup='&quot; + defaultPageOwnerGroup + '\'' +
+                &quot;, defaultPageJoinGroups=&quot; + defaultPageJoinGroups +
+                &quot;, defaultContentOwnerGroup='&quot; + defaultContentOwnerGroup + '\'' +
+                &quot;, defaultContentJoinGroups=&quot; + defaultContentJoinGroups +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
