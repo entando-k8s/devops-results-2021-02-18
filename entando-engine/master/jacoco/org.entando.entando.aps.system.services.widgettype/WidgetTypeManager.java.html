@@ -166,122 +166,142 @@ import java.util.List;
 <span class="nc" id="L166">            logger.error(WIDGET_TYPE_NOT_EXIST, widgetTypeCode);</span>
 <span class="nc" id="L167">            return;</span>
         }
-<span class="fc" id="L169">        updateWidgetType( widgetTypeCode,  titles,  defaultConfig,  mainGroup, configUi,  bundleId,  readonlyPageWidgetConfig, type.getWidgetCategory());</span>
-<span class="fc" id="L170">    }</span>
+<span class="fc" id="L169">        updateWidgetType( widgetTypeCode,  titles,  defaultConfig,  mainGroup, configUi,  bundleId,  readonlyPageWidgetConfig,</span>
+<span class="fc" id="L170">                type.getWidgetCategory(), type.getIcon());</span>
+<span class="fc" id="L171">    }</span>
 
+    /**
+     * @deprecated
+     */
+    @Deprecated
     @Override
     public void updateWidgetType(String widgetTypeCode, ApsProperties titles, ApsProperties defaultConfig, String mainGroup,
                                  String configUi, String bundleId, Boolean readonlyPageWidgetConfig, String widgetCategory) throws EntException {
+
+<span class="fc" id="L181">            WidgetType type = this.getWidgetType(widgetTypeCode);</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">            if (null == type) {</span>
+<span class="nc" id="L183">                logger.error(WIDGET_TYPE_NOT_EXIST, widgetTypeCode);</span>
+<span class="nc" id="L184">                return;</span>
+            }
+
+<span class="fc" id="L187">            updateWidgetType( widgetTypeCode,  titles,  defaultConfig,  mainGroup, configUi,  bundleId,  readonlyPageWidgetConfig,</span>
+<span class="fc" id="L188">                    widgetCategory, type.getIcon());</span>
+<span class="fc" id="L189">    }</span>
+
+    @Override
+    public void updateWidgetType(String widgetTypeCode, ApsProperties titles, ApsProperties defaultConfig, String mainGroup,
+                                 String configUi, String bundleId, Boolean readonlyPageWidgetConfig,
+                                 String widgetCategory, String icon) throws EntException {
         try {
 
             boolean readonlyPageWidgetConfigLocalVar;
-<span class="fc" id="L178">            WidgetType type = this.getWidgetType(widgetTypeCode);</span>
-<span class="pc bpc" id="L179" title="1 of 2 branches missed.">            if (null == type) {</span>
-<span class="nc" id="L180">                logger.error(WIDGET_TYPE_NOT_EXIST, widgetTypeCode);</span>
-<span class="nc" id="L181">                return;</span>
+<span class="fc" id="L198">            WidgetType type = this.getWidgetType(widgetTypeCode);</span>
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">            if (null == type) {</span>
+<span class="nc" id="L200">                logger.error(WIDGET_TYPE_NOT_EXIST, widgetTypeCode);</span>
+<span class="nc" id="L201">                return;</span>
             }
-<span class="pc bpc" id="L183" title="1 of 6 branches missed.">            if (type.isLocked() || !type.isLogic() || !type.isUserType()) {</span>
-<span class="fc" id="L184">                defaultConfig = type.getConfig();</span>
+<span class="pc bpc" id="L203" title="1 of 6 branches missed.">            if (type.isLocked() || !type.isLogic() || !type.isUserType()) {</span>
+<span class="fc" id="L204">                defaultConfig = type.getConfig();</span>
             }
-<span class="fc bfc" id="L186" title="All 2 branches covered.">            if (type.isLocked()) {</span>
-<span class="fc" id="L187">                readonlyPageWidgetConfigLocalVar = type.isReadonlyPageWidgetConfig();</span>
+<span class="fc bfc" id="L206" title="All 2 branches covered.">            if (type.isLocked()) {</span>
+<span class="fc" id="L207">                readonlyPageWidgetConfigLocalVar = type.isReadonlyPageWidgetConfig();</span>
             } else {
-<span class="fc" id="L189">                readonlyPageWidgetConfigLocalVar = readonlyPageWidgetConfig;</span>
+<span class="fc" id="L209">                readonlyPageWidgetConfigLocalVar = readonlyPageWidgetConfig;</span>
             }
-<span class="fc" id="L191">            this.getWidgetTypeDAO().updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup, configUi, bundleId, readonlyPageWidgetConfigLocalVar, widgetCategory);</span>
-<span class="fc" id="L192">            type.setTitles(titles);</span>
-<span class="fc" id="L193">            type.setConfig(defaultConfig);</span>
-<span class="fc" id="L194">            type.setMainGroup(mainGroup);</span>
-<span class="fc" id="L195">            type.setConfigUi(configUi);</span>
-<span class="fc" id="L196">            type.setBundleId(bundleId);</span>
-<span class="fc" id="L197">            type.setReadonlyPageWidgetConfig(readonlyPageWidgetConfigLocalVar);</span>
-<span class="fc" id="L198">            type.setWidgetCategory(widgetCategory);</span>
-<span class="fc" id="L199">            this.getCacheWrapper().updateWidgetType(type);</span>
-<span class="fc" id="L200">            this.notifyWidgetTypeChanging(widgetTypeCode, WidgetTypeChangedEvent.UPDATE_OPERATION_CODE);</span>
-<span class="nc" id="L201">        } catch (Throwable t) {</span>
-<span class="nc" id="L202">            logger.error(&quot;Error updating Widget type titles : type code {}&quot;, widgetTypeCode, t);</span>
-<span class="nc" id="L203">            throw new EntException(&quot;Error updating Widget type titles : type code&quot; + widgetTypeCode, t);</span>
-<span class="fc" id="L204">        }</span>
-<span class="fc" id="L205">    }</span>
-
+<span class="fc" id="L211">            this.getWidgetTypeDAO().updateWidgetType(widgetTypeCode, titles, defaultConfig, mainGroup, configUi, bundleId, readonlyPageWidgetConfigLocalVar, widgetCategory, icon);</span>
+<span class="fc" id="L212">            type.setTitles(titles);</span>
+<span class="fc" id="L213">            type.setConfig(defaultConfig);</span>
+<span class="fc" id="L214">            type.setMainGroup(mainGroup);</span>
+<span class="fc" id="L215">            type.setConfigUi(configUi);</span>
+<span class="fc" id="L216">            type.setBundleId(bundleId);</span>
+<span class="fc" id="L217">            type.setReadonlyPageWidgetConfig(readonlyPageWidgetConfigLocalVar);</span>
+<span class="fc" id="L218">            type.setWidgetCategory(widgetCategory);</span>
+<span class="fc" id="L219">            type.setIcon(icon);</span>
+<span class="fc" id="L220">            this.getCacheWrapper().updateWidgetType(type);</span>
+<span class="fc" id="L221">            this.notifyWidgetTypeChanging(widgetTypeCode, WidgetTypeChangedEvent.UPDATE_OPERATION_CODE);</span>
+<span class="nc" id="L222">        } catch (Throwable t) {</span>
+<span class="nc" id="L223">            logger.error(&quot;Error updating Widget type titles : type code {}&quot;, widgetTypeCode, t);</span>
+<span class="nc" id="L224">            throw new EntException(&quot;Error updating Widget type titles : type code&quot; + widgetTypeCode, t);</span>
+<span class="fc" id="L225">        }</span>
+<span class="fc" id="L226">    }</span>
     @Override
     public List&lt;WidgetType&gt; getGroupUtilizers(String groupName) throws EntException {
-<span class="fc" id="L209">        List&lt;WidgetType&gt; utilizers = null;</span>
+<span class="fc" id="L229">        List&lt;WidgetType&gt; utilizers = null;</span>
         try {
-<span class="pc bpc" id="L211" title="1 of 4 branches missed.">            boolean freeTypes = (null == groupName || groupName.equals(Group.FREE_GROUP_NAME));</span>
-<span class="fc" id="L212">            List&lt;WidgetType&gt; allTypes = this.getWidgetTypes();</span>
-<span class="fc bfc" id="L213" title="All 2 branches covered.">            for (int i = 0; i &lt; allTypes.size(); i++) {</span>
-<span class="fc" id="L214">                WidgetType type = allTypes.get(i);</span>
-<span class="fc" id="L215">                String typeGroup = type.getMainGroup();</span>
-<span class="fc bfc" id="L216" title="All 6 branches covered.">                if ((freeTypes &amp;&amp; null == typeGroup) || groupName.equals(typeGroup)) {</span>
-<span class="fc bfc" id="L217" title="All 2 branches covered.">                    if (null == utilizers) {</span>
-<span class="fc" id="L218">                        utilizers = new ArrayList&lt;WidgetType&gt;();</span>
+<span class="pc bpc" id="L231" title="1 of 4 branches missed.">            boolean freeTypes = (null == groupName || groupName.equals(Group.FREE_GROUP_NAME));</span>
+<span class="fc" id="L232">            List&lt;WidgetType&gt; allTypes = this.getWidgetTypes();</span>
+<span class="fc bfc" id="L233" title="All 2 branches covered.">            for (int i = 0; i &lt; allTypes.size(); i++) {</span>
+<span class="fc" id="L234">                WidgetType type = allTypes.get(i);</span>
+<span class="fc" id="L235">                String typeGroup = type.getMainGroup();</span>
+<span class="fc bfc" id="L236" title="All 6 branches covered.">                if ((freeTypes &amp;&amp; null == typeGroup) || groupName.equals(typeGroup)) {</span>
+<span class="fc bfc" id="L237" title="All 2 branches covered.">                    if (null == utilizers) {</span>
+<span class="fc" id="L238">                        utilizers = new ArrayList&lt;WidgetType&gt;();</span>
                     }
-<span class="fc" id="L220">                    utilizers.add(type);</span>
+<span class="fc" id="L240">                    utilizers.add(type);</span>
                 }
             }
-<span class="nc" id="L223">        } catch (Throwable t) {</span>
-<span class="nc" id="L224">            logger.error(&quot;Error extracting utilizers&quot;, t);</span>
-<span class="nc" id="L225">            throw new EntException(&quot;Error extracting utilizers&quot;, t);</span>
-<span class="fc" id="L226">        }</span>
-<span class="fc" id="L227">        return utilizers;</span>
+<span class="nc" id="L243">        } catch (Throwable t) {</span>
+<span class="nc" id="L244">            logger.error(&quot;Error extracting utilizers&quot;, t);</span>
+<span class="nc" id="L245">            throw new EntException(&quot;Error extracting utilizers&quot;, t);</span>
+<span class="fc" id="L246">        }</span>
+<span class="fc" id="L247">        return utilizers;</span>
     }
 
     @Override
     public List getGuiFragmentUtilizers(String guiFragmentCode) throws EntException {
-<span class="fc" id="L232">        List&lt;WidgetType&gt; utilizers = new ArrayList&lt;WidgetType&gt;();</span>
+<span class="fc" id="L252">        List&lt;WidgetType&gt; utilizers = new ArrayList&lt;WidgetType&gt;();</span>
         try {
-<span class="fc" id="L234">            FieldSearchFilter codeFilter = new FieldSearchFilter(&quot;code&quot;, guiFragmentCode, false);</span>
-<span class="fc" id="L235">            FieldSearchFilter widgetTypeFilter = new FieldSearchFilter(&quot;widgettypecode&quot;);</span>
-<span class="fc" id="L236">            FieldSearchFilter[] filters = {codeFilter, widgetTypeFilter};</span>
-<span class="fc" id="L237">            List&lt;String&gt; widgetUtilizers = this.getGuiFragmentManager().searchGuiFragments(filters);</span>
-<span class="pc bpc" id="L238" title="1 of 4 branches missed.">            if (null != widgetUtilizers &amp;&amp; !widgetUtilizers.isEmpty()) {</span>
-<span class="fc bfc" id="L239" title="All 2 branches covered.">                for (int i = 0; i &lt; widgetUtilizers.size(); i++) {</span>
-<span class="fc" id="L240">                    String code = widgetUtilizers.get(i);</span>
-<span class="fc" id="L241">                    GuiFragment fragment = this.getGuiFragmentManager().getGuiFragment(code);</span>
-<span class="fc" id="L242">                    WidgetType widgetType = this.getWidgetType(fragment.getWidgetTypeCode());</span>
-<span class="pc bpc" id="L243" title="1 of 2 branches missed.">                    if (null != widgetType) {</span>
-<span class="fc" id="L244">                        utilizers.add(widgetType);</span>
+<span class="fc" id="L254">            FieldSearchFilter codeFilter = new FieldSearchFilter(&quot;code&quot;, guiFragmentCode, false);</span>
+<span class="fc" id="L255">            FieldSearchFilter widgetTypeFilter = new FieldSearchFilter(&quot;widgettypecode&quot;);</span>
+<span class="fc" id="L256">            FieldSearchFilter[] filters = {codeFilter, widgetTypeFilter};</span>
+<span class="fc" id="L257">            List&lt;String&gt; widgetUtilizers = this.getGuiFragmentManager().searchGuiFragments(filters);</span>
+<span class="pc bpc" id="L258" title="1 of 4 branches missed.">            if (null != widgetUtilizers &amp;&amp; !widgetUtilizers.isEmpty()) {</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">                for (int i = 0; i &lt; widgetUtilizers.size(); i++) {</span>
+<span class="fc" id="L260">                    String code = widgetUtilizers.get(i);</span>
+<span class="fc" id="L261">                    GuiFragment fragment = this.getGuiFragmentManager().getGuiFragment(code);</span>
+<span class="fc" id="L262">                    WidgetType widgetType = this.getWidgetType(fragment.getWidgetTypeCode());</span>
+<span class="pc bpc" id="L263" title="1 of 2 branches missed.">                    if (null != widgetType) {</span>
+<span class="fc" id="L264">                        utilizers.add(widgetType);</span>
                     }
                 }
             }
-<span class="nc" id="L248">        } catch (Throwable t) {</span>
-<span class="nc" id="L249">            logger.error(&quot;Error extracting utilizers&quot;, t);</span>
-<span class="nc" id="L250">            throw new EntException(&quot;Error extracting utilizers&quot;, t);</span>
-<span class="fc" id="L251">        }</span>
-<span class="fc" id="L252">        return utilizers;</span>
+<span class="nc" id="L268">        } catch (Throwable t) {</span>
+<span class="nc" id="L269">            logger.error(&quot;Error extracting utilizers&quot;, t);</span>
+<span class="nc" id="L270">            throw new EntException(&quot;Error extracting utilizers&quot;, t);</span>
+<span class="fc" id="L271">        }</span>
+<span class="fc" id="L272">        return utilizers;</span>
     }
 
     private void notifyWidgetTypeChanging(String widgetTypeCode, int operationCode) {
-<span class="fc" id="L256">        WidgetTypeChangedEvent event = new WidgetTypeChangedEvent();</span>
-<span class="fc" id="L257">        event.setWidgetTypeCode(widgetTypeCode);</span>
-<span class="fc" id="L258">        event.setOperationCode(operationCode);</span>
-<span class="fc" id="L259">        this.notifyEvent(event);</span>
-<span class="fc" id="L260">    }</span>
+<span class="fc" id="L276">        WidgetTypeChangedEvent event = new WidgetTypeChangedEvent();</span>
+<span class="fc" id="L277">        event.setWidgetTypeCode(widgetTypeCode);</span>
+<span class="fc" id="L278">        event.setOperationCode(operationCode);</span>
+<span class="fc" id="L279">        this.notifyEvent(event);</span>
+<span class="fc" id="L280">    }</span>
 
     protected IWidgetTypeDAO getWidgetTypeDAO() {
-<span class="fc" id="L263">        return _widgetTypeDAO;</span>
+<span class="fc" id="L283">        return _widgetTypeDAO;</span>
     }
 
     public void setWidgetTypeDAO(IWidgetTypeDAO widgetTypeDAO) {
-<span class="fc" id="L267">        this._widgetTypeDAO = widgetTypeDAO;</span>
-<span class="fc" id="L268">    }</span>
+<span class="fc" id="L287">        this._widgetTypeDAO = widgetTypeDAO;</span>
+<span class="fc" id="L288">    }</span>
 
     protected IGuiFragmentManager getGuiFragmentManager() {
-<span class="fc" id="L271">        return _guiFragmentManager;</span>
+<span class="fc" id="L291">        return _guiFragmentManager;</span>
     }
 
     public void setGuiFragmentManager(IGuiFragmentManager guiFragmentManager) {
-<span class="fc" id="L275">        this._guiFragmentManager = guiFragmentManager;</span>
-<span class="fc" id="L276">    }</span>
+<span class="fc" id="L295">        this._guiFragmentManager = guiFragmentManager;</span>
+<span class="fc" id="L296">    }</span>
 
     protected IWidgetTypeManagerCacheWrapper getCacheWrapper() {
-<span class="fc" id="L279">        return _cacheWrapper;</span>
+<span class="fc" id="L299">        return _cacheWrapper;</span>
     }
 
     public void setCacheWrapper(IWidgetTypeManagerCacheWrapper cacheWrapper) {
-<span class="fc" id="L283">        this._cacheWrapper = cacheWrapper;</span>
-<span class="fc" id="L284">    }</span>
+<span class="fc" id="L303">        this._cacheWrapper = cacheWrapper;</span>
+<span class="fc" id="L304">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

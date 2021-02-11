@@ -35,7 +35,7 @@ import java.util.List;
  * @author E.Santoboni
  */
 @XmlRootElement(name = &quot;widgetType&quot;)
-@XmlType(propOrder = {&quot;code&quot;, &quot;titles&quot;, &quot;pluginCode&quot;, &quot;mainGroup&quot;, &quot;typeParameters&quot;, &quot;action&quot;, &quot;parentTypeCode&quot;, &quot;config&quot;, &quot;locked&quot;, &quot;gui&quot;, &quot;fragments&quot;, &quot;readonlyPageWidgetConfig&quot;, &quot;widgetCategory&quot;})
+@XmlType(propOrder = {&quot;code&quot;, &quot;titles&quot;, &quot;pluginCode&quot;, &quot;mainGroup&quot;, &quot;typeParameters&quot;, &quot;action&quot;, &quot;parentTypeCode&quot;, &quot;config&quot;, &quot;locked&quot;, &quot;gui&quot;, &quot;fragments&quot;, &quot;readonlyPageWidgetConfig&quot;, &quot;widgetCategory&quot;, &quot;icon&quot;})
 public class JAXBWidgetType implements Serializable {
 
 <span class="nc" id="L41">	public JAXBWidgetType() {}</span>
@@ -54,177 +54,187 @@ public class JAXBWidgetType implements Serializable {
 <span class="fc" id="L54">		this.setTypeParameters(widgetType.getTypeParameters());</span>
 <span class="fc" id="L55">        this.setReadonlyPageWidgetConfig(widgetType.isReadonlyPageWidgetConfig());</span>
 <span class="fc" id="L56">        this.setWidgetCategory(widgetType.getWidgetCategory());</span>
-<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (null != fragment) {</span>
-<span class="fc" id="L58">			this.setGui(fragment.getCurrentGui());</span>
+<span class="fc" id="L57">        this.setIcon(widgetType.getIcon());</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (null != fragment) {</span>
+<span class="fc" id="L59">			this.setGui(fragment.getCurrentGui());</span>
 		}
-<span class="pc bpc" id="L60" title="1 of 2 branches missed.">		if (null != fragments) {</span>
-<span class="fc" id="L61">			List&lt;JAXBGuiFragment&gt; jaxbFragments = null;</span>
-<span class="pc bpc" id="L62" title="1 of 2 branches missed.">			for (int i = 0; i &lt; fragments.size(); i++) {</span>
-<span class="nc" id="L63">				GuiFragment guiFragment = fragments.get(i);</span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">				if (null != guiFragment) {</span>
-<span class="nc" id="L65">					JAXBGuiFragment jaxbGuiFragment = new JAXBGuiFragment(guiFragment);</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">					if (null == jaxbFragments) {</span>
-<span class="nc" id="L67">						jaxbFragments = new ArrayList&lt;JAXBGuiFragment&gt;();</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		if (null != fragments) {</span>
+<span class="fc" id="L62">			List&lt;JAXBGuiFragment&gt; jaxbFragments = null;</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">			for (int i = 0; i &lt; fragments.size(); i++) {</span>
+<span class="nc" id="L64">				GuiFragment guiFragment = fragments.get(i);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">				if (null != guiFragment) {</span>
+<span class="nc" id="L66">					JAXBGuiFragment jaxbGuiFragment = new JAXBGuiFragment(guiFragment);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">					if (null == jaxbFragments) {</span>
+<span class="nc" id="L68">						jaxbFragments = new ArrayList&lt;JAXBGuiFragment&gt;();</span>
 					}
-<span class="nc" id="L69">					jaxbFragments.add(jaxbGuiFragment);</span>
+<span class="nc" id="L70">					jaxbFragments.add(jaxbGuiFragment);</span>
 				}
 			}
-<span class="fc" id="L72">			this.setFragments(jaxbFragments);</span>
+<span class="fc" id="L73">			this.setFragments(jaxbFragments);</span>
 		}
-<span class="fc" id="L74">	}</span>
+<span class="fc" id="L75">	}</span>
 
 	public WidgetType getNewWidgetType(IWidgetTypeManager widgetTypeManager) {
-<span class="fc" id="L77">		WidgetType type = new WidgetType();</span>
-<span class="fc" id="L78">		type.setCode(this.getCode());</span>
-<span class="fc" id="L79">		type.setTitles(this.getTitles());</span>
-<span class="fc" id="L80">		List&lt;WidgetTypeParameter&gt; parameters = this.getTypeParameters();</span>
-<span class="pc bpc" id="L81" title="1 of 4 branches missed.">		if (null != parameters &amp;&amp; !parameters.isEmpty()) {</span>
-<span class="fc" id="L82">			type.setTypeParameters(parameters);</span>
-<span class="fc" id="L83">			type.setAction(&quot;configSimpleParameter&quot;);</span>
+<span class="fc" id="L78">		WidgetType type = new WidgetType();</span>
+<span class="fc" id="L79">		type.setCode(this.getCode());</span>
+<span class="fc" id="L80">		type.setTitles(this.getTitles());</span>
+<span class="fc" id="L81">		List&lt;WidgetTypeParameter&gt; parameters = this.getTypeParameters();</span>
+<span class="pc bpc" id="L82" title="1 of 4 branches missed.">		if (null != parameters &amp;&amp; !parameters.isEmpty()) {</span>
+<span class="fc" id="L83">			type.setTypeParameters(parameters);</span>
+<span class="fc" id="L84">			type.setAction(&quot;configSimpleParameter&quot;);</span>
 		} else {
-<span class="fc" id="L85">			ApsProperties configuration = this.getConfig();</span>
-<span class="fc" id="L86">			String parentTypeCode = this.getParentTypeCode();</span>
-<span class="pc bpc" id="L87" title="2 of 6 branches missed.">			if (null != parentTypeCode &amp;&amp; null != configuration &amp;&amp; !configuration.isEmpty()) {</span>
-<span class="fc" id="L88">				WidgetType parentType = widgetTypeManager.getWidgetType(parentTypeCode);</span>
-<span class="fc" id="L89">				type.setParentType(parentType);</span>
-<span class="fc" id="L90">				type.setConfig(configuration);</span>
+<span class="fc" id="L86">			ApsProperties configuration = this.getConfig();</span>
+<span class="fc" id="L87">			String parentTypeCode = this.getParentTypeCode();</span>
+<span class="pc bpc" id="L88" title="2 of 6 branches missed.">			if (null != parentTypeCode &amp;&amp; null != configuration &amp;&amp; !configuration.isEmpty()) {</span>
+<span class="fc" id="L89">				WidgetType parentType = widgetTypeManager.getWidgetType(parentTypeCode);</span>
+<span class="fc" id="L90">				type.setParentType(parentType);</span>
+<span class="fc" id="L91">				type.setConfig(configuration);</span>
 			}
 		}
-<span class="fc" id="L93">		type.setMainGroup(this.getMainGroup());</span>
+<span class="fc" id="L94">		type.setMainGroup(this.getMainGroup());</span>
 		//type.setLocked(this.isLocked());
 
-<span class="fc" id="L96">		type.setPluginCode(this.getPluginCode());</span>
-<span class="fc" id="L97">		return type;</span>
+<span class="fc" id="L97">		type.setPluginCode(this.getPluginCode());</span>
+<span class="fc" id="L98">		return type;</span>
 	}
 
 	public WidgetType getModifiedWidgetType(IWidgetTypeManager widgetTypeManager) throws ApiException {
-<span class="fc" id="L101">		WidgetType type = widgetTypeManager.getWidgetType(this.getCode());</span>
-<span class="fc" id="L102">		type.setTitles(this.getTitles());</span>
-<span class="pc bpc" id="L103" title="1 of 2 branches missed.">		if (type.isLogic()) {</span>
-<span class="nc" id="L104">			ApsProperties configuration = this.getConfig();</span>
-<span class="nc" id="L105">			type.setConfig(configuration);</span>
-<span class="nc" id="L106">		} else {</span>
-<span class="fc" id="L107">			List&lt;WidgetTypeParameter&gt; parameters = this.getTypeParameters();</span>
-<span class="pc bpc" id="L108" title="3 of 4 branches missed.">			if (null != parameters &amp;&amp; !parameters.isEmpty()) {</span>
+<span class="fc" id="L102">		WidgetType type = widgetTypeManager.getWidgetType(this.getCode());</span>
+<span class="fc" id="L103">		type.setTitles(this.getTitles());</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">		if (type.isLogic()) {</span>
+<span class="nc" id="L105">			ApsProperties configuration = this.getConfig();</span>
+<span class="nc" id="L106">			type.setConfig(configuration);</span>
+<span class="nc" id="L107">		} else {</span>
+<span class="fc" id="L108">			List&lt;WidgetTypeParameter&gt; parameters = this.getTypeParameters();</span>
+<span class="pc bpc" id="L109" title="3 of 4 branches missed.">			if (null != parameters &amp;&amp; !parameters.isEmpty()) {</span>
 				//Parameters of existing widget mustn't been changed
 				//type.setTypeParameters(parameters);
 				//type.setAction(&quot;configSimpleParameter&quot;);
-<span class="nc" id="L112">				throw new ApiException(IApiErrorCodes.API_VALIDATION_ERROR, &quot;Parameters of existing widget mustn't been changed&quot;, Response.Status.CONFLICT);</span>
+<span class="nc" id="L113">				throw new ApiException(IApiErrorCodes.API_VALIDATION_ERROR, &quot;Parameters of existing widget mustn't been changed&quot;, Response.Status.CONFLICT);</span>
 			}
 		}
-<span class="fc" id="L115">		type.setMainGroup(this.getMainGroup());</span>
+<span class="fc" id="L116">		type.setMainGroup(this.getMainGroup());</span>
 		//type.setLocked(this.isLocked());
 		//type.setPluginCode(this.getPluginCode());
-<span class="fc" id="L118">		return type;</span>
+<span class="fc" id="L119">		return type;</span>
 	}
 
 	@XmlElement(name = &quot;code&quot;, required = false)
 	public String getCode() {
-<span class="fc" id="L123">		return _code;</span>
+<span class="fc" id="L124">		return _code;</span>
 	}
 	public void setCode(String code) {
-<span class="fc" id="L126">		this._code = code;</span>
-<span class="fc" id="L127">	}</span>
+<span class="fc" id="L127">		this._code = code;</span>
+<span class="fc" id="L128">	}</span>
 
 	@XmlElement(name = &quot;title&quot;, required = false)
     @XmlElementWrapper(name = &quot;titles&quot;, required = false)
 	public ApsProperties getTitles() {
-<span class="fc" id="L132">		return _titles;</span>
+<span class="fc" id="L133">		return _titles;</span>
 	}
 	public void setTitles(ApsProperties titles) {
-<span class="fc" id="L135">		this._titles = titles;</span>
-<span class="fc" id="L136">	}</span>
+<span class="fc" id="L136">		this._titles = titles;</span>
+<span class="fc" id="L137">	}</span>
 
 	@XmlElement(name = &quot;typeParameter&quot;, required = false)
     @XmlElementWrapper(name = &quot;typeParameters&quot;, required = false)
 	public List&lt;WidgetTypeParameter&gt; getTypeParameters() {
-<span class="fc" id="L141">		return _parameters;</span>
+<span class="fc" id="L142">		return _parameters;</span>
 	}
 	public void setTypeParameters(List&lt;WidgetTypeParameter&gt; typeParameters) {
-<span class="fc" id="L144">		this._parameters = typeParameters;</span>
-<span class="fc" id="L145">	}</span>
+<span class="fc" id="L145">		this._parameters = typeParameters;</span>
+<span class="fc" id="L146">	}</span>
 
 	@XmlElement(name = &quot;action&quot;, required = false)
 	public String getAction() {
-<span class="fc" id="L149">		return _action;</span>
+<span class="fc" id="L150">		return _action;</span>
 	}
 	public void setAction(String action) {
-<span class="fc" id="L152">		this._action = action;</span>
-<span class="fc" id="L153">	}</span>
+<span class="fc" id="L153">		this._action = action;</span>
+<span class="fc" id="L154">	}</span>
 
 	@XmlElement(name = &quot;pluginCode&quot;, required = false)
 	public String getPluginCode() {
-<span class="fc" id="L157">		return _pluginCode;</span>
+<span class="fc" id="L158">		return _pluginCode;</span>
 	}
 	public void setPluginCode(String pluginCode) {
-<span class="fc" id="L160">		this._pluginCode = pluginCode;</span>
-<span class="fc" id="L161">	}</span>
+<span class="fc" id="L161">		this._pluginCode = pluginCode;</span>
+<span class="fc" id="L162">	}</span>
 
 	@XmlElement(name = &quot;parentTypeCode&quot;, required = false)
 	protected String getParentTypeCode() {
-<span class="fc" id="L165">		return _parentTypeCode;</span>
+<span class="fc" id="L166">		return _parentTypeCode;</span>
 	}
 	protected void setParentTypeCode(String parentTypeCode) {
-<span class="fc" id="L168">		this._parentTypeCode = parentTypeCode;</span>
-<span class="fc" id="L169">	}</span>
+<span class="fc" id="L169">		this._parentTypeCode = parentTypeCode;</span>
+<span class="fc" id="L170">	}</span>
 
 	@XmlElement(name = &quot;configuration&quot;, required = false)
     @XmlElementWrapper(name = &quot;configurations&quot;, required = false)
 	public ApsProperties getConfig() {
-<span class="fc" id="L174">		return _config;</span>
+<span class="fc" id="L175">		return _config;</span>
 	}
 	public void setConfig(ApsProperties config) {
-<span class="fc" id="L177">		this._config = config;</span>
-<span class="fc" id="L178">	}</span>
+<span class="fc" id="L178">		this._config = config;</span>
+<span class="fc" id="L179">	}</span>
 
 	@XmlElement(name = &quot;locked&quot;, required = false)
 	public boolean isLocked() {
-<span class="fc" id="L182">		return _locked;</span>
+<span class="fc" id="L183">		return _locked;</span>
 	}
 	public void setLocked(boolean locked) {
-<span class="fc" id="L185">		this._locked = locked;</span>
-<span class="fc" id="L186">	}</span>
+<span class="fc" id="L186">		this._locked = locked;</span>
+<span class="fc" id="L187">	}</span>
 
 	@XmlElement(name = &quot;mainGroup&quot;, required = false)
 	public String getMainGroup() {
-<span class="fc" id="L190">		return _mainGroup;</span>
+<span class="fc" id="L191">		return _mainGroup;</span>
 	}
 	public void setMainGroup(String mainGroup) {
-<span class="fc" id="L193">		this._mainGroup = mainGroup;</span>
-<span class="fc" id="L194">	}</span>
+<span class="fc" id="L194">		this._mainGroup = mainGroup;</span>
+<span class="fc" id="L195">	}</span>
 
 	@XmlElement(name = &quot;gui&quot;, required = false)
 	public String getGui() {
-<span class="fc" id="L198">		return _gui;</span>
+<span class="fc" id="L199">		return _gui;</span>
 	}
 	public void setGui(String gui) {
-<span class="fc" id="L201">		this._gui = gui;</span>
-<span class="fc" id="L202">	}</span>
+<span class="fc" id="L202">		this._gui = gui;</span>
+<span class="fc" id="L203">	}</span>
 
 	@XmlElement(name = &quot;fragment&quot;, required = false)
     @XmlElementWrapper(name = &quot;fragments&quot;, required = false)
 	public List&lt;JAXBGuiFragment&gt; getFragments() {
-<span class="fc" id="L207">		return _fragments;</span>
+<span class="fc" id="L208">		return _fragments;</span>
 	}
 	protected void setFragments(List&lt;JAXBGuiFragment&gt; fragments) {
-<span class="fc" id="L210">		this._fragments = fragments;</span>
-<span class="fc" id="L211">	}</span>
+<span class="fc" id="L211">		this._fragments = fragments;</span>
+<span class="fc" id="L212">	}</span>
 
 	@XmlElement(name = &quot;readonlypagewidgetconfig&quot;, required = false)
 	public boolean isReadonlyPageWidgetConfig() {
-<span class="fc" id="L215">		return readonlyPageWidgetConfig;</span>
+<span class="fc" id="L216">		return readonlyPageWidgetConfig;</span>
 	}
 	public void setReadonlyPageWidgetConfig(boolean readonlyPageWidgetConfig) {
-<span class="fc" id="L218">		this.readonlyPageWidgetConfig = readonlyPageWidgetConfig;</span>
-<span class="fc" id="L219">	}</span>
+<span class="fc" id="L219">		this.readonlyPageWidgetConfig = readonlyPageWidgetConfig;</span>
+<span class="fc" id="L220">	}</span>
 
     @XmlElement(name = &quot;widgetCategory&quot;)
     public String getWidgetCategory() {
-<span class="fc" id="L223">        return widgetCategory;</span>
+<span class="fc" id="L224">        return widgetCategory;</span>
     }
     public void setWidgetCategory(String widgetCategory) {
-<span class="fc" id="L226">        this.widgetCategory = widgetCategory;</span>
-<span class="fc" id="L227">    }</span>
+<span class="fc" id="L227">        this.widgetCategory = widgetCategory;</span>
+<span class="fc" id="L228">    }</span>
+
+    @XmlElement(name = &quot;icon&quot;)
+    public String getIcon() {
+<span class="fc" id="L232">        return icon;</span>
+    }
+
+    public void setIcon(String icon) {
+<span class="fc" id="L236">        this.icon = icon;</span>
+<span class="fc" id="L237">    }</span>
 
     private String _code;
 	private ApsProperties _titles;
@@ -239,6 +249,7 @@ public class JAXBWidgetType implements Serializable {
 	private List&lt;JAXBGuiFragment&gt; _fragments;
 	private boolean readonlyPageWidgetConfig;
     private String widgetCategory;
+    private String icon;
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
