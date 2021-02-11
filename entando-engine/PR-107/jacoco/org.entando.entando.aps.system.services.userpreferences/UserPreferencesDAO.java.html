@@ -27,119 +27,124 @@ import org.entando.entando.ent.util.EntLogging.EntLogger;
 <span class="fc" id="L27">	private static final EntLogger _logger =  EntLogFactory.getSanitizedLogger(UserPreferencesDAO.class);</span>
 
 	private static final String LOAD_USER_PREFERENCES =
-			&quot;SELECT wizard, loadonpageselect, translationwarning, displayAttributes, defaultOwnerGroup, &quot;
-					+ &quot;defaultJoinGroups FROM userpreferences WHERE username = ? &quot;;
+			&quot;SELECT wizard, loadonpageselect, translationwarning, defaultPageOwnerGroup, defaultPageJoinGroups, &quot;
+					+ &quot;defaultContentOwnerGroup, defaultContentJoinGroups FROM userpreferences WHERE username = ? &quot;;
 
 	private static final String ADD_USER_PREFERENCES =
-			&quot;INSERT INTO userpreferences (username, wizard, loadonpageselect, translationwarning, displayAttributes, &quot;
-					+ &quot;defaultOwnerGroup, defaultJoinGroups) VALUES ( ? , ? , ? , ? , ? , ?, ? )&quot;;
+			&quot;INSERT INTO userpreferences (username, wizard, loadonpageselect, translationwarning, &quot;
+					+ &quot;defaultPageOwnerGroup, defaultPageJoinGroups, defaultContentOwnerGroup, &quot;
+					+ &quot;defaultContentJoinGroups) VALUES ( ? , ? , ? , ? , ? , ?, ?, ? )&quot;;
 
 	private static final String UPDATE_USER_PREFERENCES =
 			&quot;UPDATE userpreferences SET wizard = ? , loadonpageselect = ? , translationwarning = ? , &quot;
-					+ &quot;displayAttributes = ? , defaultOwnerGroup = ? , defaultJoinGroups = ? WHERE username = ? &quot;;
+					+ &quot;defaultPageOwnerGroup = ? , defaultPageJoinGroups = ? , defaultContentOwnerGroup = ? , &quot;
+					+ &quot;defaultContentJoinGroups = ? WHERE username = ? &quot;;
 
 	private static final String DELETE_USER_PREFERENCES =
 			&quot;DELETE FROM userpreferences WHERE username = ? &quot;;
 
 	@Override
 	public UserPreferences loadUserPreferences(String username) throws EntException {
-<span class="fc" id="L46">		Connection conn = null;</span>
-<span class="fc" id="L47">		UserPreferences response = null;</span>
-<span class="fc" id="L48">		PreparedStatement stat = null;</span>
-<span class="fc" id="L49">		ResultSet res = null;</span>
+<span class="fc" id="L48">		Connection conn = null;</span>
+<span class="fc" id="L49">		UserPreferences response = null;</span>
+<span class="fc" id="L50">		PreparedStatement stat = null;</span>
+<span class="fc" id="L51">		ResultSet res = null;</span>
 		try {
-<span class="fc" id="L51">			conn = this.getConnection();</span>
-<span class="fc" id="L52">			stat = conn.prepareStatement(LOAD_USER_PREFERENCES);</span>
-<span class="fc" id="L53">			stat.setString(1, username);</span>
-<span class="fc" id="L54">			res = stat.executeQuery();</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">			if (res.next()) {</span>
-<span class="fc" id="L56">				response = new UserPreferences();</span>
-<span class="fc" id="L57">				response.setUsername(username);</span>
-<span class="fc bfc" id="L58" title="All 2 branches covered.">				response.setWizard(1 == res.getInt(1));</span>
-<span class="fc bfc" id="L59" title="All 2 branches covered.">				response.setLoadOnPageSelect(1 == res.getInt(2));</span>
-<span class="fc bfc" id="L60" title="All 2 branches covered.">				response.setTranslationWarning(1 == res.getInt(3));</span>
-<span class="fc bfc" id="L61" title="All 2 branches covered.">				response.setDisplayAttributes(1 == res.getInt(4));</span>
-<span class="fc" id="L62">				response.setDefaultOwnerGroup(res.getString(5));</span>
-<span class="fc" id="L63">				response.setDefaultJoinGroups(res.getString(6));</span>
+<span class="fc" id="L53">			conn = this.getConnection();</span>
+<span class="fc" id="L54">			stat = conn.prepareStatement(LOAD_USER_PREFERENCES);</span>
+<span class="fc" id="L55">			stat.setString(1, username);</span>
+<span class="fc" id="L56">			res = stat.executeQuery();</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">			if (res.next()) {</span>
+<span class="fc" id="L58">				response = new UserPreferences();</span>
+<span class="fc" id="L59">				response.setUsername(username);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">				response.setWizard(1 == res.getInt(1));</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">				response.setLoadOnPageSelect(1 == res.getInt(2));</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">				response.setTranslationWarning(1 == res.getInt(3));</span>
+<span class="fc" id="L63">				response.setDefaultPageOwnerGroup(res.getString(4));</span>
+<span class="fc" id="L64">				response.setDefaultPageJoinGroups(res.getString(5));</span>
+<span class="fc" id="L65">				response.setDefaultContentOwnerGroup(res.getString(6));</span>
+<span class="fc" id="L66">				response.setDefaultContentJoinGroups(res.getString(7));</span>
 			}
-<span class="nc" id="L65">		} catch (SQLException e) {</span>
-<span class="nc" id="L66">			_logger.error(&quot;Error loading user preferences for user {}&quot;, username,  e);</span>
-<span class="nc" id="L67">			throw new EntException(&quot;Error loading user preferences for user &quot; + username, e);</span>
+<span class="nc" id="L68">		} catch (SQLException e) {</span>
+<span class="nc" id="L69">			_logger.error(&quot;Error loading user preferences for user {}&quot;, username,  e);</span>
+<span class="nc" id="L70">			throw new EntException(&quot;Error loading user preferences for user &quot; + username, e);</span>
 		} finally {
-<span class="fc" id="L69">			this.closeDaoResources(res, stat, conn);</span>
+<span class="fc" id="L72">			this.closeDaoResources(res, stat, conn);</span>
 		}
-<span class="fc" id="L71">		return response;</span>
+<span class="fc" id="L74">		return response;</span>
 	}
 
 	@Override
 	public void addUserPreferences(UserPreferences userPreferences) throws EntException {
-<span class="fc" id="L76">		Connection conn = null;</span>
-<span class="fc" id="L77">		PreparedStatement stat = null;</span>
+<span class="fc" id="L79">		Connection conn = null;</span>
+<span class="fc" id="L80">		PreparedStatement stat = null;</span>
 		try {
-<span class="fc" id="L79">			conn = this.getConnection();</span>
-<span class="fc" id="L80">			conn.setAutoCommit(false);</span>
-<span class="fc" id="L81">			stat = conn.prepareStatement(ADD_USER_PREFERENCES);</span>
-<span class="fc" id="L82">			stat.setString(1, userPreferences.getUsername());</span>
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">			stat.setInt(2, userPreferences.isWizard() ? 1 : 0);</span>
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">			stat.setInt(3, userPreferences.isLoadOnPageSelect() ? 1 : 0);</span>
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">			stat.setInt(4, userPreferences.isTranslationWarning() ? 1 : 0);</span>
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">			stat.setInt(5, userPreferences.isDisplayAttributes() ? 1 : 0);</span>
-<span class="fc" id="L87">			stat.setString(6, userPreferences.getDefaultOwnerGroup());</span>
-<span class="fc" id="L88">			stat.setString(7, userPreferences.getDefaultJoinGroups());</span>
-<span class="fc" id="L89">			stat.executeUpdate();</span>
-<span class="fc" id="L90">			conn.commit();</span>
-<span class="nc" id="L91">		} catch (SQLException e) {</span>
-<span class="nc" id="L92">			this.executeRollback(conn);</span>
-<span class="nc" id="L93">			_logger.error(&quot;Error while inserting user preferences {}&quot;, userPreferences,  e);</span>
-<span class="nc" id="L94">			throw new EntException(&quot;Error while inserting user preferences&quot;, e);</span>
+<span class="fc" id="L82">			conn = this.getConnection();</span>
+<span class="fc" id="L83">			conn.setAutoCommit(false);</span>
+<span class="fc" id="L84">			stat = conn.prepareStatement(ADD_USER_PREFERENCES);</span>
+<span class="fc" id="L85">			stat.setString(1, userPreferences.getUsername());</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">			stat.setInt(2, userPreferences.isWizard() ? 1 : 0);</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">			stat.setInt(3, userPreferences.isLoadOnPageSelect() ? 1 : 0);</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">			stat.setInt(4, userPreferences.isTranslationWarning() ? 1 : 0);</span>
+<span class="fc" id="L89">			stat.setString(5, userPreferences.getDefaultPageOwnerGroup());</span>
+<span class="fc" id="L90">			stat.setString(6, userPreferences.getDefaultPageJoinGroups());</span>
+<span class="fc" id="L91">			stat.setString(7, userPreferences.getDefaultContentOwnerGroup());</span>
+<span class="fc" id="L92">			stat.setString(8, userPreferences.getDefaultContentJoinGroups());</span>
+<span class="fc" id="L93">			stat.executeUpdate();</span>
+<span class="fc" id="L94">			conn.commit();</span>
+<span class="nc" id="L95">		} catch (SQLException e) {</span>
+<span class="nc" id="L96">			this.executeRollback(conn);</span>
+<span class="nc" id="L97">			_logger.error(&quot;Error while inserting user preferences {}&quot;, userPreferences,  e);</span>
+<span class="nc" id="L98">			throw new EntException(&quot;Error while inserting user preferences&quot;, e);</span>
 		} finally {
-<span class="fc" id="L96">			closeDaoResources(null, stat, conn);</span>
+<span class="fc" id="L100">			closeDaoResources(null, stat, conn);</span>
 		}
-<span class="fc" id="L98">	}</span>
+<span class="fc" id="L102">	}</span>
 
 	@Override
 	public void updateUserPreferences(UserPreferences userPreferences) throws EntException {
-<span class="fc" id="L102">		Connection conn = null;</span>
-<span class="fc" id="L103">		PreparedStatement stat = null;</span>
+<span class="fc" id="L106">		Connection conn = null;</span>
+<span class="fc" id="L107">		PreparedStatement stat = null;</span>
 		try {
-<span class="fc" id="L105">			conn = this.getConnection();</span>
-<span class="fc" id="L106">			conn.setAutoCommit(false);</span>
-<span class="fc" id="L107">			stat = conn.prepareStatement(UPDATE_USER_PREFERENCES);</span>
-<span class="fc bfc" id="L108" title="All 2 branches covered.">			stat.setInt(1, userPreferences.isWizard() ? 1 : 0);</span>
-<span class="fc bfc" id="L109" title="All 2 branches covered.">			stat.setInt(2, userPreferences.isLoadOnPageSelect() ? 1 : 0);</span>
-<span class="fc bfc" id="L110" title="All 2 branches covered.">			stat.setInt(3, userPreferences.isTranslationWarning() ? 1 : 0);</span>
-<span class="fc bfc" id="L111" title="All 2 branches covered.">			stat.setInt(4, userPreferences.isDisplayAttributes() ? 1 : 0);</span>
-<span class="fc" id="L112">			stat.setString(5, userPreferences.getDefaultOwnerGroup());</span>
-<span class="fc" id="L113">			stat.setString(6, userPreferences.getDefaultJoinGroups());</span>
-<span class="fc" id="L114">			stat.setString(7, userPreferences.getUsername());</span>
-<span class="fc" id="L115">			stat.executeUpdate();</span>
-<span class="fc" id="L116">			conn.commit();</span>
-<span class="nc" id="L117">		} catch (SQLException e) {</span>
-<span class="nc" id="L118">			this.executeRollback(conn);</span>
-<span class="nc" id="L119">			throw new EntException(&quot;Error detected while updating user preferences &quot; + userPreferences, e);</span>
+<span class="fc" id="L109">			conn = this.getConnection();</span>
+<span class="fc" id="L110">			conn.setAutoCommit(false);</span>
+<span class="fc" id="L111">			stat = conn.prepareStatement(UPDATE_USER_PREFERENCES);</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">			stat.setInt(1, userPreferences.isWizard() ? 1 : 0);</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">			stat.setInt(2, userPreferences.isLoadOnPageSelect() ? 1 : 0);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">			stat.setInt(3, userPreferences.isTranslationWarning() ? 1 : 0);</span>
+<span class="fc" id="L115">			stat.setString(4, userPreferences.getDefaultPageOwnerGroup());</span>
+<span class="fc" id="L116">			stat.setString(5, userPreferences.getDefaultPageJoinGroups());</span>
+<span class="fc" id="L117">			stat.setString(6, userPreferences.getDefaultContentOwnerGroup());</span>
+<span class="fc" id="L118">			stat.setString(7, userPreferences.getDefaultContentJoinGroups());</span>
+<span class="fc" id="L119">			stat.setString(8, userPreferences.getUsername());</span>
+<span class="fc" id="L120">			stat.executeUpdate();</span>
+<span class="fc" id="L121">			conn.commit();</span>
+<span class="nc" id="L122">		} catch (SQLException e) {</span>
+<span class="nc" id="L123">			this.executeRollback(conn);</span>
+<span class="nc" id="L124">			throw new EntException(&quot;Error detected while updating user preferences &quot; + userPreferences, e);</span>
 		} finally {
-<span class="fc" id="L121">			closeDaoResources(null, stat, conn);</span>
+<span class="fc" id="L126">			closeDaoResources(null, stat, conn);</span>
 		}
-<span class="fc" id="L123">	}</span>
+<span class="fc" id="L128">	}</span>
 
 	@Override
 	public void deleteUserPreferences(String username) throws EntException {
-<span class="fc" id="L127">		Connection conn = null;</span>
-<span class="fc" id="L128">		PreparedStatement stat = null;</span>
+<span class="fc" id="L132">		Connection conn = null;</span>
+<span class="fc" id="L133">		PreparedStatement stat = null;</span>
 		try {
-<span class="fc" id="L130">			conn = this.getConnection();</span>
-<span class="fc" id="L131">			conn.setAutoCommit(false);</span>
-<span class="fc" id="L132">			stat = conn.prepareStatement(DELETE_USER_PREFERENCES);</span>
-<span class="fc" id="L133">			stat.setString(1, username);</span>
-<span class="fc" id="L134">			stat.executeUpdate();</span>
-<span class="fc" id="L135">			conn.commit();</span>
-<span class="nc" id="L136">		} catch (SQLException e) {</span>
-<span class="nc" id="L137">			this.executeRollback(conn);</span>
-<span class="nc" id="L138">			_logger.error(&quot;Error detected while deleting user preferences for user '{}'&quot;, username,  e);</span>
-<span class="nc" id="L139">			throw new EntException(&quot;Error detected while deleting user preferences&quot;, e);</span>
+<span class="fc" id="L135">			conn = this.getConnection();</span>
+<span class="fc" id="L136">			conn.setAutoCommit(false);</span>
+<span class="fc" id="L137">			stat = conn.prepareStatement(DELETE_USER_PREFERENCES);</span>
+<span class="fc" id="L138">			stat.setString(1, username);</span>
+<span class="fc" id="L139">			stat.executeUpdate();</span>
+<span class="fc" id="L140">			conn.commit();</span>
+<span class="nc" id="L141">		} catch (SQLException e) {</span>
+<span class="nc" id="L142">			this.executeRollback(conn);</span>
+<span class="nc" id="L143">			_logger.error(&quot;Error detected while deleting user preferences for user '{}'&quot;, username,  e);</span>
+<span class="nc" id="L144">			throw new EntException(&quot;Error detected while deleting user preferences&quot;, e);</span>
 		} finally {
-<span class="fc" id="L141">			closeDaoResources(null, stat, conn);</span>
+<span class="fc" id="L146">			closeDaoResources(null, stat, conn);</span>
 		}
-<span class="fc" id="L143">	}</span>
+<span class="fc" id="L148">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

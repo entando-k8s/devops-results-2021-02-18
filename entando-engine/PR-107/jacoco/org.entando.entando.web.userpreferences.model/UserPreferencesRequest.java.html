@@ -20,67 +20,77 @@ import java.util.List;
     private Boolean wizard;
     private Boolean loadOnPageSelect;
     private Boolean translationWarning;
-    private Boolean displayAttributes;
-    private String defaultOwnerGroup;
-    private List&lt;String&gt; defaultJoinGroups;
+    private String defaultPageOwnerGroup;
+    private List&lt;String&gt; defaultPageJoinGroups;
+    private String defaultContentOwnerGroup;
+    private List&lt;String&gt; defaultContentJoinGroups;
 
     public Boolean getWizard() {
-<span class="fc" id="L28">        return wizard;</span>
+<span class="fc" id="L29">        return wizard;</span>
     }
 
     public void setWizard(Boolean wizard) {
-<span class="fc" id="L32">        this.wizard = wizard;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L33">        this.wizard = wizard;</span>
+<span class="fc" id="L34">    }</span>
 
     public Boolean getLoadOnPageSelect() {
-<span class="fc" id="L36">        return loadOnPageSelect;</span>
+<span class="fc" id="L37">        return loadOnPageSelect;</span>
     }
 
     public void setLoadOnPageSelect(Boolean loadOnPageSelect) {
-<span class="fc" id="L40">        this.loadOnPageSelect = loadOnPageSelect;</span>
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L41">        this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="fc" id="L42">    }</span>
 
     public Boolean getTranslationWarning() {
-<span class="fc" id="L44">        return translationWarning;</span>
+<span class="fc" id="L45">        return translationWarning;</span>
     }
 
     public void setTranslationWarning(Boolean translationWarning) {
-<span class="fc" id="L48">        this.translationWarning = translationWarning;</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L49">        this.translationWarning = translationWarning;</span>
+<span class="fc" id="L50">    }</span>
 
-    public Boolean getDisplayAttributes() {
-<span class="fc" id="L52">        return displayAttributes;</span>
+    public String getDefaultPageOwnerGroup() {
+<span class="fc" id="L53">        return defaultPageOwnerGroup;</span>
     }
 
-    public void setDisplayAttributes(Boolean displayAttributes) {
-<span class="fc" id="L56">        this.displayAttributes = displayAttributes;</span>
-<span class="fc" id="L57">    }</span>
+    public void setDefaultPageOwnerGroup(String defaultPageOwnerGroup) {
+<span class="fc" id="L57">        this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
+<span class="fc" id="L58">    }</span>
 
-    public String getDefaultOwnerGroup() {
-<span class="fc" id="L60">        return defaultOwnerGroup;</span>
+    public List&lt;String&gt; getDefaultPageJoinGroups() {
+<span class="fc" id="L61">        return defaultPageJoinGroups;</span>
     }
 
-    public void setDefaultOwnerGroup(String defaultOwnerGroup) {
-<span class="fc" id="L64">        this.defaultOwnerGroup = defaultOwnerGroup;</span>
-<span class="fc" id="L65">    }</span>
+    public void setDefaultPageJoinGroups(List&lt;String&gt; defaultPageJoinGroups) {
+<span class="fc" id="L65">        this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
+<span class="fc" id="L66">    }</span>
 
-    public List&lt;String&gt; getDefaultJoinGroups() {
-<span class="fc" id="L68">        return defaultJoinGroups;</span>
+    public String getDefaultContentOwnerGroup() {
+<span class="fc" id="L69">        return defaultContentOwnerGroup;</span>
     }
 
-    public void setDefaultJoinGroups(List&lt;String&gt; defaultJoinGroups) {
-<span class="fc" id="L72">        this.defaultJoinGroups = defaultJoinGroups;</span>
-<span class="fc" id="L73">    }</span>
+    public void setDefaultContentOwnerGroup(String defaultContentOwnerGroup) {
+<span class="fc" id="L73">        this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
+<span class="fc" id="L74">    }</span>
+
+    public List&lt;String&gt; getDefaultContentJoinGroups() {
+<span class="fc" id="L77">        return defaultContentJoinGroups;</span>
+    }
+
+    public void setDefaultContentJoinGroups(List&lt;String&gt; defaultContentJoinGroups) {
+<span class="fc" id="L81">        this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
+<span class="fc" id="L82">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L77">        return &quot;UserPreferencesRequest{&quot; +</span>
+<span class="nc" id="L86">        return &quot;UserPreferencesRequest{&quot; +</span>
                 &quot;wizard=&quot; + wizard +
                 &quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
                 &quot;, translationWarning=&quot; + translationWarning +
-                &quot;, displayAttributes=&quot; + displayAttributes +
-                &quot;, defaultOwnerGroup='&quot; + defaultOwnerGroup + '\'' +
-                &quot;, defaultJoinGroups=&quot; + defaultJoinGroups +
+                &quot;, defaultPageOwnerGroup='&quot; + defaultPageOwnerGroup + '\'' +
+                &quot;, defaultPageJoinGroups=&quot; + defaultPageJoinGroups +
+                &quot;, defaulContnttOwnerGroup='&quot; + defaultContentOwnerGroup + '\'' +
+                &quot;, defaultContentJoinGroups=&quot; + defaultContentJoinGroups +
                 '}';
     }
 }
