@@ -190,7 +190,7 @@ Entando Core: Engine,org.entando.entando.aps.system.services.dataobjectmodel.api
 Entando Core: Engine,com.agiletec.aps.system.services.role.cache,PermissionCacheWrapper,11,88,0,2,3,23,0,13,0,12
 Entando Core: Engine,com.agiletec.aps.system.services.role.cache,RoleCacheWrapper,11,70,0,0,3,19,0,11,0,11
 Entando Core: Engine,org.entando.entando.aps.system.services.label.model,LabelDto,0,26,0,0,0,12,0,6,0,6
-Entando Core: Engine,org.entando.entando.web.userpreferences.model,UserPreferencesDto,74,121,0,12,15,26,8,14,8,8
+Entando Core: Engine,org.entando.entando.web.userpreferences.model,UserPreferencesDto,74,127,2,14,15,28,10,14,8,8
 Entando Core: Engine,org.entando.entando.web.userpreferences.model,UserPreferencesRequest,46,52,0,0,1,22,1,15,1,15
 Entando Core: Engine,org.entando.entando.web.dataobjectmodel.validator,DataObjectModelValidator,105,158,9,15,23,40,9,13,1,9
 Entando Core: Engine,org.entando.entando.web.guifragment,GuiFragmentController,122,130,7,3,20,30,8,10,3,10
