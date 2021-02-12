@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KeycloakConnectionConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Operator Common Library</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.controller.spi.container</a> &gt; <span class="el_source">KeycloakConnectionConfig.java</span></div><h1>KeycloakConnectionConfig.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.controller.spi.container;
+
+import static java.util.Optional.ofNullable;
+
+import io.fabric8.kubernetes.api.model.ConfigMap;
+import io.fabric8.kubernetes.api.model.Secret;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.Optional;
+import org.entando.kubernetes.controller.spi.common.EntandoOperatorSpiConfig;
+import org.entando.kubernetes.controller.spi.common.NameUtils;
+import org.entando.kubernetes.controller.spi.common.SecretUtils;
+
+public class KeycloakConnectionConfig {
+
+    private final Secret adminSecret;
+    private final ConfigMap configMap;
+
+<span class="fc" id="L35">    public KeycloakConnectionConfig(Secret adminSecret, ConfigMap configMap) {</span>
+<span class="fc" id="L36">        this.adminSecret = adminSecret;</span>
+<span class="fc" id="L37">        this.configMap = configMap;</span>
+<span class="fc" id="L38">    }</span>
+
+    public String determineBaseUrl() {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (EntandoOperatorSpiConfig.forceExternalAccessToKeycloak()) {</span>
+<span class="nc" id="L42">            return getExternalBaseUrl();</span>
+        } else {
+<span class="fc" id="L44">            return getInternalBaseUrl().orElse(getExternalBaseUrl());</span>
+        }
+    }
+
+    public String getUsername() {
+<span class="fc" id="L49">        return decodeSecretValue(SecretUtils.USERNAME_KEY);</span>
+    }
+
+    public String getPassword() {
+<span class="fc" id="L53">        return decodeSecretValue(SecretUtils.PASSSWORD_KEY);</span>
+    }
+
+    public String decodeSecretValue(String key) {
+<span class="fc" id="L57">        Optional&lt;String&gt; value = ofNullable(adminSecret.getData())</span>
+<span class="fc" id="L58">                .map(data -&gt;</span>
+<span class="fc" id="L59">                        ofNullable(data.get(key)).map(s -&gt; new String(Base64.getDecoder().decode(s), StandardCharsets.UTF_8))</span>
+                )
+<span class="fc" id="L61">                .orElse(ofNullable(adminSecret.getStringData()).map(data -&gt; data.get(key)));</span>
+<span class="fc" id="L62">        return value.orElse(null);</span>
+    }
+
+    public Secret getAdminSecret() {
+<span class="nc" id="L66">        return adminSecret;</span>
+    }
+
+    public String getExternalBaseUrl() {
+<span class="fc" id="L70">        return configMap.getData().get(NameUtils.URL_KEY);</span>
+    }
+
+    public Optional&lt;String&gt; getInternalBaseUrl() {
+<span class="fc" id="L74">        return Optional.ofNullable(configMap.getData().get(NameUtils.INTERNAL_URL_KEY));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

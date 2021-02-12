@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KubernetesRestInterceptor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Operator Common Library</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.client</a> &gt; <span class="el_source">KubernetesRestInterceptor.java</span></div><h1>KubernetesRestInterceptor.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.client;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import org.entando.kubernetes.model.EntandoCustomResource;
+
+public class KubernetesRestInterceptor implements InvocationHandler {
+
+    private Object delegate;
+
+<span class="fc" id="L34">    public KubernetesRestInterceptor(Object delegate) {</span>
+<span class="fc" id="L35">        this.delegate = delegate;</span>
+<span class="fc" id="L36">    }</span>
+
+    private static String format(HasMetadata entandoCustomResource) {
+<span class="fc" id="L39">        return String.format(&quot; with %s: %s/%s&quot;, entandoCustomResource.getKind(), entandoCustomResource.getMetadata().getNamespace(),</span>
+<span class="fc" id="L40">                entandoCustomResource.getMetadata().getName());</span>
+    }
+
+    @SuppressWarnings(&quot;squid:S2139&quot;)//Because it is common practice to log and rethrow an exception in a logging interceptor
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+<span class="fc" id="L46">        Logger logger = Logger.getLogger(method.getDeclaringClass().getName());</span>
+<span class="fc" id="L47">        logger.log(Level.INFO, () -&gt; {</span>
+<span class="fc" id="L48">            StringBuilder message = new StringBuilder(</span>
+<span class="fc" id="L49">                    String.format(&quot;Entering method %s in class %s&quot;, method.getName(),</span>
+<span class="fc" id="L50">                            method.getDeclaringClass().getName()));</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if (args != null) {</span>
+<span class="fc" id="L52">                Optional&lt;EntandoCustomResource&gt; first = Arrays.stream(args)</span>
+<span class="fc" id="L53">                        .filter(EntandoCustomResource.class::isInstance)</span>
+<span class="fc" id="L54">                        .map(EntandoCustomResource.class::cast).findFirst();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                if (first.isPresent()) {</span>
+<span class="fc" id="L56">                    message.append(format(first.get()));</span>
+                }
+<span class="fc" id="L58">                Optional&lt;HasMetadata&gt; second = Arrays.stream(args)</span>
+<span class="fc bfc" id="L59" title="All 4 branches covered.">                        .filter(o -&gt; o instanceof HasMetadata &amp;&amp; o.getClass().getName().startsWith(&quot;io.fabric8.kubernetes&quot;))</span>
+<span class="fc" id="L60">                        .map(HasMetadata.class::cast).findFirst();</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">                if (second.isPresent()) {</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">                    if (first.isPresent()) {</span>
+<span class="fc" id="L63">                        message.append(&quot; and&quot;);</span>
+                    }
+<span class="fc" id="L65">                    message.append(format(second.get()));</span>
+                }
+<span class="fc bfc" id="L67" title="All 4 branches covered.">                if (!(first.isPresent() || second.isPresent())) {</span>
+<span class="fc" id="L68">                    message.append(&quot; with &quot;)</span>
+<span class="fc" id="L69">                            .append(String.join(&quot;,&quot;, Arrays.stream(args).map(Object::toString).collect(Collectors.toList())));</span>
+                }
+            }
+<span class="fc" id="L72">            return message.toString();</span>
+        });
+        try {
+<span class="fc" id="L75">            return method.invoke(delegate, args);</span>
+<span class="fc" id="L76">        } catch (InvocationTargetException e) {</span>
+<span class="fc" id="L77">            logger.log(Level.SEVERE, e.getTargetException(), () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
+<span class="fc" id="L78">                    method.getName(),</span>
+<span class="fc" id="L79">                    method.getDeclaringClass().getName()));</span>
+<span class="fc" id="L80">            throw e.getTargetException();</span>
+<span class="nc" id="L81">        } catch (Exception e) {</span>
+<span class="nc" id="L82">            logger.log(Level.SEVERE, e, () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
+<span class="nc" id="L83">                    method.getName(),</span>
+<span class="nc" id="L84">                    method.getDeclaringClass().getName()));</span>
+<span class="nc" id="L85">            throw e;</span>
+        } finally {
+<span class="fc" id="L87">            logger.log(Level.INFO, () -&gt;</span>
+<span class="fc" id="L88">                    String.format(&quot;Exiting method %s in class %s&quot;, method.getName(),</span>
+<span class="fc" id="L89">                            method.getDeclaringClass().getName()));</span>
+
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
