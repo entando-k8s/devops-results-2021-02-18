@@ -23,7 +23,7 @@ import org.entando.entando.web.common.model.RestListRequest;
 public class PageSearchRequest extends RestListRequest {
 
     private String pageCodeToken;
-
+    private String title;
 
     public PageSearchRequest() {
 <span class="fc" id="L29">        super();</span>
@@ -34,17 +34,33 @@ public class PageSearchRequest extends RestListRequest {
 <span class="fc" id="L34">        this.pageCodeToken = pageCodeToken;</span>
 <span class="fc" id="L35">    }</span>
 
+    public PageSearchRequest(String pageCodeToken, String title) {
+<span class="nc" id="L38">        super();</span>
+<span class="nc" id="L39">        this.pageCodeToken = pageCodeToken;</span>
+<span class="nc" id="L40">        this.title = title;</span>
+<span class="nc" id="L41">    }</span>
+
     public String getPageCodeToken() {
-<span class="fc" id="L38">        return pageCodeToken;</span>
+<span class="fc" id="L44">        return pageCodeToken;</span>
     }
 
     public void setPageCodeToken(String pageCodeToken) {
-<span class="fc" id="L42">        this.pageCodeToken = pageCodeToken;</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L48">        this.pageCodeToken = pageCodeToken;</span>
+<span class="fc" id="L49">    }</span>
+
+    public String getTitle() {
+<span class="fc" id="L52">        return title;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="fc" id="L56">        this.title = title;</span>
+<span class="fc" id="L57">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L47">        return &quot;RestListRequest{&quot; + &quot;sort=&quot; + this.getSort() + &quot;, direction=&quot; + this.getDirection() + &quot;, page=&quot; + this.getPage() + &quot;, pageSize=&quot; + this.getPageSize() + &quot;, pageCodeToken=&quot; + pageCodeToken + '}';</span>
+<span class="nc" id="L61">        return &quot;RestListRequest{&quot; + &quot;sort=&quot; + this.getSort() + &quot;, direction=&quot; + this.getDirection() + &quot;, page=&quot; + this</span>
+<span class="nc" id="L62">                .getPage() + &quot;, pageSize=&quot; + this.getPageSize() + &quot;, pageCodeToken=&quot; + pageCodeToken + &quot;, &quot;</span>
+                + &quot;title=&quot; + title + '}';
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
