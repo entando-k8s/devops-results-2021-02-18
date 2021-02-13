@@ -38,12 +38,12 @@ public class PersistentVolumeClaimCreator extends AbstractK8SResourceCreator {
     private List&lt;PersistentVolumeClaim&gt; persistentVolumeClaims;
 
     public PersistentVolumeClaimCreator(EntandoCustomResource entandoCustomResource) {
-<span class="nc" id="L41">        super(entandoCustomResource);</span>
-<span class="nc" id="L42">    }</span>
+<span class="fc" id="L41">        super(entandoCustomResource);</span>
+<span class="fc" id="L42">    }</span>
 
     public boolean needsPersistentVolumeClaaims(Deployable&lt;?&gt; deployable) {
-<span class="nc" id="L45">        return deployable.getContainers().stream()</span>
-<span class="nc" id="L46">                .anyMatch(PersistentVolumeAware.class::isInstance);</span>
+<span class="fc" id="L45">        return deployable.getContainers().stream()</span>
+<span class="fc" id="L46">                .anyMatch(PersistentVolumeAware.class::isInstance);</span>
     }
 
     public void createPersistentVolumeClaimsFor(PersistentVolumeClaimClient k8sClient, Deployable&lt;?&gt; deployable) {

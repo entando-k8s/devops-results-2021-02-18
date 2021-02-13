@@ -1,25 +1,25 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultDeploymentClient,169,0,12,0,28,0,14,0,8,0
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultSimpleK8SClient,80,65,10,6,15,15,10,8,5,5
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultDeploymentClient,91,78,10,2,13,15,9,5,3,5
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultSimpleK8SClient,48,97,7,9,9,21,7,11,3,7
 Entando K8S Operator Common Library,org.entando.kubernetes.client,KubernetesClientProducer,22,0,0,0,3,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultSecretClient,131,69,0,0,23,14,5,4,5,4
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultPodClient,169,25,6,0,22,7,14,2,11,2
-Entando K8S Operator Common Library,org.entando.kubernetes.client,PodWatcher,89,0,8,0,25,0,12,0,8,0
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultSecretClient,113,86,0,0,20,18,4,6,4,6
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultPodClient,144,50,5,1,19,10,12,4,9,4
+Entando K8S Operator Common Library,org.entando.kubernetes.client,PodWatcher,22,67,4,4,8,17,5,7,1,7
 Entando K8S Operator Common Library,org.entando.kubernetes.client,SerializedEntandoResource,27,0,2,0,10,0,7,0,6,0
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultServiceAccountClient,141,0,4,0,25,0,10,0,8,0
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultServiceAccountClient,55,86,2,2,12,13,4,6,2,6
 Entando K8S Operator Common Library,org.entando.kubernetes.client,PatchableClient,20,30,1,1,4,4,2,1,1,1
 Entando K8S Operator Common Library,org.entando.kubernetes.client,EntandoJackson2Provider,7,0,0,0,3,0,1,0,1,0
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultPersistentVolumeClaimClient,57,0,2,0,11,0,4,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DoneableCustomResource,22,0,0,0,8,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultKeycloakClient,720,0,38,0,181,0,47,0,28,0
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultEntandoResourceClient,380,489,17,5,66,97,31,19,20,19
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultEntandoResourceClient,396,476,17,5,70,94,31,20,20,20
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultServiceClient,113,0,4,0,16,0,6,0,4,0
 Entando K8S Operator Common Library,org.entando.kubernetes.client,KubernetesExceptionProcessor,145,0,10,0,17,0,9,0,4,0
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultIngressClient,172,0,2,0,30,0,11,0,10,0
-Entando K8S Operator Common Library,org.entando.kubernetes.client,KubernetesRestInterceptor,29,208,1,13,6,34,2,15,1,9
+Entando K8S Operator Common Library,org.entando.kubernetes.client,KubernetesRestInterceptor,25,212,0,14,5,35,1,16,1,9
 Entando K8S Operator Common Library,org.entando.kubernetes.client,EntandoExecListener,101,0,2,0,31,0,11,0,10,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.command,CreateExternalServiceCommand,324,0,16,0,75,0,17,0,9,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.command,DeployCommand,355,0,16,0,70,0,22,0,14,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.command,DeployCommand,121,234,10,6,26,44,11,11,3,11
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.command,IngressingDeployCommand,88,0,4,0,18,0,6,0,4,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.database,DatabaseDeployable,157,0,3,0,31,0,15,0,13,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.database,ExternalDatabaseDeployment,88,0,0,0,14,0,10,0,10,0
@@ -29,85 +29,85 @@ Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.sp
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.spibase,KeycloakAwareContainerBase,4,0,0,0,1,0,1,0,1,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.spibase,PublicIngressingDeployableBase,9,0,0,0,2,0,1,0,1,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.result,ExposedDeploymentResult,22,0,0,0,8,0,5,0,5,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.result,AbstractServiceResult,29,0,0,0,6,0,4,0,4,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.result,AbstractServiceResult,23,6,0,0,3,3,3,1,3,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.result,ExposedService,248,0,26,0,36,0,34,0,21,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,ResourceUtils,0,31,0,0,0,7,0,1,0,1
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsDockerVendorStrategy,194,0,12,0,39,0,20,0,14,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsDockerVendorStrategy,56,138,12,0,18,21,14,6,8,6
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.1.new JdbcConnectionStringBuilder() {...},26,0,0,0,2,0,2,0,2,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.5.new JdbcConnectionStringBuilder() {...},21,0,0,0,2,0,2,0,2,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,NameUtils,55,55,5,1,10,10,8,6,5,6
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult,266,0,36,0,43,0,36,0,18,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult.State,44,0,0,0,2,0,1,0,1,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult,82,184,22,14,14,29,20,16,3,15
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult.State,0,44,0,0,0,2,0,1,0,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,JdbcConnectionStringBuilder,83,0,4,0,24,0,17,0,15,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.4.new JdbcConnectionStringBuilder() {...},21,0,0,0,2,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},16,0,0,0,2,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},16,0,0,0,2,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},16,0,0,0,2,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},13,0,0,0,2,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},13,0,0,0,2,0,2,0,2,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},5,11,0,0,1,1,1,1,1,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},5,11,0,0,1,1,1,1,1,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},5,11,0,0,1,1,1,1,1,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},5,8,0,0,1,1,1,1,1,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.new DbmsVendorConfig() {...},5,8,0,0,1,1,1,1,1,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,EntandoOperatorConfigBase,3,85,1,5,2,18,2,8,1,6
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig,148,0,0,0,30,0,12,0,12,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig,27,121,0,0,9,21,7,5,7,5
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.3.new JdbcConnectionStringBuilder() {...},26,0,0,0,2,0,2,0,2,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,EntandoOperatorSpiConfig,28,0,0,0,6,0,3,0,3,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,SecretUtils,54,9,0,0,11,1,3,1,3,1
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsDockerVendorStrategy.DockerRegistry,34,0,0,0,6,0,2,0,2,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,SecretUtils,0,63,0,0,0,12,0,4,0,4
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsDockerVendorStrategy.DockerRegistry,0,34,0,0,0,6,0,2,0,2
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.2.new JdbcConnectionStringBuilder() {...},26,0,0,0,2,0,2,0,2,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,EntandoOperatorSpiConfigProperty,48,0,0,0,8,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,EntandoOperatorComplianceMode,40,0,0,0,6,0,3,0,3,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AutoExit,3,14,1,1,1,7,1,3,0,3
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AutoExit,7,10,1,1,3,5,2,2,1,2
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,EntandoControllerException,4,0,0,0,2,0,1,0,1,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AbstractDbAwareController,84,232,12,14,17,53,12,14,2,11
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AbstractDbAwareController,114,202,12,14,21,49,13,13,3,10
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,ControllerExecutor,603,0,20,0,110,0,35,0,25,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,EntandoDatabaseServiceController,27,0,2,0,9,0,5,0,4,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.deployable,PublicIngressingDeployable,6,0,0,0,2,0,2,0,2,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.deployable,Deployable,6,0,0,0,3,0,3,0,3,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.deployable,Deployable,4,2,0,0,2,1,2,1,2,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.deployable,DbAwareDeployable,33,0,2,0,3,0,4,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.deployable,IngressingDeployable,19,0,0,0,4,0,1,0,1,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,DuplicateExcepion,5,0,0,0,2,0,1,0,1,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,PodClient,151,0,10,0,31,0,7,0,2,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,UnauthorizedExcepion,5,0,0,0,2,0,1,0,1,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,PodWaitingClient,98,6,8,0,21,1,5,1,1,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,PodWaitingClient,55,49,5,3,11,11,4,2,0,2
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,InfrastructureConfig,60,0,0,0,12,0,8,0,8,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.client,EntandoResourceClient,115,43,7,3,25,12,6,2,1,2
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,LimitAndRequestCalculator,87,0,4,0,20,0,7,0,5,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,LimitAndRequestCalculator,6,81,1,3,2,18,1,6,0,5
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ConfigurableStorageCalculator,30,0,0,0,5,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,IngressPathCreator,115,0,2,0,22,0,9,0,8,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ServiceCreator,237,0,2,0,52,0,12,0,11,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,SecretCreator,275,0,16,0,58,0,20,0,12,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,AbstractK8SResourceCreator,127,0,4,0,28,0,9,0,7,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ServiceCreator,230,7,2,0,49,3,10,2,9,2
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,SecretCreator,123,152,10,6,25,33,10,10,3,9
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,AbstractK8SResourceCreator,0,127,2,2,0,28,2,7,0,7
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,EntandoRbacRole,37,0,0,0,6,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,IngressCreator,388,0,26,0,73,0,29,0,16,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,DatabasePreparationPodCreator,417,0,6,0,79,0,18,0,15,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ResourceCalculator,26,0,0,0,7,0,5,0,5,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,DatabasePreparationPodCreator,413,4,6,0,77,2,17,1,14,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ResourceCalculator,0,26,0,0,0,7,0,5,0,5
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,StorageCalculator,16,0,0,0,5,0,3,0,3,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,DeploymentCreator,866,0,52,0,177,0,55,0,29,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,DeploymentCreator,273,593,31,21,43,134,31,24,5,24
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ConfigurableResourceCalculator,45,0,0,0,7,0,5,0,5,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,TlsHelper,108,160,9,3,19,36,17,8,12,7
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,PersistentVolumeClaimCreator,144,0,4,0,30,0,10,0,8,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,KeycloakClientCreator,202,0,12,0,48,0,12,0,6,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ServiceAccountCreator,224,0,4,0,59,0,13,0,11,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,TlsHelper,79,189,9,3,14,41,12,13,7,12
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,PersistentVolumeClaimCreator,130,14,4,0,26,4,8,2,6,2
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,KeycloakClientCreator,181,21,10,2,43,5,10,2,4,2
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.creators,ServiceAccountCreator,70,154,2,2,16,43,6,7,4,7
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,TlsAware,17,0,0,0,4,0,1,0,1,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,SecretToMount,15,0,0,0,6,0,3,0,3,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,SecretToMount,0,15,0,0,0,6,0,3,0,3
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,KeycloakName,100,0,4,0,19,0,13,0,11,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,KeycloakClientConfig,104,0,0,0,26,0,13,0,13,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,DeployableContainer,36,0,0,0,10,0,10,0,10,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,DockerImageInfo,252,0,16,0,51,0,21,0,13,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,DeployableContainer,12,24,0,0,6,4,6,4,6,4
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,DockerImageInfo,166,86,11,5,31,20,14,7,6,7
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,KeycloakAwareContainer,80,0,0,0,14,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,DatabaseSchemaConnectionInfo,76,0,2,0,19,0,11,0,10,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,SpringBootDeployableContainer,186,0,6,0,33,0,8,0,5,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,PersistentVolumeAware,2,0,0,0,1,0,1,0,1,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,KubernetesPermission,28,0,0,0,10,0,5,0,5,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,KubernetesPermission,0,28,0,0,0,10,0,5,0,5
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,PortSpec,15,0,0,0,6,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,IngressingContainer,3,0,0,0,1,0,1,0,1,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,KeycloakConnectionConfig,81,9,2,0,13,4,11,1,10,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,DbAware,33,0,0,0,9,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.container,SpringBootDeployableContainer.SpringProperty,74,0,0,0,8,0,1,0,1,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,EntandoOperatorConfig,190,47,5,1,33,12,26,5,23,5
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,EntandoOperatorConfig,107,130,4,2,16,29,17,14,14,14
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,KubeUtils,79,0,4,0,14,0,11,0,9,0
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,OperatorProcessingInstruction,44,0,0,0,5,0,1,0,1,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,SecurityMode,37,0,0,0,6,0,3,0,3,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,PropertyResolution,120,0,0,0,30,0,14,0,14,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,OperatorDeploymentType,40,0,0,0,7,0,3,0,3,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,SecurityMode,13,24,0,0,4,2,2,1,2,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,PropertyResolution,28,92,0,0,5,25,2,12,2,12
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,OperatorDeploymentType,16,24,0,0,4,3,2,1,2,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,EntandoOperatorConfigProperty,0,411,0,0,0,41,0,3,0,3
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,FluentTernary,31,0,2,0,8,0,6,0,5,0
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,EntandoImageResolver,126,6,0,0,27,3,7,1,7,1
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.common,EntandoImageResolver,7,125,0,0,1,29,1,7,1,7

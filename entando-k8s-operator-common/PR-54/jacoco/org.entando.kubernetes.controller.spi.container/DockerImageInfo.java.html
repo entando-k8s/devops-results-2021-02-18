@@ -70,12 +70,12 @@ public class DockerImageInfo {
                 &quot;latest&quot;);
 <span class="nc" id="L71">    }</span>
 
-<span class="nc" id="L73">    public DockerImageInfo(String imageUri) {</span>
-<span class="nc" id="L74">        String[] segments = imageUri.split(&quot;/&quot;);</span>
-<span class="nc" id="L75">        String[] repositorySegments = segments[segments.length - 1].split(&quot;:&quot;);</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (repositorySegments.length == 1) {</span>
-<span class="nc" id="L77">            repository = repositorySegments[0];</span>
-<span class="nc" id="L78">            tag = null;</span>
+<span class="fc" id="L73">    public DockerImageInfo(String imageUri) {</span>
+<span class="fc" id="L74">        String[] segments = imageUri.split(&quot;/&quot;);</span>
+<span class="fc" id="L75">        String[] repositorySegments = segments[segments.length - 1].split(&quot;:&quot;);</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (repositorySegments.length == 1) {</span>
+<span class="fc" id="L77">            repository = repositorySegments[0];</span>
+<span class="fc" id="L78">            tag = null;</span>
 <span class="nc bnc" id="L79" title="All 2 branches missed.">        } else if (repositorySegments.length == 2) {</span>
 <span class="nc" id="L80">            repository = repositorySegments[0];</span>
 <span class="nc" id="L81">            tag = repositorySegments[1];</span>
@@ -83,14 +83,14 @@ public class DockerImageInfo {
 <span class="nc" id="L83">            throw new IllegalArgumentException(</span>
 <span class="nc" id="L84">                    format(&quot;The repository '%s' is not supported. At most one colon (:) allowed.&quot;, segments[segments.length - 1]));</span>
         }
-<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (segments.length == 4) {</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (segments.length == 4) {</span>
 <span class="nc" id="L87">            organization = segments[segments.length - 3] + &quot;/&quot; + segments[segments.length - 2];</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        } else if (segments.length &gt;= 2) {</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">        } else if (segments.length &gt;= 2) {</span>
 <span class="nc" id="L89">            organization = segments[segments.length - 2];</span>
         } else {
-<span class="nc" id="L91">            organization = null;</span>
+<span class="fc" id="L91">            organization = null;</span>
         }
-<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (segments.length &gt;= 3) {</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        if (segments.length &gt;= 3) {</span>
 <span class="nc" id="L94">            String[] hostSegments = segments[0].split(&quot;:&quot;);</span>
 <span class="nc" id="L95">            registryHost = hostSegments[0];</span>
 <span class="nc bnc" id="L96" title="All 2 branches missed.">            if (hostSegments.length == 1) {</span>
@@ -102,30 +102,30 @@ public class DockerImageInfo {
 <span class="nc" id="L102">                        format(&quot;The registry '%s' is not supported. At most one colon (:) allowed.&quot;, segments[0]));</span>
             }
 <span class="nc" id="L104">        } else {</span>
-<span class="nc" id="L105">            registryPort = null;</span>
-<span class="nc" id="L106">            registryHost = null;</span>
+<span class="fc" id="L105">            registryPort = null;</span>
+<span class="fc" id="L106">            registryHost = null;</span>
         }
-<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (segments.length &gt; 4) {</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (segments.length &gt; 4) {</span>
 <span class="nc" id="L109">            throw new IllegalArgumentException(</span>
 <span class="nc" id="L110">                    format(&quot;The imageUri '%s' is not supported. Paths on the image name may not contain more than 3 segments&quot;, imageUri));</span>
 
         }
-<span class="nc" id="L113">    }</span>
+<span class="fc" id="L113">    }</span>
 
     public Optional&lt;String&gt; getRegistryHost() {
-<span class="nc" id="L116">        return Optional.ofNullable(registryHost);</span>
+<span class="fc" id="L116">        return Optional.ofNullable(registryHost);</span>
     }
 
     public Optional&lt;String&gt; getOrganization() {
-<span class="nc" id="L120">        return Optional.ofNullable(organization);</span>
+<span class="fc" id="L120">        return Optional.ofNullable(organization);</span>
     }
 
     public String getRepository() {
-<span class="nc" id="L124">        return repository;</span>
+<span class="fc" id="L124">        return repository;</span>
     }
 
     public Optional&lt;String&gt; getVersion() {
-<span class="nc" id="L128">        return Optional.ofNullable(tag);</span>
+<span class="fc" id="L128">        return Optional.ofNullable(tag);</span>
     }
 
     public Optional&lt;Integer&gt; getRegistryPort() {
@@ -133,11 +133,11 @@ public class DockerImageInfo {
     }
 
     public Optional&lt;String&gt; getRegistry() {
-<span class="nc" id="L136">        return getRegistryHost().map(s -&gt; s + getRegistryPort().map(integer -&gt; &quot;:&quot; + integer).orElse(&quot;&quot;));</span>
+<span class="pc" id="L136">        return getRegistryHost().map(s -&gt; s + getRegistryPort().map(integer -&gt; &quot;:&quot; + integer).orElse(&quot;&quot;));</span>
     }
 
     public String getOrganizationAwareRepository() {
-<span class="nc" id="L140">        return getOrganization().map(s -&gt; s.replace(&quot;/&quot;, &quot;-&quot;) + &quot;-&quot;).orElse(&quot;&quot;) + getRepository();</span>
+<span class="pc" id="L140">        return getOrganization().map(s -&gt; s.replace(&quot;/&quot;, &quot;-&quot;) + &quot;-&quot;).orElse(&quot;&quot;) + getRepository();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
