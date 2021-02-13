@@ -77,9 +77,9 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
      * Constructor for integration tests where we would need to override the auto exit behaviour.
      */
     protected AbstractDbAwareController(KubernetesClient kubernetesClient, boolean exitAutomatically) {
-<span class="nc" id="L80">        this(new DefaultSimpleK8SClient(kubernetesClient), new DefaultKeycloakClient(), new AutoExit(exitAutomatically));</span>
+<span class="fc" id="L80">        this(new DefaultSimpleK8SClient(kubernetesClient), new DefaultKeycloakClient(), new AutoExit(exitAutomatically));</span>
 
-<span class="nc" id="L82">    }</span>
+<span class="fc" id="L82">    }</span>
 
 <span class="fc" id="L84">    private AbstractDbAwareController(SimpleK8SClient&lt;?&gt; k8sClient, SimpleKeycloakClient keycloakClient, AutoExit autoExit) {</span>
 <span class="fc" id="L85">        this.k8sClient = k8sClient;</span>

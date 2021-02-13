@@ -36,8 +36,8 @@ public class DefaultIngressClient implements IngressClient {
 <span class="fc" id="L36">    }</span>
 
     public static String resolveMasterHostname(KubernetesClient client) {
-<span class="nc" id="L39">        String host = client.settings().getMasterUrl().getHost();</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (&quot;127.0.0.1&quot;.equals(host)) {</span>
+<span class="fc" id="L39">        String host = client.settings().getMasterUrl().getHost();</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if (&quot;127.0.0.1&quot;.equals(host)) {</span>
             //This will only happen on single node installations. Generally it will return some ip/domain name that resolves to the master
             // Retrieve IP from node API and discard local IP
 <span class="nc" id="L43">            Node masterNode = client.nodes().list().getItems().get(0);</span>
@@ -46,7 +46,7 @@ public class DefaultIngressClient implements IngressClient {
 <span class="nc" id="L46">            host = masterNodeAddress.orElseThrow(() -&gt; new RuntimeException(&quot;Impossible to retrieve node internal IP address&quot;))</span>
 <span class="nc" id="L47">                    .getAddress();</span>
         }
-<span class="nc" id="L49">        return host;</span>
+<span class="fc" id="L49">        return host;</span>
     }
 
     @Override

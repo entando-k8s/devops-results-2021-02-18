@@ -62,10 +62,10 @@ public class IngressCreator extends AbstractK8SResourceCreator {
     }
 
     private static String determineViableRoutingSuffix(String masterNodeHost) {
-<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (isTopLevelDomain(masterNodeHost)) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (isTopLevelDomain(masterNodeHost)) {</span>
 <span class="fc" id="L66">            return masterNodeHost;</span>
         }
-<span class="nc" id="L68">        return masterNodeHost + &quot;.nip.io&quot;;</span>
+<span class="fc" id="L68">        return masterNodeHost + &quot;.nip.io&quot;;</span>
     }
 
     private static boolean isTopLevelDomain(String host) {
@@ -76,7 +76,7 @@ public class IngressCreator extends AbstractK8SResourceCreator {
 <span class="fc" id="L76">                    BufferedReader r = new BufferedReader(new InputStreamReader(stream))) {</span>
 
 <span class="fc" id="L78">                String line = r.readLine();</span>
-<span class="pc bpc" id="L79" title="1 of 2 branches missed.">                while (line != null) {</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">                while (line != null) {</span>
 <span class="fc bfc" id="L80" title="All 2 branches covered.">                    if (host.toLowerCase(Locale.getDefault()).endsWith(&quot;.&quot; + line.toLowerCase(Locale.getDefault()))) {</span>
 <span class="fc" id="L81">                        return true;</span>
                     }
@@ -85,8 +85,8 @@ public class IngressCreator extends AbstractK8SResourceCreator {
 <span class="pc bpc" id="L85" title="1 of 2 branches missed.">            }</span>
 <span class="nc" id="L86">        } catch (IOException e) {</span>
 <span class="nc" id="L87">            throw new IllegalStateException(e);</span>
-<span class="nc" id="L88">        }</span>
-<span class="nc" id="L89">        return false;</span>
+<span class="fc" id="L88">        }</span>
+<span class="fc" id="L89">        return false;</span>
     }
 
     public boolean requiresDelegatingService(Service service, Ingressing&lt;?&gt; ingressingContainer) {
