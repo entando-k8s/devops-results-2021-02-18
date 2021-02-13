@@ -30,12 +30,12 @@ public interface PublicIngressingDeployable&lt;T extends ExposedDeploymentResult
     Optional&lt;KeycloakToUse&gt; getPreferredKeycloakToUse();
 
     default String getKeycloakRealmToUse() {
-<span class="fc" id="L33">        return KeycloakName.ofTheRealm(this);</span>
+<span class="nc" id="L33">        return KeycloakName.ofTheRealm(this);</span>
 
     }
 
     default String getPublicClientIdToUse() {
-<span class="fc" id="L38">        return KeycloakName.ofThePublicClient(this);</span>
+<span class="nc" id="L38">        return KeycloakName.ofThePublicClient(this);</span>
 
     }
 }

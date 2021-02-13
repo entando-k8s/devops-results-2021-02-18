@@ -26,7 +26,7 @@ import org.entando.kubernetes.model.KeycloakToUse;
 public interface KeycloakAwareContainerBase extends KeycloakAwareContainer {
 
     default Optional&lt;KeycloakToUse&gt; getPreferredKeycloakToUse() {
-<span class="fc" id="L29">        return getKeycloakAwareSpec().getKeycloakToUse();</span>
+<span class="nc" id="L29">        return getKeycloakAwareSpec().getKeycloakToUse();</span>
     }
 
     @JsonIgnore

@@ -38,28 +38,28 @@ public class KeycloakConnectionConfig {
 <span class="fc" id="L38">    }</span>
 
     public String determineBaseUrl() {
-<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (EntandoOperatorSpiConfig.forceExternalAccessToKeycloak()) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (EntandoOperatorSpiConfig.forceExternalAccessToKeycloak()) {</span>
 <span class="nc" id="L42">            return getExternalBaseUrl();</span>
         } else {
-<span class="fc" id="L44">            return getInternalBaseUrl().orElse(getExternalBaseUrl());</span>
+<span class="nc" id="L44">            return getInternalBaseUrl().orElse(getExternalBaseUrl());</span>
         }
     }
 
     public String getUsername() {
-<span class="fc" id="L49">        return decodeSecretValue(SecretUtils.USERNAME_KEY);</span>
+<span class="nc" id="L49">        return decodeSecretValue(SecretUtils.USERNAME_KEY);</span>
     }
 
     public String getPassword() {
-<span class="fc" id="L53">        return decodeSecretValue(SecretUtils.PASSSWORD_KEY);</span>
+<span class="nc" id="L53">        return decodeSecretValue(SecretUtils.PASSSWORD_KEY);</span>
     }
 
     public String decodeSecretValue(String key) {
-<span class="fc" id="L57">        Optional&lt;String&gt; value = ofNullable(adminSecret.getData())</span>
-<span class="fc" id="L58">                .map(data -&gt;</span>
-<span class="fc" id="L59">                        ofNullable(data.get(key)).map(s -&gt; new String(Base64.getDecoder().decode(s), StandardCharsets.UTF_8))</span>
+<span class="nc" id="L57">        Optional&lt;String&gt; value = ofNullable(adminSecret.getData())</span>
+<span class="nc" id="L58">                .map(data -&gt;</span>
+<span class="nc" id="L59">                        ofNullable(data.get(key)).map(s -&gt; new String(Base64.getDecoder().decode(s), StandardCharsets.UTF_8))</span>
                 )
-<span class="fc" id="L61">                .orElse(ofNullable(adminSecret.getStringData()).map(data -&gt; data.get(key)));</span>
-<span class="fc" id="L62">        return value.orElse(null);</span>
+<span class="nc" id="L61">                .orElse(ofNullable(adminSecret.getStringData()).map(data -&gt; data.get(key)));</span>
+<span class="nc" id="L62">        return value.orElse(null);</span>
     }
 
     public Secret getAdminSecret() {
@@ -67,11 +67,11 @@ public class KeycloakConnectionConfig {
     }
 
     public String getExternalBaseUrl() {
-<span class="fc" id="L70">        return configMap.getData().get(NameUtils.URL_KEY);</span>
+<span class="nc" id="L70">        return configMap.getData().get(NameUtils.URL_KEY);</span>
     }
 
     public Optional&lt;String&gt; getInternalBaseUrl() {
-<span class="fc" id="L74">        return Optional.ofNullable(configMap.getData().get(NameUtils.INTERNAL_URL_KEY));</span>
+<span class="nc" id="L74">        return Optional.ofNullable(configMap.getData().get(NameUtils.INTERNAL_URL_KEY));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

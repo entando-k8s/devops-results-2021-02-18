@@ -28,25 +28,25 @@ public interface IngressingDeployableBase&lt;T extends ExposedDeploymentResult&l
     @Override
     @SuppressWarnings(&quot;unchecked&quot;)
     default Optional&lt;String&gt; getFileUploadLimit() {
-<span class="fc" id="L31">        EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt; r =</span>
-<span class="fc" id="L32">                (EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt;) getCustomResource();</span>
-<span class="fc" id="L33">        return r.getSpec().getResourceRequirements().flatMap(EntandoResourceRequirements::getFileUploadLimit);</span>
+<span class="nc" id="L31">        EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt; r =</span>
+<span class="nc" id="L32">                (EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt;) getCustomResource();</span>
+<span class="nc" id="L33">        return r.getSpec().getResourceRequirements().flatMap(EntandoResourceRequirements::getFileUploadLimit);</span>
     }
 
     @Override
     @SuppressWarnings(&quot;unchecked&quot;)
     default Optional&lt;String&gt; getTlsSecretName() {
-<span class="fc" id="L39">        EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt; r =</span>
-<span class="fc" id="L40">                (EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt;) getCustomResource();</span>
-<span class="fc" id="L41">        return r.getSpec().getTlsSecretName();</span>
+<span class="nc" id="L39">        EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt; r =</span>
+<span class="nc" id="L40">                (EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt;) getCustomResource();</span>
+<span class="nc" id="L41">        return r.getSpec().getTlsSecretName();</span>
     }
 
     @Override
     @SuppressWarnings(&quot;unchecked&quot;)
     default Optional&lt;String&gt; getIngressHostName() {
-<span class="fc" id="L47">        EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt; r =</span>
-<span class="fc" id="L48">                (EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt;) getCustomResource();</span>
-<span class="fc" id="L49">        return r.getSpec().getIngressHostName();</span>
+<span class="nc" id="L47">        EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt; r =</span>
+<span class="nc" id="L48">                (EntandoBaseCustomResource&lt;? extends EntandoIngressingDeploymentSpec&gt;) getCustomResource();</span>
+<span class="nc" id="L49">        return r.getSpec().getIngressHostName();</span>
     }
 
 }

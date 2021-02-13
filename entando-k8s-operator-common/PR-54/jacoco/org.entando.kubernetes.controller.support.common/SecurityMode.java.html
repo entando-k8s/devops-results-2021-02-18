@@ -18,19 +18,19 @@ package org.entando.kubernetes.controller.support.common;
 
 import java.util.Locale;
 
-<span class="fc" id="L21">public enum SecurityMode {</span>
-<span class="fc" id="L22">    STRICT, LENIENT;</span>
+<span class="nc" id="L21">public enum SecurityMode {</span>
+<span class="nc" id="L22">    STRICT, LENIENT;</span>
 
     public static SecurityMode resolve(String securityMode) {
         try {
-<span class="fc" id="L26">            return valueOf(securityMode.toUpperCase(Locale.getDefault()));</span>
-<span class="fc" id="L27">        } catch (IllegalArgumentException e) {</span>
-<span class="fc" id="L28">            return null;</span>
+<span class="nc" id="L26">            return valueOf(securityMode.toUpperCase(Locale.getDefault()));</span>
+<span class="nc" id="L27">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L28">            return null;</span>
         }
     }
 
     public String getName() {
-<span class="fc" id="L33">        return name().toLowerCase(Locale.ROOT);</span>
+<span class="nc" id="L33">        return name().toLowerCase(Locale.ROOT);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

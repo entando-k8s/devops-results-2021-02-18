@@ -78,8 +78,8 @@ public class KubernetesRestInterceptor implements InvocationHandler {
 <span class="fc bfc" id="L78" title="All 4 branches covered.">                    .filter(o -&gt; o instanceof HasMetadata &amp;&amp; o.getClass().getName().startsWith(&quot;io.fabric8.kubernetes&quot;))</span>
 <span class="fc" id="L79">                    .map(HasMetadata.class::cast).findFirst();</span>
 <span class="fc bfc" id="L80" title="All 2 branches covered.">            if (second.isPresent()) {</span>
-<span class="fc bfc" id="L81" title="All 2 branches covered.">                if (first.isPresent()) {</span>
-<span class="fc" id="L82">                    message.append(&quot; and&quot;);</span>
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">                if (first.isPresent()) {</span>
+<span class="nc" id="L82">                    message.append(&quot; and&quot;);</span>
                 }
 <span class="fc" id="L84">                message.append(format(second.get()));</span>
             }

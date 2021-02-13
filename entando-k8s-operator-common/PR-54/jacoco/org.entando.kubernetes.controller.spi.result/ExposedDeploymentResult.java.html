@@ -28,30 +28,30 @@ public class ExposedDeploymentResult&lt;T extends ExposedDeploymentResult&lt;T&g
     private final Pod pod;
 
     public ExposedDeploymentResult(Pod pod, Service service, Ingress ingress) {
-<span class="fc" id="L31">        super(service, ingress);</span>
-<span class="fc" id="L32">        this.pod = pod;</span>
-<span class="fc" id="L33">    }</span>
+<span class="nc" id="L31">        super(service, ingress);</span>
+<span class="nc" id="L32">        this.pod = pod;</span>
+<span class="nc" id="L33">    }</span>
 
     @Override
     public T withStatus(AbstractServerStatus status) {
-<span class="fc" id="L37">        this.status = status;</span>
-<span class="fc" id="L38">        return thisAsT();</span>
+<span class="nc" id="L37">        this.status = status;</span>
+<span class="nc" id="L38">        return thisAsT();</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     private T thisAsT() {
-<span class="fc" id="L43">        return (T) this;</span>
+<span class="nc" id="L43">        return (T) this;</span>
     }
 
     @Override
     public AbstractServerStatus getStatus() {
-<span class="fc" id="L48">        return status;</span>
+<span class="nc" id="L48">        return status;</span>
     }
 
     @Override
     @SerializeByReference
     public Pod getPod() {
-<span class="fc" id="L54">        return pod;</span>
+<span class="nc" id="L54">        return pod;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

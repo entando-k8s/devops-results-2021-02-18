@@ -40,10 +40,10 @@ public class NameUtils {
      * Useful for labelvalues and container names.
      */
     public static String shortenTo63Chars(String s) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (s.length() &gt; 63) {</span>
-<span class="fc" id="L44">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (s.length() &gt; 63) {</span>
+<span class="nc" id="L44">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
         }
-<span class="fc" id="L46">        return s;</span>
+<span class="nc" id="L46">        return s;</span>
     }
 
     public static String randomNumeric(int size) {
@@ -73,15 +73,15 @@ public class NameUtils {
     }
 
     public static String upperSnakeCaseOf(String camelCase) {
-<span class="fc" id="L76">        return camelCaseToDelimited(camelCase, &quot;_&quot;).toUpperCase(Locale.ROOT);</span>
+<span class="nc" id="L76">        return camelCaseToDelimited(camelCase, &quot;_&quot;).toUpperCase(Locale.ROOT);</span>
     }
 
     public static String databaseCompliantName(EntandoCustomResource resource, String nameQualifier, DbmsVendorConfig dbmsVendorConfig) {
-<span class="fc" id="L80">        String databaseName = NameUtils.snakeCaseOf(resource.getMetadata().getName()) + &quot;_&quot; + nameQualifier;</span>
-<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (databaseName.length() &gt; dbmsVendorConfig.getMaxNameLength()) {</span>
-<span class="fc" id="L82">            databaseName = databaseName.substring(0, dbmsVendorConfig.getMaxNameLength() - 3) + randomNumeric(3);</span>
+<span class="nc" id="L80">        String databaseName = NameUtils.snakeCaseOf(resource.getMetadata().getName()) + &quot;_&quot; + nameQualifier;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (databaseName.length() &gt; dbmsVendorConfig.getMaxNameLength()) {</span>
+<span class="nc" id="L82">            databaseName = databaseName.substring(0, dbmsVendorConfig.getMaxNameLength() - 3) + randomNumeric(3);</span>
         }
-<span class="fc" id="L84">        return databaseName;</span>
+<span class="nc" id="L84">        return databaseName;</span>
 
     }
 

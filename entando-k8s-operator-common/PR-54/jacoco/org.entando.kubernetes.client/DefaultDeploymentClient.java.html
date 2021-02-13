@@ -36,58 +36,71 @@ import org.entando.kubernetes.model.EntandoCustomResource;
 public class DefaultDeploymentClient implements DeploymentClient, PodWaitingClient {
 
     private final KubernetesClient client;
-<span class="fc" id="L39">    private BlockingQueue&lt;PodWatcher&gt; podWatcherHolder = new ArrayBlockingQueue&lt;&gt;(15);</span>
+<span class="nc" id="L39">    private BlockingQueue&lt;PodWatcher&gt; podWatcherHolder = new ArrayBlockingQueue&lt;&gt;(15);</span>
 
-<span class="fc" id="L41">    public DefaultDeploymentClient(KubernetesClient client) {</span>
-<span class="fc" id="L42">        this.client = client;</span>
-<span class="fc" id="L43">    }</span>
+<span class="nc" id="L41">    public DefaultDeploymentClient(KubernetesClient client) {</span>
+<span class="nc" id="L42">        this.client = client;</span>
+<span class="nc" id="L43">    }</span>
 
     @Override
     public boolean supportsStartupProbes() {
-<span class="fc" id="L47">        final VersionInfo version = client.getVersion();</span>
+<span class="nc" id="L47">        final VersionInfo version = client.getVersion();</span>
         //Is null when using the MockServer. Return true because that is the most common scenario we want to test
-<span class="pc bpc" id="L49" title="3 of 4 branches missed.">        return version == null || Integer.parseInt(version.getMinor()) &gt;= 16;</span>
+<span class="nc bnc" id="L49" title="All 4 branches missed.">        return version == null || parseVersion(version) &gt;= 16;</span>
+    }
+
+    private int parseVersion(VersionInfo version) {
+<span class="nc" id="L53">        StringBuilder sb = new StringBuilder();</span>
+        //Some versions have trailing non-digit characters
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (char current : version.getMinor().toCharArray()) {</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (Character.isDigit(current)) {</span>
+<span class="nc" id="L57">                sb.append(current);</span>
+            } else {
+                break;
+            }
+        }
+<span class="nc" id="L62">        return Integer.parseInt(sb.toString());</span>
     }
 
     @Override
     public Deployment createOrPatchDeployment(EntandoCustomResource peerInNamespace,
             Deployment deployment) {
-<span class="fc" id="L55">        Deployment existingDeployment = getDeploymenResourceFor(peerInNamespace, deployment).get();</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (existingDeployment == null) {</span>
-<span class="fc" id="L57">            return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).create(deployment);</span>
+<span class="nc" id="L68">        Deployment existingDeployment = getDeploymenResourceFor(peerInNamespace, deployment).get();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (existingDeployment == null) {</span>
+<span class="nc" id="L70">            return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).create(deployment);</span>
         } else {
             //Don't wait because watching the pods until they have been removed is safer than to Fabric8's polling
-<span class="fc" id="L60">            getDeploymenResourceFor(peerInNamespace, deployment).scale(0, false);</span>
-<span class="fc" id="L61">            FilterWatchListDeletable&lt;Pod, PodList, Boolean, Watch, Watcher&lt;Pod&gt;&gt; podResource = client.pods()</span>
-<span class="fc" id="L62">                    .inNamespace(existingDeployment.getMetadata().getNamespace())</span>
-<span class="fc" id="L63">                    .withLabelSelector(existingDeployment.getSpec().getSelector());</span>
-<span class="pc bpc" id="L64" title="1 of 2 branches missed.">            if (!podResource.list().getItems().isEmpty()) {</span>
-<span class="fc" id="L65">                watchPod(pod -&gt; podResource.list().getItems().isEmpty(), EntandoOperatorConfig.getPodShutdownTimeoutSeconds(),</span>
+<span class="nc" id="L73">            getDeploymenResourceFor(peerInNamespace, deployment).scale(0, false);</span>
+<span class="nc" id="L74">            FilterWatchListDeletable&lt;Pod, PodList, Boolean, Watch, Watcher&lt;Pod&gt;&gt; podResource = client.pods()</span>
+<span class="nc" id="L75">                    .inNamespace(existingDeployment.getMetadata().getNamespace())</span>
+<span class="nc" id="L76">                    .withLabelSelector(existingDeployment.getSpec().getSelector());</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            if (!podResource.list().getItems().isEmpty()) {</span>
+<span class="nc" id="L78">                watchPod(pod -&gt; podResource.list().getItems().isEmpty(), EntandoOperatorConfig.getPodShutdownTimeoutSeconds(),</span>
                         podResource);
             }
             //Create the deployment with the correct replicas now. We don't support 0 because we will be waiting for the pod
-<span class="fc" id="L69">            return getDeploymenResourceFor(peerInNamespace, deployment).patch(deployment);</span>
+<span class="nc" id="L82">            return getDeploymenResourceFor(peerInNamespace, deployment).patch(deployment);</span>
         }
     }
 
     private RollableScalableResource&lt;Deployment, DoneableDeployment&gt; getDeploymenResourceFor(
             EntandoCustomResource peerInNamespace,
             Deployment deployment) {
-<span class="fc" id="L76">        return client.apps()</span>
-<span class="fc" id="L77">                .deployments()</span>
-<span class="fc" id="L78">                .inNamespace(peerInNamespace.getMetadata().getNamespace())</span>
-<span class="fc" id="L79">                .withName(deployment.getMetadata().getName());</span>
+<span class="nc" id="L89">        return client.apps()</span>
+<span class="nc" id="L90">                .deployments()</span>
+<span class="nc" id="L91">                .inNamespace(peerInNamespace.getMetadata().getNamespace())</span>
+<span class="nc" id="L92">                .withName(deployment.getMetadata().getName());</span>
     }
 
     @Override
     public Deployment loadDeployment(EntandoCustomResource peerInNamespace, String name) {
-<span class="fc" id="L84">        return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name)</span>
-<span class="fc" id="L85">                .get();</span>
+<span class="nc" id="L97">        return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name)</span>
+<span class="nc" id="L98">                .get();</span>
     }
 
     @Override
     public BlockingQueue&lt;PodWatcher&gt; getPodWatcherQueue() {
-<span class="nc" id="L90">        return podWatcherHolder;</span>
+<span class="nc" id="L103">        return podWatcherHolder;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

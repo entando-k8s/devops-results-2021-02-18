@@ -32,52 +32,52 @@ import org.entando.kubernetes.model.externaldatabase.EntandoDatabaseService;
 public class ExternalDatabaseDeployment extends AbstractServiceResult implements DatabaseServiceResult {
 
     public static final String NAME_QUALIFIER = NameUtils.DB_NAME_QUALIFIER;
-<span class="fc" id="L35">    public static final String DATABASE_SERVICE_SUFFIX = format(&quot;-%s-%s&quot;, NameUtils.DB_NAME_QUALIFIER, NameUtils.DEFAULT_SERVICE_SUFFIX);</span>
+<span class="nc" id="L35">    public static final String DATABASE_SERVICE_SUFFIX = format(&quot;-%s-%s&quot;, NameUtils.DB_NAME_QUALIFIER, NameUtils.DEFAULT_SERVICE_SUFFIX);</span>
 
     protected final EntandoDatabaseService externalDatabase;
 
     public ExternalDatabaseDeployment(Service service, EntandoDatabaseService externalDatabase) {
-<span class="fc" id="L40">        super(service);</span>
-<span class="fc" id="L41">        this.externalDatabase = externalDatabase;</span>
-<span class="fc" id="L42">    }</span>
+<span class="nc" id="L40">        super(service);</span>
+<span class="nc" id="L41">        this.externalDatabase = externalDatabase;</span>
+<span class="nc" id="L42">    }</span>
 
     public static String adminSecretName(EntandoCustomResource resource, String nameQualifier) {
-<span class="fc" id="L45">        return format(&quot;%s-%s-admin-secret&quot;, resource.getMetadata().getName(), nameQualifier);</span>
+<span class="nc" id="L45">        return format(&quot;%s-%s-admin-secret&quot;, resource.getMetadata().getName(), nameQualifier);</span>
     }
 
     public static String serviceName(EntandoDatabaseService externalDatabase) {
-<span class="fc" id="L49">        return externalDatabase.getMetadata().getName() + DATABASE_SERVICE_SUFFIX;</span>
+<span class="nc" id="L49">        return externalDatabase.getMetadata().getName() + DATABASE_SERVICE_SUFFIX;</span>
     }
 
     public EntandoDatabaseService getEntandoDatabaseService() {
-<span class="fc" id="L53">        return externalDatabase;</span>
+<span class="nc" id="L53">        return externalDatabase;</span>
     }
 
     @Override
     public String getDatabaseSecretName() {
-<span class="fc" id="L58">        return getEntandoDatabaseService().getSpec().getSecretName().orElse(adminSecretName(externalDatabase, NAME_QUALIFIER));</span>
+<span class="nc" id="L58">        return getEntandoDatabaseService().getSpec().getSecretName().orElse(adminSecretName(externalDatabase, NAME_QUALIFIER));</span>
     }
 
     @Override
     public Map&lt;String, String&gt; getJdbcParameters() {
-<span class="fc" id="L63">        return getEntandoDatabaseService().getSpec().getJdbcParameters();</span>
+<span class="nc" id="L63">        return getEntandoDatabaseService().getSpec().getJdbcParameters();</span>
     }
 
     @Override
     public String getDatabaseName() {
-<span class="fc" id="L68">        return getEntandoDatabaseService().getSpec().getDatabaseName()</span>
-<span class="fc" id="L69">                .orElse(NameUtils.databaseCompliantName(externalDatabase, NAME_QUALIFIER, getVendor().getVendorConfig()));</span>
+<span class="nc" id="L68">        return getEntandoDatabaseService().getSpec().getDatabaseName()</span>
+<span class="nc" id="L69">                .orElse(NameUtils.databaseCompliantName(externalDatabase, NAME_QUALIFIER, getVendor().getVendorConfig()));</span>
     }
 
     @Override
     public DbmsDockerVendorStrategy getVendor() {
-<span class="fc" id="L74">        return DbmsDockerVendorStrategy</span>
-<span class="fc" id="L75">                .forVendor(getEntandoDatabaseService().getSpec().getDbms(), EntandoOperatorSpiConfig.getComplianceMode());</span>
+<span class="nc" id="L74">        return DbmsDockerVendorStrategy</span>
+<span class="nc" id="L75">                .forVendor(getEntandoDatabaseService().getSpec().getDbms(), EntandoOperatorSpiConfig.getComplianceMode());</span>
     }
 
     @Override
     public Optional&lt;String&gt; getTablespace() {
-<span class="fc" id="L80">        return Optional.empty();</span>
+<span class="nc" id="L80">        return Optional.empty();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

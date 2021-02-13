@@ -22,24 +22,24 @@ public class ResourceCalculator extends LimitAndRequestCalculator {
 
     private final DeployableContainer container;
 
-<span class="fc" id="L25">    public ResourceCalculator(DeployableContainer container) {</span>
-<span class="fc" id="L26">        this.container = container;</span>
-<span class="fc" id="L27">    }</span>
+<span class="nc" id="L25">    public ResourceCalculator(DeployableContainer container) {</span>
+<span class="nc" id="L26">        this.container = container;</span>
+<span class="nc" id="L27">    }</span>
 
     public String getMemoryLimit() {
-<span class="fc" id="L30">        return container.getMemoryLimitMebibytes() + &quot;Mi&quot;;</span>
+<span class="nc" id="L30">        return container.getMemoryLimitMebibytes() + &quot;Mi&quot;;</span>
     }
 
     public String getCpuLimit() {
-<span class="fc" id="L34">        return container.getCpuLimitMillicores() + &quot;m&quot;;</span>
+<span class="nc" id="L34">        return container.getCpuLimitMillicores() + &quot;m&quot;;</span>
     }
 
     public String getMemoryRequest() {
-<span class="fc" id="L38">        return applyRequestRatio(getMemoryLimit());</span>
+<span class="nc" id="L38">        return applyRequestRatio(getMemoryLimit());</span>
     }
 
     public String getCpuRequest() {
-<span class="fc" id="L42">        return applyRequestRatio(getCpuLimit());</span>
+<span class="nc" id="L42">        return applyRequestRatio(getCpuLimit());</span>
     }
 
 }
