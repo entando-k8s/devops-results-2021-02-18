@@ -32,7 +32,7 @@ import org.entando.kubernetes.model.externaldatabase.EntandoDatabaseService;
 public class ExternalDatabaseDeployment extends AbstractServiceResult implements DatabaseServiceResult {
 
     public static final String NAME_QUALIFIER = NameUtils.DB_NAME_QUALIFIER;
-<span class="nc" id="L35">    public static final String DATABASE_SERVICE_SUFFIX = format(&quot;-%s-%s&quot;, NameUtils.DB_NAME_QUALIFIER, NameUtils.DEFAULT_SERVICE_SUFFIX);</span>
+<span class="fc" id="L35">    public static final String DATABASE_SERVICE_SUFFIX = format(&quot;-%s-%s&quot;, NameUtils.DB_NAME_QUALIFIER, NameUtils.DEFAULT_SERVICE_SUFFIX);</span>
 
     protected final EntandoDatabaseService externalDatabase;
 
@@ -42,7 +42,7 @@ public class ExternalDatabaseDeployment extends AbstractServiceResult implements
 <span class="nc" id="L42">    }</span>
 
     public static String adminSecretName(EntandoCustomResource resource, String nameQualifier) {
-<span class="nc" id="L45">        return format(&quot;%s-%s-admin-secret&quot;, resource.getMetadata().getName(), nameQualifier);</span>
+<span class="fc" id="L45">        return format(&quot;%s-%s-admin-secret&quot;, resource.getMetadata().getName(), nameQualifier);</span>
     }
 
     public static String serviceName(EntandoDatabaseService externalDatabase) {

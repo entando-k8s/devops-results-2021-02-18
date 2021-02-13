@@ -22,23 +22,23 @@ public abstract class AbstractServiceResult implements ServiceResult {
 
     protected final Service service;
 
-<span class="nc" id="L25">    protected AbstractServiceResult(Service service) {</span>
-<span class="nc" id="L26">        this.service = service;</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L25">    protected AbstractServiceResult(Service service) {</span>
+<span class="fc" id="L26">        this.service = service;</span>
+<span class="fc" id="L27">    }</span>
 
     @Override
     public String getInternalServiceHostname() {
-<span class="nc" id="L31">        return service.getMetadata().getName() + &quot;.&quot; + service.getMetadata().getNamespace() + &quot;.svc.cluster.local&quot;;</span>
+<span class="fc" id="L31">        return service.getMetadata().getName() + &quot;.&quot; + service.getMetadata().getNamespace() + &quot;.svc.cluster.local&quot;;</span>
     }
 
     @Override
     public String getPort() {
-<span class="nc" id="L36">        return service.getSpec().getPorts().get(0).getPort().toString();</span>
+<span class="fc" id="L36">        return service.getSpec().getPorts().get(0).getPort().toString();</span>
     }
 
     @Override
     public Service getService() {
-<span class="nc" id="L41">        return service;</span>
+<span class="fc" id="L41">        return service;</span>
     }
 
 }

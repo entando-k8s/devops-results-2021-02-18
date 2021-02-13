@@ -40,28 +40,28 @@ public class NameUtils {
      * Useful for labelvalues and container names.
      */
     public static String shortenTo63Chars(String s) {
-<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (s.length() &gt; 63) {</span>
-<span class="nc" id="L44">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (s.length() &gt; 63) {</span>
+<span class="fc" id="L44">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
         }
-<span class="nc" id="L46">        return s;</span>
+<span class="fc" id="L46">        return s;</span>
     }
 
     public static String randomNumeric(int size) {
         String suffix;
         do {
             //+1 to avoid Long.MIN_VALUE that stays negative after Math.abs
-<span class="nc" id="L53">            suffix = String.valueOf(Math.abs(SECURE_RANDOM.nextLong() + 1));</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        } while (suffix.length() &lt; size);</span>
-<span class="nc" id="L55">        return suffix.substring(0, size);</span>
+<span class="fc" id="L53">            suffix = String.valueOf(Math.abs(SECURE_RANDOM.nextLong() + 1));</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        } while (suffix.length() &lt; size);</span>
+<span class="fc" id="L55">        return suffix.substring(0, size);</span>
     }
 
     public static String camelCaseToDashDelimited(String in) {
-<span class="nc" id="L59">        final String replacement = &quot;-&quot;;</span>
-<span class="nc" id="L60">        return camelCaseToDelimited(in, replacement).toLowerCase(Locale.ROOT);</span>
+<span class="fc" id="L59">        final String replacement = &quot;-&quot;;</span>
+<span class="fc" id="L60">        return camelCaseToDelimited(in, replacement).toLowerCase(Locale.ROOT);</span>
     }
 
     private static String camelCaseToDelimited(String in, String delimiter) {
-<span class="nc" id="L64">        return pattern.matcher(Introspector.decapitalize(in)).replaceAll(delimiter);</span>
+<span class="fc" id="L64">        return pattern.matcher(Introspector.decapitalize(in)).replaceAll(delimiter);</span>
     }
 
     public static String snakeCaseOf(String in) {
@@ -69,7 +69,7 @@ public class NameUtils {
     }
 
     public static String controllerNameOf(EntandoCustomResource customResource) {
-<span class="nc" id="L72">        return &quot;entando-k8s-&quot; + camelCaseToDashDelimited(customResource.getKind().substring(&quot;Entando&quot;.length())) + &quot;-controller&quot;;</span>
+<span class="fc" id="L72">        return &quot;entando-k8s-&quot; + camelCaseToDashDelimited(customResource.getKind().substring(&quot;Entando&quot;.length())) + &quot;-controller&quot;;</span>
     }
 
     public static String upperSnakeCaseOf(String camelCase) {
@@ -77,11 +77,11 @@ public class NameUtils {
     }
 
     public static String databaseCompliantName(EntandoCustomResource resource, String nameQualifier, DbmsVendorConfig dbmsVendorConfig) {
-<span class="nc" id="L80">        String databaseName = NameUtils.snakeCaseOf(resource.getMetadata().getName()) + &quot;_&quot; + nameQualifier;</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (databaseName.length() &gt; dbmsVendorConfig.getMaxNameLength()) {</span>
-<span class="nc" id="L82">            databaseName = databaseName.substring(0, dbmsVendorConfig.getMaxNameLength() - 3) + randomNumeric(3);</span>
+<span class="fc" id="L80">        String databaseName = NameUtils.snakeCaseOf(resource.getMetadata().getName()) + &quot;_&quot; + nameQualifier;</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (databaseName.length() &gt; dbmsVendorConfig.getMaxNameLength()) {</span>
+<span class="fc" id="L82">            databaseName = databaseName.substring(0, dbmsVendorConfig.getMaxNameLength() - 3) + randomNumeric(3);</span>
         }
-<span class="nc" id="L84">        return databaseName;</span>
+<span class="fc" id="L84">        return databaseName;</span>
 
     }
 

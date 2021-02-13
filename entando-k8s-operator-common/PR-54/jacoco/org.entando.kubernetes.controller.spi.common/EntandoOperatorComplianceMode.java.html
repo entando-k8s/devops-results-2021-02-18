@@ -27,7 +27,7 @@ import java.util.Locale;
 
     public static EntandoOperatorComplianceMode resolve(String s) {
         try {
-<span class="nc" id="L30">            return valueOf(s.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;));</span>
+<span class="fc" id="L30">            return valueOf(s.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;));</span>
 <span class="nc" id="L31">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L32">            return null;</span>
         }

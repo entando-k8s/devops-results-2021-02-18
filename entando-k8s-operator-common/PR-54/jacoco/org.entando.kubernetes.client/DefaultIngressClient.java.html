@@ -31,9 +31,9 @@ public class DefaultIngressClient implements IngressClient {
 
     private final KubernetesClient client;
 
-<span class="nc" id="L34">    public DefaultIngressClient(KubernetesClient client) {</span>
-<span class="nc" id="L35">        this.client = client;</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L34">    public DefaultIngressClient(KubernetesClient client) {</span>
+<span class="fc" id="L35">        this.client = client;</span>
+<span class="fc" id="L36">    }</span>
 
     public static String resolveMasterHostname(KubernetesClient client) {
 <span class="fc" id="L39">        String host = client.settings().getMasterUrl().getHost();</span>
@@ -75,12 +75,12 @@ public class DefaultIngressClient implements IngressClient {
 
     @Override
     public String getMasterUrlHost() {
-<span class="nc" id="L78">        return resolveMasterHostname(this.client);</span>
+<span class="fc" id="L78">        return resolveMasterHostname(this.client);</span>
     }
 
     @Override
     public Ingress createIngress(EntandoCustomResource peerInNamespace, Ingress ingress) {
-<span class="nc" id="L83">        return client.extensions().ingresses().inNamespace(peerInNamespace.getMetadata().getNamespace()).create(ingress);</span>
+<span class="fc" id="L83">        return client.extensions().ingresses().inNamespace(peerInNamespace.getMetadata().getNamespace()).create(ingress);</span>
     }
 
     @Override
@@ -90,7 +90,7 @@ public class DefaultIngressClient implements IngressClient {
 
     @Override
     public Ingress loadIngress(String namespace, String name) {
-<span class="nc" id="L93">        return client.extensions().ingresses().inNamespace(namespace).withName(name).get();</span>
+<span class="fc" id="L93">        return client.extensions().ingresses().inNamespace(namespace).withName(name).get();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

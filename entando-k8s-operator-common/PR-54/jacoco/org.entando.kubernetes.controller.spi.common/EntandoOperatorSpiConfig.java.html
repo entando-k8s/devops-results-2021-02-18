@@ -27,13 +27,13 @@ public class EntandoOperatorSpiConfig {
     }
 
     public static EntandoOperatorComplianceMode getComplianceMode() {
-<span class="nc" id="L30">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE)</span>
-<span class="nc" id="L31">                .map(EntandoOperatorComplianceMode::resolve).orElse(EntandoOperatorComplianceMode.COMMUNITY);</span>
+<span class="fc" id="L30">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE)</span>
+<span class="fc" id="L31">                .map(EntandoOperatorComplianceMode::resolve).orElse(EntandoOperatorComplianceMode.COMMUNITY);</span>
     }
 
     public static boolean forceExternalAccessToKeycloak() {
-<span class="nc" id="L35">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_FORCE_EXTERNAL_ACCESS_TO_KEYCLOAK)</span>
-<span class="nc" id="L36">                .map(Boolean::valueOf).orElse(false);</span>
+<span class="fc" id="L35">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_FORCE_EXTERNAL_ACCESS_TO_KEYCLOAK)</span>
+<span class="fc" id="L36">                .map(Boolean::valueOf).orElse(false);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

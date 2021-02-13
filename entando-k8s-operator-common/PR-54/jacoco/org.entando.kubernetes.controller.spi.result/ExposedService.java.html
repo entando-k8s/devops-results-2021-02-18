@@ -30,9 +30,9 @@ public class ExposedService extends AbstractServiceResult {
     protected final Ingress ingress;
 
     public ExposedService(Service service, Ingress ingress) {
-<span class="nc" id="L33">        super(service);</span>
-<span class="nc" id="L34">        this.ingress = ingress;</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L33">        super(service);</span>
+<span class="fc" id="L34">        this.ingress = ingress;</span>
+<span class="fc" id="L35">    }</span>
 
     public String getExternalBaseUrlForPort(String portName) {
 <span class="nc" id="L38">        return getExternalHostUrl() + getHttpIngressPathForPort(portName).getPath();</span>

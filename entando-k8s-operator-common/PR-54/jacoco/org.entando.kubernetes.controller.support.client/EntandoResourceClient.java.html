@@ -66,12 +66,12 @@ public interface EntandoResourceClient {
 
     default Optional&lt;ResourceReference&gt; determineKeycloakToUse(EntandoCustomResource resource,
             KeycloakPreference keycloakPreference) {
-<span class="nc" id="L69">        ResourceReference resourceReference = null;</span>
-<span class="nc" id="L70">        Optional&lt;KeycloakToUse&gt; keycloakToUse = keycloakPreference.getPreferredKeycloakToUse();</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (keycloakToUse.isPresent()) {</span>
-<span class="nc" id="L72">            resourceReference = new ResourceReference(</span>
-<span class="nc" id="L73">                    keycloakToUse.get().getNamespace().orElse(null),</span>
-<span class="nc" id="L74">                    keycloakToUse.get().getName());</span>
+<span class="fc" id="L69">        ResourceReference resourceReference = null;</span>
+<span class="fc" id="L70">        Optional&lt;KeycloakToUse&gt; keycloakToUse = keycloakPreference.getPreferredKeycloakToUse();</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">        if (keycloakToUse.isPresent()) {</span>
+<span class="fc" id="L72">            resourceReference = new ResourceReference(</span>
+<span class="fc" id="L73">                    keycloakToUse.get().getNamespace().orElse(null),</span>
+<span class="fc" id="L74">                    keycloakToUse.get().getName());</span>
         } else {
 <span class="nc" id="L76">            Optional&lt;EntandoKeycloakServer&gt; keycloak = findKeycloakInNamespace(resource);</span>
 <span class="nc bnc" id="L77" title="All 2 branches missed.">            if (keycloak.isPresent()) {</span>
@@ -86,7 +86,7 @@ public interface EntandoResourceClient {
 
             }
         }
-<span class="nc" id="L89">        return refineResourceReference(resourceReference, resource.getMetadata());</span>
+<span class="fc" id="L89">        return refineResourceReference(resourceReference, resource.getMetadata());</span>
     }
 
     default &lt;T extends ClusterInfrastructureAwareSpec&gt; Optional&lt;ResourceReference&gt; determineClusterInfrastructureToUse(
@@ -118,9 +118,9 @@ public interface EntandoResourceClient {
     Optional&lt;EntandoClusterInfrastructure&gt; findClusterInfrastructureInNamespace(EntandoCustomResource resource);
 
     default Optional&lt;ResourceReference&gt; refineResourceReference(ResourceReference resourceReference, ObjectMeta metadata) {
-<span class="nc bnc" id="L121" title="All 2 branches missed.">        if (resourceReference.getName() == null) {</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">        if (resourceReference.getName() == null) {</span>
             //no valid resource reference in any config anywhere. Return empty
-<span class="nc" id="L123">            return Optional.empty();</span>
+<span class="fc" id="L123">            return Optional.empty();</span>
         } else {
             //Default an empty namespace to the resource's own namespace
 <span class="nc" id="L126">            return Optional.of(new ResourceReference(</span>
