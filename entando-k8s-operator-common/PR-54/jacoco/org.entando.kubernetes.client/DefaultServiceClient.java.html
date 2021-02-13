@@ -21,6 +21,7 @@ import static java.util.Optional.ofNullable;
 import io.fabric8.kubernetes.api.model.Endpoints;
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.KubernetesClientException;
 import org.entando.kubernetes.controller.support.client.ServiceClient;
 import org.entando.kubernetes.model.EntandoCustomResource;
 
@@ -28,32 +29,39 @@ public class DefaultServiceClient implements ServiceClient {
 
     private final KubernetesClient client;
 
-<span class="fc" id="L31">    public DefaultServiceClient(KubernetesClient client) {</span>
-<span class="fc" id="L32">        this.client = client;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L32">    public DefaultServiceClient(KubernetesClient client) {</span>
+<span class="fc" id="L33">        this.client = client;</span>
+<span class="fc" id="L34">    }</span>
 
     @Override
     public Endpoints createOrReplaceEndpoints(EntandoCustomResource peerInNamespace, Endpoints endpoints) {
         //TODO remove the namespace overriding once we create delegate services from the correct context (the App)
-<span class="fc" id="L38">        String namespace = ofNullable(endpoints.getMetadata().getNamespace())</span>
-<span class="fc" id="L39">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).get() != null) {</span>
-<span class="fc" id="L41">            client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).delete();</span>
+<span class="fc" id="L39">        String namespace = ofNullable(endpoints.getMetadata().getNamespace())</span>
+<span class="fc" id="L40">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).get() != null) {</span>
+<span class="fc" id="L42">            client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).delete();</span>
         }
-<span class="fc" id="L43">        endpoints.getMetadata().setResourceVersion(null);</span>
-<span class="fc" id="L44">        return client.endpoints().inNamespace(namespace).create(endpoints);</span>
+<span class="fc" id="L44">        endpoints.getMetadata().setResourceVersion(null);</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        for (int i = 0; i &lt; 10; i++) {</span>
+            try {
+<span class="fc" id="L47">                return client.endpoints().inNamespace(namespace).create(endpoints);</span>
+<span class="nc" id="L48">            } catch (KubernetesClientException e) {</span>
+                //Waiting for K8S to delete it.
+            }
+        }
+<span class="nc" id="L52">        throw new IllegalStateException(&quot;Could not create Endpoints.&quot;);</span>
     }
 
     @Override
     public Service loadService(EntandoCustomResource peerInNamespace, String name) {
-<span class="fc" id="L49">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+<span class="fc" id="L57">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
     }
 
     @Override
     public Service createOrReplaceService(EntandoCustomResource peerInNamespace, Service service) {
-<span class="fc" id="L54">        String namespace = ofNullable(service.getMetadata().getNamespace())</span>
-<span class="fc" id="L55">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
-<span class="fc" id="L56">        return client.services().inNamespace(namespace).createOrReplace(service);</span>
+<span class="fc" id="L62">        String namespace = ofNullable(service.getMetadata().getNamespace())</span>
+<span class="fc" id="L63">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
+<span class="fc" id="L64">        return client.services().inNamespace(namespace).createOrReplace(service);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

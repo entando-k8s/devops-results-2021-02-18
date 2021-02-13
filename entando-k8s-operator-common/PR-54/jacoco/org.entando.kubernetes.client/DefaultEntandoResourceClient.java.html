@@ -101,9 +101,9 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
         }
         //The configmap comes from the deployment namespace, unless it is a pre-configured keycloak
 <span class="fc" id="L103">        ConfigMap configMap = this.client.configMaps().inNamespace(configMapNamespace).withName(configMapName).fromServer().get();</span>
-<span class="pc bpc" id="L104" title="1 of 2 branches missed.">        if (configMap == null) {</span>
-<span class="nc" id="L105">            throw new IllegalStateException(</span>
-<span class="nc" id="L106">                    format(&quot;Could not find the Keycloak ConfigMap %s in namespace %s&quot;, configMapName, configMapNamespace));</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if (configMap == null) {</span>
+<span class="fc" id="L105">            throw new IllegalStateException(</span>
+<span class="fc" id="L106">                    format(&quot;Could not find the Keycloak ConfigMap %s in namespace %s&quot;, configMapName, configMapNamespace));</span>
         }
 <span class="fc" id="L108">        return new KeycloakConnectionConfig(secret, configMap);</span>
 
