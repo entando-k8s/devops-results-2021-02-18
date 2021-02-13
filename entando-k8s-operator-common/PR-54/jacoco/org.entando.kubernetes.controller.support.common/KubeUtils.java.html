@@ -47,13 +47,13 @@ public final class KubeUtils {
     public static final String JOB_KIND_DB_PREPARATION = &quot;db-preparation-job&quot;;
     public static final String DEPLOYMENT_LABEL_NAME = &quot;deployment&quot;;
 
-<span class="fc" id="L50">    private static final Logger LOGGER = Logger.getLogger(KubeUtils.class.getName());</span>
+<span class="nc" id="L50">    private static final Logger LOGGER = Logger.getLogger(KubeUtils.class.getName());</span>
 
     private KubeUtils() {
     }
 
     public static String getKindOf(Class&lt;? extends EntandoCustomResource&gt; c) {
-<span class="fc" id="L56">        return c.getSimpleName();</span>
+<span class="nc" id="L56">        return c.getSimpleName();</span>
     }
 
     public static void ready(String name) {

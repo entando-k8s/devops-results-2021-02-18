@@ -29,9 +29,9 @@ public class DefaultServiceClient implements ServiceClient {
 
     private final KubernetesClient client;
 
-<span class="fc" id="L32">    public DefaultServiceClient(KubernetesClient client) {</span>
-<span class="fc" id="L33">        this.client = client;</span>
-<span class="fc" id="L34">    }</span>
+<span class="nc" id="L32">    public DefaultServiceClient(KubernetesClient client) {</span>
+<span class="nc" id="L33">        this.client = client;</span>
+<span class="nc" id="L34">    }</span>
 
     @Override
     public Endpoints createOrReplaceEndpoints(EntandoCustomResource peerInNamespace, Endpoints endpoints) {
@@ -54,14 +54,14 @@ public class DefaultServiceClient implements ServiceClient {
 
     @Override
     public Service loadService(EntandoCustomResource peerInNamespace, String name) {
-<span class="fc" id="L57">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+<span class="nc" id="L57">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
     }
 
     @Override
     public Service createOrReplaceService(EntandoCustomResource peerInNamespace, Service service) {
-<span class="fc" id="L62">        String namespace = ofNullable(service.getMetadata().getNamespace())</span>
-<span class="fc" id="L63">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
-<span class="fc" id="L64">        return client.services().inNamespace(namespace).createOrReplace(service);</span>
+<span class="nc" id="L62">        String namespace = ofNullable(service.getMetadata().getNamespace())</span>
+<span class="nc" id="L63">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
+<span class="nc" id="L64">        return client.services().inNamespace(namespace).createOrReplace(service);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

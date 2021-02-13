@@ -86,25 +86,25 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public KeycloakConnectionConfig findKeycloak(EntandoCustomResource resource, KeycloakPreference keycloakPreference) {
-<span class="fc" id="L89">        Optional&lt;ResourceReference&gt; keycloakToUse = determineKeycloakToUse(resource, keycloakPreference);</span>
-<span class="fc" id="L90">        String secretName = keycloakToUse.map(KeycloakName::forTheAdminSecret)</span>
-<span class="fc" id="L91">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_ADMIN_SECRET);</span>
-<span class="fc" id="L92">        String configMapName = keycloakToUse.map(KeycloakName::forTheConnectionConfigMap)</span>
-<span class="fc" id="L93">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_CONNECTION_CONFIG);</span>
-<span class="fc" id="L94">        String configMapNamespace = keycloakToUse</span>
-<span class="pc" id="L95">                .map(resourceReference -&gt; resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
-<span class="fc" id="L96">                .orElse(getControllerConfigMapNamespace());</span>
+<span class="nc" id="L89">        Optional&lt;ResourceReference&gt; keycloakToUse = determineKeycloakToUse(resource, keycloakPreference);</span>
+<span class="nc" id="L90">        String secretName = keycloakToUse.map(KeycloakName::forTheAdminSecret)</span>
+<span class="nc" id="L91">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_ADMIN_SECRET);</span>
+<span class="nc" id="L92">        String configMapName = keycloakToUse.map(KeycloakName::forTheConnectionConfigMap)</span>
+<span class="nc" id="L93">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_CONNECTION_CONFIG);</span>
+<span class="nc" id="L94">        String configMapNamespace = keycloakToUse</span>
+<span class="nc" id="L95">                .map(resourceReference -&gt; resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
+<span class="nc" id="L96">                .orElse(getControllerConfigMapNamespace());</span>
         //This secret is duplicated in the deployment namespace, but the controller can only read the one in its own namespace
-<span class="fc" id="L98">        Secret secret = this.client.secrets().withName(secretName).fromServer().get();</span>
-<span class="pc bpc" id="L99" title="1 of 2 branches missed.">        if (secret == null) {</span>
+<span class="nc" id="L98">        Secret secret = this.client.secrets().withName(secretName).fromServer().get();</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (secret == null) {</span>
 <span class="nc" id="L100">            throw new IllegalStateException(</span>
 <span class="nc" id="L101">                    format(&quot;Could not find the Keycloak secret %s in namespace %s&quot;, secretName, client.getNamespace()));</span>
         }
         //The configmap comes from the deployment namespace, unless it is a pre-configured keycloak
-<span class="fc" id="L104">        ConfigMap configMap = this.client.configMaps().inNamespace(configMapNamespace).withName(configMapName).fromServer().get();</span>
-<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if (configMap == null) {</span>
-<span class="fc" id="L106">            throw new IllegalStateException(</span>
-<span class="fc" id="L107">                    format(&quot;Could not find the Keycloak ConfigMap %s in namespace %s&quot;, configMapName, configMapNamespace));</span>
+<span class="nc" id="L104">        ConfigMap configMap = this.client.configMaps().inNamespace(configMapNamespace).withName(configMapName).fromServer().get();</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (configMap == null) {</span>
+<span class="nc" id="L106">            throw new IllegalStateException(</span>
+<span class="nc" id="L107">                    format(&quot;Could not find the Keycloak ConfigMap %s in namespace %s&quot;, configMapName, configMapNamespace));</span>
         }
 <span class="nc" id="L109">        return new KeycloakConnectionConfig(secret, configMap);</span>
 
@@ -170,10 +170,10 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public Optional&lt;ExternalDatabaseDeployment&gt; findExternalDatabase(EntandoCustomResource resource, DbmsVendor vendor) {
-<span class="fc" id="L173">        List&lt;EntandoDatabaseService&gt; externalDatabaseList = getOperations(EntandoDatabaseService.class)</span>
-<span class="fc" id="L174">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
-<span class="pc bnc" id="L175" title="All 2 branches missed.">        return externalDatabaseList.stream().filter(entandoDatabaseService -&gt; entandoDatabaseService.getSpec().getDbms() == vendor)</span>
-<span class="fc" id="L176">                .findFirst().map(externalDatabase -&gt;</span>
+<span class="nc" id="L173">        List&lt;EntandoDatabaseService&gt; externalDatabaseList = getOperations(EntandoDatabaseService.class)</span>
+<span class="nc" id="L174">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        return externalDatabaseList.stream().filter(entandoDatabaseService -&gt; entandoDatabaseService.getSpec().getDbms() == vendor)</span>
+<span class="nc" id="L176">                .findFirst().map(externalDatabase -&gt;</span>
 <span class="nc" id="L177">                        new ExternalDatabaseDeployment(</span>
 <span class="nc" id="L178">                                loadService(externalDatabase, ExternalDatabaseDeployment.serviceName(externalDatabase)),</span>
                                 externalDatabase));
@@ -185,8 +185,8 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public &lt;T extends EntandoCustomResource&gt; T load(Class&lt;T&gt; clzz, String resourceNamespace, String resourceName) {
-<span class="fc" id="L188">        return ofNullable(getOperations(clzz).inNamespace(resourceNamespace)</span>
-<span class="pc" id="L189">                .withName(resourceName).get()).orElseThrow(() -&gt; notFound(clzz.getSimpleName(), resourceNamespace, resourceName).get());</span>
+<span class="nc" id="L188">        return ofNullable(getOperations(clzz).inNamespace(resourceNamespace)</span>
+<span class="nc" id="L189">                .withName(resourceName).get()).orElseThrow(() -&gt; notFound(clzz.getSimpleName(), resourceNamespace, resourceName).get());</span>
     }
 
     @Override
@@ -200,24 +200,24 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
     private &lt;T extends EntandoCustomResource,
             D extends DoneableEntandoCustomResource&lt;T, D&gt;&gt; CustomResourceOperationsImpl&lt;T, CustomResourceList&lt;T&gt;, D&gt; getOperations(
             Class&lt;T&gt; c) {
-<span class="fc" id="L203">        return entandoResourceRegistry.getOperations(c);</span>
+<span class="nc" id="L203">        return entandoResourceRegistry.getOperations(c);</span>
     }
 
     @Override
     public void updateStatus(EntandoCustomResource customResource, AbstractServerStatus status) {
-<span class="fc" id="L208">        performStatusUpdate(customResource,</span>
-<span class="fc" id="L209">                t -&gt; t.getStatus().putServerStatus(status),</span>
-<span class="fc" id="L210">                e -&gt; e.withType(&quot;Normal&quot;)</span>
-<span class="fc" id="L211">                        .withReason(&quot;StatusUpdate&quot;)</span>
-<span class="fc" id="L212">                        .withMessage(format(&quot;The %s  %s/%s received status update %s/%s &quot;,</span>
-<span class="fc" id="L213">                                customResource.getKind(),</span>
-<span class="fc" id="L214">                                customResource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L215">                                customResource.getMetadata().getName(),</span>
-<span class="fc" id="L216">                                status.getType(),</span>
-<span class="fc" id="L217">                                status.getQualifier()))</span>
-<span class="fc" id="L218">                        .withAction(&quot;STATUS_CHANGE&quot;)</span>
+<span class="nc" id="L208">        performStatusUpdate(customResource,</span>
+<span class="nc" id="L209">                t -&gt; t.getStatus().putServerStatus(status),</span>
+<span class="nc" id="L210">                e -&gt; e.withType(&quot;Normal&quot;)</span>
+<span class="nc" id="L211">                        .withReason(&quot;StatusUpdate&quot;)</span>
+<span class="nc" id="L212">                        .withMessage(format(&quot;The %s  %s/%s received status update %s/%s &quot;,</span>
+<span class="nc" id="L213">                                customResource.getKind(),</span>
+<span class="nc" id="L214">                                customResource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L215">                                customResource.getMetadata().getName(),</span>
+<span class="nc" id="L216">                                status.getType(),</span>
+<span class="nc" id="L217">                                status.getQualifier()))</span>
+<span class="nc" id="L218">                        .withAction(&quot;STATUS_CHANGE&quot;)</span>
         );
-<span class="fc" id="L220">    }</span>
+<span class="nc" id="L220">    }</span>
 
     @Override
     @SuppressWarnings(&quot;unchecked&quot;)
@@ -240,45 +240,45 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public void updatePhase(EntandoCustomResource customResource, EntandoDeploymentPhase phase) {
-<span class="fc" id="L243">        performStatusUpdate(customResource,</span>
-<span class="fc" id="L244">                t -&gt; t.getStatus().updateDeploymentPhase(phase, t.getMetadata().getGeneration()),</span>
-<span class="fc" id="L245">                e -&gt; e.withType(&quot;Normal&quot;)</span>
-<span class="fc" id="L246">                        .withReason(&quot;PhaseUpdated&quot;)</span>
-<span class="fc" id="L247">                        .withMessage(format(&quot;The deployment of %s  %s/%s was updated  to %s&quot;,</span>
-<span class="fc" id="L248">                                customResource.getKind(),</span>
-<span class="fc" id="L249">                                customResource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L250">                                customResource.getMetadata().getName(),</span>
-<span class="fc" id="L251">                                phase.name()))</span>
-<span class="fc" id="L252">                        .withAction(&quot;PHASE_CHANGE&quot;)</span>
+<span class="nc" id="L243">        performStatusUpdate(customResource,</span>
+<span class="nc" id="L244">                t -&gt; t.getStatus().updateDeploymentPhase(phase, t.getMetadata().getGeneration()),</span>
+<span class="nc" id="L245">                e -&gt; e.withType(&quot;Normal&quot;)</span>
+<span class="nc" id="L246">                        .withReason(&quot;PhaseUpdated&quot;)</span>
+<span class="nc" id="L247">                        .withMessage(format(&quot;The deployment of %s  %s/%s was updated  to %s&quot;,</span>
+<span class="nc" id="L248">                                customResource.getKind(),</span>
+<span class="nc" id="L249">                                customResource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L250">                                customResource.getMetadata().getName(),</span>
+<span class="nc" id="L251">                                phase.name()))</span>
+<span class="nc" id="L252">                        .withAction(&quot;PHASE_CHANGE&quot;)</span>
         );
-<span class="fc" id="L254">    }</span>
+<span class="nc" id="L254">    }</span>
 
     @Override
     public void deploymentFailed(EntandoCustomResource customResource, Exception reason) {
-<span class="fc" id="L258">        performStatusUpdate(customResource,</span>
+<span class="nc" id="L258">        performStatusUpdate(customResource,</span>
                 t -&gt; {
-<span class="fc" id="L260">                    t.getStatus().findCurrentServerStatus()</span>
-<span class="fc" id="L261">                            .ifPresent(</span>
-<span class="fc" id="L262">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder()</span>
-<span class="fc" id="L263">                                            .withException(reason)</span>
-<span class="fc" id="L264">                                            .withFailedObjectName(customResource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L265">                                                    customResource.getMetadata().getName())</span>
-<span class="fc" id="L266">                                            .withFailedObjectType(customResource.getKind())</span>
-<span class="fc" id="L267">                                            .build()));</span>
-<span class="fc" id="L268">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
-<span class="fc" id="L269">                },</span>
-<span class="fc" id="L270">                e -&gt; e.withType(&quot;Error&quot;)</span>
-<span class="fc" id="L271">                        .withReason(&quot;Failed&quot;)</span>
-<span class="fc" id="L272">                        .withMessage(</span>
-<span class="fc" id="L273">                                format(&quot;The deployment of %s %s/%s failed due to %s. Fix the root cause and then trigger a redeployment &quot;</span>
+<span class="nc" id="L260">                    t.getStatus().findCurrentServerStatus()</span>
+<span class="nc" id="L261">                            .ifPresent(</span>
+<span class="nc" id="L262">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder()</span>
+<span class="nc" id="L263">                                            .withException(reason)</span>
+<span class="nc" id="L264">                                            .withFailedObjectName(customResource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L265">                                                    customResource.getMetadata().getName())</span>
+<span class="nc" id="L266">                                            .withFailedObjectType(customResource.getKind())</span>
+<span class="nc" id="L267">                                            .build()));</span>
+<span class="nc" id="L268">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
+<span class="nc" id="L269">                },</span>
+<span class="nc" id="L270">                e -&gt; e.withType(&quot;Error&quot;)</span>
+<span class="nc" id="L271">                        .withReason(&quot;Failed&quot;)</span>
+<span class="nc" id="L272">                        .withMessage(</span>
+<span class="nc" id="L273">                                format(&quot;The deployment of %s %s/%s failed due to %s. Fix the root cause and then trigger a redeployment &quot;</span>
                                                 + &quot;by adding the annotation 'entando.org/processing-instruction: force'&quot;,
-<span class="fc" id="L275">                                        customResource.getKind(),</span>
-<span class="fc" id="L276">                                        customResource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L277">                                        customResource.getMetadata().getName(),</span>
-<span class="fc" id="L278">                                        reason.getMessage()))</span>
-<span class="fc" id="L279">                        .withAction(&quot;FAILED&quot;)</span>
+<span class="nc" id="L275">                                        customResource.getKind(),</span>
+<span class="nc" id="L276">                                        customResource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L277">                                        customResource.getMetadata().getName(),</span>
+<span class="nc" id="L278">                                        reason.getMessage()))</span>
+<span class="nc" id="L279">                        .withAction(&quot;FAILED&quot;)</span>
         );
-<span class="fc" id="L281">    }</span>
+<span class="nc" id="L281">    }</span>
 
     private Service loadService(EntandoCustomResource peerInNamespace, String name) {
 <span class="nc" id="L284">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
@@ -295,28 +295,28 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
     @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
     private &lt;T extends EntandoCustomResource&gt; void performStatusUpdate(EntandoCustomResource customResource,
             Consumer&lt;T&gt; consumer, UnaryOperator&lt;DoneableEvent&gt; eventPopulator) {
-<span class="fc" id="L298">        final DoneableEvent doneableEvent = client.events().inNamespace(customResource.getMetadata().getNamespace()).createNew()</span>
-<span class="fc" id="L299">                .withNewMetadata()</span>
-<span class="fc" id="L300">                .withNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L301">                .withName(customResource.getMetadata().getName() + &quot;-&quot; + NameUtils.randomNumeric(4))</span>
-<span class="fc" id="L302">                .withOwnerReferences(ResourceUtils.buildOwnerReference(customResource))</span>
-<span class="fc" id="L303">                .endMetadata()</span>
-<span class="fc" id="L304">                .withCount(1)</span>
-<span class="fc" id="L305">                .withLastTimestamp(dateTimeFormatter.format(LocalDateTime.now()))</span>
-<span class="fc" id="L306">                .withNewSource(NameUtils.controllerNameOf(customResource), null)</span>
-<span class="fc" id="L307">                .withNewInvolvedObject()</span>
-<span class="fc" id="L308">                .withKind(customResource.getKind())</span>
-<span class="fc" id="L309">                .withNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L310">                .withName(customResource.getMetadata().getName())</span>
-<span class="fc" id="L311">                .withUid(customResource.getMetadata().getUid())</span>
-<span class="fc" id="L312">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
-<span class="fc" id="L313">                .withApiVersion(customResource.getApiVersion())</span>
-<span class="fc" id="L314">                .withFieldPath(&quot;status&quot;)</span>
-<span class="fc" id="L315">                .endInvolvedObject();</span>
-<span class="fc" id="L316">        eventPopulator.apply(doneableEvent).done();</span>
+<span class="nc" id="L298">        final DoneableEvent doneableEvent = client.events().inNamespace(customResource.getMetadata().getNamespace()).createNew()</span>
+<span class="nc" id="L299">                .withNewMetadata()</span>
+<span class="nc" id="L300">                .withNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L301">                .withName(customResource.getMetadata().getName() + &quot;-&quot; + NameUtils.randomNumeric(4))</span>
+<span class="nc" id="L302">                .withOwnerReferences(ResourceUtils.buildOwnerReference(customResource))</span>
+<span class="nc" id="L303">                .endMetadata()</span>
+<span class="nc" id="L304">                .withCount(1)</span>
+<span class="nc" id="L305">                .withLastTimestamp(dateTimeFormatter.format(LocalDateTime.now()))</span>
+<span class="nc" id="L306">                .withNewSource(NameUtils.controllerNameOf(customResource), null)</span>
+<span class="nc" id="L307">                .withNewInvolvedObject()</span>
+<span class="nc" id="L308">                .withKind(customResource.getKind())</span>
+<span class="nc" id="L309">                .withNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L310">                .withName(customResource.getMetadata().getName())</span>
+<span class="nc" id="L311">                .withUid(customResource.getMetadata().getUid())</span>
+<span class="nc" id="L312">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
+<span class="nc" id="L313">                .withApiVersion(customResource.getApiVersion())</span>
+<span class="nc" id="L314">                .withFieldPath(&quot;status&quot;)</span>
+<span class="nc" id="L315">                .endInvolvedObject();</span>
+<span class="nc" id="L316">        eventPopulator.apply(doneableEvent).done();</span>
         final CustomResourceOperationsImpl&lt;T, CustomResourceList&lt;T&gt;, ?&gt; operations;
-<span class="pc bpc" id="L318" title="1 of 2 branches missed.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
-<span class="fc" id="L319">            operations = getOperations((Class&lt;T&gt;) customResource.getClass());</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
+<span class="nc" id="L319">            operations = getOperations((Class&lt;T&gt;) customResource.getClass());</span>
         } else {
 <span class="nc" id="L321">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
 <span class="nc bnc" id="L322" title="All 2 branches missed.">            if (ser.getDefinition() == null) {</span>
@@ -327,13 +327,13 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
                             DoneableCustomResource.class);
         }
 
-<span class="fc" id="L330">        Resource&lt;T, ?&gt; resource = operations</span>
-<span class="fc" id="L331">                .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L332">                .withName(customResource.getMetadata().getName());</span>
-<span class="fc" id="L333">        T latest = resource.fromServer().get();</span>
-<span class="fc" id="L334">        consumer.accept(latest);</span>
-<span class="fc" id="L335">        resource.updateStatus(latest);</span>
-<span class="fc" id="L336">    }</span>
+<span class="nc" id="L330">        Resource&lt;T, ?&gt; resource = operations</span>
+<span class="nc" id="L331">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L332">                .withName(customResource.getMetadata().getName());</span>
+<span class="nc" id="L333">        T latest = resource.fromServer().get();</span>
+<span class="nc" id="L334">        consumer.accept(latest);</span>
+<span class="nc" id="L335">        resource.updateStatus(latest);</span>
+<span class="nc" id="L336">    }</span>
 
     private CustomResourceDefinition resolveDefinition(SerializedEntandoResource ser) {
 <span class="nc" id="L339">        final String key = ser.getApiVersion() + &quot;/&quot; + ser.getKind();</span>
@@ -346,7 +346,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
     }
 
     private String getControllerConfigMapNamespace() {
-<span class="fc" id="L349">        return EntandoOperatorConfig.getOperatorConfigMapNamespace().orElse(client.getNamespace());</span>
+<span class="nc" id="L349">        return EntandoOperatorConfig.getOperatorConfigMapNamespace().orElse(client.getNamespace());</span>
     }
 
 }

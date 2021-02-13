@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-<span class="fc" id="L28">public class PodResult {</span>
+<span class="nc" id="L28">public class PodResult {</span>
 
-<span class="fc" id="L30">    public static final ThreadLocal&lt;SimpleDateFormat&gt; DATE_FORMAT = ThreadLocal</span>
-<span class="pc" id="L31">            .withInitial(() -&gt; new SimpleDateFormat(&quot;yyyy-MM-dd'T'HH:mm:ss'Z'&quot;, Locale.getDefault()));</span>
+<span class="nc" id="L30">    public static final ThreadLocal&lt;SimpleDateFormat&gt; DATE_FORMAT = ThreadLocal</span>
+<span class="nc" id="L31">            .withInitial(() -&gt; new SimpleDateFormat(&quot;yyyy-MM-dd'T'HH:mm:ss'Z'&quot;, Locale.getDefault()));</span>
     public static final String RUNNING_PHASE = &quot;Running&quot;;
     public static final String SUCCEEDED_PHASE = &quot;Succeeded&quot;;
     private static final String FAILED_PHASE = &quot;Failed&quot;;
@@ -41,73 +41,73 @@ import java.util.Optional;
     @SuppressWarnings(&quot;PMD.ShortMethodName&quot;)
     //This is perfectly fine for fluent
     public static PodResult of(Pod pod) {
-<span class="fc" id="L44">        PodResult podResult = new PodResult();</span>
-<span class="fc" id="L45">        podResult.init(pod);</span>
-<span class="fc" id="L46">        return podResult;</span>
+<span class="nc" id="L44">        PodResult podResult = new PodResult();</span>
+<span class="nc" id="L45">        podResult.init(pod);</span>
+<span class="nc" id="L46">        return podResult;</span>
     }
 
     public void init(Pod pod) {
         //TODO put more diagnostic info in this
-<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (pod.getStatus().getPhase().equals(FAILED_PHASE)) {</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (pod.getStatus().getPhase().equals(FAILED_PHASE)) {</span>
 <span class="nc" id="L52">            failReason = Optional.ofNullable(pod.getStatus().getReason()).orElse(FAILED_PHASE);</span>
 <span class="nc" id="L53">            setState(State.COMPLETED);</span>
-<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        } else if (findFailedContainer(pod).isPresent()) {</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        } else if (findFailedContainer(pod).isPresent()) {</span>
 <span class="nc" id="L55">            failReason = Optional</span>
 <span class="nc" id="L56">                    .ofNullable(findFailedContainer(pod).orElseThrow(IllegalStateException::new).getState().getTerminated().getReason())</span>
 <span class="nc" id="L57">                    .orElse(FAILED_PHASE);</span>
 <span class="nc" id="L58">            setState(State.COMPLETED);</span>
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        } else if (pod.getStatus().getPhase().equals(PENDING_PHASE)) {</span>
-<span class="fc" id="L60">            setState(State.CREATING);</span>
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        } else if (pod.getStatus().getPhase().equals(RUNNING_PHASE)) {</span>
-<span class="pc bpc" id="L62" title="1 of 4 branches missed.">            if (hasCondition(pod, &quot;Ready&quot;) &amp;&amp; hasCondition(pod, &quot;ContainersReady&quot;)) {</span>
-<span class="fc" id="L63">                setState(State.READY);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        } else if (pod.getStatus().getPhase().equals(PENDING_PHASE)) {</span>
+<span class="nc" id="L60">            setState(State.CREATING);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        } else if (pod.getStatus().getPhase().equals(RUNNING_PHASE)) {</span>
+<span class="nc bnc" id="L62" title="All 4 branches missed.">            if (hasCondition(pod, &quot;Ready&quot;) &amp;&amp; hasCondition(pod, &quot;ContainersReady&quot;)) {</span>
+<span class="nc" id="L63">                setState(State.READY);</span>
             } else {
-<span class="fc" id="L65">                setState(State.RUNNING);</span>
+<span class="nc" id="L65">                setState(State.RUNNING);</span>
             }
 <span class="nc bnc" id="L67" title="All 2 branches missed.">        } else if (pod.getStatus().getPhase().equals(SUCCEEDED_PHASE)) {</span>
 <span class="nc" id="L68">            setState(State.COMPLETED);</span>
         }
-<span class="fc" id="L70">        this.someContainersNotDidNotRun = didSomeContainersNotRun(pod);</span>
-<span class="fc" id="L71">    }</span>
+<span class="nc" id="L70">        this.someContainersNotDidNotRun = didSomeContainersNotRun(pod);</span>
+<span class="nc" id="L71">    }</span>
 
     private boolean hasCondition(Pod pod, String condition) {
-<span class="fc" id="L74">        return pod.getStatus().getConditions().stream()</span>
-<span class="fc bfc" id="L75" title="All 4 branches covered.">                .anyMatch(podCondition -&gt; condition.equals(podCondition.getType()) &amp;&amp; &quot;True&quot;.equals(podCondition.getStatus()));</span>
+<span class="nc" id="L74">        return pod.getStatus().getConditions().stream()</span>
+<span class="nc bnc" id="L75" title="All 4 branches missed.">                .anyMatch(podCondition -&gt; condition.equals(podCondition.getType()) &amp;&amp; &quot;True&quot;.equals(podCondition.getStatus()));</span>
     }
 
     protected boolean didSomeContainersNotRun(Pod pod) {
-<span class="fc bfc" id="L79" title="All 2 branches covered.">        return pod.getSpec().getContainers().size() &gt; pod.getStatus().getContainerStatuses().size()</span>
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                || pod.getSpec().getInitContainers().size() &gt; pod.getStatus().getInitContainerStatuses().size();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        return pod.getSpec().getContainers().size() &gt; pod.getStatus().getContainerStatuses().size()</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">                || pod.getSpec().getInitContainers().size() &gt; pod.getStatus().getInitContainerStatuses().size();</span>
     }
 
     public boolean hasFailed() {
-<span class="pc bpc" id="L84" title="2 of 4 branches missed.">        return failReason != null || someContainersNotDidNotRun;</span>
+<span class="nc bnc" id="L84" title="All 4 branches missed.">        return failReason != null || someContainersNotDidNotRun;</span>
     }
 
     public State getState() {
-<span class="fc" id="L88">        return state;</span>
+<span class="nc" id="L88">        return state;</span>
     }
 
     private void setState(State state) {
-<span class="fc" id="L92">        this.state = state;</span>
-<span class="fc" id="L93">    }</span>
+<span class="nc" id="L92">        this.state = state;</span>
+<span class="nc" id="L93">    }</span>
 
     public String getFailReason() {
-<span class="pc bpc" id="L96" title="2 of 4 branches missed.">        if (failReason == null &amp;&amp; someContainersNotDidNotRun) {</span>
+<span class="nc bnc" id="L96" title="All 4 branches missed.">        if (failReason == null &amp;&amp; someContainersNotDidNotRun) {</span>
 <span class="nc" id="L97">            return &quot;SomeContainersNotRun&quot;;</span>
         }
-<span class="fc" id="L99">        return failReason;</span>
+<span class="nc" id="L99">        return failReason;</span>
     }
 
     private Optional&lt;ContainerStatus&gt; findFailedContainer(Pod pod) {
-<span class="fc" id="L103">        List&lt;ContainerStatus&gt; containerStatuses = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L104">        Optional.ofNullable(pod.getStatus().getInitContainerStatuses()).ifPresent(containerStatuses::addAll);</span>
-<span class="fc" id="L105">        Optional.ofNullable(pod.getStatus().getContainerStatuses()).ifPresent(containerStatuses::addAll);</span>
-<span class="fc" id="L106">        return containerStatuses.stream().filter(this::failed).findFirst();</span>
+<span class="nc" id="L103">        List&lt;ContainerStatus&gt; containerStatuses = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L104">        Optional.ofNullable(pod.getStatus().getInitContainerStatuses()).ifPresent(containerStatuses::addAll);</span>
+<span class="nc" id="L105">        Optional.ofNullable(pod.getStatus().getContainerStatuses()).ifPresent(containerStatuses::addAll);</span>
+<span class="nc" id="L106">        return containerStatuses.stream().filter(this::failed).findFirst();</span>
     }
 
     private boolean failed(ContainerStatus status) {
-<span class="fc" id="L110">        return Optional.ofNullable(status.getState().getTerminated()).map(this::hasStateFailed).orElse(false);</span>
+<span class="nc" id="L110">        return Optional.ofNullable(status.getState().getTerminated()).map(this::hasStateFailed).orElse(false);</span>
     }
 
     private boolean hasStateFailed(ContainerStateTerminated state) {
@@ -122,8 +122,8 @@ import java.util.Optional;
 <span class="nc bnc" id="L122" title="All 2 branches missed.">        return Optional.ofNullable(state.getExitCode()).map(exitCode -&gt; exitCode != 0).orElse(false);</span>
     }
 
-<span class="fc" id="L125">    public enum State {</span>
-<span class="fc" id="L126">        CREATING, RUNNING, READY, COMPLETED</span>
+<span class="nc" id="L125">    public enum State {</span>
+<span class="nc" id="L126">        CREATING, RUNNING, READY, COMPLETED</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

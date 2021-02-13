@@ -74,11 +74,11 @@ public final class TlsHelper {
 <span class="fc" id="L74">    }</span>
 
     public String getTrustStoreBase64() {
-<span class="fc" id="L77">        return trustStoreBase64.orElseThrow(IllegalStateException::new);</span>
+<span class="nc" id="L77">        return trustStoreBase64.orElseThrow(IllegalStateException::new);</span>
     }
 
     public String getTlsCaCertBase64(Path path) {
-<span class="fc" id="L81">        return base64EncodeContent(path);</span>
+<span class="nc" id="L81">        return base64EncodeContent(path);</span>
     }
 
     public String getTlsCertBase64() {
@@ -90,11 +90,11 @@ public final class TlsHelper {
     }
 
     public boolean isTrustStoreAvailable() {
-<span class="fc" id="L93">        return trustStore.isPresent();</span>
+<span class="nc" id="L93">        return trustStore.isPresent();</span>
     }
 
     public String getTrustStorePassword() {
-<span class="fc" id="L97">        return new String(trustStorePassword);</span>
+<span class="nc" id="L97">        return new String(trustStorePassword);</span>
     }
 
     private void populateTrustStore(List&lt;Path&gt; caPaths) {
@@ -141,7 +141,7 @@ public final class TlsHelper {
 
     private String base64EncodeContent(Path path) {
         try {
-<span class="fc" id="L144">            return new String(Base64.getEncoder().encode(Files.readAllBytes(path)),</span>
+<span class="nc" id="L144">            return new String(Base64.getEncoder().encode(Files.readAllBytes(path)),</span>
                     StandardCharsets.UTF_8);
 <span class="nc" id="L146">        } catch (IOException e) {</span>
 <span class="nc" id="L147">            throw new IllegalStateException(e);</span>

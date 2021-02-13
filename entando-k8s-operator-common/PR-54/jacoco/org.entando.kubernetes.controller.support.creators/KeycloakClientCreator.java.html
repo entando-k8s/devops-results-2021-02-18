@@ -36,13 +36,13 @@ public class KeycloakClientCreator {
 
     private final EntandoCustomResource entandoCustomResource;
 
-<span class="fc" id="L39">    public KeycloakClientCreator(EntandoCustomResource entandoCustomResource) {</span>
-<span class="fc" id="L40">        this.entandoCustomResource = entandoCustomResource;</span>
-<span class="fc" id="L41">    }</span>
+<span class="nc" id="L39">    public KeycloakClientCreator(EntandoCustomResource entandoCustomResource) {</span>
+<span class="nc" id="L40">        this.entandoCustomResource = entandoCustomResource;</span>
+<span class="nc" id="L41">    }</span>
 
     public boolean requiresKeycloakClients(Deployable&lt;?&gt; deployable) {
-<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        return deployable instanceof PublicIngressingDeployable</span>
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">                || deployable.getContainers().stream().anyMatch(KeycloakAwareContainer.class::isInstance);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        return deployable instanceof PublicIngressingDeployable</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">                || deployable.getContainers().stream().anyMatch(KeycloakAwareContainer.class::isInstance);</span>
     }
 
     public void createKeycloakClients(SecretClient secrets, SimpleKeycloakClient keycloak, Deployable&lt;?&gt; deployable,

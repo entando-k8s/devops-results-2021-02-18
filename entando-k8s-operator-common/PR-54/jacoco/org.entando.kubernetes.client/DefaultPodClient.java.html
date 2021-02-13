@@ -38,14 +38,14 @@ import org.entando.kubernetes.controller.support.common.EntandoOperatorConfig;
 public class DefaultPodClient implements PodClient {
 
     private final KubernetesClient client;
-<span class="fc" id="L41">    private BlockingQueue&lt;PodWatcher&gt; podWatcherHolder = new ArrayBlockingQueue&lt;&gt;(15);</span>
-<span class="fc" id="L42">    private BlockingQueue&lt;EntandoExecListener&gt; execListenerHolder = new ArrayBlockingQueue&lt;&gt;(15);</span>
+<span class="nc" id="L41">    private BlockingQueue&lt;PodWatcher&gt; podWatcherHolder = new ArrayBlockingQueue&lt;&gt;(15);</span>
+<span class="nc" id="L42">    private BlockingQueue&lt;EntandoExecListener&gt; execListenerHolder = new ArrayBlockingQueue&lt;&gt;(15);</span>
 
-<span class="fc" id="L44">    public DefaultPodClient(KubernetesClient client) {</span>
-<span class="fc" id="L45">        this.client = client;</span>
+<span class="nc" id="L44">    public DefaultPodClient(KubernetesClient client) {</span>
+<span class="nc" id="L45">        this.client = client;</span>
         //HACK for GraalVM
-<span class="fc" id="L47">        KubernetesDeserializer.registerCustomKind(&quot;v1&quot;, &quot;Pod&quot;, Pod.class);</span>
-<span class="fc" id="L48">    }</span>
+<span class="nc" id="L47">        KubernetesDeserializer.registerCustomKind(&quot;v1&quot;, &quot;Pod&quot;, Pod.class);</span>
+<span class="nc" id="L48">    }</span>
 
     public BlockingQueue&lt;EntandoExecListener&gt; getExecListenerHolder() {
 <span class="nc" id="L51">        return execListenerHolder;</span>
@@ -87,9 +87,9 @@ public class DefaultPodClient implements PodClient {
 
     @Override
     public Pod waitForPod(String namespace, String labelName, String labelValue) {
-<span class="fc" id="L90">        Watchable&lt;Watch, Watcher&lt;Pod&gt;&gt; watchable = client.pods().inNamespace(namespace).withLabel(labelName, labelValue);</span>
-<span class="pc bpc" id="L91" title="1 of 4 branches missed.">        return watchPod(got -&gt; PodResult.of(got).getState() == State.READY || PodResult.of(got).getState() == State.COMPLETED,</span>
-<span class="fc" id="L92">                EntandoOperatorConfig.getPodReadinessTimeoutSeconds(),</span>
+<span class="nc" id="L90">        Watchable&lt;Watch, Watcher&lt;Pod&gt;&gt; watchable = client.pods().inNamespace(namespace).withLabel(labelName, labelValue);</span>
+<span class="nc bnc" id="L91" title="All 4 branches missed.">        return watchPod(got -&gt; PodResult.of(got).getState() == State.READY || PodResult.of(got).getState() == State.COMPLETED,</span>
+<span class="nc" id="L92">                EntandoOperatorConfig.getPodReadinessTimeoutSeconds(),</span>
                 watchable);
     }
 

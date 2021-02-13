@@ -29,7 +29,7 @@ import org.entando.kubernetes.client.PodWatcher;
 
 public interface PodWaitingClient {
 
-<span class="fc" id="L32">    AtomicBoolean ENQUEUE_POD_WATCH_HOLDERS = new AtomicBoolean(false);</span>
+<span class="nc" id="L32">    AtomicBoolean ENQUEUE_POD_WATCH_HOLDERS = new AtomicBoolean(false);</span>
 
     /**
      * A getter for the an AtomicReference to the most recently constructed PodWatcherholder for testing purposes.
@@ -38,19 +38,19 @@ public interface PodWaitingClient {
 
     default Pod watchPod(Predicate&lt;Pod&gt; podPredicate, long timeoutSeconds, Watchable&lt;Watch, Watcher&lt;Pod&gt;&gt; podResource) {
         try {
-<span class="fc" id="L41">            Object mutex = new Object();</span>
-<span class="fc" id="L42">            synchronized (mutex) {</span>
-<span class="fc" id="L43">                PodWatcher watcher = new PodWatcher(podPredicate, mutex, timeoutSeconds * 1000);</span>
-<span class="pc bpc" id="L44" title="1 of 2 branches missed.">                if (ENQUEUE_POD_WATCH_HOLDERS.get()) {</span>
+<span class="nc" id="L41">            Object mutex = new Object();</span>
+<span class="nc" id="L42">            synchronized (mutex) {</span>
+<span class="nc" id="L43">                PodWatcher watcher = new PodWatcher(podPredicate, mutex, timeoutSeconds * 1000);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">                if (ENQUEUE_POD_WATCH_HOLDERS.get()) {</span>
 <span class="nc" id="L45">                    getPodWatcherQueue().add(watcher);//because it should never be full during tests. fail early.</span>
                 }
-<span class="fc" id="L47">                try (Watch ignored = podResource.watch(watcher)) {</span>
+<span class="nc" id="L47">                try (Watch ignored = podResource.watch(watcher)) {</span>
                     //Sonar seems to believe the JVM may not respect wait() with timeout due to 'Spurious wakeups'
-<span class="fc bfc" id="L49" title="All 2 branches covered.">                    while (watcher.shouldStillWait()) {</span>
-<span class="fc" id="L50">                        mutex.wait(1000);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                    while (watcher.shouldStillWait()) {</span>
+<span class="nc" id="L50">                        mutex.wait(1000);</span>
                     }
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                    if (watcher.podResourceFulfillsCondition()) {</span>
-<span class="fc" id="L53">                        return watcher.getLastPod();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">                    if (watcher.podResourceFulfillsCondition()) {</span>
+<span class="nc" id="L53">                        return watcher.getLastPod();</span>
                     }
 <span class="nc bnc" id="L55" title="All 2 branches missed.">                    if (watcher.getLastPod() != null) {</span>
 <span class="nc" id="L56">                        throw new IllegalStateException(format(&quot;Pod %s/%s did not meet the wait condition within %s seconds&quot;,</span>
@@ -61,7 +61,7 @@ public interface PodWaitingClient {
 <span class="nc" id="L61">                        throw new IllegalStateException(format(&quot;Podresource did not meet the wait condition within %s seconds&quot;,</span>
 <span class="nc" id="L62">                                timeoutSeconds));</span>
                     }
-<span class="fc" id="L64">                }</span>
+<span class="nc" id="L64">                }</span>
             }
 <span class="nc" id="L66">        } catch (InterruptedException e) {</span>
 <span class="nc" id="L67">            Thread.currentThread().interrupt();</span>

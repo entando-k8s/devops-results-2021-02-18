@@ -39,12 +39,12 @@ public class DatabaseDeploymentResult extends AbstractServiceResult implements D
 
     public DatabaseDeploymentResult(Service service, DbmsDockerVendorStrategy vendor, String databaseName, String databaseSecretName,
             Pod pod) {
-<span class="fc" id="L42">        super(service);</span>
-<span class="fc" id="L43">        this.pod = pod;</span>
-<span class="fc" id="L44">        this.vendor = vendor;</span>
-<span class="fc" id="L45">        this.databaseName = databaseName;</span>
-<span class="fc" id="L46">        this.databaseSecretName = databaseSecretName;</span>
-<span class="fc" id="L47">    }</span>
+<span class="nc" id="L42">        super(service);</span>
+<span class="nc" id="L43">        this.pod = pod;</span>
+<span class="nc" id="L44">        this.vendor = vendor;</span>
+<span class="nc" id="L45">        this.databaseName = databaseName;</span>
+<span class="nc" id="L46">        this.databaseSecretName = databaseSecretName;</span>
+<span class="nc" id="L47">    }</span>
 
     @Override
     public Optional&lt;String&gt; getTablespace() {
@@ -72,13 +72,13 @@ public class DatabaseDeploymentResult extends AbstractServiceResult implements D
     }
 
     public boolean hasFailed() {
-<span class="fc" id="L75">        return Optional.ofNullable(pod).map(existingPod -&gt; PodResult.of(existingPod).hasFailed()).orElse(false);</span>
+<span class="nc" id="L75">        return Optional.ofNullable(pod).map(existingPod -&gt; PodResult.of(existingPod).hasFailed()).orElse(false);</span>
     }
 
     @Override
     public DatabaseDeploymentResult withStatus(AbstractServerStatus status) {
-<span class="fc" id="L80">        this.status = status;</span>
-<span class="fc" id="L81">        return this;</span>
+<span class="nc" id="L80">        this.status = status;</span>
+<span class="nc" id="L81">        return this;</span>
     }
 
     public AbstractServerStatus getStatus() {

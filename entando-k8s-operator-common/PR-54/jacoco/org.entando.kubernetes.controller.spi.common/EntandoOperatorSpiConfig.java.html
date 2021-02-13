@@ -27,8 +27,8 @@ public class EntandoOperatorSpiConfig {
     }
 
     public static EntandoOperatorComplianceMode getComplianceMode() {
-<span class="fc" id="L30">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE)</span>
-<span class="fc" id="L31">                .map(EntandoOperatorComplianceMode::resolve).orElse(EntandoOperatorComplianceMode.COMMUNITY);</span>
+<span class="nc" id="L30">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE)</span>
+<span class="nc" id="L31">                .map(EntandoOperatorComplianceMode::resolve).orElse(EntandoOperatorComplianceMode.COMMUNITY);</span>
     }
 
     public static boolean forceExternalAccessToKeycloak() {

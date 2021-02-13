@@ -44,11 +44,11 @@ public interface Deployable&lt;T extends ServiceDeploymentResult&lt;T&gt;&gt; {
     String getServiceAccountToUse();
 
     default String getDefaultServiceAccountName() {
-<span class="fc" id="L47">        return &quot;default&quot;;</span>
+<span class="nc" id="L47">        return &quot;default&quot;;</span>
     }
 
     default int getReplicas() {
-<span class="fc" id="L51">        return 1;</span>
+<span class="nc" id="L51">        return 1;</span>
     }
 
     default Optional&lt;Long&gt; getFileSystemUserAndGroupId() {

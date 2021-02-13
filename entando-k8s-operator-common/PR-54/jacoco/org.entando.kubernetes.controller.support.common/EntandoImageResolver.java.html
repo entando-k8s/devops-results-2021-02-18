@@ -37,47 +37,47 @@ public class EntandoImageResolver {
 
     public String determineImageUri(DockerImageInfo dockerImageInfo) {
         //The environment variable injected by the OLM takes precedence over everything
-<span class="fc" id="L40">        Optional&lt;String&gt; injectedImageUri = EntandoOperatorConfigBase.lookupProperty(relateImage(dockerImageInfo.getRepository()))</span>
-<span class="fc" id="L41">                .or(() -&gt; EntandoOperatorConfigBase.lookupProperty(relateImage(dockerImageInfo.getOrganizationAwareRepository())));</span>
-<span class="fc" id="L42">        return injectedImageUri.orElse(format(&quot;%s/%s/%s:%s&quot;,</span>
-<span class="fc" id="L43">                determineDockerRegistry(dockerImageInfo),</span>
-<span class="fc" id="L44">                determineOrganization(dockerImageInfo),</span>
-<span class="fc" id="L45">                dockerImageInfo.getRepository(),</span>
+<span class="nc" id="L40">        Optional&lt;String&gt; injectedImageUri = EntandoOperatorConfigBase.lookupProperty(relateImage(dockerImageInfo.getRepository()))</span>
+<span class="nc" id="L41">                .or(() -&gt; EntandoOperatorConfigBase.lookupProperty(relateImage(dockerImageInfo.getOrganizationAwareRepository())));</span>
+<span class="nc" id="L42">        return injectedImageUri.orElse(format(&quot;%s/%s/%s:%s&quot;,</span>
+<span class="nc" id="L43">                determineDockerRegistry(dockerImageInfo),</span>
+<span class="nc" id="L44">                determineOrganization(dockerImageInfo),</span>
+<span class="nc" id="L45">                dockerImageInfo.getRepository(),</span>
                 //Have to append &quot;latest&quot; here to allow for optional version resolution
-<span class="fc" id="L47">                determineVersion(dockerImageInfo).orElse(&quot;latest&quot;)));</span>
+<span class="nc" id="L47">                determineVersion(dockerImageInfo).orElse(&quot;latest&quot;)));</span>
     }
 
     private String relateImage(String repository) {
-<span class="fc" id="L51">        return &quot;related.image.&quot; + repository;</span>
+<span class="nc" id="L51">        return &quot;related.image.&quot; + repository;</span>
     }
 
     private String determineDockerRegistry(DockerImageInfo dockerImageInfo) {
-<span class="fc" id="L55">        return new PropertyResolution(this.imageVersionsConfigMap, dockerImageInfo)</span>
-<span class="fc" id="L56">                .withOverridingPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_REGISTRY_OVERRIDE)</span>
-<span class="fc" id="L57">                .withConfigMapKey(&quot;registry&quot;)</span>
-<span class="fc" id="L58">                .withProvidedValue(dockerImageInfo.getRegistry().orElse(null))</span>
-<span class="fc" id="L59">                .withFallbackPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_REGISTRY_FALLBACK)</span>
-<span class="fc" id="L60">                .withDefaultValue(&quot;docker.io&quot;).resolvePropertyValue();</span>
+<span class="nc" id="L55">        return new PropertyResolution(this.imageVersionsConfigMap, dockerImageInfo)</span>
+<span class="nc" id="L56">                .withOverridingPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_REGISTRY_OVERRIDE)</span>
+<span class="nc" id="L57">                .withConfigMapKey(&quot;registry&quot;)</span>
+<span class="nc" id="L58">                .withProvidedValue(dockerImageInfo.getRegistry().orElse(null))</span>
+<span class="nc" id="L59">                .withFallbackPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_REGISTRY_FALLBACK)</span>
+<span class="nc" id="L60">                .withDefaultValue(&quot;docker.io&quot;).resolvePropertyValue();</span>
     }
 
     private String determineOrganization(DockerImageInfo dockerImageInfo) {
-<span class="fc" id="L64">        return new PropertyResolution(this.imageVersionsConfigMap, dockerImageInfo)</span>
-<span class="fc" id="L65">                .withOverridingPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_ORG_OVERRIDE)</span>
-<span class="fc" id="L66">                .withConfigMapKey(&quot;organization&quot;)</span>
-<span class="fc" id="L67">                .withProvidedValue(dockerImageInfo.getOrganization().orElse(null))</span>
-<span class="fc" id="L68">                .withFallbackPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_ORG_FALLBACK)</span>
-<span class="fc" id="L69">                .withDefaultValue(&quot;entando&quot;).resolvePropertyValue();</span>
+<span class="nc" id="L64">        return new PropertyResolution(this.imageVersionsConfigMap, dockerImageInfo)</span>
+<span class="nc" id="L65">                .withOverridingPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_ORG_OVERRIDE)</span>
+<span class="nc" id="L66">                .withConfigMapKey(&quot;organization&quot;)</span>
+<span class="nc" id="L67">                .withProvidedValue(dockerImageInfo.getOrganization().orElse(null))</span>
+<span class="nc" id="L68">                .withFallbackPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_ORG_FALLBACK)</span>
+<span class="nc" id="L69">                .withDefaultValue(&quot;entando&quot;).resolvePropertyValue();</span>
     }
 
     private Optional&lt;String&gt; determineVersion(DockerImageInfo dockerImageInfo) {
         //For the version, we allow the dockerImageInfo to override it primarily for testing purposes
         //It is extremely unlikely that any version will be provided for any context other than testing
-<span class="fc" id="L75">        return Optional.ofNullable(dockerImageInfo.getVersion().orElse(new PropertyResolution(this.imageVersionsConfigMap, dockerImageInfo)</span>
-<span class="fc" id="L76">                .withOverridingPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_VERSION_OVERRIDE)</span>
-<span class="fc" id="L77">                .withConfigMapKey(&quot;version&quot;)</span>
-<span class="fc" id="L78">                .withProvidedValue(null)</span>
-<span class="fc" id="L79">                .withFallbackPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_VERSION_FALLBACK)</span>
-<span class="fc" id="L80">                .withDefaultValue(null).resolvePropertyValue()));</span>
+<span class="nc" id="L75">        return Optional.ofNullable(dockerImageInfo.getVersion().orElse(new PropertyResolution(this.imageVersionsConfigMap, dockerImageInfo)</span>
+<span class="nc" id="L76">                .withOverridingPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_VERSION_OVERRIDE)</span>
+<span class="nc" id="L77">                .withConfigMapKey(&quot;version&quot;)</span>
+<span class="nc" id="L78">                .withProvidedValue(null)</span>
+<span class="nc" id="L79">                .withFallbackPropertyName(EntandoOperatorConfigProperty.ENTANDO_DOCKER_IMAGE_VERSION_FALLBACK)</span>
+<span class="nc" id="L80">                .withDefaultValue(null).resolvePropertyValue()));</span>
     }
 
 }

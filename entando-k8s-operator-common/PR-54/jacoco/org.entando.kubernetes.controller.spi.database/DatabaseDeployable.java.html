@@ -41,25 +41,25 @@ public class DatabaseDeployable implements Deployable&lt;DatabaseDeploymentResul
     private final EntandoCustomResource customResource;
     protected List&lt;DeployableContainer&gt; containers;
 
-<span class="fc" id="L44">    public DatabaseDeployable(DbmsDockerVendorStrategy dbmsVendor, EntandoCustomResource customResource, Integer portOverride) {</span>
-<span class="fc" id="L45">        this.dbmsVendor = dbmsVendor;</span>
-<span class="fc" id="L46">        this.customResource = customResource;</span>
-<span class="fc" id="L47">        this.containers = Collections.singletonList(new DatabaseContainer(buildVariableInitializer(dbmsVendor), dbmsVendor, portOverride));</span>
-<span class="fc" id="L48">    }</span>
+<span class="nc" id="L44">    public DatabaseDeployable(DbmsDockerVendorStrategy dbmsVendor, EntandoCustomResource customResource, Integer portOverride) {</span>
+<span class="nc" id="L45">        this.dbmsVendor = dbmsVendor;</span>
+<span class="nc" id="L46">        this.customResource = customResource;</span>
+<span class="nc" id="L47">        this.containers = Collections.singletonList(new DatabaseContainer(buildVariableInitializer(dbmsVendor), dbmsVendor, portOverride));</span>
+<span class="nc" id="L48">    }</span>
 
     @Override
     public String getServiceAccountToUse() {
-<span class="fc" id="L52">        return getDefaultServiceAccountName();</span>
+<span class="nc" id="L52">        return getDefaultServiceAccountName();</span>
     }
 
     private DatabaseVariableInitializer buildVariableInitializer(DbmsDockerVendorStrategy vendorStrategy) {
-<span class="pc bpc" id="L56" title="2 of 3 branches missed.">        switch (vendorStrategy) {</span>
+<span class="nc bnc" id="L56" title="All 3 branches missed.">        switch (vendorStrategy) {</span>
             case CENTOS_MYSQL:
             case RHEL_MYSQL:
-<span class="fc" id="L59">                return vars -&gt;</span>
+<span class="nc" id="L59">                return vars -&gt;</span>
                         //No DB creation. Dbs are created during schema creation
-<span class="fc" id="L61">                        vars.add(new EnvVar(&quot;MYSQL_ROOT_PASSWORD&quot;, null,</span>
-<span class="fc" id="L62">                                SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
+<span class="nc" id="L61">                        vars.add(new EnvVar(&quot;MYSQL_ROOT_PASSWORD&quot;, null,</span>
+<span class="nc" id="L62">                                SecretUtils.secretKeyRef(getDatabaseAdminSecretName(), SecretUtils.PASSSWORD_KEY)));</span>
             case CENTOS_POSTGRESQL:
             case RHEL_POSTGRESQL:
 <span class="nc" id="L65">                return vars -&gt; {</span>
@@ -86,40 +86,40 @@ public class DatabaseDeployable implements Deployable&lt;DatabaseDeploymentResul
 
     @Override
     public List&lt;DeployableContainer&gt; getContainers() {
-<span class="fc" id="L89">        return containers;</span>
+<span class="nc" id="L89">        return containers;</span>
     }
 
     @Override
     public String getNameQualifier() {
-<span class="fc" id="L94">        return NameUtils.DB_NAME_QUALIFIER;</span>
+<span class="nc" id="L94">        return NameUtils.DB_NAME_QUALIFIER;</span>
     }
 
     @Override
     public EntandoCustomResource getCustomResource() {
-<span class="fc" id="L99">        return customResource;</span>
+<span class="nc" id="L99">        return customResource;</span>
     }
 
     @Override
     public DatabaseDeploymentResult createResult(Deployment deployment, Service service, Ingress ingress, Pod pod) {
-<span class="fc" id="L104">        return new DatabaseDeploymentResult(service, dbmsVendor, getDatabaseName(), getDatabaseAdminSecretName(), pod);</span>
+<span class="nc" id="L104">        return new DatabaseDeploymentResult(service, dbmsVendor, getDatabaseName(), getDatabaseAdminSecretName(), pod);</span>
     }
 
     @Override
     public List&lt;Secret&gt; getSecrets() {
-<span class="fc" id="L109">        Secret secret = SecretUtils.generateSecret(</span>
+<span class="nc" id="L109">        Secret secret = SecretUtils.generateSecret(</span>
                 customResource,
-<span class="fc" id="L111">                getDatabaseAdminSecretName(),</span>
-<span class="fc" id="L112">                dbmsVendor.getDefaultAdminUsername()</span>
+<span class="nc" id="L111">                getDatabaseAdminSecretName(),</span>
+<span class="nc" id="L112">                dbmsVendor.getDefaultAdminUsername()</span>
         );
-<span class="fc" id="L114">        return Collections.singletonList(secret);</span>
+<span class="nc" id="L114">        return Collections.singletonList(secret);</span>
     }
 
     protected String getDatabaseAdminSecretName() {
-<span class="fc" id="L118">        return ExternalDatabaseDeployment.adminSecretName(customResource, getNameQualifier());</span>
+<span class="nc" id="L118">        return ExternalDatabaseDeployment.adminSecretName(customResource, getNameQualifier());</span>
     }
 
     protected String getDatabaseName() {
-<span class="fc" id="L122">        return NameUtils.databaseCompliantName(customResource, getNameQualifier(), dbmsVendor.getVendorConfig());</span>
+<span class="nc" id="L122">        return NameUtils.databaseCompliantName(customResource, getNameQualifier(), dbmsVendor.getVendorConfig());</span>
     }
 
 }
