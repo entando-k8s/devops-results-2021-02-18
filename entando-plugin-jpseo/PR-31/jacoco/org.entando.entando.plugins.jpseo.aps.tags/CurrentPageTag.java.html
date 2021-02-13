@@ -42,9 +42,9 @@ import org.entando.entando.plugins.jpseo.aps.system.services.page.SeoPageMetadat
 /**
  * @author E.Santoboni
  */
-<span class="nc" id="L45">public class CurrentPageTag extends com.agiletec.aps.tags.CurrentPageTag {</span>
+<span class="fc" id="L45">public class CurrentPageTag extends com.agiletec.aps.tags.CurrentPageTag {</span>
 
-<span class="nc" id="L47">    private static final EntLogger _logger =  EntLogFactory.getSanitizedLogger(CurrentPageTag.class);</span>
+<span class="fc" id="L47">    private static final EntLogger _logger =  EntLogFactory.getSanitizedLogger(CurrentPageTag.class);</span>
 
     protected static final String DESCRIPTION_INFO = &quot;description&quot;;
     protected static final String KEYWORDS_INFO = &quot;keywords&quot;;
@@ -146,31 +146,31 @@ import org.entando.entando.plugins.jpseo.aps.system.services.page.SeoPageMetadat
 <span class="nc" id="L146">    }</span>
 
     protected void extractPageFriendlyCodes(IPage page, Lang currentLang) {
-<span class="nc" id="L149">        PageMetadata pageMetadata = page.getMetadata();</span>
-<span class="nc bnc" id="L150" title="All 4 branches missed.">        if (!(pageMetadata instanceof SeoPageMetadata) || null == ((SeoPageMetadata) pageMetadata).getFriendlyCodes()) {</span>
-<span class="nc" id="L151">            return;</span>
+<span class="fc" id="L149">        PageMetadata pageMetadata = page.getMetadata();</span>
+<span class="pc bpc" id="L150" title="1 of 4 branches missed.">        if (!(pageMetadata instanceof SeoPageMetadata) || null == ((SeoPageMetadata) pageMetadata).getFriendlyCodes()) {</span>
+<span class="fc" id="L151">            return;</span>
         }
-<span class="nc" id="L153">        ApsProperties friendlyCodes = ((SeoPageMetadata) pageMetadata).getFriendlyCodes();</span>
-<span class="nc" id="L154">        this.setSeoValue(friendlyCodes, currentLang);</span>
-<span class="nc" id="L155">    }</span>
+<span class="fc" id="L153">        ApsProperties friendlyCodes = ((SeoPageMetadata) pageMetadata).getFriendlyCodes();</span>
+<span class="fc" id="L154">        this.setSeoValue(friendlyCodes, currentLang);</span>
+<span class="fc" id="L155">    }</span>
     
     protected void setSeoValue(ApsProperties properties, Lang currentLang) {
-<span class="nc" id="L158">        PageMetatag metatag = null;</span>
-<span class="nc bnc" id="L159" title="All 4 branches missed.">        if ((this.getLangCode() == null) || (this.getLangCode().equals(&quot;&quot;))</span>
+<span class="fc" id="L158">        PageMetatag metatag = null;</span>
+<span class="pc bpc" id="L159" title="3 of 4 branches missed.">        if ((this.getLangCode() == null) || (this.getLangCode().equals(&quot;&quot;))</span>
 <span class="nc bnc" id="L160" title="All 2 branches missed.">                || (currentLang.getCode().equalsIgnoreCase(this.getLangCode()))) {</span>
-<span class="nc" id="L161">            metatag = (PageMetatag) properties.get(currentLang.getCode());</span>
+<span class="fc" id="L161">            metatag = (PageMetatag) properties.get(currentLang.getCode());</span>
         } else {
 <span class="nc" id="L163">            metatag = (PageMetatag) properties.get(this.getLangCode());</span>
         }
-<span class="nc bnc" id="L165" title="All 4 branches missed.">        if (metatag == null || null == metatag.getValue()) {</span>
+<span class="pc bpc" id="L165" title="2 of 4 branches missed.">        if (metatag == null || null == metatag.getValue()) {</span>
 <span class="nc" id="L166">            ILangManager langManager</span>
 <span class="nc" id="L167">                    = (ILangManager) ApsWebApplicationUtils.getBean(SystemConstants.LANGUAGE_MANAGER, this.pageContext);</span>
 <span class="nc" id="L168">            metatag = (PageMetatag) properties.get(langManager.getDefaultLang().getCode());</span>
         }
-<span class="nc bnc" id="L170" title="All 2 branches missed.">        if (null != metatag) {</span>
-<span class="nc" id="L171">            this.setValue(metatag.getValue());</span>
+<span class="pc bpc" id="L170" title="1 of 2 branches missed.">        if (null != metatag) {</span>
+<span class="fc" id="L171">            this.setValue(metatag.getValue());</span>
         }
-<span class="nc" id="L173">    }</span>
+<span class="fc" id="L173">    }</span>
     
     private void extractPageDescriptionFromMap(Lang currentLang, Map extraDescriptionsMap) {
 <span class="nc" id="L176">        Object value = null;</span>
