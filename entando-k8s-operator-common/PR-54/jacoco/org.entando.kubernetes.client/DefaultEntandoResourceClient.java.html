@@ -255,30 +255,30 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public void deploymentFailed(EntandoCustomResource customResource, Exception reason) {
-<span class="fc" id="L258">        performStatusUpdate(customResource,</span>
+<span class="nc" id="L258">        performStatusUpdate(customResource,</span>
                 t -&gt; {
-<span class="fc" id="L260">                    t.getStatus().findCurrentServerStatus()</span>
-<span class="fc" id="L261">                            .ifPresent(</span>
-<span class="fc" id="L262">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder()</span>
-<span class="fc" id="L263">                                            .withException(reason)</span>
-<span class="fc" id="L264">                                            .withFailedObjectName(customResource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L265">                                                    customResource.getMetadata().getName())</span>
-<span class="fc" id="L266">                                            .withFailedObjectType(customResource.getKind())</span>
-<span class="fc" id="L267">                                            .build()));</span>
-<span class="fc" id="L268">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
-<span class="fc" id="L269">                },</span>
-<span class="fc" id="L270">                e -&gt; e.withType(&quot;Error&quot;)</span>
-<span class="fc" id="L271">                        .withReason(&quot;Failed&quot;)</span>
-<span class="fc" id="L272">                        .withMessage(</span>
-<span class="fc" id="L273">                                format(&quot;The deployment of %s %s/%s failed due to %s. Fix the root cause and then trigger a redeployment &quot;</span>
+<span class="nc" id="L260">                    t.getStatus().findCurrentServerStatus()</span>
+<span class="nc" id="L261">                            .ifPresent(</span>
+<span class="nc" id="L262">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder()</span>
+<span class="nc" id="L263">                                            .withException(reason)</span>
+<span class="nc" id="L264">                                            .withFailedObjectName(customResource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L265">                                                    customResource.getMetadata().getName())</span>
+<span class="nc" id="L266">                                            .withFailedObjectType(customResource.getKind())</span>
+<span class="nc" id="L267">                                            .build()));</span>
+<span class="nc" id="L268">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
+<span class="nc" id="L269">                },</span>
+<span class="nc" id="L270">                e -&gt; e.withType(&quot;Error&quot;)</span>
+<span class="nc" id="L271">                        .withReason(&quot;Failed&quot;)</span>
+<span class="nc" id="L272">                        .withMessage(</span>
+<span class="nc" id="L273">                                format(&quot;The deployment of %s %s/%s failed due to %s. Fix the root cause and then trigger a redeployment &quot;</span>
                                                 + &quot;by adding the annotation 'entando.org/processing-instruction: force'&quot;,
-<span class="fc" id="L275">                                        customResource.getKind(),</span>
-<span class="fc" id="L276">                                        customResource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L277">                                        customResource.getMetadata().getName(),</span>
-<span class="fc" id="L278">                                        reason.getMessage()))</span>
-<span class="fc" id="L279">                        .withAction(&quot;FAILED&quot;)</span>
+<span class="nc" id="L275">                                        customResource.getKind(),</span>
+<span class="nc" id="L276">                                        customResource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L277">                                        customResource.getMetadata().getName(),</span>
+<span class="nc" id="L278">                                        reason.getMessage()))</span>
+<span class="nc" id="L279">                        .withAction(&quot;FAILED&quot;)</span>
         );
-<span class="fc" id="L281">    }</span>
+<span class="nc" id="L281">    }</span>
 
     private Service loadService(EntandoCustomResource peerInNamespace, String name) {
 <span class="nc" id="L284">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
@@ -298,7 +298,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L298">        final DoneableEvent doneableEvent = client.events().inNamespace(customResource.getMetadata().getNamespace()).createNew()</span>
 <span class="fc" id="L299">                .withNewMetadata()</span>
 <span class="fc" id="L300">                .withNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L301">                .withName(customResource.getMetadata().getName() + &quot;-&quot; + NameUtils.randomNumeric(4))</span>
+<span class="fc" id="L301">                .withName(customResource.getMetadata().getName() + &quot;-&quot; + NameUtils.randomNumeric(8))</span>
 <span class="fc" id="L302">                .withOwnerReferences(ResourceUtils.buildOwnerReference(customResource))</span>
 <span class="fc" id="L303">                .endMetadata()</span>
 <span class="fc" id="L304">                .withCount(1)</span>

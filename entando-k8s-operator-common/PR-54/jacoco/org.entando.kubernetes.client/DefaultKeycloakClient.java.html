@@ -231,23 +231,23 @@ public class DefaultKeycloakClient implements SimpleKeycloakClient {
 <span class="fc" id="L231">        ensureRealm(config.getRealm());</span>
 <span class="fc" id="L232">        RealmResource realmResource = keycloak.realm(config.getRealm());</span>
 <span class="fc" id="L233">        Optional&lt;ClientRepresentation&gt; clientRepresentation = findClient(config);</span>
-<span class="fc bfc" id="L234" title="All 2 branches covered.">        if (clientRepresentation.isPresent()) {</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">        if (clientRepresentation.isPresent()) {</span>
 <span class="fc" id="L235">            return clientRepresentation.get().getId();</span>
         } else {
-<span class="fc" id="L237">            ClientRepresentation client = new ClientRepresentation();</span>
-<span class="fc" id="L238">            client.setName(config.getClientName());</span>
-<span class="fc" id="L239">            client.setClientId(config.getClientId());</span>
-<span class="fc" id="L240">            client.setEnabled(true);</span>
-<span class="fc" id="L241">            client.setServiceAccountsEnabled(true);</span>
-<span class="fc" id="L242">            client.setStandardFlowEnabled(true);</span>
-<span class="fc" id="L243">            client.setImplicitFlowEnabled(true);</span>
-<span class="fc" id="L244">            client.setDirectAccessGrantsEnabled(true);</span>
-<span class="fc" id="L245">            client.setAuthorizationServicesEnabled(false);</span>
-<span class="fc" id="L246">            client.setWebOrigins(config.getWebOrigins());</span>
-<span class="fc" id="L247">            try (Response response = realmResource.clients().create(client)) {</span>
-<span class="fc" id="L248">                String id = response.getLocation().getPath().replaceAll(&quot;.*/([^/]+)$&quot;, &quot;$1&quot;);</span>
-<span class="fc" id="L249">                realmResource.clients().get(id).generateNewSecret();</span>
-<span class="fc" id="L250">                return id;</span>
+<span class="nc" id="L237">            ClientRepresentation client = new ClientRepresentation();</span>
+<span class="nc" id="L238">            client.setName(config.getClientName());</span>
+<span class="nc" id="L239">            client.setClientId(config.getClientId());</span>
+<span class="nc" id="L240">            client.setEnabled(true);</span>
+<span class="nc" id="L241">            client.setServiceAccountsEnabled(true);</span>
+<span class="nc" id="L242">            client.setStandardFlowEnabled(true);</span>
+<span class="nc" id="L243">            client.setImplicitFlowEnabled(true);</span>
+<span class="nc" id="L244">            client.setDirectAccessGrantsEnabled(true);</span>
+<span class="nc" id="L245">            client.setAuthorizationServicesEnabled(false);</span>
+<span class="nc" id="L246">            client.setWebOrigins(config.getWebOrigins());</span>
+<span class="nc" id="L247">            try (Response response = realmResource.clients().create(client)) {</span>
+<span class="nc" id="L248">                String id = response.getLocation().getPath().replaceAll(&quot;.*/([^/]+)$&quot;, &quot;$1&quot;);</span>
+<span class="nc" id="L249">                realmResource.clients().get(id).generateNewSecret();</span>
+<span class="nc" id="L250">                return id;</span>
             }
         }
     }

@@ -156,13 +156,13 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
 <span class="fc" id="L156">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.STARTED);</span>
 <span class="fc" id="L157">            synchronizeDeploymentState(resource);</span>
 <span class="fc" id="L158">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.SUCCESSFUL);</span>
-<span class="fc" id="L159">        } catch (Exception e) {</span>
-<span class="fc" id="L160">            autoExit.withCode(-1);</span>
-<span class="fc" id="L161">            logger.log(Level.SEVERE, e, () -&gt; format(&quot;Unexpected exception occurred while adding %s %s/%s&quot;,</span>
-<span class="fc" id="L162">                    resource.getKind(),</span>
-<span class="fc" id="L163">                    resource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L164">                    resource.getMetadata().getName()));</span>
-<span class="fc" id="L165">            k8sClient.entandoResources().deploymentFailed(resource, e);</span>
+<span class="nc" id="L159">        } catch (Exception e) {</span>
+<span class="nc" id="L160">            autoExit.withCode(-1);</span>
+<span class="nc" id="L161">            logger.log(Level.SEVERE, e, () -&gt; format(&quot;Unexpected exception occurred while adding %s %s/%s&quot;,</span>
+<span class="nc" id="L162">                    resource.getKind(),</span>
+<span class="nc" id="L163">                    resource.getMetadata().getNamespace(),</span>
+<span class="nc" id="L164">                    resource.getMetadata().getName()));</span>
+<span class="nc" id="L165">            k8sClient.entandoResources().deploymentFailed(resource, e);</span>
 <span class="fc" id="L166">        }</span>
 <span class="fc" id="L167">    }</span>
 
