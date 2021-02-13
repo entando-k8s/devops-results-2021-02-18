@@ -165,9 +165,9 @@ import org.entando.entando.plugins.jpseo.aps.system.services.page.SeoPageMetadat
 <span class="fc bfc" id="L165" title="All 4 branches covered.">            if (null != code &amp;&amp; code.trim().length() &gt; 0) {</span>
 <span class="fc" id="L166">                Pattern pattern = Pattern.compile(&quot;([a-z0-9_])+&quot;);</span>
 <span class="fc" id="L167">                Matcher matcher = pattern.matcher(code);</span>
-<span class="pc bpc" id="L168" title="1 of 2 branches missed.">                if (!matcher.matches()) {</span>
-<span class="nc" id="L169">                    action.addFieldError(PARAM_FRIENDLY_CODES,</span>
-<span class="nc" id="L170">                            action.getText(&quot;jpseo.error.friendlyCode.wrongCharacters&quot;));</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">                if (!matcher.matches()) {</span>
+<span class="fc" id="L169">                    action.addFieldError(PARAM_FRIENDLY_CODES,</span>
+<span class="fc" id="L170">                            action.getText(&quot;jpseo.error.friendlyCode.wrongCharacters&quot;));</span>
                 }
             }
 <span class="fc bfc" id="L173" title="All 4 branches covered.">            if (null != code &amp;&amp; code.trim().length() &gt; 0) {</span>
@@ -178,9 +178,9 @@ import org.entando.entando.plugins.jpseo.aps.system.services.page.SeoPageMetadat
                 } else {
 <span class="fc" id="L179">                    String pageCode = action.getPageCode();</span>
 <span class="fc" id="L180">                    String draftPageReference = this.seoMappingManager.getDraftPageReference(code);</span>
-<span class="pc bpc" id="L181" title="1 of 4 branches missed.">                    if (null != draftPageReference &amp;&amp; !pageCode.equals(draftPageReference)) {</span>
-<span class="fc" id="L182">                        action.addFieldError(PARAM_FRIENDLY_CODES,</span>
-<span class="fc" id="L183">                                action.getText(&quot;jpseo.error.page.duplicateFriendlyCode&quot;, new String[]{code}));</span>
+<span class="pc bpc" id="L181" title="3 of 4 branches missed.">                    if (null != draftPageReference &amp;&amp; !pageCode.equals(draftPageReference)) {</span>
+<span class="nc" id="L182">                        action.addFieldError(PARAM_FRIENDLY_CODES,</span>
+<span class="nc" id="L183">                                action.getText(&quot;jpseo.error.page.duplicateFriendlyCode&quot;, new String[]{code}));</span>
                     }
                 }
             }
