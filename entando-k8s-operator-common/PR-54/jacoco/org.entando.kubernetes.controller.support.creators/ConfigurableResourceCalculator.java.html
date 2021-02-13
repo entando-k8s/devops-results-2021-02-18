@@ -24,28 +24,28 @@ public class ConfigurableResourceCalculator extends ResourceCalculator {
     private final EntandoResourceRequirements resourceRequirements;
 
     public ConfigurableResourceCalculator(ConfigurableResourceContainer container) {
-<span class="nc" id="L27">        super(container);</span>
-<span class="nc" id="L28">        this.resourceRequirements = container.getResourceRequirementsOverride().orElse(new EntandoResourceRequirements());</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L27">        super(container);</span>
+<span class="fc" id="L28">        this.resourceRequirements = container.getResourceRequirementsOverride().orElse(new EntandoResourceRequirements());</span>
+<span class="fc" id="L29">    }</span>
 
     @Override
     public String getMemoryLimit() {
-<span class="nc" id="L33">        return resourceRequirements.getMemoryLimit().orElse(super.getMemoryLimit());</span>
+<span class="fc" id="L33">        return resourceRequirements.getMemoryLimit().orElse(super.getMemoryLimit());</span>
     }
 
     @Override
     public String getMemoryRequest() {
-<span class="nc" id="L38">        return this.resourceRequirements.getMemoryRequest().orElse(super.getMemoryRequest());</span>
+<span class="fc" id="L38">        return this.resourceRequirements.getMemoryRequest().orElse(super.getMemoryRequest());</span>
     }
 
     @Override
     public String getCpuLimit() {
-<span class="nc" id="L43">        return resourceRequirements.getCpuLimit().orElse(super.getCpuLimit());</span>
+<span class="fc" id="L43">        return resourceRequirements.getCpuLimit().orElse(super.getCpuLimit());</span>
     }
 
     @Override
     public String getCpuRequest() {
-<span class="nc" id="L48">        return this.resourceRequirements.getCpuRequest().orElse(super.getCpuRequest());</span>
+<span class="fc" id="L48">        return this.resourceRequirements.getCpuRequest().orElse(super.getCpuRequest());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

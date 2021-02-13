@@ -16,20 +16,20 @@
 
 package org.entando.kubernetes.controller.spi.common;
 
-<span class="nc" id="L19">public enum EntandoOperatorSpiConfigProperty implements ConfigProperty {</span>
+<span class="fc" id="L19">public enum EntandoOperatorSpiConfigProperty implements ConfigProperty {</span>
 
-<span class="nc" id="L21">    ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE(&quot;entando.k8s.operator.compliance.mode&quot;),</span>
-<span class="nc" id="L22">    ENTANDO_ASSUME_EXTERNAL_HTTPS_PROVIDER(&quot;entando.assume.external.https.provider&quot;),</span>
-<span class="nc" id="L23">    ENTANDO_FORCE_EXTERNAL_ACCESS_TO_KEYCLOAK(&quot;entando.force.external.access.to.keycloak&quot;);</span>
+<span class="fc" id="L21">    ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE(&quot;entando.k8s.operator.compliance.mode&quot;),</span>
+<span class="fc" id="L22">    ENTANDO_ASSUME_EXTERNAL_HTTPS_PROVIDER(&quot;entando.assume.external.https.provider&quot;),</span>
+<span class="fc" id="L23">    ENTANDO_FORCE_EXTERNAL_ACCESS_TO_KEYCLOAK(&quot;entando.force.external.access.to.keycloak&quot;);</span>
 
     private final String jvmSystemProperty;
 
-<span class="nc" id="L27">    EntandoOperatorSpiConfigProperty(String jvmSystemProperty) {</span>
-<span class="nc" id="L28">        this.jvmSystemProperty = jvmSystemProperty;</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L27">    EntandoOperatorSpiConfigProperty(String jvmSystemProperty) {</span>
+<span class="fc" id="L28">        this.jvmSystemProperty = jvmSystemProperty;</span>
+<span class="fc" id="L29">    }</span>
 
     public String getJvmSystemProperty() {
-<span class="nc" id="L32">        return jvmSystemProperty;</span>
+<span class="fc" id="L32">        return jvmSystemProperty;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

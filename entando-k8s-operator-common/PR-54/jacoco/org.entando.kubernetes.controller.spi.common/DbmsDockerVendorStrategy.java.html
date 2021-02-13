@@ -58,7 +58,7 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L58">    }</span>
 
     public Optional&lt;Long&gt; getFileSystemUserGroupid() {
-<span class="nc" id="L61">        return Optional.ofNullable(fsUserGroupId);</span>
+<span class="fc" id="L61">        return Optional.ofNullable(fsUserGroupId);</span>
     }
 
     public DbmsVendorConfig getVendorConfig() {
@@ -66,7 +66,7 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public String getHealthCheck() {
-<span class="nc" id="L69">        return this.getVendorConfig().getHealthCheck();</span>
+<span class="fc" id="L69">        return this.getVendorConfig().getHealthCheck();</span>
     }
 
     public String getImageRepository() {
@@ -74,11 +74,11 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public String getOrganization() {
-<span class="nc" id="L77">        return organization;</span>
+<span class="fc" id="L77">        return organization;</span>
     }
 
     public String getRegistry() {
-<span class="nc" id="L81">        return registry.registry;</span>
+<span class="fc" id="L81">        return registry.registry;</span>
     }
 
     public int getPort() {
@@ -86,7 +86,7 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public String getVolumeMountPath() {
-<span class="nc" id="L89">        return this.volumeMountPath;</span>
+<span class="fc" id="L89">        return this.volumeMountPath;</span>
     }
 
     public String getName() {
@@ -94,7 +94,7 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public Integer getDefaultMemoryLimitMebibytes() {
-<span class="nc" id="L97">        return defaultMemoryLimit;</span>
+<span class="fc" id="L97">        return defaultMemoryLimit;</span>
     }
 
     public String getDefaultAdminUsername() {
@@ -102,20 +102,20 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public static DbmsDockerVendorStrategy forVendor(DbmsVendor vendor, EntandoOperatorComplianceMode complianceMode) {
-<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (complianceMode == EntandoOperatorComplianceMode.COMMUNITY) {</span>
-<span class="nc bnc" id="L106" title="All 2 branches missed.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
-<span class="nc" id="L107">                return CENTOS_POSTGRESQL;</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
-<span class="nc" id="L109">                return CENTOS_MYSQL;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        if (complianceMode == EntandoOperatorComplianceMode.COMMUNITY) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
+<span class="fc" id="L107">                return CENTOS_POSTGRESQL;</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
+<span class="fc" id="L109">                return CENTOS_MYSQL;</span>
             }
-<span class="nc bnc" id="L111" title="All 2 branches missed.">        } else if (complianceMode == EntandoOperatorComplianceMode.REDHAT) {</span>
-<span class="nc bnc" id="L112" title="All 2 branches missed.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
-<span class="nc" id="L113">                return RHEL_POSTGRESQL;</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
-<span class="nc" id="L115">                return RHEL_MYSQL;</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">        } else if (complianceMode == EntandoOperatorComplianceMode.REDHAT) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
+<span class="fc" id="L113">                return RHEL_POSTGRESQL;</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
+<span class="fc" id="L115">                return RHEL_MYSQL;</span>
             }
         }
-<span class="nc" id="L118">        return valueOf(vendor.name());</span>
+<span class="fc" id="L118">        return valueOf(vendor.name());</span>
     }
 
 <span class="fc" id="L121">    public enum DockerRegistry {</span>

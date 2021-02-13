@@ -35,7 +35,7 @@ public interface DeployableContainer {
     }
 
     default Optional&lt;Integer&gt; getMaximumStartupTimeSeconds() {
-<span class="nc" id="L38">        return Optional.empty();</span>
+<span class="fc" id="L38">        return Optional.empty();</span>
     }
 
     String getNameQualifier();
@@ -49,15 +49,15 @@ public interface DeployableContainer {
     List&lt;EnvVar&gt; getEnvironmentVariables();
 
     default int getMemoryLimitMebibytes() {
-<span class="nc" id="L52">        return 256;</span>
+<span class="fc" id="L52">        return 256;</span>
     }
 
     default int getCpuLimitMillicores() {
-<span class="nc" id="L56">        return 500;</span>
+<span class="fc" id="L56">        return 500;</span>
     }
 
     default List&lt;String&gt; getNamesOfSecretsToMount() {
-<span class="nc" id="L60">        return Collections.emptyList();</span>
+<span class="fc" id="L60">        return Collections.emptyList();</span>
     }
 
     default List&lt;SecretToMount&gt; getSecretsToMount() {
@@ -66,7 +66,7 @@ public interface DeployableContainer {
     }
 
     default List&lt;KubernetesPermission&gt; getKubernetesPermissions() {
-<span class="nc" id="L69">        return Collections.emptyList();</span>
+<span class="fc" id="L69">        return Collections.emptyList();</span>
     }
 
 }

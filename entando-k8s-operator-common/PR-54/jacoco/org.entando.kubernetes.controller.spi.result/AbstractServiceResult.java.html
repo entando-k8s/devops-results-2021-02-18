@@ -28,17 +28,17 @@ public abstract class AbstractServiceResult implements ServiceResult {
 
     @Override
     public String getInternalServiceHostname() {
-<span class="nc" id="L31">        return service.getMetadata().getName() + &quot;.&quot; + service.getMetadata().getNamespace() + &quot;.svc.cluster.local&quot;;</span>
+<span class="fc" id="L31">        return service.getMetadata().getName() + &quot;.&quot; + service.getMetadata().getNamespace() + &quot;.svc.cluster.local&quot;;</span>
     }
 
     @Override
     public String getPort() {
-<span class="nc" id="L36">        return service.getSpec().getPorts().get(0).getPort().toString();</span>
+<span class="fc" id="L36">        return service.getSpec().getPorts().get(0).getPort().toString();</span>
     }
 
     @Override
     public Service getService() {
-<span class="nc" id="L41">        return service;</span>
+<span class="fc" id="L41">        return service;</span>
     }
 
 }
