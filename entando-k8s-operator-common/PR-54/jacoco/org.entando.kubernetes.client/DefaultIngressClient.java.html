@@ -51,25 +51,25 @@ public class DefaultIngressClient implements IngressClient {
 
     @Override
     public Ingress addHttpPath(Ingress ingress, HTTPIngressPath httpIngressPath, Map&lt;String, String&gt; annotations) {
-<span class="nc" id="L54">        return client.extensions().ingresses().inNamespace(ingress.getMetadata().getNamespace())</span>
-<span class="nc" id="L55">                .withName(ingress.getMetadata().getName()).edit()</span>
-<span class="nc" id="L56">                .editSpec().editFirstRule().editHttp()</span>
-<span class="nc" id="L57">                .addNewPathLike(httpIngressPath)</span>
-<span class="nc" id="L58">                .endPath().endHttp().endRule().endSpec()</span>
-<span class="nc" id="L59">                .editMetadata().addToAnnotations(annotations).endMetadata()</span>
-<span class="nc" id="L60">                .done();</span>
+<span class="fc" id="L54">        return client.extensions().ingresses().inNamespace(ingress.getMetadata().getNamespace())</span>
+<span class="fc" id="L55">                .withName(ingress.getMetadata().getName()).edit()</span>
+<span class="fc" id="L56">                .editSpec().editFirstRule().editHttp()</span>
+<span class="fc" id="L57">                .addNewPathLike(httpIngressPath)</span>
+<span class="fc" id="L58">                .endPath().endHttp().endRule().endSpec()</span>
+<span class="fc" id="L59">                .editMetadata().addToAnnotations(annotations).endMetadata()</span>
+<span class="fc" id="L60">                .done();</span>
     }
 
     @Override
     public Ingress removeHttpPath(Ingress ingress, HTTPIngressPath path) {
-<span class="nc" id="L65">        return client.extensions().ingresses().inNamespace(ingress.getMetadata().getNamespace())</span>
-<span class="nc" id="L66">                .withName(ingress.getMetadata().getName()).edit()</span>
-<span class="nc" id="L67">                .editSpec().editFirstRule().editHttp()</span>
-<span class="nc" id="L68">                .removeFromPaths(path)</span>
-<span class="nc" id="L69">                .endHttp()</span>
-<span class="nc" id="L70">                .endRule()</span>
-<span class="nc" id="L71">                .endSpec()</span>
-<span class="nc" id="L72">                .done();</span>
+<span class="fc" id="L65">        return client.extensions().ingresses().inNamespace(ingress.getMetadata().getNamespace())</span>
+<span class="fc" id="L66">                .withName(ingress.getMetadata().getName()).edit()</span>
+<span class="fc" id="L67">                .editSpec().editFirstRule().editHttp()</span>
+<span class="fc" id="L68">                .removeFromPaths(path)</span>
+<span class="fc" id="L69">                .endHttp()</span>
+<span class="fc" id="L70">                .endRule()</span>
+<span class="fc" id="L71">                .endSpec()</span>
+<span class="fc" id="L72">                .done();</span>
 
     }
 

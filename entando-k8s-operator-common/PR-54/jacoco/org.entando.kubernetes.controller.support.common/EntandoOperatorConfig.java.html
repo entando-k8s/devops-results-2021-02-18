@@ -51,7 +51,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static Optional&lt;String&gt; getOperatorServiceAccount() {
-<span class="nc" id="L54">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_SERVICEACCOUNT);</span>
+<span class="fc" id="L54">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_SERVICEACCOUNT);</span>
     }
 
     public static OperatorDeploymentType getOperatorDeploymentType() {
@@ -69,7 +69,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static List&lt;String&gt; getNamespacesToObserve() {
-<span class="pc" id="L72">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_NAMESPACES_TO_OBSERVE).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
+<span class="fc" id="L72">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_NAMESPACES_TO_OBSERVE).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
 <span class="fc" id="L73">                .map(Arrays::asList)</span>
 <span class="fc" id="L74">                .orElse(new ArrayList&lt;&gt;());</span>
     }
@@ -89,7 +89,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     TLS Config
      */
     public static boolean disableKeycloakSslRequirement() {
-<span class="nc" id="L92">        return Boolean.parseBoolean(lookupProperty(EntandoOperatorConfigProperty.ENTANDO_DISABLE_KEYCLOAK_SSL_REQUIREMENT).orElse(&quot;false&quot;));</span>
+<span class="fc" id="L92">        return Boolean.parseBoolean(lookupProperty(EntandoOperatorConfigProperty.ENTANDO_DISABLE_KEYCLOAK_SSL_REQUIREMENT).orElse(&quot;false&quot;));</span>
     }
 
     public static boolean useAutoCertGeneration() {
@@ -116,8 +116,8 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static Optional&lt;Path&gt; getPathToDefaultTlsKeyPair() {
-<span class="pc" id="L119">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_PATH_TO_TLS_KEYPAIR).filter(s -&gt; Paths.get(s).toFile().exists())</span>
-<span class="pc" id="L120">                .map(Paths::get);</span>
+<span class="fc" id="L119">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_PATH_TO_TLS_KEYPAIR).filter(s -&gt; Paths.get(s).toFile().exists())</span>
+<span class="fc" id="L120">                .map(Paths::get);</span>
     }
 
     public static Optional&lt;String&gt; getPullPolicyOverride() {

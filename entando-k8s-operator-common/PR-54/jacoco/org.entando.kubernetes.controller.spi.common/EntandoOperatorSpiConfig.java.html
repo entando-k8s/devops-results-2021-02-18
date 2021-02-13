@@ -22,8 +22,8 @@ public class EntandoOperatorSpiConfig {
     }
 
     public static boolean assumeExternalHttpsProvider() {
-<span class="nc" id="L25">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_ASSUME_EXTERNAL_HTTPS_PROVIDER)</span>
-<span class="nc" id="L26">                .map(Boolean::valueOf).orElse(false);</span>
+<span class="fc" id="L25">        return EntandoOperatorConfigBase.lookupProperty(EntandoOperatorSpiConfigProperty.ENTANDO_ASSUME_EXTERNAL_HTTPS_PROVIDER)</span>
+<span class="fc" id="L26">                .map(Boolean::valueOf).orElse(false);</span>
     }
 
     public static EntandoOperatorComplianceMode getComplianceMode() {

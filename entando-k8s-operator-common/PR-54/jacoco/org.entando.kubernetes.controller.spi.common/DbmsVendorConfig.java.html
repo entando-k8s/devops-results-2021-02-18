@@ -42,9 +42,9 @@ import org.entando.kubernetes.model.DbmsVendor;
     },
 <span class="fc" id="L43">    ORACLE(&quot;org.hibernate.dialect.Oracle10gDialect&quot;, 1521, &quot;sys&quot;, &quot;sqlplus sys/Oradoc_db1:${DB_SID}&quot;, 128, false) {</span>
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="nc" id="L45">            return new JdbcConnectionStringBuilder() {</span>
+<span class="fc" id="L45">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="nc" id="L47">                    return String.format(&quot;jdbc:oracle:thin:@//%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getDatabase());</span>
+<span class="fc" id="L47">                    return String.format(&quot;jdbc:oracle:thin:@//%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getDatabase());</span>
                 }
             };
         }
@@ -52,9 +52,9 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L52">    DERBY(&quot;org.hibernate.dialect.DerbyDialect&quot;, &quot;agile&quot;, &quot;agile&quot;) {</span>
         @Override
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="nc" id="L55">            return new JdbcConnectionStringBuilder() {</span>
+<span class="fc" id="L55">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="nc" id="L57">                    return String.format(&quot;jdbc:derby:%s/%s;create=true&quot;, this.getDataFolder(), this.getDatabase());</span>
+<span class="fc" id="L57">                    return String.format(&quot;jdbc:derby:%s/%s;create=true&quot;, this.getDataFolder(), this.getDatabase());</span>
                 }
             };
         }
@@ -62,9 +62,9 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L62">    H2(&quot;org.hibernate.dialect.H2Dialect&quot;, &quot;sa&quot;, &quot;&quot;) {</span>
         @Override
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="nc" id="L65">            return new JdbcConnectionStringBuilder() {</span>
+<span class="fc" id="L65">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="nc" id="L67">                    return String.format(&quot;jdbc:h2:file:%s/%s;DB_CLOSE_ON_EXIT=FALSE&quot;, this.getDataFolder(), this.getDatabase());</span>
+<span class="fc" id="L67">                    return String.format(&quot;jdbc:h2:file:%s/%s;DB_CLOSE_ON_EXIT=FALSE&quot;, this.getDataFolder(), this.getDatabase());</span>
                 }
             };
         }

@@ -70,8 +70,8 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
      */
 
     protected AbstractDbAwareController(SimpleK8SClient&lt;?&gt; k8sClient, SimpleKeycloakClient keycloakClient) {
-<span class="nc" id="L73">        this(k8sClient, keycloakClient, new AutoExit(false));</span>
-<span class="nc" id="L74">    }</span>
+<span class="fc" id="L73">        this(k8sClient, keycloakClient, new AutoExit(false));</span>
+<span class="fc" id="L74">    }</span>
 
     /**
      * Constructor for integration tests where we would need to override the auto exit behaviour.
@@ -169,9 +169,9 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
     protected DatabaseServiceResult prepareDatabaseService(T entandoCustomResource, DbmsVendor dbmsVendor) {
 <span class="fc" id="L170">        Optional&lt;ExternalDatabaseDeployment&gt; externalDatabase = k8sClient.entandoResources()</span>
 <span class="fc" id="L171">                .findExternalDatabase(entandoCustomResource, dbmsVendor);</span>
-<span class="pc bpc" id="L172" title="1 of 2 branches missed.">        if (externalDatabase.isPresent()) {</span>
-<span class="nc" id="L173">            return externalDatabase.get();</span>
-<span class="pc bpc" id="L174" title="2 of 4 branches missed.">        } else if (!(dbmsVendor == DbmsVendor.NONE || dbmsVendor == DbmsVendor.EMBEDDED)) {</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">        if (externalDatabase.isPresent()) {</span>
+<span class="fc" id="L173">            return externalDatabase.get();</span>
+<span class="pc bpc" id="L174" title="1 of 4 branches missed.">        } else if (!(dbmsVendor == DbmsVendor.NONE || dbmsVendor == DbmsVendor.EMBEDDED)) {</span>
 <span class="fc" id="L175">            DatabaseDeployable databaseDeployable = new DatabaseDeployable(</span>
 <span class="fc" id="L176">                    DbmsDockerVendorStrategy.forVendor(dbmsVendor, EntandoOperatorSpiConfig.getComplianceMode()),</span>
                     entandoCustomResource, null);
@@ -182,7 +182,7 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
             }
 <span class="fc" id="L183">            return result;</span>
         }
-<span class="nc" id="L185">        return null;</span>
+<span class="fc" id="L185">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

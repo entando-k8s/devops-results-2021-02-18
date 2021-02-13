@@ -47,11 +47,11 @@ public class KubernetesRestInterceptor implements InvocationHandler {
 <span class="fc" id="L47">        logger.log(Level.INFO, () -&gt; buildEnterMessage(method, args));</span>
         try {
 <span class="fc" id="L49">            return method.invoke(delegate, args);</span>
-<span class="nc" id="L50">        } catch (InvocationTargetException e) {</span>
-<span class="nc" id="L51">            logger.log(Level.SEVERE, e.getTargetException(), () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
-<span class="nc" id="L52">                    method.getName(),</span>
-<span class="nc" id="L53">                    method.getDeclaringClass().getName()));</span>
-<span class="nc" id="L54">            throw e.getTargetException();</span>
+<span class="fc" id="L50">        } catch (InvocationTargetException e) {</span>
+<span class="fc" id="L51">            logger.log(Level.SEVERE, e.getTargetException(), () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
+<span class="fc" id="L52">                    method.getName(),</span>
+<span class="fc" id="L53">                    method.getDeclaringClass().getName()));</span>
+<span class="fc" id="L54">            throw e.getTargetException();</span>
 <span class="nc" id="L55">        } catch (Exception e) {</span>
 <span class="nc" id="L56">            logger.log(Level.SEVERE, e, () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
 <span class="nc" id="L57">                    method.getName(),</span>

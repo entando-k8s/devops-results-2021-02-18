@@ -32,21 +32,21 @@ public class EntandoExecListener implements ExecListener {
 
     private final Object mutex;
     private final int timeoutSeconds;
-<span class="nc" id="L35">    private final long start = System.currentTimeMillis();</span>
-<span class="nc" id="L36">    private boolean failed = false;</span>
-<span class="nc" id="L37">    boolean shouldStillWait = true;</span>
-<span class="nc" id="L38">    private ByteArrayOutputStream outWriter = new ByteArrayOutputStream();</span>
+<span class="fc" id="L35">    private final long start = System.currentTimeMillis();</span>
+<span class="fc" id="L36">    private boolean failed = false;</span>
+<span class="fc" id="L37">    boolean shouldStillWait = true;</span>
+<span class="fc" id="L38">    private ByteArrayOutputStream outWriter = new ByteArrayOutputStream();</span>
     private Execable&lt;String, ExecWatch&gt; execable;
 
-<span class="nc" id="L41">    public EntandoExecListener(Object mutex, int timeoutSeconds) {</span>
-<span class="nc" id="L42">        this.mutex = mutex;</span>
-<span class="nc" id="L43">        this.timeoutSeconds = timeoutSeconds;</span>
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L41">    public EntandoExecListener(Object mutex, int timeoutSeconds) {</span>
+<span class="fc" id="L42">        this.mutex = mutex;</span>
+<span class="fc" id="L43">        this.timeoutSeconds = timeoutSeconds;</span>
+<span class="fc" id="L44">    }</span>
 
     @Override
     public void onOpen(Response response) {
         //no implementation required
-<span class="nc" id="L49">    }</span>
+<span class="fc" id="L49">    }</span>
 
     @Override
     public void onFailure(Throwable t, Response response) {
@@ -59,39 +59,39 @@ public class EntandoExecListener implements ExecListener {
 
     @Override
     public void onClose(int code, String reason) {
-<span class="nc" id="L62">        shouldStillWait = false;</span>
-<span class="nc" id="L63">        synchronized (mutex) {</span>
-<span class="nc" id="L64">            mutex.notifyAll();</span>
-<span class="nc" id="L65">        }</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc" id="L62">        shouldStillWait = false;</span>
+<span class="fc" id="L63">        synchronized (mutex) {</span>
+<span class="fc" id="L64">            mutex.notifyAll();</span>
+<span class="fc" id="L65">        }</span>
+<span class="fc" id="L66">    }</span>
 
     public boolean shouldStillWait() {
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000L) {</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000L) {</span>
 <span class="nc" id="L70">            failed = true;</span>
 <span class="nc" id="L71">            shouldStillWait = false;</span>
 <span class="nc" id="L72">            return false;</span>
         }
-<span class="nc" id="L74">        return shouldStillWait;</span>
+<span class="fc" id="L74">        return shouldStillWait;</span>
     }
 
     public OutputStream getOutWriter() {
-<span class="nc" id="L78">        return outWriter;</span>
+<span class="fc" id="L78">        return outWriter;</span>
     }
 
     public List&lt;String&gt; getOutput() throws IOException {
-<span class="nc" id="L82">        return IOUtils.readLines(new ByteArrayInputStream(outWriter.toByteArray()), StandardCharsets.UTF_8);</span>
+<span class="fc" id="L82">        return IOUtils.readLines(new ByteArrayInputStream(outWriter.toByteArray()), StandardCharsets.UTF_8);</span>
     }
 
     public boolean hasFailed() {
-<span class="nc" id="L86">        return failed;</span>
+<span class="fc" id="L86">        return failed;</span>
     }
 
     public void setExecable(Execable&lt;String, ExecWatch&gt; execable) {
-<span class="nc" id="L90">        this.execable = execable;</span>
-<span class="nc" id="L91">    }</span>
+<span class="fc" id="L90">        this.execable = execable;</span>
+<span class="fc" id="L91">    }</span>
 
     public Execable&lt;String, ExecWatch&gt; getExecable() {
-<span class="nc" id="L94">        return execable;</span>
+<span class="fc" id="L94">        return execable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
