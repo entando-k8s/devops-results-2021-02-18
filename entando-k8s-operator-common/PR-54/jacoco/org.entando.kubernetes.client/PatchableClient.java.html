@@ -31,10 +31,10 @@ public interface PatchableClient {
                     extends Resource&lt;T, ? extends Doneable&lt;T&gt;&gt;&gt; operation) {
 <span class="fc" id="L32">        Resource&lt;T, ? extends Doneable&lt;T&gt;&gt; d = operation</span>
 <span class="fc" id="L33">                .inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(deployment.getMetadata().getName());</span>
-<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (d.get() == null) {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (d.get() == null) {</span>
 <span class="fc" id="L35">            return operation.inNamespace(peerInNamespace.getMetadata().getNamespace()).create(deployment);</span>
         } else {
-<span class="nc" id="L37">            return d.patch(deployment);</span>
+<span class="fc" id="L37">            return d.patch(deployment);</span>
         }
     }
 

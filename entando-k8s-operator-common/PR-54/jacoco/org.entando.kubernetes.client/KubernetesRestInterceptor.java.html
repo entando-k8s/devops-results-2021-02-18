@@ -44,51 +44,51 @@ public class KubernetesRestInterceptor implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 <span class="fc" id="L46">        Logger logger = Logger.getLogger(method.getDeclaringClass().getName());</span>
-<span class="fc" id="L47">        logger.log(Level.INFO, () -&gt; {</span>
-<span class="fc" id="L48">            StringBuilder message = new StringBuilder(</span>
-<span class="fc" id="L49">                    String.format(&quot;Entering method %s in class %s&quot;, method.getName(),</span>
-<span class="fc" id="L50">                            method.getDeclaringClass().getName()));</span>
-<span class="fc bfc" id="L51" title="All 2 branches covered.">            if (args != null) {</span>
-<span class="fc" id="L52">                Optional&lt;EntandoCustomResource&gt; first = Arrays.stream(args)</span>
-<span class="fc" id="L53">                        .filter(EntandoCustomResource.class::isInstance)</span>
-<span class="fc" id="L54">                        .map(EntandoCustomResource.class::cast).findFirst();</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">                if (first.isPresent()) {</span>
-<span class="fc" id="L56">                    message.append(format(first.get()));</span>
-                }
-<span class="fc" id="L58">                Optional&lt;HasMetadata&gt; second = Arrays.stream(args)</span>
-<span class="fc bfc" id="L59" title="All 4 branches covered.">                        .filter(o -&gt; o instanceof HasMetadata &amp;&amp; o.getClass().getName().startsWith(&quot;io.fabric8.kubernetes&quot;))</span>
-<span class="fc" id="L60">                        .map(HasMetadata.class::cast).findFirst();</span>
-<span class="fc bfc" id="L61" title="All 2 branches covered.">                if (second.isPresent()) {</span>
-<span class="fc bfc" id="L62" title="All 2 branches covered.">                    if (first.isPresent()) {</span>
-<span class="fc" id="L63">                        message.append(&quot; and&quot;);</span>
-                    }
-<span class="fc" id="L65">                    message.append(format(second.get()));</span>
-                }
-<span class="fc bfc" id="L67" title="All 4 branches covered.">                if (!(first.isPresent() || second.isPresent())) {</span>
-<span class="fc" id="L68">                    message.append(&quot; with &quot;)</span>
-<span class="fc" id="L69">                            .append(String.join(&quot;,&quot;, Arrays.stream(args).map(Object::toString).collect(Collectors.toList())));</span>
-                }
-            }
-<span class="fc" id="L72">            return message.toString();</span>
-        });
+<span class="fc" id="L47">        logger.log(Level.INFO, () -&gt; buildEnterMessage(method, args));</span>
         try {
-<span class="fc" id="L75">            return method.invoke(delegate, args);</span>
-<span class="fc" id="L76">        } catch (InvocationTargetException e) {</span>
-<span class="fc" id="L77">            logger.log(Level.SEVERE, e.getTargetException(), () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
-<span class="fc" id="L78">                    method.getName(),</span>
-<span class="fc" id="L79">                    method.getDeclaringClass().getName()));</span>
-<span class="fc" id="L80">            throw e.getTargetException();</span>
-<span class="nc" id="L81">        } catch (Exception e) {</span>
-<span class="nc" id="L82">            logger.log(Level.SEVERE, e, () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
-<span class="nc" id="L83">                    method.getName(),</span>
-<span class="nc" id="L84">                    method.getDeclaringClass().getName()));</span>
-<span class="nc" id="L85">            throw e;</span>
+<span class="fc" id="L49">            return method.invoke(delegate, args);</span>
+<span class="fc" id="L50">        } catch (InvocationTargetException e) {</span>
+<span class="fc" id="L51">            logger.log(Level.SEVERE, e.getTargetException(), () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
+<span class="fc" id="L52">                    method.getName(),</span>
+<span class="fc" id="L53">                    method.getDeclaringClass().getName()));</span>
+<span class="fc" id="L54">            throw e.getTargetException();</span>
+<span class="nc" id="L55">        } catch (Exception e) {</span>
+<span class="nc" id="L56">            logger.log(Level.SEVERE, e, () -&gt; String.format(&quot;Failure executing method %s in class %s&quot;,</span>
+<span class="nc" id="L57">                    method.getName(),</span>
+<span class="nc" id="L58">                    method.getDeclaringClass().getName()));</span>
+<span class="nc" id="L59">            throw e;</span>
         } finally {
-<span class="fc" id="L87">            logger.log(Level.INFO, () -&gt;</span>
-<span class="fc" id="L88">                    String.format(&quot;Exiting method %s in class %s&quot;, method.getName(),</span>
-<span class="fc" id="L89">                            method.getDeclaringClass().getName()));</span>
+<span class="fc" id="L61">            logger.log(Level.INFO, () -&gt;</span>
+<span class="fc" id="L62">                    String.format(&quot;Exiting method %s in class %s&quot;, method.getName(),</span>
+<span class="fc" id="L63">                            method.getDeclaringClass().getName()));</span>
 
         }
+    }
+
+    private String buildEnterMessage(Method method, Object[] args) {
+<span class="fc" id="L69">        StringBuilder message = new StringBuilder(</span>
+<span class="fc" id="L70">                String.format(&quot;Entering method %s in class %s&quot;, method.getName(),</span>
+<span class="fc" id="L71">                        method.getDeclaringClass().getName()));</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        if (args != null) {</span>
+<span class="fc" id="L73">            Optional&lt;EntandoCustomResource&gt; first = Arrays.stream(args)</span>
+<span class="fc" id="L74">                    .filter(EntandoCustomResource.class::isInstance)</span>
+<span class="fc" id="L75">                    .map(EntandoCustomResource.class::cast).findFirst();</span>
+<span class="fc" id="L76">            first.ifPresent(entandoCustomResource -&gt; message.append(format(entandoCustomResource)));</span>
+<span class="fc" id="L77">            Optional&lt;HasMetadata&gt; second = Arrays.stream(args)</span>
+<span class="fc bfc" id="L78" title="All 4 branches covered.">                    .filter(o -&gt; o instanceof HasMetadata &amp;&amp; o.getClass().getName().startsWith(&quot;io.fabric8.kubernetes&quot;))</span>
+<span class="fc" id="L79">                    .map(HasMetadata.class::cast).findFirst();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (second.isPresent()) {</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                if (first.isPresent()) {</span>
+<span class="fc" id="L82">                    message.append(&quot; and&quot;);</span>
+                }
+<span class="fc" id="L84">                message.append(format(second.get()));</span>
+            }
+<span class="fc bfc" id="L86" title="All 4 branches covered.">            if (!(first.isPresent() || second.isPresent())) {</span>
+<span class="fc" id="L87">                message.append(&quot; with &quot;)</span>
+<span class="fc" id="L88">                        .append(Arrays.stream(args).map(Object::toString).collect(Collectors.joining(&quot;,&quot;)));</span>
+            }
+        }
+<span class="fc" id="L91">        return message.toString();</span>
     }
 
 }

@@ -143,10 +143,10 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L143">        List&lt;EntandoClusterInfrastructure&gt; items = entandoResourceRegistry</span>
 <span class="fc" id="L144">                .getOperations(EntandoClusterInfrastructure.class)</span>
 <span class="fc" id="L145">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
-<span class="pc bpc" id="L146" title="1 of 2 branches missed.">        if (items.size() == 1) {</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        if (items.size() == 1) {</span>
 <span class="fc" id="L147">            return Optional.of(items.get(0));</span>
         }
-<span class="nc" id="L149">        return Optional.empty();</span>
+<span class="fc" id="L149">        return Optional.empty();</span>
     }
 
     @Override
@@ -337,17 +337,12 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
     @SuppressWarnings(&quot;rawtypes&quot;)
     private CustomResourceDefinition resolveDefinition(SerializedEntandoResource ser) {
 <span class="fc" id="L339">        final String key = ser.getApiVersion() + &quot;/&quot; + ser.getKind();</span>
-<span class="fc" id="L340">        CustomResourceDefinition definition = definitions.get(key);</span>
-<span class="fc bfc" id="L341" title="All 2 branches covered.">        if (definition == null) {</span>
-<span class="fc" id="L342">            definition = client.customResourceDefinitions().list().getItems()</span>
-<span class="fc" id="L343">                    .stream().filter(crd -&gt;</span>
-<span class="fc bfc" id="L344" title="All 2 branches covered.">                            crd.getSpec().getNames().getKind().equals(ser.getKind()) &amp;&amp; ser</span>
-<span class="fc" id="L345">                                    .getApiVersion()</span>
-<span class="pc bpc" id="L346" title="1 of 2 branches missed.">                                    .startsWith(crd.getSpec().getGroup())).findFirst()</span>
-<span class="pc" id="L347">                    .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find CRD for &quot; + ser.getKind()));</span>
-<span class="fc" id="L348">            definitions.put(key, definition);</span>
-        }
-<span class="fc" id="L350">        return definition;</span>
+<span class="fc" id="L340">        return definitions.computeIfAbsent(key, s -&gt; client.customResourceDefinitions().list().getItems()</span>
+<span class="fc" id="L341">                .stream().filter(crd -&gt;</span>
+<span class="fc bfc" id="L342" title="All 2 branches covered.">                        crd.getSpec().getNames().getKind().equals(ser.getKind()) &amp;&amp; ser</span>
+<span class="fc" id="L343">                                .getApiVersion()</span>
+<span class="pc bpc" id="L344" title="1 of 2 branches missed.">                                .startsWith(crd.getSpec().getGroup())).findFirst()</span>
+<span class="pc" id="L345">                .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find CRD for &quot; + ser.getKind())));</span>
     }
 
 }
