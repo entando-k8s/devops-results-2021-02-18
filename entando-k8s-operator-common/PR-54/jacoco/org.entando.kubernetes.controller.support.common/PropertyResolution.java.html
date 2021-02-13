@@ -97,9 +97,9 @@ public class PropertyResolution {
     @SuppressWarnings(&quot;unchecked&quot;)
     private Optional&lt;String&gt; extractValueFromContent(String content) {
         try {
-<span class="fc" id="L100">            ObjectMapper mapper = new ObjectMapper();</span>
-<span class="fc" id="L101">            Map&lt;String, String&gt; imageConfig = mapper.readValue(content, Map.class);</span>
-<span class="fc" id="L102">            return ofNullable(imageConfig.get(configMapKey));</span>
+<span class="nc" id="L100">            ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L101">            Map&lt;String, String&gt; imageConfig = mapper.readValue(content, Map.class);</span>
+<span class="nc" id="L102">            return ofNullable(imageConfig.get(configMapKey));</span>
 <span class="nc" id="L103">        } catch (JsonProcessingException e) {</span>
 <span class="nc" id="L104">            throw new IllegalStateException(e);</span>
         }

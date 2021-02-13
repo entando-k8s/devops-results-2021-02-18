@@ -16,17 +16,17 @@
 
 package org.entando.kubernetes.controller.support.creators;
 
-<span class="fc" id="L19">public enum EntandoRbacRole {</span>
-<span class="fc" id="L20">    ENTANDO_EDITOR(&quot;entando-editor&quot;), POD_VIEWER(&quot;pod-viewer&quot;);</span>
+<span class="nc" id="L19">public enum EntandoRbacRole {</span>
+<span class="nc" id="L20">    ENTANDO_EDITOR(&quot;entando-editor&quot;), POD_VIEWER(&quot;pod-viewer&quot;);</span>
 
     private final String k8sName;
 
-<span class="fc" id="L24">    EntandoRbacRole(String name) {</span>
-<span class="fc" id="L25">        this.k8sName = name;</span>
-<span class="fc" id="L26">    }</span>
+<span class="nc" id="L24">    EntandoRbacRole(String name) {</span>
+<span class="nc" id="L25">        this.k8sName = name;</span>
+<span class="nc" id="L26">    }</span>
 
     public String getK8sName() {
-<span class="fc" id="L29">        return k8sName;</span>
+<span class="nc" id="L29">        return k8sName;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -92,7 +92,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L92">        String configMapName = keycloakToUse.map(KeycloakName::forTheConnectionConfigMap)</span>
 <span class="fc" id="L93">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_CONNECTION_CONFIG);</span>
 <span class="fc" id="L94">        String configMapNamespace = keycloakToUse</span>
-<span class="fc" id="L95">                .map(resourceReference -&gt; resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
+<span class="pc" id="L95">                .map(resourceReference -&gt; resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
 <span class="fc" id="L96">                .orElse(getControllerConfigMapNamespace());</span>
         //This secret is duplicated in the deployment namespace, but the controller can only read the one in its own namespace
 <span class="fc" id="L98">        Secret secret = this.client.secrets().withName(secretName).fromServer().get();</span>
@@ -102,63 +102,63 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
         }
         //The configmap comes from the deployment namespace, unless it is a pre-configured keycloak
 <span class="fc" id="L104">        ConfigMap configMap = this.client.configMaps().inNamespace(configMapNamespace).withName(configMapName).fromServer().get();</span>
-<span class="fc bfc" id="L105" title="All 2 branches covered.">        if (configMap == null) {</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if (configMap == null) {</span>
 <span class="fc" id="L106">            throw new IllegalStateException(</span>
 <span class="fc" id="L107">                    format(&quot;Could not find the Keycloak ConfigMap %s in namespace %s&quot;, configMapName, configMapNamespace));</span>
         }
-<span class="fc" id="L109">        return new KeycloakConnectionConfig(secret, configMap);</span>
+<span class="nc" id="L109">        return new KeycloakConnectionConfig(secret, configMap);</span>
 
     }
 
     @Override
     public Optional&lt;EntandoKeycloakServer&gt; findKeycloakInNamespace(EntandoCustomResource peerInNamespace) {
-<span class="fc" id="L115">        List&lt;EntandoKeycloakServer&gt; items = entandoResourceRegistry.getOperations(EntandoKeycloakServer.class)</span>
-<span class="fc" id="L116">                .inNamespace(peerInNamespace.getMetadata().getNamespace()).list().getItems();</span>
-<span class="fc bfc" id="L117" title="All 2 branches covered.">        if (items.size() == 1) {</span>
-<span class="fc" id="L118">            return Optional.of(items.get(0));</span>
+<span class="nc" id="L115">        List&lt;EntandoKeycloakServer&gt; items = entandoResourceRegistry.getOperations(EntandoKeycloakServer.class)</span>
+<span class="nc" id="L116">                .inNamespace(peerInNamespace.getMetadata().getNamespace()).list().getItems();</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (items.size() == 1) {</span>
+<span class="nc" id="L118">            return Optional.of(items.get(0));</span>
         }
-<span class="fc" id="L120">        return Optional.empty();</span>
+<span class="nc" id="L120">        return Optional.empty();</span>
     }
 
     @Override
     public DoneableConfigMap loadDefaultConfigMap() {
-<span class="fc" id="L125">        Resource&lt;ConfigMap, DoneableConfigMap&gt; resource = client.configMaps().inNamespace(getControllerConfigMapNamespace())</span>
-<span class="fc" id="L126">                .withName(KubeUtils.ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME);</span>
-<span class="fc bfc" id="L127" title="All 2 branches covered.">        if (resource.get() == null) {</span>
-<span class="fc" id="L128">            return client.configMaps().inNamespace(getControllerConfigMapNamespace()).createNew()</span>
-<span class="fc" id="L129">                    .withNewMetadata()</span>
-<span class="fc" id="L130">                    .withName(KubeUtils.ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME)</span>
-<span class="fc" id="L131">                    .withNamespace(getControllerConfigMapNamespace())</span>
-<span class="fc" id="L132">                    .endMetadata()</span>
-<span class="fc" id="L133">                    .addToData(new HashMap&lt;&gt;());</span>
+<span class="nc" id="L125">        Resource&lt;ConfigMap, DoneableConfigMap&gt; resource = client.configMaps().inNamespace(getControllerConfigMapNamespace())</span>
+<span class="nc" id="L126">                .withName(KubeUtils.ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        if (resource.get() == null) {</span>
+<span class="nc" id="L128">            return client.configMaps().inNamespace(getControllerConfigMapNamespace()).createNew()</span>
+<span class="nc" id="L129">                    .withNewMetadata()</span>
+<span class="nc" id="L130">                    .withName(KubeUtils.ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME)</span>
+<span class="nc" id="L131">                    .withNamespace(getControllerConfigMapNamespace())</span>
+<span class="nc" id="L132">                    .endMetadata()</span>
+<span class="nc" id="L133">                    .addToData(new HashMap&lt;&gt;());</span>
 
         }
-<span class="fc" id="L136">        return resource.edit().editMetadata()</span>
+<span class="nc" id="L136">        return resource.edit().editMetadata()</span>
                 //to ensure there is a state change so that the patch request does not get rejected
-<span class="fc" id="L138">                .addToAnnotations(KubeUtils.UPDATED_ANNOTATION_NAME, new Timestamp(System.currentTimeMillis()).toString())</span>
-<span class="fc" id="L139">                .endMetadata();</span>
+<span class="nc" id="L138">                .addToAnnotations(KubeUtils.UPDATED_ANNOTATION_NAME, new Timestamp(System.currentTimeMillis()).toString())</span>
+<span class="nc" id="L139">                .endMetadata();</span>
     }
 
     @Override
     public Optional&lt;EntandoClusterInfrastructure&gt; findClusterInfrastructureInNamespace(EntandoCustomResource resource) {
-<span class="fc" id="L144">        List&lt;EntandoClusterInfrastructure&gt; items = entandoResourceRegistry</span>
-<span class="fc" id="L145">                .getOperations(EntandoClusterInfrastructure.class)</span>
-<span class="fc" id="L146">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
-<span class="fc bfc" id="L147" title="All 2 branches covered.">        if (items.size() == 1) {</span>
-<span class="fc" id="L148">            return Optional.of(items.get(0));</span>
+<span class="nc" id="L144">        List&lt;EntandoClusterInfrastructure&gt; items = entandoResourceRegistry</span>
+<span class="nc" id="L145">                .getOperations(EntandoClusterInfrastructure.class)</span>
+<span class="nc" id="L146">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (items.size() == 1) {</span>
+<span class="nc" id="L148">            return Optional.of(items.get(0));</span>
         }
-<span class="fc" id="L150">        return Optional.empty();</span>
+<span class="nc" id="L150">        return Optional.empty();</span>
     }
 
     @Override
     public &lt;T extends ClusterInfrastructureAwareSpec&gt; Optional&lt;InfrastructureConfig&gt; findInfrastructureConfig(
             EntandoBaseCustomResource&lt;T&gt; resource) {
-<span class="fc" id="L156">        Optional&lt;ResourceReference&gt; clusterInfrastructureToUse = determineClusterInfrastructureToUse(resource);</span>
-<span class="fc" id="L157">        return clusterInfrastructureToUse.map(resourceReference -&gt; new InfrastructureConfig(</span>
-<span class="fc" id="L158">                this.client.configMaps()</span>
-<span class="fc" id="L159">                        .inNamespace(resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
-<span class="fc" id="L160">                        .withName(InfrastructureConfig.connectionConfigMapNameFor(resourceReference))</span>
-<span class="fc" id="L161">                        .get()));</span>
+<span class="nc" id="L156">        Optional&lt;ResourceReference&gt; clusterInfrastructureToUse = determineClusterInfrastructureToUse(resource);</span>
+<span class="nc" id="L157">        return clusterInfrastructureToUse.map(resourceReference -&gt; new InfrastructureConfig(</span>
+<span class="nc" id="L158">                this.client.configMaps()</span>
+<span class="nc" id="L159">                        .inNamespace(resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
+<span class="nc" id="L160">                        .withName(InfrastructureConfig.connectionConfigMapNameFor(resourceReference))</span>
+<span class="nc" id="L161">                        .get()));</span>
     }
 
     @Override
@@ -172,28 +172,28 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
     public Optional&lt;ExternalDatabaseDeployment&gt; findExternalDatabase(EntandoCustomResource resource, DbmsVendor vendor) {
 <span class="fc" id="L173">        List&lt;EntandoDatabaseService&gt; externalDatabaseList = getOperations(EntandoDatabaseService.class)</span>
 <span class="fc" id="L174">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
-<span class="pc bpc" id="L175" title="1 of 2 branches missed.">        return externalDatabaseList.stream().filter(entandoDatabaseService -&gt; entandoDatabaseService.getSpec().getDbms() == vendor)</span>
+<span class="pc bnc" id="L175" title="All 2 branches missed.">        return externalDatabaseList.stream().filter(entandoDatabaseService -&gt; entandoDatabaseService.getSpec().getDbms() == vendor)</span>
 <span class="fc" id="L176">                .findFirst().map(externalDatabase -&gt;</span>
-<span class="fc" id="L177">                        new ExternalDatabaseDeployment(</span>
-<span class="fc" id="L178">                                loadService(externalDatabase, ExternalDatabaseDeployment.serviceName(externalDatabase)),</span>
+<span class="nc" id="L177">                        new ExternalDatabaseDeployment(</span>
+<span class="nc" id="L178">                                loadService(externalDatabase, ExternalDatabaseDeployment.serviceName(externalDatabase)),</span>
                                 externalDatabase));
     }
 
     protected Supplier&lt;IllegalStateException&gt; notFound(String kind, String namespace, String name) {
-<span class="fc" id="L183">        return () -&gt; new IllegalStateException(format(&quot;Could not find the %s '%s' in the namespace %s&quot;, kind, name, namespace));</span>
+<span class="nc" id="L183">        return () -&gt; new IllegalStateException(format(&quot;Could not find the %s '%s' in the namespace %s&quot;, kind, name, namespace));</span>
     }
 
     @Override
     public &lt;T extends EntandoCustomResource&gt; T load(Class&lt;T&gt; clzz, String resourceNamespace, String resourceName) {
 <span class="fc" id="L188">        return ofNullable(getOperations(clzz).inNamespace(resourceNamespace)</span>
-<span class="fc" id="L189">                .withName(resourceName).get()).orElseThrow(() -&gt; notFound(clzz.getSimpleName(), resourceNamespace, resourceName).get());</span>
+<span class="pc" id="L189">                .withName(resourceName).get()).orElseThrow(() -&gt; notFound(clzz.getSimpleName(), resourceNamespace, resourceName).get());</span>
     }
 
     @Override
     @SuppressWarnings(&quot;unchecked&quot;)
     public &lt;T extends EntandoCustomResource&gt; T createOrPatchEntandoResource(T r) {
-<span class="fc" id="L195">        Class&lt;T&gt; type = (Class&lt;T&gt;) r.getClass();</span>
-<span class="fc" id="L196">        return createOrPatch(r, r, this.getOperations(type));</span>
+<span class="nc" id="L195">        Class&lt;T&gt; type = (Class&lt;T&gt;) r.getClass();</span>
+<span class="nc" id="L196">        return createOrPatch(r, r, this.getOperations(type));</span>
 
     }
 
@@ -222,19 +222,19 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
     @Override
     @SuppressWarnings(&quot;unchecked&quot;)
     public &lt;T extends EntandoCustomResource&gt; T reload(T customResource) {
-<span class="pc bpc" id="L225" title="1 of 2 branches missed.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
 <span class="nc" id="L226">            return (T) load(customResource.getClass(), customResource.getMetadata().getNamespace(), customResource.getMetadata().getName());</span>
         } else {
-<span class="fc" id="L228">            return (T) client.customResources(</span>
-<span class="fc" id="L229">                    resolveDefinition((SerializedEntandoResource) customResource),</span>
+<span class="nc" id="L228">            return (T) client.customResources(</span>
+<span class="nc" id="L229">                    resolveDefinition((SerializedEntandoResource) customResource),</span>
                     SerializedEntandoResource.class,
                     CustomResourceList.class,
                     DoneableCustomResource.class
             )
-<span class="fc" id="L234">                    .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L235">                    .withName(customResource.getMetadata().getName())</span>
-<span class="fc" id="L236">                    .fromServer()</span>
-<span class="fc" id="L237">                    .get();</span>
+<span class="nc" id="L234">                    .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L235">                    .withName(customResource.getMetadata().getName())</span>
+<span class="nc" id="L236">                    .fromServer()</span>
+<span class="nc" id="L237">                    .get();</span>
         }
     }
 
@@ -281,7 +281,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L281">    }</span>
 
     private Service loadService(EntandoCustomResource peerInNamespace, String name) {
-<span class="fc" id="L284">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+<span class="nc" id="L284">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
     }
 
     private Ingress loadIngress(EntandoCustomResource peerInNamespace, String name) {
@@ -315,15 +315,15 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L315">                .endInvolvedObject();</span>
 <span class="fc" id="L316">        eventPopulator.apply(doneableEvent).done();</span>
         final CustomResourceOperationsImpl&lt;T, CustomResourceList&lt;T&gt;, ?&gt; operations;
-<span class="fc bfc" id="L318" title="All 2 branches covered.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
+<span class="pc bpc" id="L318" title="1 of 2 branches missed.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
 <span class="fc" id="L319">            operations = getOperations((Class&lt;T&gt;) customResource.getClass());</span>
         } else {
-<span class="fc" id="L321">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
-<span class="fc bfc" id="L322" title="All 2 branches covered.">            if (ser.getDefinition() == null) {</span>
-<span class="fc" id="L323">                ser.setDefinition(resolveDefinition(ser));</span>
+<span class="nc" id="L321">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
+<span class="nc bnc" id="L322" title="All 2 branches missed.">            if (ser.getDefinition() == null) {</span>
+<span class="nc" id="L323">                ser.setDefinition(resolveDefinition(ser));</span>
             }
-<span class="fc" id="L325">            operations = (CustomResourceOperationsImpl) client</span>
-<span class="fc" id="L326">                    .customResources(ser.getDefinition(), SerializedEntandoResource.class, CustomResourceList.class,</span>
+<span class="nc" id="L325">            operations = (CustomResourceOperationsImpl) client</span>
+<span class="nc" id="L326">                    .customResources(ser.getDefinition(), SerializedEntandoResource.class, CustomResourceList.class,</span>
                             DoneableCustomResource.class);
         }
 
@@ -336,13 +336,13 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L336">    }</span>
 
     private CustomResourceDefinition resolveDefinition(SerializedEntandoResource ser) {
-<span class="fc" id="L339">        final String key = ser.getApiVersion() + &quot;/&quot; + ser.getKind();</span>
-<span class="fc" id="L340">        return definitions.computeIfAbsent(key, s -&gt; client.customResourceDefinitions().list().getItems()</span>
-<span class="fc" id="L341">                .stream().filter(crd -&gt;</span>
-<span class="fc bfc" id="L342" title="All 2 branches covered.">                        crd.getSpec().getNames().getKind().equals(ser.getKind()) &amp;&amp; ser</span>
-<span class="fc" id="L343">                                .getApiVersion()</span>
-<span class="pc bpc" id="L344" title="1 of 2 branches missed.">                                .startsWith(crd.getSpec().getGroup())).findFirst()</span>
-<span class="pc" id="L345">                .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find CRD for &quot; + ser.getKind())));</span>
+<span class="nc" id="L339">        final String key = ser.getApiVersion() + &quot;/&quot; + ser.getKind();</span>
+<span class="nc" id="L340">        return definitions.computeIfAbsent(key, s -&gt; client.customResourceDefinitions().list().getItems()</span>
+<span class="nc" id="L341">                .stream().filter(crd -&gt;</span>
+<span class="nc bnc" id="L342" title="All 2 branches missed.">                        crd.getSpec().getNames().getKind().equals(ser.getKind()) &amp;&amp; ser</span>
+<span class="nc" id="L343">                                .getApiVersion()</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">                                .startsWith(crd.getSpec().getGroup())).findFirst()</span>
+<span class="nc" id="L345">                .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find CRD for &quot; + ser.getKind())));</span>
     }
 
     private String getControllerConfigMapNamespace() {

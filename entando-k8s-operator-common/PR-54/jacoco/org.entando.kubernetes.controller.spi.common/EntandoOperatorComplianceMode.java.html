@@ -22,14 +22,14 @@ import java.util.Locale;
 <span class="fc" id="L22">    COMMUNITY, REDHAT;</span>
 
     public String getName() {
-<span class="fc" id="L25">        return name().toLowerCase(Locale.ROOT);</span>
+<span class="nc" id="L25">        return name().toLowerCase(Locale.ROOT);</span>
     }
 
     public static EntandoOperatorComplianceMode resolve(String s) {
         try {
 <span class="fc" id="L30">            return valueOf(s.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;));</span>
-<span class="fc" id="L31">        } catch (IllegalArgumentException e) {</span>
-<span class="fc" id="L32">            return null;</span>
+<span class="nc" id="L31">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L32">            return null;</span>
         }
     }
 }

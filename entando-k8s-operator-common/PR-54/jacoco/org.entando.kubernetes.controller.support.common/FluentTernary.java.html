@@ -21,26 +21,26 @@ public class FluentTernary&lt;T&gt; {
     private final T trueValue;
     private boolean condition;
 
-<span class="fc" id="L24">    public FluentTernary(T trueValue) {</span>
-<span class="fc" id="L25">        this.trueValue = trueValue;</span>
-<span class="fc" id="L26">    }</span>
+<span class="nc" id="L24">    public FluentTernary(T trueValue) {</span>
+<span class="nc" id="L25">        this.trueValue = trueValue;</span>
+<span class="nc" id="L26">    }</span>
 
     public static &lt;T&gt; FluentTernary&lt;T&gt; use(T trueValue) {
-<span class="fc" id="L29">        return new FluentTernary&lt;&gt;(trueValue);</span>
+<span class="nc" id="L29">        return new FluentTernary&lt;&gt;(trueValue);</span>
     }
 
     public static &lt;T&gt; FluentTernary&lt;T&gt; useNull(Class&lt;T&gt; clazz) {
 
-<span class="fc" id="L34">        return new FluentTernary&lt;&gt;(clazz.cast(null));</span>
+<span class="nc" id="L34">        return new FluentTernary&lt;&gt;(clazz.cast(null));</span>
     }
 
     public FluentTernary&lt;T&gt; when(boolean condition) {
-<span class="fc" id="L38">        this.condition = condition;</span>
-<span class="fc" id="L39">        return this;</span>
+<span class="nc" id="L38">        this.condition = condition;</span>
+<span class="nc" id="L39">        return this;</span>
     }
 
     public T orElse(T falseValue) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        return condition ? trueValue : falseValue;</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        return condition ? trueValue : falseValue;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

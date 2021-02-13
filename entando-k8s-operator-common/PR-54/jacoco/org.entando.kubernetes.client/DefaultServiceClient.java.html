@@ -36,16 +36,16 @@ public class DefaultServiceClient implements ServiceClient {
     @Override
     public Endpoints createOrReplaceEndpoints(EntandoCustomResource peerInNamespace, Endpoints endpoints) {
         //TODO remove the namespace overriding once we create delegate services from the correct context (the App)
-<span class="fc" id="L39">        String namespace = ofNullable(endpoints.getMetadata().getNamespace())</span>
-<span class="fc" id="L40">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).get() != null) {</span>
-<span class="fc" id="L42">            client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).delete();</span>
+<span class="nc" id="L39">        String namespace = ofNullable(endpoints.getMetadata().getNamespace())</span>
+<span class="nc" id="L40">                .orElse(peerInNamespace.getMetadata().getNamespace());</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).get() != null) {</span>
+<span class="nc" id="L42">            client.endpoints().inNamespace(namespace).withName(endpoints.getMetadata().getName()).delete();</span>
         }
-<span class="fc" id="L44">        endpoints.getMetadata().setResourceVersion(null);</span>
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="nc" id="L44">        endpoints.getMetadata().setResourceVersion(null);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (int i = 0; i &lt; 10; i++) {</span>
             try {
-<span class="fc" id="L47">                return client.endpoints().inNamespace(namespace).create(endpoints);</span>
-<span class="fc" id="L48">            } catch (KubernetesClientException e) {</span>
+<span class="nc" id="L47">                return client.endpoints().inNamespace(namespace).create(endpoints);</span>
+<span class="nc" id="L48">            } catch (KubernetesClientException e) {</span>
                 //Waiting for K8S to delete it.
             }
         }

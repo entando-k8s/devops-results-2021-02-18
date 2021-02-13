@@ -23,9 +23,9 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L23">    MYSQL(&quot;org.hibernate.dialect.MySQL5InnoDBDialect&quot;, 3306, &quot;root&quot;,</span>
             &quot;MYSQL_PWD=${MYSQL_ROOT_PASSWORD} mysql -h 127.0.0.1 -u root -e 'SELECT 1'&quot;, 32, true) {
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="fc" id="L26">            return new JdbcConnectionStringBuilder() {</span>
+<span class="nc" id="L26">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="fc" id="L28">                    return String.format(&quot;jdbc:mysql://%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getSchema());</span>
+<span class="nc" id="L28">                    return String.format(&quot;jdbc:mysql://%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getSchema());</span>
                 }
             };
         }
@@ -33,18 +33,18 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L33">    POSTGRESQL(&quot;org.hibernate.dialect.PostgreSQLDialect&quot;, 5432, &quot;postgres&quot;,</span>
             &quot;/usr/libexec/check-container&quot;, 64, false) {
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="fc" id="L36">            return new JdbcConnectionStringBuilder() {</span>
+<span class="nc" id="L36">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="fc" id="L38">                    return String.format(&quot;jdbc:postgresql://%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getDatabase());</span>
+<span class="nc" id="L38">                    return String.format(&quot;jdbc:postgresql://%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getDatabase());</span>
                 }
             };
         }
     },
 <span class="fc" id="L43">    ORACLE(&quot;org.hibernate.dialect.Oracle10gDialect&quot;, 1521, &quot;sys&quot;, &quot;sqlplus sys/Oradoc_db1:${DB_SID}&quot;, 128, false) {</span>
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="fc" id="L45">            return new JdbcConnectionStringBuilder() {</span>
+<span class="nc" id="L45">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="fc" id="L47">                    return String.format(&quot;jdbc:oracle:thin:@//%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getDatabase());</span>
+<span class="nc" id="L47">                    return String.format(&quot;jdbc:oracle:thin:@//%s:%s/%s&quot;, this.getHost(), this.getPort(), this.getDatabase());</span>
                 }
             };
         }
@@ -52,9 +52,9 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L52">    DERBY(&quot;org.hibernate.dialect.DerbyDialect&quot;, &quot;agile&quot;, &quot;agile&quot;) {</span>
         @Override
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="fc" id="L55">            return new JdbcConnectionStringBuilder() {</span>
+<span class="nc" id="L55">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="fc" id="L57">                    return String.format(&quot;jdbc:derby:%s/%s;create=true&quot;, this.getDataFolder(), this.getDatabase());</span>
+<span class="nc" id="L57">                    return String.format(&quot;jdbc:derby:%s/%s;create=true&quot;, this.getDataFolder(), this.getDatabase());</span>
                 }
             };
         }
@@ -62,9 +62,9 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="fc" id="L62">    H2(&quot;org.hibernate.dialect.H2Dialect&quot;, &quot;sa&quot;, &quot;&quot;) {</span>
         @Override
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="fc" id="L65">            return new JdbcConnectionStringBuilder() {</span>
+<span class="nc" id="L65">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {
-<span class="fc" id="L67">                    return String.format(&quot;jdbc:h2:file:%s/%s;DB_CLOSE_ON_EXIT=FALSE&quot;, this.getDataFolder(), this.getDatabase());</span>
+<span class="nc" id="L67">                    return String.format(&quot;jdbc:h2:file:%s/%s;DB_CLOSE_ON_EXIT=FALSE&quot;, this.getDataFolder(), this.getDatabase());</span>
                 }
             };
         }
@@ -98,7 +98,7 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public boolean schemaIsDatabase() {
-<span class="fc" id="L101">        return this.schemaIsDatabase;</span>
+<span class="nc" id="L101">        return this.schemaIsDatabase;</span>
     }
 
     public int getMaxNameLength() {
@@ -120,11 +120,11 @@ import org.entando.kubernetes.model.DbmsVendor;
     }
 
     public String getHibernateDialect() {
-<span class="fc" id="L123">        return hibernateDialect;</span>
+<span class="nc" id="L123">        return hibernateDialect;</span>
     }
 
     public String getName() {
-<span class="fc" id="L127">        return name().toLowerCase(Locale.getDefault());</span>
+<span class="nc" id="L127">        return name().toLowerCase(Locale.getDefault());</span>
     }
 
     public DbmsVendor getDbms() {

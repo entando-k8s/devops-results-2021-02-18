@@ -70,8 +70,8 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
      */
 
     protected AbstractDbAwareController(SimpleK8SClient&lt;?&gt; k8sClient, SimpleKeycloakClient keycloakClient) {
-<span class="fc" id="L73">        this(k8sClient, keycloakClient, new AutoExit(false));</span>
-<span class="fc" id="L74">    }</span>
+<span class="nc" id="L73">        this(k8sClient, keycloakClient, new AutoExit(false));</span>
+<span class="nc" id="L74">    }</span>
 
     /**
      * Constructor for integration tests where we would need to override the auto exit behaviour.
@@ -154,8 +154,8 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
     protected void performSync(T resource) {
         try {
 <span class="fc" id="L156">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.STARTED);</span>
-<span class="fc" id="L157">            synchronizeDeploymentState(resource);</span>
-<span class="fc" id="L158">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.SUCCESSFUL);</span>
+<span class="nc" id="L157">            synchronizeDeploymentState(resource);</span>
+<span class="nc" id="L158">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.SUCCESSFUL);</span>
 <span class="fc" id="L159">        } catch (Exception e) {</span>
 <span class="fc" id="L160">            autoExit.withCode(-1);</span>
 <span class="fc" id="L161">            logger.log(Level.SEVERE, e, () -&gt; format(&quot;Unexpected exception occurred while adding %s %s/%s&quot;,</span>
@@ -163,15 +163,15 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
 <span class="fc" id="L163">                    resource.getMetadata().getNamespace(),</span>
 <span class="fc" id="L164">                    resource.getMetadata().getName()));</span>
 <span class="fc" id="L165">            k8sClient.entandoResources().deploymentFailed(resource, e);</span>
-<span class="fc" id="L166">        }</span>
+<span class="nc" id="L166">        }</span>
 <span class="fc" id="L167">    }</span>
 
     protected DatabaseServiceResult prepareDatabaseService(T entandoCustomResource, DbmsVendor dbmsVendor) {
 <span class="fc" id="L170">        Optional&lt;ExternalDatabaseDeployment&gt; externalDatabase = k8sClient.entandoResources()</span>
 <span class="fc" id="L171">                .findExternalDatabase(entandoCustomResource, dbmsVendor);</span>
-<span class="fc bfc" id="L172" title="All 2 branches covered.">        if (externalDatabase.isPresent()) {</span>
-<span class="fc" id="L173">            return externalDatabase.get();</span>
-<span class="pc bpc" id="L174" title="1 of 4 branches missed.">        } else if (!(dbmsVendor == DbmsVendor.NONE || dbmsVendor == DbmsVendor.EMBEDDED)) {</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">        if (externalDatabase.isPresent()) {</span>
+<span class="nc" id="L173">            return externalDatabase.get();</span>
+<span class="pc bpc" id="L174" title="2 of 4 branches missed.">        } else if (!(dbmsVendor == DbmsVendor.NONE || dbmsVendor == DbmsVendor.EMBEDDED)) {</span>
 <span class="fc" id="L175">            DatabaseDeployable databaseDeployable = new DatabaseDeployable(</span>
 <span class="fc" id="L176">                    DbmsDockerVendorStrategy.forVendor(dbmsVendor, EntandoOperatorSpiConfig.getComplianceMode()),</span>
                     entandoCustomResource, null);
@@ -182,7 +182,7 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
             }
 <span class="fc" id="L183">            return result;</span>
         }
-<span class="fc" id="L185">        return null;</span>
+<span class="nc" id="L185">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

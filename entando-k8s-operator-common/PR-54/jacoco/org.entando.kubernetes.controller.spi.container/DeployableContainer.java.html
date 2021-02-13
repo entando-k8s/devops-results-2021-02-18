@@ -27,7 +27,7 @@ public interface DeployableContainer {
     String ENTANDO_SECRET_MOUNTS_ROOT = &quot;/etc/entando/connectionconfigs&quot;;
 
     default DockerImageInfo getDockerImageInfo() {
-<span class="fc" id="L30">        return new DockerImageInfo(determineImageToUse());</span>
+<span class="nc" id="L30">        return new DockerImageInfo(determineImageToUse());</span>
     }
 
     default String determineImageToUse() {
@@ -49,7 +49,7 @@ public interface DeployableContainer {
     List&lt;EnvVar&gt; getEnvironmentVariables();
 
     default int getMemoryLimitMebibytes() {
-<span class="fc" id="L52">        return 256;</span>
+<span class="nc" id="L52">        return 256;</span>
     }
 
     default int getCpuLimitMillicores() {
@@ -61,7 +61,7 @@ public interface DeployableContainer {
     }
 
     default List&lt;SecretToMount&gt; getSecretsToMount() {
-<span class="fc" id="L64">        return getNamesOfSecretsToMount().stream().map(s -&gt; new SecretToMount(s, ENTANDO_SECRET_MOUNTS_ROOT + &quot;/&quot; + s))</span>
+<span class="pc" id="L64">        return getNamesOfSecretsToMount().stream().map(s -&gt; new SecretToMount(s, ENTANDO_SECRET_MOUNTS_ROOT + &quot;/&quot; + s))</span>
 <span class="fc" id="L65">                .collect(Collectors.toList());</span>
     }
 

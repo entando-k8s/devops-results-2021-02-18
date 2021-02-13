@@ -28,7 +28,7 @@ import org.entando.kubernetes.model.EntandoCustomResource;
 public interface DbAware extends DeployableContainer {
 
     default Optional&lt;DatabasePopulator&gt; getDatabasePopulator() {
-<span class="fc" id="L31">        return Optional.empty();</span>
+<span class="nc" id="L31">        return Optional.empty();</span>
     }
 
     List&lt;EnvVar&gt; getDatabaseConnectionVariables();
@@ -39,22 +39,22 @@ public interface DbAware extends DeployableContainer {
             EntandoCustomResource entandoBaseCustomResource,
             DatabaseServiceResult databaseServiceResult,
             List&lt;String&gt; schemaQualifiers) {
-<span class="fc" id="L42">        return schemaQualifiers.stream()</span>
-<span class="fc" id="L43">                .map(schemaQualifier -&gt; {</span>
-<span class="fc" id="L44">                    String schemaName = NameUtils.databaseCompliantName(</span>
+<span class="nc" id="L42">        return schemaQualifiers.stream()</span>
+<span class="nc" id="L43">                .map(schemaQualifier -&gt; {</span>
+<span class="nc" id="L44">                    String schemaName = NameUtils.databaseCompliantName(</span>
                             entandoBaseCustomResource,
                             schemaQualifier,
-<span class="fc" id="L47">                            databaseServiceResult.getVendor().getVendorConfig()</span>
+<span class="nc" id="L47">                            databaseServiceResult.getVendor().getVendorConfig()</span>
                     );
-<span class="fc" id="L49">                    return new DatabaseSchemaConnectionInfo(databaseServiceResult,</span>
+<span class="nc" id="L49">                    return new DatabaseSchemaConnectionInfo(databaseServiceResult,</span>
                             schemaName,
-<span class="fc" id="L51">                            SecretUtils.generateSecret(</span>
+<span class="nc" id="L51">                            SecretUtils.generateSecret(</span>
                                     entandoBaseCustomResource,
-<span class="fc" id="L53">                                    entandoBaseCustomResource.getMetadata().getName() + &quot;-&quot; + schemaQualifier + &quot;-secret&quot;,</span>
+<span class="nc" id="L53">                                    entandoBaseCustomResource.getMetadata().getName() + &quot;-&quot; + schemaQualifier + &quot;-secret&quot;,</span>
                                     schemaName
                             )
                     );
-<span class="fc" id="L57">                }).collect(Collectors.toList());</span>
+<span class="nc" id="L57">                }).collect(Collectors.toList());</span>
     }
 
 }

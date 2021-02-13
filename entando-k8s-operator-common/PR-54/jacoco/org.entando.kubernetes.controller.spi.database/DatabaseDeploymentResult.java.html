@@ -48,27 +48,27 @@ public class DatabaseDeploymentResult extends AbstractServiceResult implements D
 
     @Override
     public Optional&lt;String&gt; getTablespace() {
-<span class="fc" id="L51">        return Optional.empty();</span>
+<span class="nc" id="L51">        return Optional.empty();</span>
     }
 
     @Override
     public Map&lt;String, String&gt; getJdbcParameters() {
-<span class="fc" id="L56">        return Collections.emptyMap();</span>
+<span class="nc" id="L56">        return Collections.emptyMap();</span>
     }
 
     @Override
     public String getDatabaseSecretName() {
-<span class="fc" id="L61">        return databaseSecretName;</span>
+<span class="nc" id="L61">        return databaseSecretName;</span>
     }
 
     @Override
     public String getDatabaseName() {
-<span class="fc" id="L66">        return databaseName;</span>
+<span class="nc" id="L66">        return databaseName;</span>
     }
 
     @Override
     public DbmsDockerVendorStrategy getVendor() {
-<span class="fc" id="L71">        return vendor;</span>
+<span class="nc" id="L71">        return vendor;</span>
     }
 
     public boolean hasFailed() {

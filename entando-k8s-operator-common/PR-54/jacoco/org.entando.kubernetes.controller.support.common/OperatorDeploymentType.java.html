@@ -24,14 +24,14 @@ import java.util.Locale;
 
     public static OperatorDeploymentType resolve(String s) {
         try {
-<span class="fc" id="L27">            return valueOf(s.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;));</span>
-<span class="fc" id="L28">        } catch (IllegalArgumentException e) {</span>
-<span class="fc" id="L29">            return null;</span>
+<span class="nc" id="L27">            return valueOf(s.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;));</span>
+<span class="nc" id="L28">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L29">            return null;</span>
         }
     }
 
     public String getName() {
-<span class="fc" id="L34">        return name().toLowerCase(Locale.ROOT);</span>
+<span class="nc" id="L34">        return name().toLowerCase(Locale.ROOT);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
