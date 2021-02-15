@@ -34,7 +34,7 @@ Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.util,FriendlyCodeGener
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.sitemap,SitemapAction,354,0,32,0,78,0,25,0,9,0
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.services.mapping.cache,SeoMappingCacheWrapper,28,392,6,30,5,85,7,26,1,14
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,SeoPageAction,57,163,8,14,13,46,8,15,0,12
-Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageActionAspect,151,571,31,49,23,140,26,32,1,17
+Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageActionAspect,99,620,23,55,16,147,21,36,1,17
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,SeoPageSettingsAction,140,0,18,0,33,0,13,0,4,0
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageSettingsActionAspect,98,370,13,41,21,100,13,26,0,12
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageSettingsUtils,3,43,7,11,1,12,8,3,1,1
