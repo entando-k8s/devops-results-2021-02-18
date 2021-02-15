@@ -106,34 +106,34 @@ import org.entando.entando.plugins.jpseo.aps.system.init.portdb.FriendlyCode;
 	
 	@Override
 	public void updateMapping(ContentFriendlyCode contentFriendlyCode) {
-<span class="nc" id="L109">		PreparedStatement stat = null;</span>
-<span class="nc" id="L110">		Connection conn = null;</span>
+<span class="fc" id="L109">		PreparedStatement stat = null;</span>
+<span class="fc" id="L110">		Connection conn = null;</span>
 		try {
-<span class="nc" id="L112">			conn = this.getConnection();</span>
-<span class="nc" id="L113">			conn.setAutoCommit(false);</span>
-<span class="nc" id="L114">            super.executeQueryWithoutResultset(conn, DELETE_FROM_CONTENTID, contentFriendlyCode.getContentId());</span>
-<span class="nc" id="L115">			stat = conn.prepareStatement(ADD_MAPPING);</span>
-<span class="nc" id="L116">			String contentId = contentFriendlyCode.getContentId();</span>
-<span class="nc" id="L117">			Iterator&lt;Entry&lt;String, String&gt;&gt; codes = contentFriendlyCode.getFriendlyCodes().entrySet().iterator();</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">			while (codes.hasNext()) {</span>
-<span class="nc" id="L119">				Entry&lt;String, String&gt; currentCode = codes.next();</span>
-<span class="nc" id="L120">				stat.setString(1, currentCode.getValue());</span>
-<span class="nc" id="L121">				stat.setString(2, null);</span>
-<span class="nc" id="L122">				stat.setString(3, contentId);</span>
-<span class="nc" id="L123">				stat.setString(4, currentCode.getKey());</span>
-<span class="nc" id="L124">				stat.addBatch();</span>
-<span class="nc" id="L125">				stat.clearParameters();</span>
-<span class="nc" id="L126">			}</span>
-<span class="nc" id="L127">			stat.executeBatch();</span>
-<span class="nc" id="L128">			conn.commit();</span>
+<span class="fc" id="L112">			conn = this.getConnection();</span>
+<span class="fc" id="L113">			conn.setAutoCommit(false);</span>
+<span class="fc" id="L114">            super.executeQueryWithoutResultset(conn, DELETE_FROM_CONTENTID, contentFriendlyCode.getContentId());</span>
+<span class="fc" id="L115">			stat = conn.prepareStatement(ADD_MAPPING);</span>
+<span class="fc" id="L116">			String contentId = contentFriendlyCode.getContentId();</span>
+<span class="fc" id="L117">			Iterator&lt;Entry&lt;String, String&gt;&gt; codes = contentFriendlyCode.getFriendlyCodes().entrySet().iterator();</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">			while (codes.hasNext()) {</span>
+<span class="fc" id="L119">				Entry&lt;String, String&gt; currentCode = codes.next();</span>
+<span class="fc" id="L120">				stat.setString(1, currentCode.getValue());</span>
+<span class="fc" id="L121">				stat.setString(2, null);</span>
+<span class="fc" id="L122">				stat.setString(3, contentId);</span>
+<span class="fc" id="L123">				stat.setString(4, currentCode.getKey());</span>
+<span class="fc" id="L124">				stat.addBatch();</span>
+<span class="fc" id="L125">				stat.clearParameters();</span>
+<span class="fc" id="L126">			}</span>
+<span class="fc" id="L127">			stat.executeBatch();</span>
+<span class="fc" id="L128">			conn.commit();</span>
 <span class="nc" id="L129">		} catch (Throwable t) {</span>
 <span class="nc" id="L130">			this.executeRollback(conn);</span>
 <span class="nc" id="L131">			_logger.error(&quot;Error update the content mapping&quot;, t);</span>
 <span class="nc" id="L132">			throw new RuntimeException(&quot;Error update the content mapping&quot;, t);</span>
 		} finally {
-<span class="nc" id="L134">			this.closeDaoResources(null, stat, conn);</span>
+<span class="fc" id="L134">			this.closeDaoResources(null, stat, conn);</span>
 		}
-<span class="nc" id="L136">	}</span>
+<span class="fc" id="L136">	}</span>
 	
 	protected void addRecord(FriendlyCodeVO vo, Connection conn) throws EntException {
 <span class="fc" id="L139">		PreparedStatement stat = null;</span>

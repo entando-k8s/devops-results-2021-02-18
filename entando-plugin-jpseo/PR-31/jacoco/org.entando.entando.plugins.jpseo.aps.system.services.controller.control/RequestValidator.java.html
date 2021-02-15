@@ -92,13 +92,13 @@ import com.agiletec.plugins.jacms.aps.system.services.content.IContentManager;
 <span class="fc" id="L92">                String friendlyCode = matcher.group(2).substring(1);</span>
 <span class="fc" id="L93">                FriendlyCodeVO vo = this.getSeoMappingManager().getReference(friendlyCode);</span>
 <span class="fc bfc" id="L94" title="All 2 branches covered.">                if (null != vo) {</span>
-<span class="pc bpc" id="L95" title="1 of 2 branches missed.">                    if (null != vo.getPageCode()) {</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                    if (null != vo.getPageCode()) {</span>
 <span class="fc" id="L96">                        page = this.getPageManager().getOnlinePage(vo.getPageCode());</span>
-<span class="nc bnc" id="L97" title="All 6 branches missed.">					} else if (null != vo.getContentId() &amp;&amp; null != lang &amp;&amp; lang.getCode().equals(vo.getLangCode())) {</span>
-<span class="nc" id="L98">                        String contentId = vo.getContentId();</span>
-<span class="nc" id="L99">                        String viewPageCode = this.getContentManager().getViewPage(contentId);</span>
-<span class="nc" id="L100">                        page = this.getPageManager().getOnlinePage(viewPageCode);</span>
-<span class="nc" id="L101">                        reqCtx.addExtraParam(JpseoSystemConstants.EXTRAPAR_HIDDEN_CONTENT_ID, contentId);</span>
+<span class="pc bpc" id="L97" title="2 of 6 branches missed.">					} else if (null != vo.getContentId() &amp;&amp; null != lang &amp;&amp; lang.getCode().equals(vo.getLangCode())) {</span>
+<span class="fc" id="L98">                        String contentId = vo.getContentId();</span>
+<span class="fc" id="L99">                        String viewPageCode = this.getContentManager().getViewPage(contentId);</span>
+<span class="fc" id="L100">                        page = this.getPageManager().getOnlinePage(viewPageCode);</span>
+<span class="fc" id="L101">                        reqCtx.addExtraParam(JpseoSystemConstants.EXTRAPAR_HIDDEN_CONTENT_ID, contentId);</span>
 
                     }
                 }
@@ -184,7 +184,7 @@ import com.agiletec.plugins.jacms.aps.system.services.content.IContentManager;
 <span class="fc" id="L184">	}</span>
 	
 	protected IContentManager getContentManager() {
-<span class="nc" id="L187">		return _contentManager;</span>
+<span class="fc" id="L187">		return _contentManager;</span>
 	}
 	public void setContentManager(IContentManager contentManager) {
 <span class="fc" id="L190">		this._contentManager = contentManager;</span>

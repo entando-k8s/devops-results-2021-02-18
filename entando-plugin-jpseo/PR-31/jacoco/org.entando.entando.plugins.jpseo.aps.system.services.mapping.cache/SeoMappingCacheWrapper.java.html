@@ -66,17 +66,17 @@ import org.springframework.cache.Cache;
 <span class="fc" id="L66">			Iterator&lt;FriendlyCodeVO&gt; codesIter = mapping.values().iterator();</span>
 <span class="fc bfc" id="L67" title="All 2 branches covered.">			while (codesIter.hasNext()) {</span>
 <span class="fc" id="L68">				FriendlyCodeVO currentCode = codesIter.next();</span>
-<span class="pc bpc" id="L69" title="1 of 2 branches missed.">				if (currentCode.getPageCode()!=null) {</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">				if (currentCode.getPageCode()!=null) {</span>
 <span class="fc" id="L70">					pageFriendlyCodes.put(currentCode.getPageCode(), currentCode);</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">				} else if (currentCode.getContentId()!=null) {</span>
-<span class="nc" id="L72">					String contentId = currentCode.getContentId();</span>
-<span class="nc" id="L73">					ContentFriendlyCode content = contentFriendlyCodes.get(contentId);</span>
-<span class="nc bnc" id="L74" title="All 2 branches missed.">					if (content==null) {</span>
-<span class="nc" id="L75">						content = new ContentFriendlyCode();</span>
-<span class="nc" id="L76">						content.setContentId(contentId);</span>
-<span class="nc" id="L77">						contentFriendlyCodes.put(contentId, content);</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">				} else if (currentCode.getContentId()!=null) {</span>
+<span class="fc" id="L72">					String contentId = currentCode.getContentId();</span>
+<span class="fc" id="L73">					ContentFriendlyCode content = contentFriendlyCodes.get(contentId);</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">					if (content==null) {</span>
+<span class="fc" id="L75">						content = new ContentFriendlyCode();</span>
+<span class="fc" id="L76">						content.setContentId(contentId);</span>
+<span class="fc" id="L77">						contentFriendlyCodes.put(contentId, content);</span>
 					}
-<span class="nc" id="L79">					content.addFriendlyCode(currentCode.getLangCode(), currentCode.getFriendlyCode());</span>
+<span class="fc" id="L79">					content.addFriendlyCode(currentCode.getLangCode(), currentCode.getFriendlyCode());</span>
 				}
 <span class="fc" id="L81">			}</span>
 <span class="fc" id="L82">            Cache cache = this.getCache();</span>
@@ -118,7 +118,7 @@ import org.springframework.cache.Cache;
 <span class="fc" id="L118">    }</span>
     
     protected void releaseCachedObjects(Cache cache, String listKey, String prefixKey) {
-<span class="fc" id="L121">		List&lt;String&gt; codes = this.get(cache, listKey, List.class);</span>
+<span class="fc" id="L121">		List&lt;String&gt; codes = (List&lt;String&gt;) this.get(cache, listKey, List.class);</span>
 <span class="pc bpc" id="L122" title="1 of 2 branches missed.">		if (null != codes) {</span>
 <span class="fc bfc" id="L123" title="All 2 branches covered.">			for (String code : codes) {</span>
 <span class="fc" id="L124">				cache.evict(prefixKey + code);</span>
@@ -128,7 +128,7 @@ import org.springframework.cache.Cache;
 <span class="fc" id="L128">	}</span>
     
     protected void insertAndCleanVoObjectsOnCache(Cache cache, Map&lt;String, ?&gt; objects, String listKey, String cacheKeyPrefix) {
-<span class="fc" id="L131">        List&lt;String&gt; oldCodes = this.get(cache, listKey, List.class);</span>
+<span class="fc" id="L131">        List&lt;String&gt; oldCodes = (List&lt;String&gt;) this.get(cache, listKey, List.class);</span>
 <span class="fc bfc" id="L132" title="All 2 branches covered.">        List&lt;String&gt; oldCodesClone = (null != oldCodes) ? new ArrayList&lt;&gt;(oldCodes) : null;</span>
 <span class="fc" id="L133">        List&lt;String&gt; codes = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L134">        Iterator&lt;String&gt; iter = objects.keySet().iterator();</span>
