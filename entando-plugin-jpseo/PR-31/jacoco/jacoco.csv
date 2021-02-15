@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.services.url,URLManager,168,159,24,16,36,40,25,10,5,10
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.services.url,PageURL,4,8,0,0,2,3,1,2,1,2
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoDataByLang,5,221,10,10,2,43,10,19,0,19
-Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoData,80,32,12,0,10,13,9,7,3,7
+Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoData,61,51,12,0,9,14,8,8,2,8
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoMetaTag,29,46,0,0,1,20,1,10,1,10
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoPageRequest,50,10,6,0,11,5,7,3,4,3
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page,SeoPageController,32,280,8,20,7,52,9,15,1,9
@@ -34,7 +34,7 @@ Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.util,FriendlyCodeGener
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.sitemap,SitemapAction,354,0,32,0,78,0,25,0,9,0
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.services.mapping.cache,SeoMappingCacheWrapper,28,392,6,30,5,85,7,26,1,14
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,SeoPageAction,57,163,8,14,13,46,8,15,0,12
-Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageActionAspect,151,571,31,49,23,140,26,32,1,17
+Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageActionAspect,99,623,24,56,16,147,22,36,1,17
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,SeoPageSettingsAction,140,0,18,0,33,0,13,0,4,0
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageSettingsActionAspect,98,370,13,41,21,100,13,26,0,12
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.apsadmin.portal,PageSettingsUtils,3,43,7,11,1,12,8,3,1,1
