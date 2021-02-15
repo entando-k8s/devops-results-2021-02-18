@@ -105,12 +105,12 @@ import org.entando.entando.plugins.jpseo.aps.system.services.page.SeoPageMetadat
 <span class="fc" id="L105">            ApsProperties friendlyCodes = pageMetadata.getFriendlyCodes();</span>
 <span class="pc bpc" id="L106" title="1 of 2 branches missed.">            if (null != friendlyCodes) {</span>
 <span class="fc" id="L107">                Iterator&lt;Object&gt; iter = friendlyCodes.keySet().iterator();</span>
-<span class="pc bpc" id="L108" title="1 of 2 branches missed.">                while (iter.hasNext()) {</span>
-<span class="nc" id="L109">                    String key = (String) iter.next();</span>
-<span class="nc" id="L110">                    PageMetatag metatag = (PageMetatag) friendlyCodes.get(key);</span>
-<span class="nc" id="L111">                    request.setAttribute(PARAM_FRIENDLY_CODES_PREFIX + key, metatag.getValue());</span>
-<span class="nc" id="L112">                    request.setAttribute(PARAM_FRIENDLY_CODES_USE_DEFAULT_PREFIX + key, metatag.isUseDefaultLangValue());</span>
-<span class="nc" id="L113">                }</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">                while (iter.hasNext()) {</span>
+<span class="fc" id="L109">                    String key = (String) iter.next();</span>
+<span class="fc" id="L110">                    PageMetatag metatag = (PageMetatag) friendlyCodes.get(key);</span>
+<span class="fc" id="L111">                    request.setAttribute(PARAM_FRIENDLY_CODES_PREFIX + key, metatag.getValue());</span>
+<span class="fc" id="L112">                    request.setAttribute(PARAM_FRIENDLY_CODES_USE_DEFAULT_PREFIX + key, metatag.isUseDefaultLangValue());</span>
+<span class="fc" id="L113">                }</span>
             }
 <span class="fc" id="L115">            ApsProperties props = pageMetadata.getDescriptions();</span>
 <span class="pc bpc" id="L116" title="1 of 2 branches missed.">            if (null != props) {</span>

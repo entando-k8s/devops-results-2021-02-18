@@ -324,7 +324,7 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 <span class="fc" id="L324">                newMap.put(langKey, metas);</span>
             }
 <span class="fc" id="L326">        }</span>
-<span class="pc bpc" id="L327" title="1 of 2 branches missed.">        if (null != defaultMetas) {</span>
+<span class="fc bfc" id="L327" title="All 2 branches covered.">        if (null != defaultMetas) {</span>
 <span class="fc" id="L328">            String defaultLangCode = defaultLang.getCode();</span>
 <span class="fc" id="L329">            Map&lt;String, PageMetatag&gt; currentDefaultMetas = newMap.get(defaultLangCode);</span>
 <span class="pc bpc" id="L330" title="1 of 2 branches missed.">            if (null == currentDefaultMetas) {</span>
@@ -340,7 +340,7 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 <span class="fc" id="L340">            }</span>
         }
 <span class="fc" id="L342">        Map&lt;String, PageMetatag&gt; currentDefaultMetas = newMap.get(defaultLang.getCode());</span>
-<span class="pc bpc" id="L343" title="1 of 2 branches missed.">        if (null != currentDefaultMetas) {</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">        if (null != currentDefaultMetas) {</span>
 <span class="fc" id="L344">            List&lt;String&gt; langKeys = new ArrayList&lt;&gt;(newMap.keySet());</span>
 <span class="fc" id="L345">            Iterator&lt;PageMetatag&gt; iterMetatag = currentDefaultMetas.values().iterator();</span>
 <span class="fc bfc" id="L346" title="All 2 branches covered.">            while (iterMetatag.hasNext()) {</span>
