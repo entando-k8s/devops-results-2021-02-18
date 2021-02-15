@@ -16,46 +16,62 @@
 
 package org.entando.kubernetes.controller.spi.common;
 
+import io.fabric8.kubernetes.api.model.ConfigMap;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class EntandoOperatorConfigBase {
 
-<span class="nc" id="L25">    protected EntandoOperatorConfigBase() {</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L29">    private static AtomicReference&lt;ConfigMap&gt; configMap = new AtomicReference&lt;&gt;();</span>
+
+<span class="nc" id="L31">    protected EntandoOperatorConfigBase() {</span>
+<span class="nc" id="L32">    }</span>
+
+    public static void setConfigMap(ConfigMap configMap) {
+<span class="nc" id="L35">        EntandoOperatorConfigBase.configMap.set(configMap);</span>
+<span class="nc" id="L36">    }</span>
 
     protected static String getProperty(ConfigProperty name, String defaultValue) {
-<span class="fc" id="L29">        return lookupProperty(name).orElse(defaultValue);</span>
+<span class="fc" id="L39">        return lookupProperty(name).orElse(defaultValue);</span>
     }
 
     public static Optional&lt;String&gt; lookupProperty(ConfigProperty property) {
-<span class="fc" id="L33">        return Optional.ofNullable(lookupProperty(property.getJvmSystemProperty()).orElse(lookupProperty(property.name()).orElse(null)));</span>
+<span class="fc" id="L43">        return Optional.ofNullable(lookupProperty(property.getJvmSystemProperty()).orElse(lookupProperty(property.name()).orElse(null)));</span>
     }
 
+    @SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
     public static Optional&lt;String&gt; lookupProperty(String name) {
-<span class="fc" id="L37">        Optional&lt;String&gt; fromEnv = System.getenv().entrySet().stream()</span>
-<span class="fc" id="L38">                .filter(entry -&gt; isMatch(name, entry))</span>
-<span class="fc" id="L39">                .map(Entry::getValue)</span>
-<span class="fc" id="L40">                .findFirst();</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (fromEnv.isPresent()) {</span>
-<span class="fc" id="L42">            return fromEnv;</span>
-        } else {
-<span class="fc" id="L44">            return System.getProperties().entrySet().stream()</span>
-<span class="fc" id="L45">                    .filter(entry -&gt; isMatch(name, entry))</span>
-<span class="fc" id="L46">                    .map(Entry::getValue)</span>
-<span class="fc" id="L47">                    .map(String.class::cast)</span>
-<span class="fc" id="L48">                    .findFirst();</span>
+<span class="fc" id="L48">        Optional&lt;String&gt; fromConfigMap = Optional.ofNullable(EntandoOperatorConfigBase.configMap.get())</span>
+<span class="pc" id="L49">                .flatMap(map -&gt; findFirstMatch(name, map.getData()));</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if (fromConfigMap.isEmpty()) {</span>
+<span class="fc" id="L51">            Optional&lt;String&gt; fromEnv = findFirstMatch(name, System.getenv());</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if (fromEnv.isEmpty()) {</span>
+<span class="fc" id="L53">                return findFirstMatch(name, new HashMap(System.getProperties()));</span>
+            } else {
+<span class="fc" id="L55">                return fromEnv;</span>
+            }
         }
+<span class="nc" id="L58">        return fromConfigMap;</span>
+    }
+
+    private static Optional&lt;String&gt; findFirstMatch(String name, Map&lt;String, String&gt; map) {
+<span class="fc" id="L62">        return map.entrySet().stream()</span>
+<span class="fc" id="L63">                .filter(entry -&gt; isMatch(name, entry))</span>
+<span class="fc" id="L64">                .map(Entry::getValue)</span>
+<span class="fc" id="L65">                .findFirst();</span>
     }
 
     private static boolean isMatch(String n, Entry&lt;?, ?&gt; entry) {
-<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        if (entry.getValue() == null || ((String) entry.getValue()).trim().isEmpty()) {</span>
-<span class="fc" id="L54">            return false;</span>
+<span class="pc bpc" id="L69" title="1 of 4 branches missed.">        if (entry.getValue() == null || ((String) entry.getValue()).trim().isEmpty()) {</span>
+<span class="fc" id="L70">            return false;</span>
         }
-<span class="fc" id="L56">        String name = n.toLowerCase(Locale.getDefault());</span>
-<span class="fc" id="L57">        String key = ((String) entry.getKey()).toLowerCase(Locale.getDefault());</span>
-<span class="fc" id="L58">        return NameUtils.snakeCaseOf(name).equals(NameUtils.snakeCaseOf(key));</span>
+<span class="fc" id="L72">        String name = n.toLowerCase(Locale.getDefault());</span>
+<span class="fc" id="L73">        String key = ((String) entry.getKey()).toLowerCase(Locale.getDefault());</span>
+<span class="fc" id="L74">        return NameUtils.snakeCaseOf(name).equals(NameUtils.snakeCaseOf(key));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
