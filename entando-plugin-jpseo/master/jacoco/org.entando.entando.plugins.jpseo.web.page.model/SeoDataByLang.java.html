@@ -7,95 +7,121 @@ public class SeoDataByLang {
 
     private String description;
     private String keywords;
+    private String friendlyCode;
     private List&lt;SeoMetaTag&gt; metaTags;
     private boolean inheritDescriptionFromDefaultLang;
     private boolean inheritKeywordsFromDefaultLang;
+    private boolean inheritFriendlyCodeFromDefaultLang;
 
-<span class="fc" id="L14">    public SeoDataByLang() {</span>
-<span class="fc" id="L15">    }</span>
+<span class="fc" id="L16">    public SeoDataByLang() {</span>
+<span class="fc" id="L17">    }</span>
 
     public SeoDataByLang(String description,
             String keywords,
+            String friendlyCode,
             List&lt;SeoMetaTag&gt; metaTags,
             boolean inheritDescriptionFromDefaultLang,
-<span class="fc" id="L21">            boolean inheritKeywordsFromDefaultLang) {</span>
-<span class="fc" id="L22">        this.description = description;</span>
-<span class="fc" id="L23">        this.keywords = keywords;</span>
-<span class="fc" id="L24">        this.metaTags = metaTags;</span>
-<span class="fc" id="L25">        this.inheritDescriptionFromDefaultLang = inheritDescriptionFromDefaultLang;</span>
-<span class="fc" id="L26">        this.inheritKeywordsFromDefaultLang = inheritKeywordsFromDefaultLang;</span>
-<span class="fc" id="L27">    }</span>
+            boolean inheritKeywordsFromDefaultLang,
+<span class="fc" id="L25">            boolean inheritFriendlyCodeFromDefaultLang) {</span>
+<span class="fc" id="L26">        this.description = description;</span>
+<span class="fc" id="L27">        this.keywords = keywords;</span>
+<span class="fc" id="L28">        this.friendlyCode = friendlyCode;</span>
+<span class="fc" id="L29">        this.metaTags = metaTags;</span>
+<span class="fc" id="L30">        this.inheritDescriptionFromDefaultLang = inheritDescriptionFromDefaultLang;</span>
+<span class="fc" id="L31">        this.inheritKeywordsFromDefaultLang = inheritKeywordsFromDefaultLang;</span>
+<span class="fc" id="L32">        this.inheritFriendlyCodeFromDefaultLang = inheritFriendlyCodeFromDefaultLang;</span>
+<span class="fc" id="L33">    }</span>
 
     public String getDescription() {
-<span class="fc" id="L30">        return description;</span>
+<span class="fc" id="L36">        return description;</span>
     }
 
     public void setDescription(String description) {
-<span class="fc" id="L34">        this.description = description;</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L40">        this.description = description;</span>
+<span class="fc" id="L41">    }</span>
 
     public String getKeywords() {
-<span class="fc" id="L38">        return keywords;</span>
+<span class="fc" id="L44">        return keywords;</span>
     }
 
     public void setKeywords(String keywords) {
-<span class="fc" id="L42">        this.keywords = keywords;</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L48">        this.keywords = keywords;</span>
+<span class="fc" id="L49">    }</span>
+
+    public String getFriendlyCode() {
+<span class="fc" id="L52">        return friendlyCode;</span>
+    }
+
+    public void setFriendlyCode(String friendlyCode) {
+<span class="fc" id="L56">        this.friendlyCode = friendlyCode;</span>
+<span class="fc" id="L57">    }</span>
 
     public List&lt;SeoMetaTag&gt; getMetaTags() {
-<span class="fc" id="L46">        return metaTags;</span>
+<span class="fc" id="L60">        return metaTags;</span>
     }
 
     public void setMetaTags(List&lt;SeoMetaTag&gt; metaTags) {
-<span class="fc" id="L50">        this.metaTags = metaTags;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L64">        this.metaTags = metaTags;</span>
+<span class="fc" id="L65">    }</span>
 
     public boolean isInheritDescriptionFromDefaultLang() {
-<span class="fc" id="L54">        return inheritDescriptionFromDefaultLang;</span>
+<span class="fc" id="L68">        return inheritDescriptionFromDefaultLang;</span>
     }
 
     public void setInheritDescriptionFromDefaultLang(boolean inheritDescriptionFromDefaultLang) {
-<span class="fc" id="L58">        this.inheritDescriptionFromDefaultLang = inheritDescriptionFromDefaultLang;</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L72">        this.inheritDescriptionFromDefaultLang = inheritDescriptionFromDefaultLang;</span>
+<span class="fc" id="L73">    }</span>
 
     public boolean isInheritKeywordsFromDefaultLang() {
-<span class="fc" id="L62">        return inheritKeywordsFromDefaultLang;</span>
+<span class="fc" id="L76">        return inheritKeywordsFromDefaultLang;</span>
     }
 
     public void setInheritKeywordsFromDefaultLang(boolean inheritKeywordsFromDefaultLang) {
-<span class="fc" id="L66">        this.inheritKeywordsFromDefaultLang = inheritKeywordsFromDefaultLang;</span>
-<span class="fc" id="L67">    }</span>
+<span class="fc" id="L80">        this.inheritKeywordsFromDefaultLang = inheritKeywordsFromDefaultLang;</span>
+<span class="fc" id="L81">    }</span>
+
+    public boolean isInheritFriendlyCodeFromDefaultLang() {
+<span class="fc" id="L84">        return inheritFriendlyCodeFromDefaultLang;</span>
+    }
+
+    public void setInheritFriendlyCodeFromDefaultLang(boolean inheritFriendlyCodeFromDefaultLang) {
+<span class="fc" id="L88">        this.inheritFriendlyCodeFromDefaultLang = inheritFriendlyCodeFromDefaultLang;</span>
+<span class="fc" id="L89">    }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (this == o) {</span>
-<span class="nc" id="L72">            return true;</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L94">            return true;</span>
         }
-<span class="nc bnc" id="L74" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L75">            return false;</span>
+<span class="pc bpc" id="L96" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L97">            return false;</span>
         }
-<span class="nc" id="L77">        SeoDataByLang that = (SeoDataByLang) o;</span>
-<span class="nc bnc" id="L78" title="All 4 branches missed.">        return inheritDescriptionFromDefaultLang == that.inheritDescriptionFromDefaultLang &amp;&amp;</span>
+<span class="fc" id="L99">        SeoDataByLang that = (SeoDataByLang) o;</span>
+<span class="pc bpc" id="L100" title="3 of 6 branches missed.">        return inheritDescriptionFromDefaultLang == that.inheritDescriptionFromDefaultLang &amp;&amp;</span>
                 inheritKeywordsFromDefaultLang == that.inheritKeywordsFromDefaultLang &amp;&amp;
-<span class="nc bnc" id="L80" title="All 2 branches missed.">                Objects.equals(description, that.description) &amp;&amp;</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">                Objects.equals(keywords, that.keywords) &amp;&amp;</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">                Objects.equals(metaTags, that.metaTags);</span>
+                inheritFriendlyCodeFromDefaultLang == that.inheritFriendlyCodeFromDefaultLang &amp;&amp;
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">                Objects.equals(description, that.description) &amp;&amp;</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">                Objects.equals(keywords, that.keywords) &amp;&amp;</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">                Objects.equals(friendlyCode, that.friendlyCode) &amp;&amp;</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">                Objects.equals(metaTags, that.metaTags);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L87">        return Objects.hash( description, keywords, metaTags, inheritDescriptionFromDefaultLang,</span>
-<span class="nc" id="L88">                inheritKeywordsFromDefaultLang);</span>
+<span class="fc" id="L111">        return Objects.hash(description, keywords, friendlyCode, metaTags, inheritDescriptionFromDefaultLang,</span>
+<span class="fc" id="L112">                inheritKeywordsFromDefaultLang, inheritFriendlyCodeFromDefaultLang);</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L93">        return &quot;SeoProperties{&quot; +</span>
+<span class="fc" id="L117">        return &quot;SeoDataByLang{&quot; +</span>
                 &quot;description='&quot; + description + '\'' +
                 &quot;, keywords='&quot; + keywords + '\'' +
+                &quot;, friendlyCode='&quot; + friendlyCode + '\'' +
                 &quot;, metaTags=&quot; + metaTags +
                 &quot;, inheritDescriptionFromDefaultLang=&quot; + inheritDescriptionFromDefaultLang +
                 &quot;, inheritKeywordsFromDefaultLang=&quot; + inheritKeywordsFromDefaultLang +
+                &quot;, inheritFriendlyCodeFromDefaultLang=&quot; + inheritFriendlyCodeFromDefaultLang +
                 '}';
     }
 }

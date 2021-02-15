@@ -93,28 +93,33 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 <span class="nc" id="L93">                keywords = ((SeoPageMetadata) pageMetadata).getKeywords().getProperty(defaultLang.getCode());</span>
             }
 <span class="nc" id="L95">            this.appendMetadata(output, Metatag.ATTRIBUTE_NAME_NAME, &quot;keywords&quot;, keywords);</span>
-<span class="nc" id="L96">            Map&lt;String, Map&lt;String, PageMetatag&gt;&gt; complexParameters = ((SeoPageMetadata) pageMetadata).getComplexParameters();</span>
-<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (null != complexParameters) {</span>
-<span class="nc" id="L98">                Map&lt;String, Map&lt;String, PageMetatag&gt;&gt; metas = SeoPageExtraConfigDOM.extractRightParams(complexParameters, defaultLang);</span>
-<span class="nc" id="L99">                Map&lt;String, PageMetatag&gt; defaultMap = metas.get(defaultLang.getCode());</span>
-<span class="nc bnc" id="L100" title="All 2 branches missed.">                Map&lt;String, PageMetatag&gt; langMap = (currentLang.getCode().equals(defaultLang.getCode())) ? null : metas.get(currentLang.getCode());</span>
-<span class="nc bnc" id="L101" title="All 2 branches missed.">                if (null != defaultMap) {</span>
-<span class="nc" id="L102">                    Iterator&lt;PageMetatag&gt; iter = defaultMap.values().iterator();</span>
-<span class="nc bnc" id="L103" title="All 2 branches missed.">                    while (iter.hasNext()) {</span>
-<span class="nc" id="L104">                        PageMetatag defaultMetatag = iter.next();</span>
-<span class="nc bnc" id="L105" title="All 2 branches missed.">                        PageMetatag metatag = (null != langMap) ? langMap.get(defaultMetatag.getKey()) : null;</span>
-<span class="nc bnc" id="L106" title="All 4 branches missed.">                        PageMetatag current = (null != metatag &amp;&amp; !metatag.isUseDefaultLangValue()) ? metatag : defaultMetatag;</span>
-<span class="nc" id="L107">                        this.appendMetadata(output, current);</span>
-<span class="nc" id="L108">                    }</span>
+<span class="nc" id="L96">            String friendlyCodes = ((SeoPageMetadata) pageMetadata).getFriendlyCodes().getProperty(defaultLang.getCode());</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (StringUtils.isBlank(friendlyCodes)) {</span>
+<span class="nc" id="L98">                friendlyCodes = ((SeoPageMetadata) pageMetadata).getFriendlyCodes().getProperty(defaultLang.getCode());</span>
+            }
+<span class="nc" id="L100">            this.appendMetadata(output, Metatag.ATTRIBUTE_NAME_NAME, &quot;friendlyCode&quot;, friendlyCodes);</span>
+<span class="nc" id="L101">            Map&lt;String, Map&lt;String, PageMetatag&gt;&gt; complexParameters = ((SeoPageMetadata) pageMetadata).getComplexParameters();</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            if (null != complexParameters) {</span>
+<span class="nc" id="L103">                Map&lt;String, Map&lt;String, PageMetatag&gt;&gt; metas = SeoPageExtraConfigDOM.extractRightParams(complexParameters, defaultLang);</span>
+<span class="nc" id="L104">                Map&lt;String, PageMetatag&gt; defaultMap = metas.get(defaultLang.getCode());</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">                Map&lt;String, PageMetatag&gt; langMap = (currentLang.getCode().equals(defaultLang.getCode())) ? null : metas.get(currentLang.getCode());</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">                if (null != defaultMap) {</span>
+<span class="nc" id="L107">                    Iterator&lt;PageMetatag&gt; iter = defaultMap.values().iterator();</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">                    while (iter.hasNext()) {</span>
+<span class="nc" id="L109">                        PageMetatag defaultMetatag = iter.next();</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">                        PageMetatag metatag = (null != langMap) ? langMap.get(defaultMetatag.getKey()) : null;</span>
+<span class="nc bnc" id="L111" title="All 4 branches missed.">                        PageMetatag current = (null != metatag &amp;&amp; !metatag.isUseDefaultLangValue()) ? metatag : defaultMetatag;</span>
+<span class="nc" id="L112">                        this.appendMetadata(output, current);</span>
+<span class="nc" id="L113">                    }</span>
                 }
             }
-<span class="nc" id="L111">            this.evalValue(output.toString());</span>
-<span class="nc" id="L112">        } catch (Throwable t) {</span>
-<span class="nc" id="L113">            logger.error(&quot;error in doStartTag&quot;, t);</span>
-<span class="nc" id="L114">            throw new JspException(&quot;Error during tag initialization &quot;, t);</span>
-<span class="nc" id="L115">        }</span>
-<span class="nc" id="L116">        this.release();</span>
-<span class="nc" id="L117">        return EVAL_PAGE;</span>
+<span class="nc" id="L116">            this.evalValue(output.toString());</span>
+<span class="nc" id="L117">        } catch (Throwable t) {</span>
+<span class="nc" id="L118">            logger.error(&quot;error in doStartTag&quot;, t);</span>
+<span class="nc" id="L119">            throw new JspException(&quot;Error during tag initialization &quot;, t);</span>
+<span class="nc" id="L120">        }</span>
+<span class="nc" id="L121">        this.release();</span>
+<span class="nc" id="L122">        return EVAL_PAGE;</span>
     }
 
     /**
@@ -125,47 +130,47 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
      * @throws JspException In case of error
      */
     protected void evalValue(String output) throws JspException {
-<span class="nc bnc" id="L128" title="All 2 branches missed.">        if (this.getVar() != null) {</span>
-<span class="nc" id="L129">            this.pageContext.setAttribute(this.getVar(), output);</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        if (this.getVar() != null) {</span>
+<span class="nc" id="L134">            this.pageContext.setAttribute(this.getVar(), output);</span>
         } else {
             try {
-<span class="nc bnc" id="L132" title="All 2 branches missed.">                if (this.getEscapeXml()) {</span>
-<span class="nc" id="L133">                    out(this.pageContext, this.getEscapeXml(), output);</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">                if (this.getEscapeXml()) {</span>
+<span class="nc" id="L138">                    out(this.pageContext, this.getEscapeXml(), output);</span>
                 } else {
-<span class="nc" id="L135">                    this.pageContext.getOut().print(output);</span>
+<span class="nc" id="L140">                    this.pageContext.getOut().print(output);</span>
                 }
-<span class="nc" id="L137">            } catch (IOException e) {</span>
-<span class="nc" id="L138">                logger.error(&quot;error in doEndTag&quot;, e);</span>
-<span class="nc" id="L139">                throw new JspException(&quot;Error closing tag &quot;, e);</span>
-<span class="nc" id="L140">            }</span>
+<span class="nc" id="L142">            } catch (IOException e) {</span>
+<span class="nc" id="L143">                logger.error(&quot;error in doEndTag&quot;, e);</span>
+<span class="nc" id="L144">                throw new JspException(&quot;Error closing tag &quot;, e);</span>
+<span class="nc" id="L145">            }</span>
         }
-<span class="nc" id="L142">    }</span>
+<span class="nc" id="L147">    }</span>
 
     protected void appendMetadata(StringBuilder output, PageMetatag metatag) {
-<span class="nc" id="L145">        this.appendMetadata(output, metatag.getKeyAttribute(), metatag.getKey(), metatag.getValue());</span>
-<span class="nc" id="L146">    }</span>
+<span class="nc" id="L150">        this.appendMetadata(output, metatag.getKeyAttribute(), metatag.getKey(), metatag.getValue());</span>
+<span class="nc" id="L151">    }</span>
 
     protected void appendMetadata(StringBuilder output, String attributeName, String key, String value) {
-<span class="nc bnc" id="L149" title="All 4 branches missed.">        if (StringUtils.isBlank(attributeName) || StringUtils.isBlank(key)) {</span>
-<span class="nc" id="L150">            return;</span>
+<span class="nc bnc" id="L154" title="All 4 branches missed.">        if (StringUtils.isBlank(attributeName) || StringUtils.isBlank(key)) {</span>
+<span class="nc" id="L155">            return;</span>
         }
-<span class="nc bnc" id="L152" title="All 2 branches missed.">        String valueToUse = (StringUtils.isBlank(value)) ? &quot;&quot; : value;</span>
-<span class="nc" id="L153">        output.append(&quot;&lt;meta &quot;).append(attributeName)</span>
-<span class="nc" id="L154">                .append(&quot;=\&quot;&quot;).append(key).append(&quot;\&quot; content=\&quot;&quot;).append(valueToUse).append(&quot;\&quot; /&gt;&quot;).append(&quot;\n&quot;);</span>
-<span class="nc" id="L155">    }</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">        String valueToUse = (StringUtils.isBlank(value)) ? &quot;&quot; : value;</span>
+<span class="nc" id="L158">        output.append(&quot;&lt;meta &quot;).append(attributeName)</span>
+<span class="nc" id="L159">                .append(&quot;=\&quot;&quot;).append(key).append(&quot;\&quot; content=\&quot;&quot;).append(valueToUse).append(&quot;\&quot; /&gt;&quot;).append(&quot;\n&quot;);</span>
+<span class="nc" id="L160">    }</span>
 
     @Override
     public void release() {
-<span class="nc" id="L159">        this.var = null;</span>
-<span class="nc" id="L160">        super.setEscapeXml(true);</span>
-<span class="nc" id="L161">    }</span>
+<span class="nc" id="L164">        this.var = null;</span>
+<span class="nc" id="L165">        super.setEscapeXml(true);</span>
+<span class="nc" id="L166">    }</span>
 
     public void setVar(String var) {
-<span class="nc" id="L164">        this.var = var;</span>
-<span class="nc" id="L165">    }</span>
+<span class="nc" id="L169">        this.var = var;</span>
+<span class="nc" id="L170">    }</span>
 
     protected String getVar() {
-<span class="nc" id="L168">        return var;</span>
+<span class="nc" id="L173">        return var;</span>
     }
 
 }

@@ -31,7 +31,7 @@ import org.springframework.stereotype.Component;
     private ISeoMappingManager seoMappingManager;
 
     public boolean checkFriendlyCode(String pageCode, String friendlyCode) {
-<span class="pc bpc" id="L34" title="2 of 4 branches missed.">        if (null != friendlyCode &amp;&amp; friendlyCode.trim().length() &gt; 100) {</span>
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">        if (null != friendlyCode &amp;&amp; friendlyCode.trim().length() &gt; 100) {</span>
 <span class="nc" id="L35">            logger.error(&quot;Invalid friendly Code {}&quot;, friendlyCode);</span>
 <span class="nc" id="L36">            return false;</span>
         }

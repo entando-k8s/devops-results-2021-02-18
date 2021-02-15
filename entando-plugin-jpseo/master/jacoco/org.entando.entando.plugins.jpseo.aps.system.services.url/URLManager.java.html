@@ -127,7 +127,7 @@ import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 			}
 		}
 <span class="pc bpc" id="L129" title="2 of 4 branches missed.">		if (friendlyCode==null &amp;&amp; destPage.getMetadata() instanceof SeoPageMetadata) {</span>
-<span class="fc" id="L130">			friendlyCode = ((SeoPageMetadata) destPage.getMetadata()).getFriendlyCode();</span>
+<span class="fc" id="L130">			friendlyCode = ((SeoPageMetadata) destPage.getMetadata()).getFriendlyCode(lang.getCode());</span>
 		}
 <span class="fc" id="L132">		return friendlyCode;</span>
 	}

@@ -94,8 +94,8 @@ import org.entando.entando.plugins.jpseo.aps.system.services.page.PageMetatag;
 <span class="fc" id="L94">    }</span>
     
     protected static void extractAndSetFriendlyCode(HttpServletRequest request) {
-<span class="fc" id="L97">        String code = request.getParameter(PageActionAspect.PARAM_FRIENDLY_CODE);</span>
-<span class="fc" id="L98">        request.setAttribute(PageActionAspect.PARAM_FRIENDLY_CODE, code);</span>
+<span class="fc" id="L97">        String code = request.getParameter(PageActionAspect.PARAM_FRIENDLY_CODES);</span>
+<span class="fc" id="L98">        request.setAttribute(PageActionAspect.PARAM_FRIENDLY_CODES, code);</span>
 <span class="fc" id="L99">    }</span>
 
     private static ILangManager getLangManager(HttpServletRequest request) {
