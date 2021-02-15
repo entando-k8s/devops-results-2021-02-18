@@ -90,31 +90,31 @@ public class SeoDataByLang {
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        if (this == o) {</span>
 <span class="nc" id="L94">            return true;</span>
         }
-<span class="nc bnc" id="L96" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="pc bpc" id="L96" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
 <span class="nc" id="L97">            return false;</span>
         }
-<span class="nc" id="L99">        SeoDataByLang that = (SeoDataByLang) o;</span>
-<span class="nc bnc" id="L100" title="All 6 branches missed.">        return inheritDescriptionFromDefaultLang == that.inheritDescriptionFromDefaultLang &amp;&amp;</span>
+<span class="fc" id="L99">        SeoDataByLang that = (SeoDataByLang) o;</span>
+<span class="pc bpc" id="L100" title="3 of 6 branches missed.">        return inheritDescriptionFromDefaultLang == that.inheritDescriptionFromDefaultLang &amp;&amp;</span>
                 inheritKeywordsFromDefaultLang == that.inheritKeywordsFromDefaultLang &amp;&amp;
                 inheritFriendlyCodeFromDefaultLang == that.inheritFriendlyCodeFromDefaultLang &amp;&amp;
-<span class="nc bnc" id="L103" title="All 2 branches missed.">                Objects.equals(description, that.description) &amp;&amp;</span>
-<span class="nc bnc" id="L104" title="All 2 branches missed.">                Objects.equals(keywords, that.keywords) &amp;&amp;</span>
-<span class="nc bnc" id="L105" title="All 2 branches missed.">                Objects.equals(friendlyCode, that.friendlyCode) &amp;&amp;</span>
-<span class="nc bnc" id="L106" title="All 2 branches missed.">                Objects.equals(metaTags, that.metaTags);</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">                Objects.equals(description, that.description) &amp;&amp;</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">                Objects.equals(keywords, that.keywords) &amp;&amp;</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">                Objects.equals(friendlyCode, that.friendlyCode) &amp;&amp;</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">                Objects.equals(metaTags, that.metaTags);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L111">        return Objects.hash(description, keywords, friendlyCode, metaTags, inheritDescriptionFromDefaultLang,</span>
-<span class="nc" id="L112">                inheritKeywordsFromDefaultLang, inheritFriendlyCodeFromDefaultLang);</span>
+<span class="fc" id="L111">        return Objects.hash(description, keywords, friendlyCode, metaTags, inheritDescriptionFromDefaultLang,</span>
+<span class="fc" id="L112">                inheritKeywordsFromDefaultLang, inheritFriendlyCodeFromDefaultLang);</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L117">        return &quot;SeoDataByLang{&quot; +</span>
+<span class="fc" id="L117">        return &quot;SeoDataByLang{&quot; +</span>
                 &quot;description='&quot; + description + '\'' +
                 &quot;, keywords='&quot; + keywords + '\'' +
                 &quot;, friendlyCode='&quot; + friendlyCode + '\'' +

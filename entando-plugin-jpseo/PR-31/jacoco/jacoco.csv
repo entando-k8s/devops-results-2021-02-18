@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.services.url,URLManager,168,159,24,16,36,40,25,10,5,10
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.aps.system.services.url,PageURL,4,8,0,0,2,3,1,2,1,2
-Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoDataByLang,150,76,20,0,13,32,13,16,3,16
+Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoDataByLang,5,221,10,10,2,43,10,19,0,19
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoData,80,32,12,0,10,13,9,7,3,7
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoMetaTag,29,46,0,0,1,20,1,10,1,10
 Entando Plugin: SEO,org.entando.entando.plugins.jpseo.web.page.model,SeoPageRequest,50,10,6,0,11,5,7,3,4,3
