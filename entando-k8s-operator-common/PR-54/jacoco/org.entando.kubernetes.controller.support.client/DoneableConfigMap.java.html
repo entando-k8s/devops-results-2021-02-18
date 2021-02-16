@@ -23,20 +23,30 @@ import java.util.function.UnaryOperator;
 public class DoneableConfigMap extends ConfigMapFluentImpl&lt;DoneableConfigMap&gt; {
 
     private final UnaryOperator&lt;ConfigMap&gt; action;
+<span class="fc" id="L26">    private final Object hashCode = new Object();</span>
 
-<span class="fc" id="L27">    public DoneableConfigMap(UnaryOperator&lt;ConfigMap&gt; action) {</span>
-<span class="fc" id="L28">        this.action = action;</span>
-<span class="fc" id="L29">    }</span>
+<span class="fc" id="L28">    public DoneableConfigMap(UnaryOperator&lt;ConfigMap&gt; action) {</span>
+<span class="fc" id="L29">        this.action = action;</span>
+<span class="fc" id="L30">    }</span>
 
     public DoneableConfigMap(ConfigMap configMap, UnaryOperator&lt;ConfigMap&gt; action) {
-<span class="fc" id="L32">        super(configMap);</span>
-<span class="fc" id="L33">        this.action = action;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L33">        super(configMap);</span>
+<span class="fc" id="L34">        this.action = action;</span>
+<span class="fc" id="L35">    }</span>
 
     public ConfigMap done() {
-<span class="fc" id="L37">        ConfigMap built = new ConfigMap(getApiVersion(), getBinaryData(), getData(), getKind(), buildMetadata());</span>
-<span class="fc" id="L38">        return action.apply(built);</span>
+<span class="fc" id="L38">        ConfigMap built = new ConfigMap(getApiVersion(), getBinaryData(), getData(), getKind(), buildMetadata());</span>
+<span class="fc" id="L39">        return action.apply(built);</span>
     }
 
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        return this == o;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L49">        return hashCode.hashCode();</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
