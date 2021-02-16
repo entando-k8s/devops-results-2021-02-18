@@ -178,7 +178,7 @@ public class EntandoAppDeployableContainer
 
 <span class="fc bfc" id="L179" title="All 2 branches covered.">        if (dbmsVendor == DbmsVendor.EMBEDDED) {</span>
 <span class="fc" id="L180">            vars.add(new EnvVar(varNamePrefix + &quot;DRIVER&quot;, &quot;derby&quot;, null));</span>
-        } else {
+<span class="pc bpc" id="L181" title="1 of 2 branches missed.">        } else if (dbmsVendor != DbmsVendor.NONE) {</span>
 <span class="fc" id="L182">            DatabaseSchemaConnectionInfo connectionInfo = this.databaseSchemaConnectionInfo.get(schemaIndex);</span>
 <span class="fc" id="L183">            String jdbcUrl = connectionInfo.getJdbcUrl();</span>
 <span class="fc" id="L184">            vars.add(new EnvVar(varNamePrefix + &quot;URL&quot;, jdbcUrl, null));</span>
