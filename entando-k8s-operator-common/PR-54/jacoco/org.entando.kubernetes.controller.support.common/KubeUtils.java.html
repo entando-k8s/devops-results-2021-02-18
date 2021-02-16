@@ -42,42 +42,43 @@ public final class KubeUtils {
     public static final String ENTANDO_PLUGIN_ROLE = &quot;entandoPlugin&quot;;
     public static final String ENTANDO_RESOURCE_KIND_LABEL_NAME = &quot;EntandoResourceKind&quot;;
     public static final String ENTANDO_RESOURCE_NAMESPACE_LABEL_NAME = &quot;EntandoResourceNamespace&quot;;
-    public static final String ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME = &quot;entando-operator-default-config-map&quot;;
+    public static final String ENTANDO_OPERATOR_DEFAULT_CAPABILITIES_CONFIGMAP_NAME = &quot;entando-operator-default-capabilities-config-map&quot;;
+    public static final String ENTANDO_OPERATOR_CONFIG_CONFIGMAP_NAME = &quot;entando-operator-config&quot;;
     public static final String DEFAULT_KEYCLOAK_NAME = &quot;default&quot;;
     public static final String JOB_KIND_DB_PREPARATION = &quot;db-preparation-job&quot;;
     public static final String DEPLOYMENT_LABEL_NAME = &quot;deployment&quot;;
 
-<span class="fc" id="L50">    private static final Logger LOGGER = Logger.getLogger(KubeUtils.class.getName());</span>
+<span class="fc" id="L51">    private static final Logger LOGGER = Logger.getLogger(KubeUtils.class.getName());</span>
 
     private KubeUtils() {
     }
 
     public static String getKindOf(Class&lt;? extends EntandoCustomResource&gt; c) {
-<span class="fc" id="L56">        return c.getSimpleName();</span>
+<span class="fc" id="L57">        return c.getSimpleName();</span>
     }
 
     public static void ready(String name) {
         try {
-<span class="nc" id="L61">            FileUtils.write(new File(&quot;/tmp/&quot; + name + &quot;.ready&quot;), &quot;yes&quot;, StandardCharsets.UTF_8);</span>
-<span class="nc" id="L62">        } catch (IOException e) {</span>
-<span class="nc" id="L63">            LOGGER.log(Level.SEVERE, &quot;Could not create 'ready' file for {0}&quot;, name);</span>
-<span class="nc" id="L64">        }</span>
-<span class="nc" id="L65">    }</span>
+<span class="nc" id="L62">            FileUtils.write(new File(&quot;/tmp/&quot; + name + &quot;.ready&quot;), &quot;yes&quot;, StandardCharsets.UTF_8);</span>
+<span class="nc" id="L63">        } catch (IOException e) {</span>
+<span class="nc" id="L64">            LOGGER.log(Level.SEVERE, &quot;Could not create 'ready' file for {0}&quot;, name);</span>
+<span class="nc" id="L65">        }</span>
+<span class="nc" id="L66">    }</span>
 
     public static boolean customResourceOwns(EntandoCustomResource customResource, HasMetadata resource) {
-<span class="fc" id="L68">        return resource.getMetadata().getOwnerReferences().stream()</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">                .anyMatch(ownerReference -&gt; customResource.getMetadata().getName().equals(ownerReference.getName())</span>
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">                        &amp;&amp; customResource.getKind().equals(ownerReference.getKind()));</span>
+<span class="fc" id="L69">        return resource.getMetadata().getOwnerReferences().stream()</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                .anyMatch(ownerReference -&gt; customResource.getMetadata().getName().equals(ownerReference.getName())</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">                        &amp;&amp; customResource.getKind().equals(ownerReference.getKind()));</span>
     }
 
     public static OperatorProcessingInstruction resolveProcessingInstruction(EntandoCustomResource resource) {
-<span class="fc" id="L74">        return resolveAnnotation(resource, PROCESSING_INSTRUCTION_ANNOTATION_NAME)</span>
-<span class="fc" id="L75">                .map(value -&gt; OperatorProcessingInstruction.valueOf(value.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;)))</span>
-<span class="fc" id="L76">                .orElse(OperatorProcessingInstruction.NONE);</span>
+<span class="fc" id="L75">        return resolveAnnotation(resource, PROCESSING_INSTRUCTION_ANNOTATION_NAME)</span>
+<span class="fc" id="L76">                .map(value -&gt; OperatorProcessingInstruction.valueOf(value.toUpperCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;)))</span>
+<span class="fc" id="L77">                .orElse(OperatorProcessingInstruction.NONE);</span>
     }
 
     public static Optional&lt;String&gt; resolveAnnotation(EntandoCustomResource resource, String name) {
-<span class="fc" id="L80">        return ofNullable(resource.getMetadata().getAnnotations()).map(map -&gt; map.get(name));</span>
+<span class="fc" id="L81">        return ofNullable(resource.getMetadata().getAnnotations()).map(map -&gt; map.get(name));</span>
     }
 
 }
