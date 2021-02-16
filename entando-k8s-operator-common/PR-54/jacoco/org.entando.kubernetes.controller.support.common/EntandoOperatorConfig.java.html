@@ -61,17 +61,17 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static boolean isClusterScopedDeployment() {
-<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (getOperatorDeploymentType() == OperatorDeploymentType.OLM) {</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (getOperatorDeploymentType() == OperatorDeploymentType.OLM) {</span>
 <span class="nc" id="L65">            return getNamespacesToObserve().isEmpty();</span>
         } else {
-<span class="fc" id="L67">            return getNamespacesToObserve().stream().anyMatch(&quot;*&quot;::equals);</span>
+<span class="nc" id="L67">            return getNamespacesToObserve().stream().anyMatch(&quot;*&quot;::equals);</span>
         }
     }
 
     public static List&lt;String&gt; getNamespacesToObserve() {
-<span class="fc" id="L72">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_NAMESPACES_TO_OBSERVE).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
-<span class="fc" id="L73">                .map(Arrays::asList)</span>
-<span class="fc" id="L74">                .orElse(new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L72">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_NAMESPACES_TO_OBSERVE).map(s -&gt; s.split(SEPERATOR_PATTERN))</span>
+<span class="nc" id="L73">                .map(Arrays::asList)</span>
+<span class="nc" id="L74">                .orElse(new ArrayList&lt;&gt;());</span>
     }
 
     public static List&lt;String&gt; getImagePullSecrets() {
