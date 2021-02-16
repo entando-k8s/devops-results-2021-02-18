@@ -36,7 +36,7 @@ Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.1.new JdbcConnectionStringBuilder() {...},0,26,0,0,0,2,0,2,0,2
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.5.new JdbcConnectionStringBuilder() {...},0,21,0,0,0,2,0,2,0,2
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,NameUtils,10,102,1,5,2,18,3,11,2,9
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult,2,264,4,32,0,43,4,32,0,18
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult,23,243,7,29,4,39,7,29,0,18
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,PodResult.State,0,44,0,0,0,2,0,1,0,1
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,JdbcConnectionStringBuilder,20,63,2,2,2,22,3,14,1,14
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.4.new JdbcConnectionStringBuilder() {...},0,21,0,0,0,2,0,2,0,2
@@ -54,9 +54,9 @@ Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,DbmsVendorConfig.2.new JdbcConnectionStringBuilder() {...},0,26,0,0,0,2,0,2,0,2
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,EntandoOperatorSpiConfigProperty,0,48,0,0,0,8,0,3,0,3
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.common,EntandoOperatorComplianceMode,0,40,0,0,0,6,0,3,0,3
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AutoExit,3,14,1,1,1,7,1,3,0,3
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,EntandoControllerException,0,4,0,0,0,2,0,1,0,1
-Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AbstractDbAwareController,25,294,8,18,4,66,8,18,1,12
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AutoExit,7,10,1,1,3,5,2,2,1,2
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,EntandoControllerException,4,0,0,0,2,0,1,0,1,0
+Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,AbstractDbAwareController,70,249,9,17,12,58,10,16,2,11
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,ControllerExecutor,82,520,7,13,14,95,8,27,1,24
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.support.controller,EntandoDatabaseServiceController,5,22,1,1,2,7,2,3,1,3
 Entando K8S Operator Common Library,org.entando.kubernetes.controller.spi.deployable,PublicIngressingDeployable,0,6,0,0,0,2,0,2,0,2
