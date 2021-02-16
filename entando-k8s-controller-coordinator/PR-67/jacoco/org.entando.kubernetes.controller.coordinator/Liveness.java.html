@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Liveness.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Controller Coordinator</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.controller.coordinator</a> &gt; <span class="el_source">Liveness.java</span></div><h1>Liveness.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.controller.coordinator;
+
+import static java.lang.String.format;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Liveness {
+
+<span class="fc" id="L31">    private static final Logger LOGGER = Logger.getLogger(Liveness.class.getName());</span>
+
+    private Liveness() {
+
+    }
+
+    public static void alive() {
+<span class="fc" id="L38">        perform(() -&gt; Files.write(aliveFile(), &quot;yes&quot;.getBytes(StandardCharsets.UTF_8)), &quot;create&quot;);</span>
+<span class="fc" id="L39">    }</span>
+
+    public static void dead() {
+<span class="nc" id="L42">        perform(() -&gt; Files.deleteIfExists(aliveFile()), &quot;delete&quot;);</span>
+<span class="nc" id="L43">    }</span>
+
+    private static Path aliveFile() {
+<span class="fc" id="L46">        return Paths.get(&quot;/tmp&quot;, EntandoControllerCoordinator.class.getSimpleName() + &quot;.ready&quot;);</span>
+    }
+
+    private interface FileOperation {
+
+        void perform() throws IOException;
+    }
+
+    private static void perform(FileOperation io, String name) {
+        try {
+<span class="fc" id="L56">            io.perform();</span>
+<span class="nc" id="L57">        } catch (IOException e) {</span>
+<span class="nc" id="L58">            LOGGER.log(Level.SEVERE,</span>
+<span class="nc" id="L59">                    () -&gt; format(&quot;Could not %s 'ready' file for %s&quot;, name, EntandoControllerCoordinator.class.getSimpleName()));</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
