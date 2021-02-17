@@ -31,7 +31,7 @@ import org.entando.kubernetes.model.DbmsVendor;
         }
     },
 <span class="fc" id="L33">    POSTGRESQL(&quot;org.hibernate.dialect.PostgreSQLDialect&quot;, 5432, &quot;postgres&quot;,</span>
-            &quot;psql -h 127.0.0.1 -U ${POSTGRESQL_USER} -q -d postgres -c '\\l'|grep ${POSTGRESQL_DATABASE}&quot;, 64, false) {
+            &quot;/usr/libexec/check-container&quot;, 64, false) {
         public JdbcConnectionStringBuilder getConnectionStringBuilder() {
 <span class="fc" id="L36">            return new JdbcConnectionStringBuilder() {</span>
                 public String buildConnectionString() {

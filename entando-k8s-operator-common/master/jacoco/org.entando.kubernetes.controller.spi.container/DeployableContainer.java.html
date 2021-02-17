@@ -19,6 +19,7 @@ package org.entando.kubernetes.controller.spi.container;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public interface DeployableContainer {
@@ -26,11 +27,15 @@ public interface DeployableContainer {
     String ENTANDO_SECRET_MOUNTS_ROOT = &quot;/etc/entando/connectionconfigs&quot;;
 
     default DockerImageInfo getDockerImageInfo() {
-<span class="fc" id="L29">        return new DockerImageInfo(determineImageToUse());</span>
+<span class="fc" id="L30">        return new DockerImageInfo(determineImageToUse());</span>
     }
 
     default String determineImageToUse() {
-<span class="nc" id="L33">        return &quot;busybox&quot;;</span>
+<span class="nc" id="L34">        return &quot;busybox&quot;;</span>
+    }
+
+    default Optional&lt;Integer&gt; getMaximumStartupTimeSeconds() {
+<span class="fc" id="L38">        return Optional.empty();</span>
     }
 
     String getNameQualifier();
@@ -38,30 +43,30 @@ public interface DeployableContainer {
     int getPrimaryPort();
 
     default List&lt;PortSpec&gt; getAdditionalPorts() {
-<span class="fc" id="L41">        return Collections.emptyList();</span>
+<span class="fc" id="L46">        return Collections.emptyList();</span>
     }
 
     List&lt;EnvVar&gt; getEnvironmentVariables();
 
     default int getMemoryLimitMebibytes() {
-<span class="fc" id="L47">        return 256;</span>
+<span class="fc" id="L52">        return 256;</span>
     }
 
     default int getCpuLimitMillicores() {
-<span class="fc" id="L51">        return 500;</span>
+<span class="fc" id="L56">        return 500;</span>
     }
 
     default List&lt;String&gt; getNamesOfSecretsToMount() {
-<span class="fc" id="L55">        return Collections.emptyList();</span>
+<span class="fc" id="L60">        return Collections.emptyList();</span>
     }
 
     default List&lt;SecretToMount&gt; getSecretsToMount() {
-<span class="fc" id="L59">        return getNamesOfSecretsToMount().stream().map(s -&gt; new SecretToMount(s, ENTANDO_SECRET_MOUNTS_ROOT + &quot;/&quot; + s))</span>
-<span class="fc" id="L60">                .collect(Collectors.toList());</span>
+<span class="fc" id="L64">        return getNamesOfSecretsToMount().stream().map(s -&gt; new SecretToMount(s, ENTANDO_SECRET_MOUNTS_ROOT + &quot;/&quot; + s))</span>
+<span class="fc" id="L65">                .collect(Collectors.toList());</span>
     }
 
     default List&lt;KubernetesPermission&gt; getKubernetesPermissions() {
-<span class="fc" id="L64">        return Collections.emptyList();</span>
+<span class="fc" id="L69">        return Collections.emptyList();</span>
     }
 
 }

@@ -17,6 +17,7 @@
 package org.entando.kubernetes.client;
 
 import io.fabric8.kubernetes.client.KubernetesClient;
+import java.lang.reflect.Proxy;
 import org.entando.kubernetes.controller.support.client.DeploymentClient;
 import org.entando.kubernetes.controller.support.client.EntandoResourceClient;
 import org.entando.kubernetes.controller.support.client.IngressClient;
@@ -39,76 +40,83 @@ public class DefaultSimpleK8SClient implements SimpleK8SClient&lt;EntandoResourc
     private PersistentVolumeClaimClient persistentVolumeClaimClient;
     private ServiceAccountClient serviceAccountClient;
 
-<span class="fc" id="L42">    public DefaultSimpleK8SClient(KubernetesClient kubernetesClient) {</span>
-<span class="fc" id="L43">        this.kubernetesClient = kubernetesClient;</span>
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L43">    public DefaultSimpleK8SClient(KubernetesClient kubernetesClient) {</span>
+<span class="fc" id="L44">        this.kubernetesClient = kubernetesClient;</span>
+<span class="fc" id="L45">    }</span>
 
     @Override
     public ServiceClient services() {
 
-<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (this.serviceClient == null) {</span>
-<span class="fc" id="L50">            this.serviceClient = new DefaultServiceClient(kubernetesClient);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (this.serviceClient == null) {</span>
+<span class="fc" id="L51">            this.serviceClient = intercepted(new DefaultServiceClient(kubernetesClient));</span>
 
         }
-<span class="fc" id="L53">        return this.serviceClient;</span>
+<span class="fc" id="L54">        return this.serviceClient;</span>
     }
 
     @Override
     public PodClient pods() {
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (this.podClient == null) {</span>
-<span class="fc" id="L59">            this.podClient = new DefaultPodClient(kubernetesClient);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (this.podClient == null) {</span>
+<span class="fc" id="L60">            this.podClient = intercepted(new DefaultPodClient(kubernetesClient));</span>
         }
-<span class="fc" id="L61">        return this.podClient;</span>
+<span class="fc" id="L62">        return this.podClient;</span>
     }
 
     @Override
     public SecretClient secrets() {
-<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (this.secretClient == null) {</span>
-<span class="fc" id="L67">            this.secretClient = new DefaultSecretClient(kubernetesClient);</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (this.secretClient == null) {</span>
+<span class="fc" id="L68">            this.secretClient = intercepted(new DefaultSecretClient(kubernetesClient));</span>
         }
-<span class="fc" id="L69">        return this.secretClient;</span>
+<span class="fc" id="L70">        return this.secretClient;</span>
     }
 
     @Override
     public EntandoResourceClient entandoResources() {
-<span class="fc bfc" id="L74" title="All 2 branches covered.">        if (this.entandoResourceClient == null) {</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (this.entandoResourceClient == null) {</span>
 
-<span class="fc" id="L76">            this.entandoResourceClient = new DefaultEntandoResourceClient(kubernetesClient);</span>
+<span class="fc" id="L77">            this.entandoResourceClient = intercepted(new DefaultEntandoResourceClient(kubernetesClient));</span>
         }
-<span class="fc" id="L78">        return this.entandoResourceClient;</span>
+<span class="fc" id="L79">        return this.entandoResourceClient;</span>
     }
 
     @Override
     public ServiceAccountClient serviceAccounts() {
-<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (this.serviceAccountClient == null) {</span>
-<span class="fc" id="L84">            this.serviceAccountClient = new DefaultServiceAccountClient(kubernetesClient);</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">        if (this.serviceAccountClient == null) {</span>
+<span class="fc" id="L85">            this.serviceAccountClient = intercepted(new DefaultServiceAccountClient(kubernetesClient));</span>
         }
-<span class="fc" id="L86">        return this.serviceAccountClient;</span>
+<span class="fc" id="L87">        return this.serviceAccountClient;</span>
     }
 
     @Override
     public DeploymentClient deployments() {
-<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (this.deploymentClient == null) {</span>
-<span class="fc" id="L92">            this.deploymentClient = new DefaultDeploymentClient(kubernetesClient);</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (this.deploymentClient == null) {</span>
+<span class="fc" id="L93">            this.deploymentClient = intercepted(new DefaultDeploymentClient(kubernetesClient));</span>
         }
-<span class="fc" id="L94">        return this.deploymentClient;</span>
+<span class="fc" id="L95">        return this.deploymentClient;</span>
     }
 
     @Override
     public IngressClient ingresses() {
-<span class="fc bfc" id="L99" title="All 2 branches covered.">        if (this.ingressClient == null) {</span>
-<span class="fc" id="L100">            this.ingressClient = new DefaultIngressClient(kubernetesClient);</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">        if (this.ingressClient == null) {</span>
+<span class="fc" id="L101">            this.ingressClient = intercepted(new DefaultIngressClient(kubernetesClient));</span>
         }
-<span class="fc" id="L102">        return this.ingressClient;</span>
+<span class="fc" id="L103">        return this.ingressClient;</span>
     }
 
     @Override
     public PersistentVolumeClaimClient persistentVolumeClaims() {
-<span class="fc bfc" id="L107" title="All 2 branches covered.">        if (this.persistentVolumeClaimClient == null) {</span>
-<span class="fc" id="L108">            this.persistentVolumeClaimClient = new DefaultPersistentVolumeClaimClient(kubernetesClient);</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        if (this.persistentVolumeClaimClient == null) {</span>
+<span class="fc" id="L109">            this.persistentVolumeClaimClient = intercepted(new DefaultPersistentVolumeClaimClient(kubernetesClient));</span>
         }
-<span class="fc" id="L110">        return this.persistentVolumeClaimClient;</span>
+<span class="fc" id="L111">        return this.persistentVolumeClaimClient;</span>
     }
 
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private &lt;T&gt; T intercepted(T delegate) {
+<span class="fc" id="L116">        return (T) Proxy.newProxyInstance(</span>
+<span class="fc" id="L117">                Thread.currentThread().getContextClassLoader(),</span>
+<span class="fc" id="L118">                delegate.getClass().getInterfaces(),</span>
+                new KubernetesRestInterceptor(delegate));
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

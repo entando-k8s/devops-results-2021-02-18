@@ -21,6 +21,7 @@ import static java.util.Optional.ofNullable;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.entando.kubernetes.controller.spi.common.DbmsDockerVendorStrategy;
 import org.entando.kubernetes.controller.spi.common.NameUtils;
 import org.entando.kubernetes.controller.spi.container.DockerImageInfo;
@@ -35,47 +36,52 @@ public class DatabaseContainer implements ServiceBackingContainer, PersistentVol
     private final Integer portOverride;
 
     public DatabaseContainer(DatabaseVariableInitializer variableInitializer, DbmsDockerVendorStrategy dbmsVendorDockerStrategy,
-<span class="fc" id="L38">            Integer portOverride) {</span>
-<span class="fc" id="L39">        this.variableInitializer = variableInitializer;</span>
-<span class="fc" id="L40">        this.dbmsVendorDockerStrategy = dbmsVendorDockerStrategy;</span>
-<span class="fc" id="L41">        this.portOverride = portOverride;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L39">            Integer portOverride) {</span>
+<span class="fc" id="L40">        this.variableInitializer = variableInitializer;</span>
+<span class="fc" id="L41">        this.dbmsVendorDockerStrategy = dbmsVendorDockerStrategy;</span>
+<span class="fc" id="L42">        this.portOverride = portOverride;</span>
+<span class="fc" id="L43">    }</span>
+
+    @Override
+    public Optional&lt;Integer&gt; getMaximumStartupTimeSeconds() {
+<span class="fc" id="L47">        return Optional.of(90);</span>
+    }
 
     @Override
     public DockerImageInfo getDockerImageInfo() {
-<span class="fc" id="L46">        return new DockerImageInfo(dbmsVendorDockerStrategy);</span>
+<span class="fc" id="L52">        return new DockerImageInfo(dbmsVendorDockerStrategy);</span>
     }
 
     @Override
     public String getNameQualifier() {
-<span class="fc" id="L51">        return NameUtils.DB_NAME_QUALIFIER;</span>
+<span class="fc" id="L57">        return NameUtils.DB_NAME_QUALIFIER;</span>
     }
 
     @Override
     public int getPrimaryPort() {
-<span class="fc" id="L56">        return ofNullable(portOverride).orElse(dbmsVendorDockerStrategy.getPort());</span>
+<span class="fc" id="L62">        return ofNullable(portOverride).orElse(dbmsVendorDockerStrategy.getPort());</span>
     }
 
     @Override
     public int getMemoryLimitMebibytes() {
-<span class="fc" id="L61">        return dbmsVendorDockerStrategy.getDefaultMemoryLimitMebibytes();</span>
+<span class="fc" id="L67">        return dbmsVendorDockerStrategy.getDefaultMemoryLimitMebibytes();</span>
     }
 
     @Override
     public String getVolumeMountPath() {
-<span class="fc" id="L66">        return dbmsVendorDockerStrategy.getVolumeMountPath();</span>
+<span class="fc" id="L72">        return dbmsVendorDockerStrategy.getVolumeMountPath();</span>
     }
 
     @Override
     public String getHealthCheckCommand() {
-<span class="fc" id="L71">        return dbmsVendorDockerStrategy.getHealthCheck();</span>
+<span class="fc" id="L77">        return dbmsVendorDockerStrategy.getHealthCheck();</span>
     }
 
     @Override
     public List&lt;EnvVar&gt; getEnvironmentVariables() {
-<span class="fc" id="L76">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L77">        variableInitializer.addEnvironmentVariables(vars);</span>
-<span class="fc" id="L78">        return vars;</span>
+<span class="fc" id="L82">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L83">        variableInitializer.addEnvironmentVariables(vars);</span>
+<span class="fc" id="L84">        return vars;</span>
     }
 
 }

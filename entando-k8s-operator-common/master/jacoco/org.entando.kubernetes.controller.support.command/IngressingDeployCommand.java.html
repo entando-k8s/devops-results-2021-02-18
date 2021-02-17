@@ -49,10 +49,10 @@ public class IngressingDeployCommand&lt;T extends ExposedDeploymentResult&lt;T&g
     }
 
     private void syncIngress(SimpleK8SClient&lt;?&gt; k8sClient, IngressingDeployable&lt;?&gt; ingressingDeployable) {
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (ingressCreator.requiresDelegatingService(serviceCreator.getService(), ingressingDeployable)) {</span>
-<span class="nc" id="L53">            Service newDelegatingService = serviceCreator.newDelegatingService(k8sClient.services(), ingressingDeployable);</span>
-<span class="nc" id="L54">            ingressCreator.createIngress(k8sClient.ingresses(), ingressingDeployable, newDelegatingService);</span>
-<span class="nc" id="L55">        } else {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (ingressCreator.requiresDelegatingService(serviceCreator.getService(), ingressingDeployable)) {</span>
+<span class="fc" id="L53">            Service newDelegatingService = serviceCreator.newDelegatingService(k8sClient.services(), ingressingDeployable);</span>
+<span class="fc" id="L54">            ingressCreator.createIngress(k8sClient.ingresses(), ingressingDeployable, newDelegatingService);</span>
+<span class="fc" id="L55">        } else {</span>
 <span class="fc" id="L56">            ingressCreator.createIngress(k8sClient.ingresses(), ingressingDeployable, serviceCreator.getService());</span>
         }
 <span class="fc" id="L58">        ((WebServerStatus) status).setIngressStatus(ingressCreator.reloadIngress(k8sClient.ingresses()));</span>

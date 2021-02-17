@@ -146,7 +146,7 @@ public class DefaultKeycloakClient implements SimpleKeycloakClient {
 <span class="fc" id="L146">            RealmRepresentation newRealm = new RealmRepresentation();</span>
 <span class="fc" id="L147">            newRealm.setEnabled(true);</span>
 <span class="fc" id="L148">            newRealm.setRealm(realm);</span>
-<span class="pc bpc" id="L149" title="1 of 2 branches missed.">            if (shouldDisableSsl()) {</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">            if (shouldDisableSsl()) {</span>
 <span class="fc" id="L150">                newRealm.setSslRequired(SslRequired.NONE.name().toLowerCase());</span>
             }
 <span class="fc" id="L152">            newRealm.setDisplayName(realm);</span>
@@ -156,7 +156,7 @@ public class DefaultKeycloakClient implements SimpleKeycloakClient {
 <span class="fc" id="L156">    }</span>
 
     private boolean shouldDisableSsl() {
-<span class="pc bpc" id="L159" title="2 of 4 branches missed.">        return EntandoOperatorConfig.disableKeycloakSslRequirement() &amp;&amp; !isHttps;</span>
+<span class="pc bpc" id="L159" title="1 of 4 branches missed.">        return EntandoOperatorConfig.disableKeycloakSslRequirement() &amp;&amp; !isHttps;</span>
     }
 
     @Override
@@ -223,7 +223,7 @@ public class DefaultKeycloakClient implements SimpleKeycloakClient {
     @Override
     public String prepareClientAndReturnSecret(KeycloakClientConfig config) {
 <span class="fc" id="L225">        String id = findOrCreateClient(config);</span>
-<span class="fc" id="L226">        updateClient(config, id);</span>
+<span class="fc" id="L226">        updateClientWithId(config, id);</span>
 <span class="fc" id="L227">        return keycloak.realm(config.getRealm()).clients().get(id).getSecret().getValue();</span>
     }
 
@@ -260,63 +260,68 @@ public class DefaultKeycloakClient implements SimpleKeycloakClient {
 
     @Override
     public void updateClient(KeycloakClientConfig config) {
-<span class="nc" id="L263">        findClient(config).ifPresent(client -&gt; updateClient(config, client.getId()));</span>
+<span class="nc" id="L263">        findClient(config).ifPresent(client -&gt; updateClientWithId(config, client.getId()));</span>
 <span class="nc" id="L264">    }</span>
 
-    @SuppressWarnings(&quot;squid:S1155&quot;)//Because having a double negative in an if statement reduces readibility
-    private void updateClient(KeycloakClientConfig config, String id) {
-<span class="fc" id="L268">        RealmResource realmResource = keycloak.realm(config.getRealm());</span>
-<span class="fc" id="L269">        ClientResource clientResource = realmResource.clients().get(id);</span>
-<span class="fc" id="L270">        List&lt;ExpectedRole&gt; desiredRoles = config.getRoles().stream().filter(distinctByKey(ExpectedRole::getCode))</span>
-<span class="fc" id="L271">                .collect(Collectors.toList());</span>
-<span class="fc" id="L272">        List&lt;RoleRepresentation&gt; currentRoles = clientResource.roles().list();</span>
-<span class="fc" id="L273">        Set&lt;String&gt; desiredRoleNames = desiredRoles.stream()</span>
-<span class="fc" id="L274">                .map(ExpectedRole::getName)</span>
-<span class="fc" id="L275">                .collect(Collectors.toSet());</span>
-<span class="fc" id="L276">        List&lt;String&gt; currentRoleNames = currentRoles.stream()</span>
-<span class="fc" id="L277">                .map(RoleRepresentation::getName)</span>
-<span class="fc" id="L278">                .collect(Collectors.toList());</span>
-<span class="fc" id="L279">        currentRoleNames.stream()</span>
-<span class="pc bnc" id="L280" title="All 2 branches missed.">                .filter(roleName -&gt; !desiredRoleNames.contains(roleName))</span>
-<span class="fc" id="L281">                .forEach(clientResource.roles()::deleteRole);</span>
-<span class="pc bpc" id="L282" title="1 of 2 branches missed.">        desiredRoles.stream().filter(role -&gt; !currentRoleNames.contains(role.getName()))</span>
-<span class="fc" id="L283">                .map(DefaultKeycloakClient::toRoleRepresentation)</span>
-<span class="fc" id="L284">                .forEach(clientResource.roles()::create);</span>
-<span class="fc" id="L285">        config.getPermissions().forEach(role -&gt; assignServiceAccountRole(realmResource, clientResource, role));</span>
-<span class="fc" id="L286">        List&lt;String&gt; redirectUris = config.getRedirectUris();</span>
-<span class="pc bpc" id="L287" title="1 of 2 branches missed.">        if (redirectUris.size() &gt; 0) {</span>
-<span class="fc" id="L288">            ClientRepresentation clientRepresentation = clientResource.toRepresentation();</span>
-<span class="fc" id="L289">            clientRepresentation.getRedirectUris().addAll(redirectUris);</span>
-<span class="fc" id="L290">            clientResource.update(clientRepresentation);</span>
+    Keycloak getKeycloak() {
+<span class="fc" id="L267">        return keycloak;</span>
+    }
+
+    //Because having a negative in an if statement reduces readability
+    @SuppressWarnings(&quot;squid:S1155&quot;)
+    private void updateClientWithId(KeycloakClientConfig config, String id) {
+<span class="fc" id="L273">        RealmResource realmResource = keycloak.realm(config.getRealm());</span>
+<span class="fc" id="L274">        ClientResource clientResource = realmResource.clients().get(id);</span>
+<span class="fc" id="L275">        List&lt;ExpectedRole&gt; desiredRoles = config.getRoles().stream().filter(distinctByKey(ExpectedRole::getCode))</span>
+<span class="fc" id="L276">                .collect(Collectors.toList());</span>
+<span class="fc" id="L277">        List&lt;RoleRepresentation&gt; currentRoles = clientResource.roles().list();</span>
+<span class="fc" id="L278">        Set&lt;String&gt; desiredRoleNames = desiredRoles.stream()</span>
+<span class="fc" id="L279">                .map(ExpectedRole::getName)</span>
+<span class="fc" id="L280">                .collect(Collectors.toSet());</span>
+<span class="fc" id="L281">        List&lt;String&gt; currentRoleNames = currentRoles.stream()</span>
+<span class="fc" id="L282">                .map(RoleRepresentation::getName)</span>
+<span class="fc" id="L283">                .collect(Collectors.toList());</span>
+<span class="fc" id="L284">        currentRoleNames.stream()</span>
+<span class="pc bnc" id="L285" title="All 2 branches missed.">                .filter(roleName -&gt; !desiredRoleNames.contains(roleName))</span>
+<span class="fc" id="L286">                .forEach(clientResource.roles()::deleteRole);</span>
+<span class="pc bpc" id="L287" title="1 of 2 branches missed.">        desiredRoles.stream().filter(role -&gt; !currentRoleNames.contains(role.getName()))</span>
+<span class="fc" id="L288">                .map(DefaultKeycloakClient::toRoleRepresentation)</span>
+<span class="fc" id="L289">                .forEach(clientResource.roles()::create);</span>
+<span class="fc" id="L290">        config.getPermissions().forEach(role -&gt; assignServiceAccountRole(realmResource, clientResource, role));</span>
+<span class="fc" id="L291">        List&lt;String&gt; redirectUris = config.getRedirectUris();</span>
+<span class="pc bpc" id="L292" title="1 of 2 branches missed.">        if (redirectUris.size() &gt; 0) {</span>
+<span class="fc" id="L293">            ClientRepresentation clientRepresentation = clientResource.toRepresentation();</span>
+<span class="fc" id="L294">            clientRepresentation.getRedirectUris().addAll(redirectUris);</span>
+<span class="fc" id="L295">            clientResource.update(clientRepresentation);</span>
         }
-<span class="fc" id="L292">        List&lt;String&gt; webOrigins = config.getWebOrigins();</span>
-<span class="fc bfc" id="L293" title="All 2 branches covered.">        if (webOrigins.size() &gt; 0) {</span>
-<span class="fc" id="L294">            ClientRepresentation clientRepresentation = clientResource.toRepresentation();</span>
-<span class="fc" id="L295">            clientRepresentation.getWebOrigins().addAll(webOrigins);</span>
-<span class="fc" id="L296">            clientResource.update(clientRepresentation);</span>
+<span class="fc" id="L297">        List&lt;String&gt; webOrigins = config.getWebOrigins();</span>
+<span class="fc bfc" id="L298" title="All 2 branches covered.">        if (webOrigins.size() &gt; 0) {</span>
+<span class="fc" id="L299">            ClientRepresentation clientRepresentation = clientResource.toRepresentation();</span>
+<span class="fc" id="L300">            clientRepresentation.getWebOrigins().addAll(webOrigins);</span>
+<span class="fc" id="L301">            clientResource.update(clientRepresentation);</span>
         }
-<span class="fc" id="L298">    }</span>
+<span class="fc" id="L303">    }</span>
 
     private void assignServiceAccountRole(RealmResource realmResource, ClientResource clientResource, Permission serviceRole) {
-<span class="fc" id="L301">        findByClientId(realmResource, serviceRole.getClientId()).ifPresent(toAssociateClientResource -&gt; {</span>
-<span class="fc" id="L302">            String toAssociateClientUuid = toAssociateClientResource.toRepresentation().getId();</span>
-<span class="fc" id="L303">            RoleRepresentation role = toAssociateClientResource.roles().get(serviceRole.getRole()).toRepresentation();</span>
-<span class="fc" id="L304">            realmResource.users().get(clientResource.getServiceAccountUser().getId()).roles()</span>
-<span class="fc" id="L305">                    .clientLevel(toAssociateClientUuid)</span>
-<span class="fc" id="L306">                    .add(Collections.singletonList(role));</span>
-<span class="fc" id="L307">        });</span>
-<span class="fc" id="L308">    }</span>
+<span class="fc" id="L306">        findByClientId(realmResource, serviceRole.getClientId()).ifPresent(toAssociateClientResource -&gt; {</span>
+<span class="fc" id="L307">            String toAssociateClientUuid = toAssociateClientResource.toRepresentation().getId();</span>
+<span class="fc" id="L308">            RoleRepresentation role = toAssociateClientResource.roles().get(serviceRole.getRole()).toRepresentation();</span>
+<span class="fc" id="L309">            realmResource.users().get(clientResource.getServiceAccountUser().getId()).roles()</span>
+<span class="fc" id="L310">                    .clientLevel(toAssociateClientUuid)</span>
+<span class="fc" id="L311">                    .add(Collections.singletonList(role));</span>
+<span class="fc" id="L312">        });</span>
+<span class="fc" id="L313">    }</span>
 
     private Optional&lt;ClientResource&gt; findByClientId(RealmResource realmResource, String clientId) {
-<span class="fc" id="L311">        ClientsResource clientsResource = realmResource.clients();</span>
-<span class="fc" id="L312">        return clientsResource.findByClientId(clientId).stream().findFirst()</span>
-<span class="fc" id="L313">                .map(ClientRepresentation::getId)</span>
-<span class="fc" id="L314">                .map(clientsResource::get);</span>
+<span class="fc" id="L316">        ClientsResource clientsResource = realmResource.clients();</span>
+<span class="fc" id="L317">        return clientsResource.findByClientId(clientId).stream().findFirst()</span>
+<span class="fc" id="L318">                .map(ClientRepresentation::getId)</span>
+<span class="fc" id="L319">                .map(clientsResource::get);</span>
     }
 
     private static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, ?&gt; keyExtractor) {
-<span class="fc" id="L318">        Set&lt;Object&gt; seen = ConcurrentHashMap.newKeySet();</span>
-<span class="fc" id="L319">        return t -&gt; seen.add(keyExtractor.apply(t));</span>
+<span class="fc" id="L323">        Set&lt;Object&gt; seen = ConcurrentHashMap.newKeySet();</span>
+<span class="fc" id="L324">        return t -&gt; seen.add(keyExtractor.apply(t));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
