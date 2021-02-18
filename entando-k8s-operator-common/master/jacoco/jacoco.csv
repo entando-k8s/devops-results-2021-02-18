@@ -13,7 +13,7 @@ Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultPersist
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DoneableCustomResource,22,0,0,0,8,0,3,0,3,0
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultKeycloakClient,98,622,18,20,22,159,16,31,4,24
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultEntandoResourceClient,111,834,5,17,11,161,11,42,6,36
-Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultServiceClient,5,108,1,3,1,15,1,5,0,4
+Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultServiceClient,8,105,1,3,2,14,1,5,0,4
 Entando K8S Operator Common Library,org.entando.kubernetes.client,KubernetesExceptionProcessor,133,12,8,2,14,3,8,1,3,1
 Entando K8S Operator Common Library,org.entando.kubernetes.client,DefaultIngressClient,39,140,1,1,6,25,4,8,3,8
 Entando K8S Operator Common Library,org.entando.kubernetes.client,KubernetesRestInterceptor,25,212,0,14,5,35,1,16,1,9

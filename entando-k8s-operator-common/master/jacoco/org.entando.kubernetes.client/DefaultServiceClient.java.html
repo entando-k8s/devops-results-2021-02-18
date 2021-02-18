@@ -45,7 +45,7 @@ public class DefaultServiceClient implements ServiceClient {
 <span class="pc bpc" id="L45" title="1 of 2 branches missed.">        for (int i = 0; i &lt; 10; i++) {</span>
             try {
 <span class="fc" id="L47">                return client.endpoints().inNamespace(namespace).create(endpoints);</span>
-<span class="fc" id="L48">            } catch (KubernetesClientException e) {</span>
+<span class="nc" id="L48">            } catch (KubernetesClientException e) {</span>
                 //Waiting for K8S to delete it.
             }
         }
