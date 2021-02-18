@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserPreferencesService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando Core: Engine</a> &gt; <a href="index.source.html" class="el_package">org.entando.entando.aps.system.services.userpreferences</a> &gt; <span class="el_source">UserPreferencesService.java</span></div><h1>UserPreferencesService.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+package org.entando.entando.aps.system.services.userpreferences;
+
+import org.entando.entando.aps.system.exception.ResourceNotFoundException;
+import org.entando.entando.aps.system.exception.RestServerError;
+import org.entando.entando.ent.exception.EntException;
+import org.entando.entando.web.userpreferences.model.UserPreferencesDto;
+import org.entando.entando.web.userpreferences.model.UserPreferencesRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+<span class="fc" id="L24">public class UserPreferencesService implements IUserPreferencesService {</span>
+
+<span class="fc" id="L26">    private final Logger logger = LoggerFactory.getLogger(this.getClass());</span>
+
+    public static final String ERRCODE_USER_PREFERENCES_DOES_NOT_EXISTS = &quot;1&quot;;
+    public static final String DEFAULT_JOIN_GROUP_DELIMITER = &quot;;&quot;;
+
+    IUserPreferencesManager userPreferencesManager;
+
+    @Override
+    public UserPreferencesDto getUserPreferences(String username) {
+        try {
+<span class="fc" id="L36">            UserPreferences userPreferences = userPreferencesManager.getUserPreferences(username);</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">            if (userPreferences == null) {</span>
+<span class="fc" id="L38">                createNewDefaultUserPreferences(username);</span>
+<span class="fc" id="L39">                userPreferences = userPreferencesManager.getUserPreferences(username);</span>
+            }
+<span class="fc" id="L41">            return new UserPreferencesDto(userPreferences);</span>
+<span class="nc" id="L42">        } catch (EntException e) {</span>
+<span class="nc" id="L43">            logger.error(&quot;Error getting userPreferences for {}&quot;, username, e);</span>
+<span class="nc" id="L44">            throw new RestServerError(&quot;Error getting userPreferences&quot;, e);</span>
+        }
+    }
+
+    @Override
+    public UserPreferencesDto updateUserPreferences(String username, UserPreferencesRequest request) {
+        try {
+<span class="fc" id="L51">            UserPreferences userPreferences = userPreferencesManager.getUserPreferences(username);</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if (userPreferences != null) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">                if (request.getWizard() != null) {</span>
+<span class="fc" id="L54">                    userPreferences.setWizard(request.getWizard());</span>
+                }
+<span class="fc bfc" id="L56" title="All 2 branches covered.">                if (request.getLoadOnPageSelect() != null) {</span>
+<span class="fc" id="L57">                    userPreferences.setLoadOnPageSelect(request.getLoadOnPageSelect());</span>
+                }
+<span class="fc bfc" id="L59" title="All 2 branches covered.">                if (request.getTranslationWarning() != null) {</span>
+<span class="fc" id="L60">                    userPreferences.setTranslationWarning(request.getTranslationWarning());</span>
+                }
+<span class="fc bfc" id="L62" title="All 2 branches covered.">                if (request.getDefaultPageOwnerGroup() != null) {</span>
+<span class="fc" id="L63">                    userPreferences.setDefaultPageOwnerGroup(request.getDefaultPageOwnerGroup());</span>
+                }
+<span class="fc bfc" id="L65" title="All 2 branches covered.">                if (request.getDefaultPageJoinGroups() != null) {</span>
+<span class="fc" id="L66">                    StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">                    for (String group : request.getDefaultPageJoinGroups()) {</span>
+<span class="fc" id="L68">                        sb.append(group);</span>
+<span class="fc" id="L69">                        sb.append(DEFAULT_JOIN_GROUP_DELIMITER);</span>
+<span class="fc" id="L70">                    }</span>
+<span class="fc" id="L71">                    userPreferences.setDefaultPageJoinGroups(sb.toString());</span>
+                }
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                if (request.getDefaultContentOwnerGroup() != null) {</span>
+<span class="fc" id="L74">                    userPreferences.setDefaultContentOwnerGroup(request.getDefaultContentOwnerGroup());</span>
+                }
+<span class="fc bfc" id="L76" title="All 2 branches covered.">                if (request.getDefaultContentJoinGroups() != null) {</span>
+<span class="fc" id="L77">                    StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">                    for (String group : request.getDefaultContentJoinGroups()) {</span>
+<span class="fc" id="L79">                        sb.append(group);</span>
+<span class="fc" id="L80">                        sb.append(DEFAULT_JOIN_GROUP_DELIMITER);</span>
+<span class="fc" id="L81">                    }</span>
+<span class="fc" id="L82">                    userPreferences.setDefaultContentJoinGroups(sb.toString());</span>
+                }
+<span class="fc bfc" id="L84" title="All 2 branches covered.">                if (request.getDefaultWidgetOwnerGroup() != null) {</span>
+<span class="fc" id="L85">                    userPreferences.setDefaultWidgetOwnerGroup(request.getDefaultWidgetOwnerGroup());</span>
+                }
+<span class="fc bfc" id="L87" title="All 2 branches covered.">                if (request.getDefaultWidgetJoinGroups() != null) {</span>
+<span class="fc" id="L88">                    StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                    for (String group : request.getDefaultWidgetJoinGroups()) {</span>
+<span class="fc" id="L90">                        sb.append(group);</span>
+<span class="fc" id="L91">                        sb.append(DEFAULT_JOIN_GROUP_DELIMITER);</span>
+<span class="fc" id="L92">                    }</span>
+<span class="fc" id="L93">                    userPreferences.setDefaultWidgetJoinGroups(sb.toString());</span>
+                }
+<span class="fc" id="L95">                userPreferencesManager.updateUserPreferences(userPreferences);</span>
+<span class="fc" id="L96">                return new UserPreferencesDto(userPreferencesManager.getUserPreferences(username));</span>
+            } else {
+<span class="fc" id="L98">                throw new ResourceNotFoundException(ERRCODE_USER_PREFERENCES_DOES_NOT_EXISTS, &quot;userPreferences&quot;,</span>
+                        username);
+            }
+<span class="nc" id="L101">        } catch (EntException e) {</span>
+<span class="nc" id="L102">            logger.error(&quot;Error updating userPreferences for {}&quot;, username, e);</span>
+<span class="nc" id="L103">            throw new RestServerError(&quot;Error updating userPreferences&quot;, e);</span>
+        }
+    }
+
+    private void createNewDefaultUserPreferences(String username) {
+        try {
+<span class="fc" id="L109">            UserPreferences userPreferences = new UserPreferences();</span>
+<span class="fc" id="L110">            userPreferences.setUsername(username);</span>
+<span class="fc" id="L111">            userPreferences.setWizard(true);</span>
+<span class="fc" id="L112">            userPreferences.setTranslationWarning(true);</span>
+<span class="fc" id="L113">            userPreferences.setLoadOnPageSelect(true);</span>
+<span class="fc" id="L114">            userPreferencesManager.addUserPreferences(userPreferences);</span>
+<span class="nc" id="L115">        } catch (EntException e) {</span>
+<span class="nc" id="L116">            logger.error(&quot;Error in creating new default userPreferences for {}&quot;, username, e);</span>
+<span class="nc" id="L117">            throw new RestServerError(&quot;Error creating new default userPreferences&quot;, e);</span>
+<span class="fc" id="L118">        }</span>
+<span class="fc" id="L119">    }</span>
+
+    public void setUserPreferencesManager(
+            IUserPreferencesManager userPreferencesManager) {
+<span class="fc" id="L123">        this.userPreferencesManager = userPreferencesManager;</span>
+<span class="fc" id="L124">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
