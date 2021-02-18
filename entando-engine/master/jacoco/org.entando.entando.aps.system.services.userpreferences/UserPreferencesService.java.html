@@ -81,35 +81,46 @@ import org.slf4j.LoggerFactory;
 <span class="fc" id="L81">                    }</span>
 <span class="fc" id="L82">                    userPreferences.setDefaultContentJoinGroups(sb.toString());</span>
                 }
-<span class="fc" id="L84">                userPreferencesManager.updateUserPreferences(userPreferences);</span>
-<span class="fc" id="L85">                return new UserPreferencesDto(userPreferencesManager.getUserPreferences(username));</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">                if (request.getDefaultWidgetOwnerGroup() != null) {</span>
+<span class="fc" id="L85">                    userPreferences.setDefaultWidgetOwnerGroup(request.getDefaultWidgetOwnerGroup());</span>
+                }
+<span class="fc bfc" id="L87" title="All 2 branches covered.">                if (request.getDefaultWidgetJoinGroups() != null) {</span>
+<span class="fc" id="L88">                    StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                    for (String group : request.getDefaultWidgetJoinGroups()) {</span>
+<span class="fc" id="L90">                        sb.append(group);</span>
+<span class="fc" id="L91">                        sb.append(DEFAULT_JOIN_GROUP_DELIMITER);</span>
+<span class="fc" id="L92">                    }</span>
+<span class="fc" id="L93">                    userPreferences.setDefaultWidgetJoinGroups(sb.toString());</span>
+                }
+<span class="fc" id="L95">                userPreferencesManager.updateUserPreferences(userPreferences);</span>
+<span class="fc" id="L96">                return new UserPreferencesDto(userPreferencesManager.getUserPreferences(username));</span>
             } else {
-<span class="fc" id="L87">                throw new ResourceNotFoundException(ERRCODE_USER_PREFERENCES_DOES_NOT_EXISTS, &quot;userPreferences&quot;,</span>
+<span class="fc" id="L98">                throw new ResourceNotFoundException(ERRCODE_USER_PREFERENCES_DOES_NOT_EXISTS, &quot;userPreferences&quot;,</span>
                         username);
             }
-<span class="nc" id="L90">        } catch (EntException e) {</span>
-<span class="nc" id="L91">            logger.error(&quot;Error updating userPreferences for {}&quot;, username, e);</span>
-<span class="nc" id="L92">            throw new RestServerError(&quot;Error updating userPreferences&quot;, e);</span>
+<span class="nc" id="L101">        } catch (EntException e) {</span>
+<span class="nc" id="L102">            logger.error(&quot;Error updating userPreferences for {}&quot;, username, e);</span>
+<span class="nc" id="L103">            throw new RestServerError(&quot;Error updating userPreferences&quot;, e);</span>
         }
     }
 
     private void createNewDefaultUserPreferences(String username) {
         try {
-<span class="fc" id="L98">            UserPreferences userPreferences = new UserPreferences();</span>
-<span class="fc" id="L99">            userPreferences.setUsername(username);</span>
-<span class="fc" id="L100">            userPreferences.setWizard(true);</span>
-<span class="fc" id="L101">            userPreferences.setTranslationWarning(true);</span>
-<span class="fc" id="L102">            userPreferences.setLoadOnPageSelect(true);</span>
-<span class="fc" id="L103">            userPreferencesManager.addUserPreferences(userPreferences);</span>
-<span class="nc" id="L104">        } catch (EntException e) {</span>
-<span class="nc" id="L105">            logger.error(&quot;Error in creating new default userPreferences for {}&quot;, username, e);</span>
-<span class="nc" id="L106">            throw new RestServerError(&quot;Error creating new default userPreferences&quot;, e);</span>
-<span class="fc" id="L107">        }</span>
-<span class="fc" id="L108">    }</span>
+<span class="fc" id="L109">            UserPreferences userPreferences = new UserPreferences();</span>
+<span class="fc" id="L110">            userPreferences.setUsername(username);</span>
+<span class="fc" id="L111">            userPreferences.setWizard(true);</span>
+<span class="fc" id="L112">            userPreferences.setTranslationWarning(true);</span>
+<span class="fc" id="L113">            userPreferences.setLoadOnPageSelect(true);</span>
+<span class="fc" id="L114">            userPreferencesManager.addUserPreferences(userPreferences);</span>
+<span class="nc" id="L115">        } catch (EntException e) {</span>
+<span class="nc" id="L116">            logger.error(&quot;Error in creating new default userPreferences for {}&quot;, username, e);</span>
+<span class="nc" id="L117">            throw new RestServerError(&quot;Error creating new default userPreferences&quot;, e);</span>
+<span class="fc" id="L118">        }</span>
+<span class="fc" id="L119">    }</span>
 
     public void setUserPreferencesManager(
             IUserPreferencesManager userPreferencesManager) {
-<span class="fc" id="L112">        this.userPreferencesManager = userPreferencesManager;</span>
-<span class="fc" id="L113">    }</span>
+<span class="fc" id="L123">        this.userPreferencesManager = userPreferencesManager;</span>
+<span class="fc" id="L124">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

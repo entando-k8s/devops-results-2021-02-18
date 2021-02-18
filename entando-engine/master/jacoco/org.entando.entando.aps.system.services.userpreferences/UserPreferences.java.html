@@ -20,8 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = &quot;userPreferences&quot;)
 @XmlType(propOrder = {&quot;username&quot;, &quot;wizard&quot;, &quot;loadOnPageSelect&quot;, &quot;translationWarning&quot;, &quot;defaultPageOwnerGroup&quot;,
-		&quot;defaultPageJoinGroups&quot;, &quot;defaultContentOwnerGroup&quot;, &quot;defaultContentJoinGroups&quot;})
-<span class="fc" id="L24">public class UserPreferences implements Serializable {</span>
+		&quot;defaultPageJoinGroups&quot;, &quot;defaultContentOwnerGroup&quot;, &quot;defaultContentJoinGroups&quot;, &quot;defaultWidgetOwnerGroup&quot;,
+		&quot;defaultWidgetJoinGroups&quot;})
+<span class="fc" id="L25">public class UserPreferences implements Serializable {</span>
 
 	private String username;
 	private boolean wizard;
@@ -31,82 +32,102 @@ import javax.xml.bind.annotation.XmlType;
 	private String defaultPageJoinGroups;
 	private String defaultContentOwnerGroup;
 	private String defaultContentJoinGroups;
+	private String defaultWidgetOwnerGroup;
+	private String defaultWidgetJoinGroups;
 
 	@XmlElement(name = &quot;username&quot;, required = true)
 	public String getUsername() {
-<span class="fc" id="L37">		return username;</span>
+<span class="fc" id="L40">		return username;</span>
 	}
 
 	public void setUsername(String username) {
-<span class="fc" id="L41">		this.username = username;</span>
-<span class="fc" id="L42">	}</span>
+<span class="fc" id="L44">		this.username = username;</span>
+<span class="fc" id="L45">	}</span>
 
 	@XmlElement(name = &quot;wizard&quot;, required = true)
 	public boolean isWizard() {
-<span class="fc" id="L46">		return wizard;</span>
+<span class="fc" id="L49">		return wizard;</span>
 	}
 
 	public void setWizard(boolean wizard) {
-<span class="fc" id="L50">		this.wizard = wizard;</span>
-<span class="fc" id="L51">	}</span>
+<span class="fc" id="L53">		this.wizard = wizard;</span>
+<span class="fc" id="L54">	}</span>
 
 	@XmlElement(name = &quot;loadOnPageSelect&quot;, required = true)
 	public boolean isLoadOnPageSelect() {
-<span class="fc" id="L55">		return loadOnPageSelect;</span>
+<span class="fc" id="L58">		return loadOnPageSelect;</span>
 	}
 
 	public void setLoadOnPageSelect(boolean loadOnPageSelect) {
-<span class="fc" id="L59">		this.loadOnPageSelect = loadOnPageSelect;</span>
-<span class="fc" id="L60">	}</span>
+<span class="fc" id="L62">		this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="fc" id="L63">	}</span>
 
 	@XmlElement(name = &quot;translationWarning&quot;, required = true)
 	public boolean isTranslationWarning() {
-<span class="fc" id="L64">		return translationWarning;</span>
+<span class="fc" id="L67">		return translationWarning;</span>
 	}
 
 	public void setTranslationWarning(boolean translationWarning) {
-<span class="fc" id="L68">		this.translationWarning = translationWarning;</span>
-<span class="fc" id="L69">	}</span>
+<span class="fc" id="L71">		this.translationWarning = translationWarning;</span>
+<span class="fc" id="L72">	}</span>
 
 	@XmlElement(name = &quot;defaultPageOwnerGroup&quot;)
 	public String getDefaultPageOwnerGroup() {
-<span class="fc" id="L73">		return defaultPageOwnerGroup;</span>
+<span class="fc" id="L76">		return defaultPageOwnerGroup;</span>
 	}
 
 	public void setDefaultPageOwnerGroup(String defaultPageOwnerGroup) {
-<span class="fc" id="L77">		this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
-<span class="fc" id="L78">	}</span>
+<span class="fc" id="L80">		this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
+<span class="fc" id="L81">	}</span>
 
 	@XmlElement(name = &quot;defaultPageJoinGroups&quot;)
 	public String getDefaultPageJoinGroups() {
-<span class="fc" id="L82">		return defaultPageJoinGroups;</span>
+<span class="fc" id="L85">		return defaultPageJoinGroups;</span>
 	}
 
 	public void setDefaultPageJoinGroups(String defaultPageJoinGroups) {
-<span class="fc" id="L86">		this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
-<span class="fc" id="L87">	}</span>
+<span class="fc" id="L89">		this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
+<span class="fc" id="L90">	}</span>
 
 	@XmlElement(name = &quot;defaultContentOwnerGroup&quot;)
 	public String getDefaultContentOwnerGroup() {
-<span class="fc" id="L91">		return defaultContentOwnerGroup;</span>
+<span class="fc" id="L94">		return defaultContentOwnerGroup;</span>
 	}
 
 	public void setDefaultContentOwnerGroup(String defaultContentOwnerGroup) {
-<span class="fc" id="L95">		this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
-<span class="fc" id="L96">	}</span>
+<span class="fc" id="L98">		this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
+<span class="fc" id="L99">	}</span>
 
 	@XmlElement(name = &quot;defaultContentJoinGroups&quot;)
 	public String getDefaultContentJoinGroups() {
-<span class="fc" id="L100">		return defaultContentJoinGroups;</span>
+<span class="fc" id="L103">		return defaultContentJoinGroups;</span>
 	}
 
 	public void setDefaultContentJoinGroups(String defaultContentJoinGroups) {
-<span class="fc" id="L104">		this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
-<span class="fc" id="L105">	}</span>
+<span class="fc" id="L107">		this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
+<span class="fc" id="L108">	}</span>
+
+	@XmlElement(name = &quot;defaultWidgetOwnerGroup&quot;)
+	public String getDefaultWidgetOwnerGroup() {
+<span class="fc" id="L112">		return defaultWidgetOwnerGroup;</span>
+	}
+
+	public void setDefaultWidgetOwnerGroup(String defaultWidgetOwnerGroup) {
+<span class="fc" id="L116">		this.defaultWidgetOwnerGroup = defaultWidgetOwnerGroup;</span>
+<span class="fc" id="L117">	}</span>
+
+	@XmlElement(name = &quot;defaultWidgetJoinGroups&quot;)
+	public String getDefaultWidgetJoinGroups() {
+<span class="fc" id="L121">		return defaultWidgetJoinGroups;</span>
+	}
+
+	public void setDefaultWidgetJoinGroups(String defaultWidgetJoinGroups) {
+<span class="fc" id="L125">		this.defaultWidgetJoinGroups = defaultWidgetJoinGroups;</span>
+<span class="fc" id="L126">	}</span>
 
 	@Override
 	public String toString() {
-<span class="nc" id="L109">		return &quot;UserPreferences{&quot; +</span>
+<span class="nc" id="L130">		return &quot;UserPreferences{&quot; +</span>
 				&quot;username='&quot; + username + '\'' +
 				&quot;, wizard=&quot; + wizard +
 				&quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
@@ -115,6 +136,8 @@ import javax.xml.bind.annotation.XmlType;
 				&quot;, defaultPageJoinGroups='&quot; + defaultPageJoinGroups + '\'' +
 				&quot;, defaultContentOwnerGroup='&quot; + defaultContentOwnerGroup + '\'' +
 				&quot;, defaultContentJoinGroups='&quot; + defaultContentJoinGroups + '\'' +
+				&quot;, defaultWidgetOwnerGroup='&quot; + defaultWidgetOwnerGroup + '\'' +
+				&quot;, defaultWidgetJoinGroups='&quot; + defaultWidgetJoinGroups + '\'' +
 				'}';
 	}
 }

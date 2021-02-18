@@ -13,11 +13,12 @@
  */
 package org.entando.entando.web.userpreferences.model;
 
+import static org.entando.entando.aps.system.services.userpreferences.UserPreferencesService.DEFAULT_JOIN_GROUP_DELIMITER;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.entando.entando.aps.system.services.userpreferences.UserPreferences;
-import static org.entando.entando.aps.system.services.userpreferences.UserPreferencesService.DEFAULT_JOIN_GROUP_DELIMITER;
 
 public class UserPreferencesDto {
 
@@ -28,96 +29,129 @@ public class UserPreferencesDto {
     private List&lt;String&gt; defaultPageJoinGroups;
     private String defaultContentOwnerGroup;
     private List&lt;String&gt; defaultContentJoinGroups;
+    private String defaultWidgetOwnerGroup;
+    private List&lt;String&gt; defaultWidgetJoinGroups;
 
-<span class="fc" id="L32">    public UserPreferencesDto(UserPreferences userPreferences) {</span>
-<span class="fc" id="L33">        wizard = userPreferences.isWizard();</span>
-<span class="fc" id="L34">        loadOnPageSelect = userPreferences.isLoadOnPageSelect();</span>
-<span class="fc" id="L35">        translationWarning = userPreferences.isTranslationWarning();</span>
-<span class="fc" id="L36">        defaultPageOwnerGroup = userPreferences.getDefaultPageOwnerGroup();</span>
-<span class="fc" id="L37">        String defaultJoinPageGroupsString = userPreferences.getDefaultPageJoinGroups();</span>
-<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (defaultJoinPageGroupsString != null) {</span>
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            if (defaultPageJoinGroups == null) {</span>
-<span class="fc" id="L40">                defaultPageJoinGroups = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L35">    public UserPreferencesDto(UserPreferences userPreferences) {</span>
+<span class="fc" id="L36">        wizard = userPreferences.isWizard();</span>
+<span class="fc" id="L37">        loadOnPageSelect = userPreferences.isLoadOnPageSelect();</span>
+<span class="fc" id="L38">        translationWarning = userPreferences.isTranslationWarning();</span>
+
+<span class="fc" id="L40">        defaultPageOwnerGroup = userPreferences.getDefaultPageOwnerGroup();</span>
+<span class="fc" id="L41">        String defaultJoinPageGroupsString = userPreferences.getDefaultPageJoinGroups();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (defaultJoinPageGroupsString != null) {</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">            if (defaultPageJoinGroups == null) {</span>
+<span class="fc" id="L44">                defaultPageJoinGroups = new ArrayList&lt;&gt;();</span>
             }
-<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (!StringUtils.isEmpty(defaultJoinPageGroupsString)) {</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">                for (String group : userPreferences.getDefaultPageJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
-<span class="fc" id="L44">                    defaultPageJoinGroups.add(group);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (!StringUtils.isEmpty(defaultJoinPageGroupsString)) {</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">                for (String group : userPreferences.getDefaultPageJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
+<span class="fc" id="L48">                    defaultPageJoinGroups.add(group);</span>
                 }
             }
         }
-<span class="fc" id="L48">        defaultContentOwnerGroup = userPreferences.getDefaultContentOwnerGroup();</span>
-<span class="fc" id="L49">        String defaultJoinContentGroupsString = userPreferences.getDefaultContentJoinGroups();</span>
-<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (defaultJoinContentGroupsString != null) {</span>
-<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            if (defaultContentJoinGroups == null) {</span>
-<span class="fc" id="L52">                defaultContentJoinGroups = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L53">        defaultContentOwnerGroup = userPreferences.getDefaultContentOwnerGroup();</span>
+<span class="fc" id="L54">        String defaultJoinContentGroupsString = userPreferences.getDefaultContentJoinGroups();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (defaultJoinContentGroupsString != null) {</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">            if (defaultContentJoinGroups == null) {</span>
+<span class="fc" id="L57">                defaultContentJoinGroups = new ArrayList&lt;&gt;();</span>
             }
-<span class="fc bfc" id="L54" title="All 2 branches covered.">            if (!StringUtils.isEmpty(defaultJoinContentGroupsString)) {</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">                for (String group : userPreferences.getDefaultContentJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
-<span class="fc" id="L56">                    defaultContentJoinGroups.add(group);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">            if (!StringUtils.isEmpty(defaultJoinContentGroupsString)) {</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">                for (String group : userPreferences.getDefaultContentJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
+<span class="fc" id="L61">                    defaultContentJoinGroups.add(group);</span>
                 }
             }
         }
-<span class="fc" id="L60">    }</span>
+
+<span class="fc" id="L66">        defaultWidgetOwnerGroup = userPreferences.getDefaultWidgetOwnerGroup();</span>
+<span class="fc" id="L67">        String defaultJoinWidgetGroupsString = userPreferences.getDefaultWidgetJoinGroups();</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (defaultJoinWidgetGroupsString != null) {</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">            if (defaultWidgetJoinGroups == null) {</span>
+<span class="fc" id="L70">                defaultWidgetJoinGroups = new ArrayList&lt;&gt;();</span>
+            }
+<span class="fc bfc" id="L72" title="All 2 branches covered.">            if (!StringUtils.isEmpty(defaultJoinWidgetGroupsString)) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                for (String group : userPreferences.getDefaultWidgetJoinGroups().split(DEFAULT_JOIN_GROUP_DELIMITER)) {</span>
+<span class="fc" id="L74">                    defaultWidgetJoinGroups.add(group);</span>
+                }
+            }
+        }
+<span class="fc" id="L78">    }</span>
 
     public Boolean getWizard() {
-<span class="fc" id="L63">        return wizard;</span>
+<span class="fc" id="L81">        return wizard;</span>
     }
 
     public void setWizard(Boolean wizard) {
-<span class="nc" id="L67">        this.wizard = wizard;</span>
-<span class="nc" id="L68">    }</span>
+<span class="nc" id="L85">        this.wizard = wizard;</span>
+<span class="nc" id="L86">    }</span>
 
     public Boolean getLoadOnPageSelect() {
-<span class="fc" id="L71">        return loadOnPageSelect;</span>
+<span class="fc" id="L89">        return loadOnPageSelect;</span>
     }
 
     public void setLoadOnPageSelect(Boolean loadOnPageSelect) {
-<span class="nc" id="L75">        this.loadOnPageSelect = loadOnPageSelect;</span>
-<span class="nc" id="L76">    }</span>
+<span class="nc" id="L93">        this.loadOnPageSelect = loadOnPageSelect;</span>
+<span class="nc" id="L94">    }</span>
 
     public Boolean getTranslationWarning() {
-<span class="fc" id="L79">        return translationWarning;</span>
+<span class="fc" id="L97">        return translationWarning;</span>
     }
 
     public void setTranslationWarning(Boolean translationWarning) {
-<span class="nc" id="L83">        this.translationWarning = translationWarning;</span>
-<span class="nc" id="L84">    }</span>
+<span class="nc" id="L101">        this.translationWarning = translationWarning;</span>
+<span class="nc" id="L102">    }</span>
 
     public String getDefaultPageOwnerGroup() {
-<span class="fc" id="L87">        return defaultPageOwnerGroup;</span>
+<span class="fc" id="L105">        return defaultPageOwnerGroup;</span>
     }
 
     public void setDefaultPageOwnerGroup(String defaultPageOwnerGroup) {
-<span class="nc" id="L91">        this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
-<span class="nc" id="L92">    }</span>
+<span class="nc" id="L109">        this.defaultPageOwnerGroup = defaultPageOwnerGroup;</span>
+<span class="nc" id="L110">    }</span>
 
     public List&lt;String&gt; getDefaultPageJoinGroups() {
-<span class="fc" id="L95">        return defaultPageJoinGroups;</span>
+<span class="fc" id="L113">        return defaultPageJoinGroups;</span>
     }
 
     public void setDefaultPageJoinGroups(List&lt;String&gt; defaultPageJoinGroups) {
-<span class="nc" id="L99">        this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
-<span class="nc" id="L100">    }</span>
+<span class="nc" id="L117">        this.defaultPageJoinGroups = defaultPageJoinGroups;</span>
+<span class="nc" id="L118">    }</span>
 
     public String getDefaultContentOwnerGroup() {
-<span class="fc" id="L103">        return defaultContentOwnerGroup;</span>
+<span class="fc" id="L121">        return defaultContentOwnerGroup;</span>
     }
 
     public void setDefaultContentOwnerGroup(String defaultContentOwnerGroup) {
-<span class="nc" id="L107">        this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
-<span class="nc" id="L108">    }</span>
+<span class="nc" id="L125">        this.defaultContentOwnerGroup = defaultContentOwnerGroup;</span>
+<span class="nc" id="L126">    }</span>
 
     public List&lt;String&gt; getDefaultContentJoinGroups() {
-<span class="fc" id="L111">        return defaultContentJoinGroups;</span>
+<span class="fc" id="L129">        return defaultContentJoinGroups;</span>
     }
 
     public void setDefaultContentJoinGroups(List&lt;String&gt; defaultContentJoinGroups) {
-<span class="nc" id="L115">        this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
-<span class="nc" id="L116">    }</span>
+<span class="nc" id="L133">        this.defaultContentJoinGroups = defaultContentJoinGroups;</span>
+<span class="nc" id="L134">    }</span>
+
+    public String getDefaultWidgetOwnerGroup() {
+<span class="fc" id="L137">        return defaultWidgetOwnerGroup;</span>
+    }
+
+    public void setDefaultWidgetOwnerGroup(String defaultWidgetOwnerGroup) {
+<span class="nc" id="L141">        this.defaultWidgetOwnerGroup = defaultWidgetOwnerGroup;</span>
+<span class="nc" id="L142">    }</span>
+
+    public List&lt;String&gt; getDefaultWidgetJoinGroups() {
+<span class="fc" id="L145">        return defaultWidgetJoinGroups;</span>
+    }
+
+    public void setDefaultWidgetJoinGroups(List&lt;String&gt; defaultWidgetJoinGroups) {
+<span class="nc" id="L149">        this.defaultWidgetJoinGroups = defaultWidgetJoinGroups;</span>
+<span class="nc" id="L150">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L120">        return &quot;UserPreferencesDto{&quot; +</span>
+<span class="nc" id="L154">        return &quot;UserPreferencesDto{&quot; +</span>
                 &quot;wizard=&quot; + wizard +
                 &quot;, loadOnPageSelect=&quot; + loadOnPageSelect +
                 &quot;, translationWarning=&quot; + translationWarning +
@@ -125,6 +159,8 @@ public class UserPreferencesDto {
                 &quot;, defaultPageJoinGroups=&quot; + defaultPageJoinGroups +
                 &quot;, defaultContentOwnerGroup='&quot; + defaultContentOwnerGroup + '\'' +
                 &quot;, defaultContentJoinGroups=&quot; + defaultContentJoinGroups +
+                &quot;, defaultWidgetOwnerGroup='&quot; + defaultWidgetOwnerGroup + '\'' +
+                &quot;, defaultWidgetJoinGroups=&quot; + defaultWidgetJoinGroups +
                 '}';
     }
 }
