@@ -1,0 +1,588 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-x2wrb[0m
+{"level":"warn","ts":1612352801.7977204,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612352801.8052897,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-t26lr[0m
+{"level":"warn","ts":1612352810.8581703,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1612352810.870346,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-plugin-5trfd[0m
+{"level":"warn","ts":1612352860.2842934,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1612352861.5637755,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-plugin-controller.git @ v6.3.0 in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:45c26cd7e55b54ff1a645c86eaf8b7de6c73c2b6
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fetch-history-for-sonar[0m
+From https://github.com/entando-k8s/entando-k8s-plugin-controller
+ * [new branch]      ENG-1329_bumped_to_latest_operator_common -> origin/ENG-1329_bumped_to_latest_operator_common
+ * [new branch]      master     -> origin/master
+ * [new branch]      poste      -> origin/poste
+ * [new tag]         v6.3.0     -> v6.3.0
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-deploy-release[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 6.3.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-plugin-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-plugin-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-plugin-controller ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-plugin-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-plugin-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-plugin-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-plugin-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /workspace/source/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.624 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithEmbeddedDbTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.766 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithEmbeddedDbTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutDbTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.852 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutDbTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutSidecarTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.423 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutSidecarTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginOnExternalDbTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.244 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginOnExternalDbTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-plugin-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-6.3.0.jar
+[INFO] 
+[INFO] --- license-maven-plugin:2.0.0:aggregate-download-licenses (download-licenses) @ entando-k8s-plugin-controller ---
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ojdbc8:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ons:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:******pki:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:osdt_cert:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:osdt_core:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:simplefan:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ucp:19.3.0.0
+[WARNING] No license information available for: com.sun.org.apache:jaxp-ri:1.4
+[WARNING] No license information available for: javax.xml.parsers:jaxp-api:1.4
+[WARNING] Unable to retrieve license from URL 'https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html' for dependency 'javax.servlet:javax.servlet-api:3.0.1': Certificate for <glassfish.dev.java.net> doesn't match any of the subject alternative names: [*.java.net, java.net]
+[WARNING] Unable to retrieve license from URL 'LICENSE.txt' for dependency 'org.awaitility:awaitility:4.0.1': null
+Feb 03, 2021 11:48:40 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: _octo=GH1.1.611570015.1612352920; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 11:48:40 GMT; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 11:48:40 GMT
+Feb 03, 2021 11:48:40 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: logged_in=no; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 11:48:40 GMT; HttpOnly; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 11:48:40 GMT
+Feb 03, 2021 11:48:40 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: _octo=GH1.1.1639045658.1612352920; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 11:48:40 GMT; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 11:48:40 GMT
+Feb 03, 2021 11:48:40 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: logged_in=no; Path=/; Domain=github.com; Expires=Thu, 03 Feb 2022 11:48:40 GMT; HttpOnly; Secure; SameSite=Lax". Invalid 'expires' attribute: Thu, 03 Feb 2022 11:48:40 GMT
+[WARNING] There were 11 download errors - check the warnings above
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-plugin-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-6.3.0-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.1:jar-no-fork (attach-sources) @ entando-k8s-plugin-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-6.3.0-sources.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.2.1:test-jar (attach-sources) > generate-sources @ entando-k8s-plugin-controller >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-plugin-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-plugin-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-plugin-controller ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] <<< maven-source-plugin:3.2.1:test-jar (attach-sources) < generate-sources @ entando-k8s-plugin-controller <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.1:test-jar (attach-sources) @ entando-k8s-plugin-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-6.3.0-test-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ entando-k8s-plugin-controller ---
+[INFO] No previous run data found, generating javadoc.
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-6.3.0-javadoc.jar
+[INFO] 
+[INFO] --- quarkus-maven-plugin:1.2.0.Final:build (default) @ entando-k8s-plugin-controller ---
+[WARNING] [io.quarkus.creator.curator.Curator] These dependencies are not recommended:
+	- javax.servlet:javax.servlet-api should be replaced by jakarta.servlet:jakarta.servlet-api
+You might end up with two different versions of the same classes or with an artifact you shouldn't have in your classpath.
+[INFO] [org.jboss.threads] JBoss Threads version 3.0.0.Final
+[WARNING] [io.quarkus.deployment.steps.ReflectiveHierarchyStep] Unable to properly register the hierarchy of the following classes for reflection as they are not in the Jandex index:
+	- org.entando.kubernetes.model.EntandoCustomResourceStatus
+Consider adding them to the index either by creating a Jandex index for your dependency via the Maven plugin, an empty META-INF/beans.xml or quarkus.index-dependency properties.");.
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building thin jar: /workspace/source/target/entando-k8s-plugin-controller-6.3.0-runner.jar
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 1883ms
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] --- dependency-check-maven:6.0.3:aggregate (default) @ entando-k8s-plugin-controller ---
+[INFO] Checking for updates
+[INFO] Skipping NVD check since last check was within 4 hours.
+[INFO] Check for updates complete (58 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (0 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (0 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Created CPE Index (2 seconds)
+[INFO] Finished CPE Analyzer (4 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[INFO] Finished Sonatype OSS Index Analyzer (2 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Analysis Complete (9 seconds)
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-k8s-plugin-controller ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando K8S Controller for Entando Plugin Deployments' with 5 classes
+[INFO] 
+[INFO] --- maven-gpg-plugin:1.6:sign (sign-artifacts) @ entando-k8s-plugin-controller ---
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+gpg: WARNING: unsafe permissions on homedir `********************'
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-plugin-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-k8s-plugin-controller ---
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0.jar
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0.pom
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-tests.jar
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-sources.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-sources.jar
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-test-sources.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-test-sources.jar
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-javadoc.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-javadoc.jar
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0.pom.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0.pom.asc
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-tests.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-tests.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-sources.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-sources.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-test-sources.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-test-sources.jar.asc
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-6.3.0-javadoc.jar.asc to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/6.3.0/entando-k8s-plugin-controller-6.3.0-javadoc.jar.asc
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-k8s-plugin-controller ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-plugin-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 6.3.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-k8s-plugin-controller ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=246ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=76ms
+[INFO] Load/download plugins (done) | time=42393ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-plugin-controller'
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-plugin-controller' (done) | time=44ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=2ms
+[INFO] Project key: entando-k8s_entando-k8s-plugin-controller
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=27ms
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-plugin-controller'
+[INFO] Detected project binding: BOUND
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-plugin-controller' (done) | time=26ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=39ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=2ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=74ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1341ms
+[INFO] Organization key: entando-k8s
+[INFO] Indexing files...
+[INFO] Project configuration:
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] 16 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando K8S Controller for Entando Plugin Deployments
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=28ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=22ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=2ms
+[INFO] Java Main Files AST scan
+[INFO] 5 source files to be analyzed
+[INFO] Load project repositories
+[INFO] Load project repositories (done) | time=74ms
+[INFO] 5/5 source files have been analyzed
+[INFO] Java Main Files AST scan (done) | time=3545ms
+[INFO] Java Test Files AST scan
+[INFO] 10 source files to be analyzed
+[INFO] Java Test Files AST scan (done) | time=1417ms
+[INFO] 10/10 source files have been analyzed
+[INFO] Java Generated Files AST scan
+[INFO] 0 source files to be analyzed
+[INFO] Java Generated Files AST scan (done) | time=2ms
+[INFO] 0/0 source files have been analyzed
+[INFO] Sensor JavaSquidSensor [java] (done) | time=5475ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=2ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=2ms
+[INFO] Sensor Import of Checkstyle issues [java]
+[INFO] Importing /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=116ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=58ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=219ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=5ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=204ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=1ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=29ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=3ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 74 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 11:50:13.757223 Building Runtime Type propagation graph
+[INFO] 11:50:13.767906 Running Tarjan on 160 nodes
+[INFO] 11:50:13.770513 Tarjan found 160 components
+[INFO] 11:50:13.774537 Variable type analysis: done
+[INFO] 11:50:13.775155 Building Runtime Type propagation graph
+[INFO] 11:50:13.779791 Running Tarjan on 160 nodes
+[INFO] 11:50:13.780774 Tarjan found 160 components
+[INFO] 11:50:13.781545 Variable type analysis: done
+[INFO] Analyzing 50 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 0 Retained UCFGs : 0
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 0
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 0
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=445ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=2ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=1ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=42ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 12 source files to be analyzed
+[WARNING] Shallow clone detected, no blame information will be provided. You can convert to non-shallow with 'git fetch --unshallow'.
+[INFO] SCM Publisher 0/12 source files have been analyzed (done) | time=4ms
+[WARNING] Missing blame information for the following files:
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/inprocesstests/DeployPluginWithoutSidecarTest.java
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/inprocesstests/DeployPluginWithoutDbTest.java
+[WARNING]   * pom.xml
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/interprocesstests/AddEntandoPluginWithEmbeddedDatabaseIT.java
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/interprocesstests/AddEntandoPluginBaseIT.java
+[WARNING]   * src/main/java/org/entando/kubernetes/controller/plugin/EntandoPluginDeployableContainer.java
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/inprocesstests/DeployPluginOnExternalDbTest.java
+[WARNING]   * src/main/java/org/entando/kubernetes/controller/plugin/EntandoPluginController.java
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/inprocesstests/DeployPluginTest.java
+[WARNING]   * src/test/java/org/entando/kubernetes/controller/plugin/inprocesstests/DeployPluginWithEmbeddedDbTest.java
+[WARNING]   * src/main/java/org/entando/kubernetes/controller/plugin/EntandoPluginServerDeployable.java
+[WARNING]   * src/main/java/org/entando/kubernetes/controller/plugin/EntandoPluginSidecarDeployableContainer.java
+[WARNING] This may lead to missing/broken features in SonarCloud
+[INFO] CPD E**cutor 1 file had no CPD blocks
+[INFO] CPD E**cutor Calculating CPD for 4 files
+[INFO] CPD E**cutor CPD calculation finished (done) | time=21ms
+[INFO] Analysis report generated in 165ms, dir size=352 KB
+[INFO] Analysis report compressed in 45ms, zip size=104 KB
+[INFO] Analysis report uploaded in 98ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando-k8s_entando-k8s-plugin-controller
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXdnuoqmynks6z4UBlrj
+[INFO] Analysis total time: 12.800 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:27 min
+[INFO] Finished at: 2021-02-03T11:50:14Z
+[INFO] ------------------------------------------------------------------------
+Congratulations! No build failures found for entando-k8s-plugin-controller-master.
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+Generating tags...
+ - entando/entando-k8s-plugin-controller -> docker.io/entando/entando-k8s-plugin-controller:6.3.0
+Checking cache...
+ - entando/entando-k8s-plugin-controller: Not found. Building
+Building [entando/entando-k8s-plugin-controller]...
+Sending build context to Docker daemon    148kB
+Step 1/7 : FROM entando/entando-k8s-operator-common:6.3.1
+ ---> 1766f844aece
+Step 2/7 : ARG VERSION
+ ---> Using cache
+ ---> 6a4149ee7662
+Step 3/7 : LABEL name "Entando K8S Plugin Controller" vendor "Entando" version "v${VERSION}" release "6" summary "This container processes the EntandoPlugin custom resource and deploys the specified microservice Docker image." description "This is a run-to-completion container. It processes new EntandoPlugin Custom                    Resources and deploys an instance of the specified microservice Docker image                    to your cluster. This microservice will be  configured to use a previously installed Keycloak Server.                    Subsequent e**cutions of this container against the same EntandoPlugin will patch the existing                    deployment resources"
+ ---> Running in 5e7df77e5451
+ ---> a320b9a7ca93
+Step 4/7 : ENV JAVA_OPTIONS "-Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+ ---> Running in 11446a6402d0
+ ---> 3469405e6ef4
+Step 5/7 : ENV AB_ENABLED jmx_exporter
+ ---> Running in 505a21add08c
+ ---> cb656fe55a24
+Step 6/7 : COPY target/*-runner.jar /deployments/app.jar
+ ---> f2d893b43547
+Step 7/7 : ENTRYPOINT /deployments/run-java.sh
+ ---> Running in 41ac485ec997
+ ---> 92669eb1deb4
+Successfully built 92669eb1deb4
+The push refers to a repository [docker.io/entando/entando-k8s-plugin-controller]
+f5eaf707bd00: Preparing
+9c2039494f82: Preparing
+128e365e30f9: Preparing
+712a16020a60: Preparing
+088e643aafac: Preparing
+00af10937683: Preparing
+3aa55ff7bca1: Preparing
+3aa55ff7bca1: Waiting
+00af10937683: Waiting
+712a16020a60: Layer already exists
+128e365e30f9: Layer already exists
+9c2039494f82: Layer already exists
+088e643aafac: Layer already exists
+00af10937683: Layer already exists
+3aa55ff7bca1: Layer already exists
+f5eaf707bd00: Pushed
+6.3.0: digest: sha256:389a8a281c3e0ed25e6dec5173777ad0017ed11c0c5088af90ed7597c96ecce4 size: 1791
+There is a new version (1.19.0) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source to an unshallow repository
+Generating change log from git ref 50a5af98ac8da1560295111a27f12e45bd5f4c4a => 583838a3a0cd54c98b9ea24e0935ff81fb4b7893
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Finding issues in commit messages using git format
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+Associating user ampie in users.jenkins.io with email ampie.private@gmail.com to git GitProvider user with login ampie-barnard as emails match
+Adding label jenkins.io/git-github-userid=ampie-barnard to user ampie in users.jenkins.io
+WARNING: No release found for entando-k8s/entando-k8s-plugin-controller and tag v6.3.0 so creating a new release
+Updated the release information at https://github.com/entando-k8s/entando-k8s-plugin-controller/releases/tag/v6.3.0
+generated: /workspace/source/charts/entando-k8s-plugin-controller/templates/release.yaml
+Created Release entando-k8s-plugin-controller-6-3-0 resource in namespace **
+Updating PipelineActivity entando-k8s-entando-k8s-plugin-controller-master-43 with version 6.3.0
+Updated PipelineActivities entando-k8s-entando-k8s-plugin-controller-master-43 with release notes URL: https://github.com/entando-k8s/entando-k8s-plugin-controller/releases/tag/v6.3.0
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-pfrx7-43[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-update-image-map[0m
+Publishing image info for entando-k8s-plugin-controller
+configmap/entando-docker-image-info-v6.3 patched
