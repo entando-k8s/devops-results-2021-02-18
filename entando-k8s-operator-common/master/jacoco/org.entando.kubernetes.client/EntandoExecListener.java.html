@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntandoExecListener.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Operator Common Library</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.client</a> &gt; <span class="el_source">EntandoExecListener.java</span></div><h1>EntandoExecListener.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.client;
+
+import io.fabric8.kubernetes.client.dsl.ExecListener;
+import io.fabric8.kubernetes.client.dsl.ExecWatch;
+import io.fabric8.kubernetes.client.dsl.Execable;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import okhttp3.Response;
+import org.apache.commons.io.IOUtils;
+
+public class EntandoExecListener implements ExecListener {
+
+    private final Object mutex;
+    private final int timeoutSeconds;
+<span class="fc" id="L35">    private final long start = System.currentTimeMillis();</span>
+<span class="fc" id="L36">    private boolean failed = false;</span>
+<span class="fc" id="L37">    boolean shouldStillWait = true;</span>
+<span class="fc" id="L38">    private ByteArrayOutputStream outWriter = new ByteArrayOutputStream();</span>
+    private Execable&lt;String, ExecWatch&gt; execable;
+
+<span class="fc" id="L41">    public EntandoExecListener(Object mutex, int timeoutSeconds) {</span>
+<span class="fc" id="L42">        this.mutex = mutex;</span>
+<span class="fc" id="L43">        this.timeoutSeconds = timeoutSeconds;</span>
+<span class="fc" id="L44">    }</span>
+
+    @Override
+    public void onOpen(Response response) {
+        //no implementation required
+<span class="fc" id="L49">    }</span>
+
+    @Override
+    public void onFailure(Throwable t, Response response) {
+<span class="nc" id="L53">        shouldStillWait = false;</span>
+<span class="nc" id="L54">        failed = true;</span>
+<span class="nc" id="L55">        synchronized (mutex) {</span>
+<span class="nc" id="L56">            mutex.notifyAll();</span>
+<span class="nc" id="L57">        }</span>
+<span class="nc" id="L58">    }</span>
+
+    @Override
+    public void onClose(int code, String reason) {
+<span class="fc" id="L62">        shouldStillWait = false;</span>
+<span class="fc" id="L63">        synchronized (mutex) {</span>
+<span class="fc" id="L64">            mutex.notifyAll();</span>
+<span class="fc" id="L65">        }</span>
+<span class="fc" id="L66">    }</span>
+
+    public boolean shouldStillWait() {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (System.currentTimeMillis() - start &gt; timeoutSeconds * 1000L) {</span>
+<span class="nc" id="L70">            failed = true;</span>
+<span class="nc" id="L71">            shouldStillWait = false;</span>
+<span class="nc" id="L72">            return false;</span>
+        }
+<span class="fc" id="L74">        return shouldStillWait;</span>
+    }
+
+    public OutputStream getOutWriter() {
+<span class="fc" id="L78">        return outWriter;</span>
+    }
+
+    public List&lt;String&gt; getOutput() throws IOException {
+<span class="fc" id="L82">        return IOUtils.readLines(new ByteArrayInputStream(outWriter.toByteArray()), StandardCharsets.UTF_8);</span>
+    }
+
+    public boolean hasFailed() {
+<span class="fc" id="L86">        return failed;</span>
+    }
+
+    public void setExecable(Execable&lt;String, ExecWatch&gt; execable) {
+<span class="fc" id="L90">        this.execable = execable;</span>
+<span class="fc" id="L91">    }</span>
+
+    public Execable&lt;String, ExecWatch&gt; getExecable() {
+<span class="fc" id="L94">        return execable;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
