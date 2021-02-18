@@ -31,7 +31,7 @@ import java.util.Optional;
 <span class="fc" id="L31">            .withInitial(() -&gt; new SimpleDateFormat(&quot;yyyy-MM-dd'T'HH:mm:ss'Z'&quot;, Locale.getDefault()));</span>
     public static final String RUNNING_PHASE = &quot;Running&quot;;
     public static final String SUCCEEDED_PHASE = &quot;Succeeded&quot;;
-    private static final String FAILED_PHASE = &quot;Failed&quot;;
+    public static final String FAILED_PHASE = &quot;Failed&quot;;
     private static final String PENDING_PHASE = &quot;Pending&quot;;
     private boolean someContainersNotDidNotRun;
 
@@ -81,7 +81,7 @@ import java.util.Optional;
     }
 
     public boolean hasFailed() {
-<span class="pc bpc" id="L84" title="1 of 4 branches missed.">        return failReason != null || someContainersNotDidNotRun;</span>
+<span class="fc bfc" id="L84" title="All 4 branches covered.">        return failReason != null || someContainersNotDidNotRun;</span>
     }
 
     public State getState() {

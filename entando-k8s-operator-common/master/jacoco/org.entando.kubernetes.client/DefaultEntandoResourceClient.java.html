@@ -318,47 +318,48 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L318">                .withOwnerReferences(ResourceUtils.buildOwnerReference(customResource))</span>
 <span class="fc" id="L319">                .endMetadata()</span>
 <span class="fc" id="L320">                .withCount(1)</span>
-<span class="fc" id="L321">                .withLastTimestamp(dateTimeFormatter.format(LocalDateTime.now()))</span>
-<span class="fc" id="L322">                .withNewSource(NameUtils.controllerNameOf(customResource), null)</span>
-<span class="fc" id="L323">                .withNewInvolvedObject()</span>
-<span class="fc" id="L324">                .withKind(customResource.getKind())</span>
-<span class="fc" id="L325">                .withNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L326">                .withName(customResource.getMetadata().getName())</span>
-<span class="fc" id="L327">                .withUid(customResource.getMetadata().getUid())</span>
-<span class="fc" id="L328">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
-<span class="fc" id="L329">                .withApiVersion(customResource.getApiVersion())</span>
-<span class="fc" id="L330">                .withFieldPath(&quot;status&quot;)</span>
-<span class="fc" id="L331">                .endInvolvedObject();</span>
-<span class="fc" id="L332">        client.events().inNamespace(customResource.getMetadata().getNamespace()).create(eventPopulator.apply(doneableEvent).build());</span>
+<span class="fc" id="L321">                .withFirstTimestamp(dateTimeFormatter.format(LocalDateTime.now()))</span>
+<span class="fc" id="L322">                .withLastTimestamp(dateTimeFormatter.format(LocalDateTime.now()))</span>
+<span class="fc" id="L323">                .withNewSource(NameUtils.controllerNameOf(customResource), null)</span>
+<span class="fc" id="L324">                .withNewInvolvedObject()</span>
+<span class="fc" id="L325">                .withKind(customResource.getKind())</span>
+<span class="fc" id="L326">                .withNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L327">                .withName(customResource.getMetadata().getName())</span>
+<span class="fc" id="L328">                .withUid(customResource.getMetadata().getUid())</span>
+<span class="fc" id="L329">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
+<span class="fc" id="L330">                .withApiVersion(customResource.getApiVersion())</span>
+<span class="fc" id="L331">                .withFieldPath(&quot;status&quot;)</span>
+<span class="fc" id="L332">                .endInvolvedObject();</span>
+<span class="fc" id="L333">        client.events().inNamespace(customResource.getMetadata().getNamespace()).create(eventPopulator.apply(doneableEvent).build());</span>
         final CustomResourceOperationsImpl&lt;T, CustomResourceList&lt;T&gt;, ?&gt; operations;
-<span class="fc bfc" id="L334" title="All 2 branches covered.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
-<span class="fc" id="L335">            operations = getOperations((Class&lt;T&gt;) customResource.getClass());</span>
+<span class="fc bfc" id="L335" title="All 2 branches covered.">        if (customResource instanceof EntandoBaseCustomResource) {</span>
+<span class="fc" id="L336">            operations = getOperations((Class&lt;T&gt;) customResource.getClass());</span>
         } else {
-<span class="fc" id="L337">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
-<span class="fc bfc" id="L338" title="All 2 branches covered.">            if (ser.getDefinition() == null) {</span>
-<span class="fc" id="L339">                ser.setDefinition(resolveDefinition(ser));</span>
+<span class="fc" id="L338">            SerializedEntandoResource ser = (SerializedEntandoResource) customResource;</span>
+<span class="fc bfc" id="L339" title="All 2 branches covered.">            if (ser.getDefinition() == null) {</span>
+<span class="fc" id="L340">                ser.setDefinition(resolveDefinition(ser));</span>
             }
-<span class="fc" id="L341">            operations = (CustomResourceOperationsImpl) client</span>
-<span class="fc" id="L342">                    .customResources(ser.getDefinition(), SerializedEntandoResource.class, CustomResourceList.class,</span>
+<span class="fc" id="L342">            operations = (CustomResourceOperationsImpl) client</span>
+<span class="fc" id="L343">                    .customResources(ser.getDefinition(), SerializedEntandoResource.class, CustomResourceList.class,</span>
                             DoneableCustomResource.class);
         }
 
-<span class="fc" id="L346">        Resource&lt;T, ?&gt; resource = operations</span>
-<span class="fc" id="L347">                .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L348">                .withName(customResource.getMetadata().getName());</span>
-<span class="fc" id="L349">        T latest = resource.fromServer().get();</span>
-<span class="fc" id="L350">        consumer.accept(latest);</span>
-<span class="fc" id="L351">        resource.updateStatus(latest);</span>
-<span class="fc" id="L352">    }</span>
+<span class="fc" id="L347">        Resource&lt;T, ?&gt; resource = operations</span>
+<span class="fc" id="L348">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L349">                .withName(customResource.getMetadata().getName());</span>
+<span class="fc" id="L350">        T latest = resource.fromServer().get();</span>
+<span class="fc" id="L351">        consumer.accept(latest);</span>
+<span class="fc" id="L352">        resource.updateStatus(latest);</span>
+<span class="fc" id="L353">    }</span>
 
     private CustomResourceDefinition resolveDefinition(SerializedEntandoResource ser) {
-<span class="fc" id="L355">        final String key = ser.getApiVersion() + &quot;/&quot; + ser.getKind();</span>
-<span class="fc" id="L356">        return definitions.computeIfAbsent(key, s -&gt; client.customResourceDefinitions().list().getItems()</span>
-<span class="fc" id="L357">                .stream().filter(crd -&gt;</span>
-<span class="fc bfc" id="L358" title="All 2 branches covered.">                        crd.getSpec().getNames().getKind().equals(ser.getKind()) &amp;&amp; ser</span>
-<span class="fc" id="L359">                                .getApiVersion()</span>
-<span class="pc bpc" id="L360" title="1 of 2 branches missed.">                                .startsWith(crd.getSpec().getGroup())).findFirst()</span>
-<span class="pc" id="L361">                .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find CRD for &quot; + ser.getKind())));</span>
+<span class="fc" id="L356">        final String key = ser.getApiVersion() + &quot;/&quot; + ser.getKind();</span>
+<span class="fc" id="L357">        return definitions.computeIfAbsent(key, s -&gt; client.customResourceDefinitions().list().getItems()</span>
+<span class="fc" id="L358">                .stream().filter(crd -&gt;</span>
+<span class="fc bfc" id="L359" title="All 2 branches covered.">                        crd.getSpec().getNames().getKind().equals(ser.getKind()) &amp;&amp; ser</span>
+<span class="fc" id="L360">                                .getApiVersion()</span>
+<span class="pc bpc" id="L361" title="1 of 2 branches missed.">                                .startsWith(crd.getSpec().getGroup())).findFirst()</span>
+<span class="pc" id="L362">                .orElseThrow(() -&gt; new IllegalStateException(&quot;Could not find CRD for &quot; + ser.getKind())));</span>
     }
 
 }

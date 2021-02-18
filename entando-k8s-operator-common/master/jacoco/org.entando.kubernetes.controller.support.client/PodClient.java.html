@@ -94,6 +94,10 @@ public interface PodClient extends PodWaitingClient {
      */
     BlockingQueue&lt;EntandoExecListener&gt; getExecListenerHolder();
 
+    void removeSuccessfullyCompletedPods(String namespace, Map&lt;String, String&gt; labels);
+
     void removeAndWait(String namespace, Map&lt;String, String&gt; labels);
+
+    void deletePod(Pod pod);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

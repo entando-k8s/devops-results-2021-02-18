@@ -85,44 +85,44 @@ public abstract class AbstractDbAwareController&lt;S extends Serializable, T ext
 <span class="fc" id="L85">        this.keycloakClient = keycloakClient;</span>
 <span class="fc" id="L86">        this.autoExit = autoExit;</span>
 <span class="fc" id="L87">        this.entandoImageResolver = new EntandoImageResolver(k8sClient.entandoResources().loadDockerImageInfoConfigMap());</span>
-<span class="fc" id="L88">        EntandoOperatorConfigBase.setConfigMap(k8sClient.entandoResources().loadOperatorConfig());</span>
-<span class="fc" id="L89">        Class&lt;?&gt; cls = getClass();</span>
-<span class="fc" id="L90">        List&lt;Class&lt;T&gt;&gt; types = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L91" title="All 2 branches covered.">        while (cls != AbstractDbAwareController.class) {</span>
-<span class="fc bfc" id="L92" title="All 2 branches covered.">            if (isImplementedCorrectly(cls)) {</span>
-<span class="fc" id="L93">                types.add(getSecondTypeArgument(cls));</span>
+<span class="fc" id="L88">        Class&lt;?&gt; cls = getClass();</span>
+<span class="fc" id="L89">        List&lt;Class&lt;T&gt;&gt; types = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        while (cls != AbstractDbAwareController.class) {</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">            if (isImplementedCorrectly(cls)) {</span>
+<span class="fc" id="L92">                types.add(getSecondTypeArgument(cls));</span>
             }
-<span class="fc" id="L95">            cls = cls.getSuperclass();</span>
+<span class="fc" id="L94">            cls = cls.getSuperclass();</span>
         }
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (types.isEmpty()) {</span>
-<span class="nc" id="L98">            throw new IllegalStateException(</span>
-<span class="nc" id="L99">                    &quot;Please implement &quot; + AbstractDbAwareController.class.getSimpleName() + &quot; directly with the required type argument.&quot;);</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">        if (types.isEmpty()) {</span>
+<span class="nc" id="L97">            throw new IllegalStateException(</span>
+<span class="nc" id="L98">                    &quot;Please implement &quot; + AbstractDbAwareController.class.getSimpleName() + &quot; directly with the required type argument.&quot;);</span>
         }
-<span class="fc" id="L101">        this.resourceType = types.get(types.size() - 1);</span>
-<span class="fc" id="L102">        this.logger = Logger.getLogger(resourceType.getName() + &quot;Controller&quot;);</span>
-<span class="fc" id="L103">    }</span>
+<span class="fc" id="L100">        this.resourceType = types.get(types.size() - 1);</span>
+<span class="fc" id="L101">        this.logger = Logger.getLogger(resourceType.getName() + &quot;Controller&quot;);</span>
+<span class="fc" id="L102">    }</span>
 
     @SuppressWarnings(&quot;unchecked&quot;)
     private Class&lt;T&gt; getSecondTypeArgument(Class&lt;?&gt; cls) {
-<span class="fc" id="L107">        ParameterizedType genericSuperclass = (ParameterizedType) cls.getGenericSuperclass();</span>
-<span class="fc" id="L108">        return (Class&lt;T&gt;) genericSuperclass.getActualTypeArguments()[1];</span>
+<span class="fc" id="L106">        ParameterizedType genericSuperclass = (ParameterizedType) cls.getGenericSuperclass();</span>
+<span class="fc" id="L107">        return (Class&lt;T&gt;) genericSuperclass.getActualTypeArguments()[1];</span>
     }
 
     private boolean isImplementedCorrectly(Class&lt;?&gt; cls) {
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (cls.getGenericSuperclass() instanceof ParameterizedType) {</span>
-<span class="fc" id="L113">            ParameterizedType genericSuperclass = (ParameterizedType) cls.getGenericSuperclass();</span>
-<span class="pc bpc" id="L114" title="1 of 4 branches missed.">            if (genericSuperclass.getActualTypeArguments().length &gt;= 2 &amp;&amp; genericSuperclass.getActualTypeArguments()[1] instanceof Class) {</span>
-<span class="fc" id="L115">                Class&lt;?&gt; argument = (Class&lt;?&gt;) genericSuperclass.getActualTypeArguments()[1];</span>
-<span class="fc" id="L116">                return EntandoBaseCustomResource.class.isAssignableFrom(argument);</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">        if (cls.getGenericSuperclass() instanceof ParameterizedType) {</span>
+<span class="fc" id="L112">            ParameterizedType genericSuperclass = (ParameterizedType) cls.getGenericSuperclass();</span>
+<span class="pc bpc" id="L113" title="1 of 4 branches missed.">            if (genericSuperclass.getActualTypeArguments().length &gt;= 2 &amp;&amp; genericSuperclass.getActualTypeArguments()[1] instanceof Class) {</span>
+<span class="fc" id="L114">                Class&lt;?&gt; argument = (Class&lt;?&gt;) genericSuperclass.getActualTypeArguments()[1];</span>
+<span class="fc" id="L115">                return EntandoBaseCustomResource.class.isAssignableFrom(argument);</span>
             }
         }
-<span class="fc" id="L119">        return false;</span>
+<span class="fc" id="L118">        return false;</span>
     }
 
     protected abstract void synchronizeDeploymentState(T newResource);
 
     protected void processCommand() {
         try {
+<span class="fc" id="L125">            EntandoOperatorConfigBase.setConfigMap(k8sClient.entandoResources().loadOperatorConfig());</span>
 <span class="fc" id="L126">            TlsHelper.getInstance().init();</span>
 <span class="pc bpc" id="L127" title="1 of 2 branches missed.">            if (actionRequiresSync(resolveAction())) {</span>
 <span class="fc" id="L128">                performSync(resolveResource());</span>
