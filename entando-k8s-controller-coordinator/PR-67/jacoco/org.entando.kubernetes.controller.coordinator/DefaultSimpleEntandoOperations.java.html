@@ -19,6 +19,9 @@ package org.entando.kubernetes.controller.coordinator;
 import io.fabric8.kubernetes.client.CustomResourceList;
 import io.fabric8.kubernetes.client.dsl.internal.CustomResourceOperationsImpl;
 import java.util.List;
+import java.util.Map;
+import org.entando.kubernetes.controller.support.client.SimpleK8SClient;
+import org.entando.kubernetes.controller.support.common.KubeUtils;
 import org.entando.kubernetes.model.DoneableEntandoCustomResource;
 import org.entando.kubernetes.model.EntandoCustomResource;
 
@@ -27,37 +30,47 @@ public class DefaultSimpleEntandoOperations&lt;
         D extends DoneableEntandoCustomResource&lt;R, D&gt;
         &gt; implements SimpleEntandoOperations&lt;R, D&gt; {
 
+    private final SimpleK8SClient&lt;?&gt; client;
     CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt; operations;
 
-<span class="fc" id="L32">    public DefaultSimpleEntandoOperations(CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt; operations) {</span>
-<span class="fc" id="L33">        this.operations = operations;</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L36">    public DefaultSimpleEntandoOperations(SimpleK8SClient&lt;?&gt; client, CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt; operations) {</span>
+<span class="fc" id="L37">        this.client = client;</span>
+<span class="fc" id="L38">        this.operations = operations;</span>
+<span class="fc" id="L39">    }</span>
 
     @Override
     public SimpleEntandoOperations&lt;R, D&gt; inNamespace(String namespace) {
-<span class="fc" id="L38">        return new DefaultSimpleEntandoOperations&lt;&gt;(</span>
-<span class="fc" id="L39">                (CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt;) operations.inNamespace(namespace));</span>
+<span class="fc" id="L43">        return new DefaultSimpleEntandoOperations&lt;&gt;(client,</span>
+<span class="fc" id="L44">                (CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt;) operations.inNamespace(namespace));</span>
     }
 
     @Override
     public SimpleEntandoOperations&lt;R, D&gt; inAnyNamespace() {
-<span class="nc" id="L44">        return new DefaultSimpleEntandoOperations&lt;&gt;(</span>
-<span class="nc" id="L45">                (CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt;) operations.inAnyNamespace());</span>
+<span class="nc" id="L49">        return new DefaultSimpleEntandoOperations&lt;&gt;(client,</span>
+<span class="nc" id="L50">                (CustomResourceOperationsImpl&lt;R, CustomResourceList&lt;R&gt;, D&gt;) operations.inAnyNamespace());</span>
     }
 
     @Override
     public void watch(EntandoResourceObserver&lt;R, D&gt; rldEntandoResourceObserver) {
-<span class="fc" id="L50">        operations.watch(rldEntandoResourceObserver);</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L55">        operations.watch(rldEntandoResourceObserver);</span>
+<span class="fc" id="L56">    }</span>
 
     @Override
     public List&lt;R&gt; list() {
-<span class="fc" id="L55">        return operations.list().getItems();</span>
+<span class="fc" id="L60">        return operations.list().getItems();</span>
     }
 
     @Override
     public D edit(R r) {
-<span class="nc" id="L60">        return operations.inNamespace(r.getMetadata().getNamespace()).withName(r.getMetadata().getName()).edit();</span>
+<span class="nc" id="L65">        return operations.inNamespace(r.getMetadata().getNamespace()).withName(r.getMetadata().getName()).edit();</span>
     }
+
+    @Override
+    public void removeSuccessfullyCompletedPods(R resource) {
+<span class="fc" id="L70">        this.client.pods().removeSuccessfullyCompletedPods(operations.getNamespace(), Map.of(</span>
+<span class="fc" id="L71">                KubeUtils.ENTANDO_RESOURCE_KIND_LABEL_NAME, resource.getKind(),</span>
+<span class="fc" id="L72">                KubeUtils.ENTANDO_RESOURCE_NAMESPACE_LABEL_NAME, resource.getMetadata().getNamespace(),</span>
+<span class="fc" id="L73">                resource.getKind(), resource.getMetadata().getName()));</span>
+<span class="fc" id="L74">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

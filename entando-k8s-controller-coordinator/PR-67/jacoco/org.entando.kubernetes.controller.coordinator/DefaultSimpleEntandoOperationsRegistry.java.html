@@ -17,6 +17,7 @@
 package org.entando.kubernetes.controller.coordinator;
 
 import io.fabric8.kubernetes.client.KubernetesClient;
+import org.entando.kubernetes.client.DefaultSimpleK8SClient;
 import org.entando.kubernetes.model.DoneableEntandoCustomResource;
 import org.entando.kubernetes.model.EntandoCustomResource;
 import org.entando.kubernetes.model.EntandoResourceOperationsRegistry;
@@ -24,16 +25,18 @@ import org.entando.kubernetes.model.EntandoResourceOperationsRegistry;
 public class DefaultSimpleEntandoOperationsRegistry implements SimpleEntandoOperationsRegistry {
 
     private final EntandoResourceOperationsRegistry registry;
+    private final DefaultSimpleK8SClient client;
 
-<span class="fc" id="L28">    public DefaultSimpleEntandoOperationsRegistry(KubernetesClient client) {</span>
-<span class="fc" id="L29">        this.registry = new EntandoResourceOperationsRegistry(client);</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L30">    public DefaultSimpleEntandoOperationsRegistry(KubernetesClient client) {</span>
+<span class="fc" id="L31">        this.registry = new EntandoResourceOperationsRegistry(client);</span>
+<span class="fc" id="L32">        this.client = new DefaultSimpleK8SClient(client);</span>
+<span class="fc" id="L33">    }</span>
 
     @Override
     @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
     public &lt;R extends EntandoCustomResource, D extends DoneableEntandoCustomResource&lt;R, D&gt;&gt; SimpleEntandoOperations&lt;R, D&gt; getOperations(
             Class&lt;R&gt; clzz) {
-<span class="fc" id="L36">        return new DefaultSimpleEntandoOperations(registry.getOperations(clzz));</span>
+<span class="fc" id="L39">        return new DefaultSimpleEntandoOperations(client, registry.getOperations(clzz));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
